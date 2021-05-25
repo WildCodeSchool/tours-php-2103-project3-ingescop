@@ -19,19 +19,7 @@ It's symfony website-skeleton project with some additional tools to validate cod
     * Tasks to check if vendor, .idea, env.local are not versionned,
     * PHP_CodeSniffer, PHPStan and PHPmd with same configuration as GrumPHP.
  
-
-### Trainers instructions
-
-1. Add your students team as contributor .
-2. Disallow both on 'dev' and 'master' branches your students writing credentials. 
-3. Disallow merge available while one approbation is not submitted on PR.
-
-> You can watch this very tiny short video : (Loom : verrouillage branches GitHub)[https://www.loom.com/share/ad0c641d0b9447be9e40fa38a499953b]
-4. For deploying on caprover : add two repository secrets (settings -> secrets)
-    - CAPROVER_APP_NAME with the caprover app name as value
-    - CAPROVER_PASSWORD with the caprover password
-
-## Getting Started for Students
+## Getting Started
 
 ### Prerequisites
 
