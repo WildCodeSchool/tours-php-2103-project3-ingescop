@@ -67,7 +67,7 @@ RUN npm install yarn@latest -g
 RUN nodejs -v
 RUN npm -v
 RUN yarn install --production=false
-RUN yarn encore production --verbose
+RUN yarn encore production
 # RUN npm install --verbose
 # RUN npm run build --production --verbose
 
