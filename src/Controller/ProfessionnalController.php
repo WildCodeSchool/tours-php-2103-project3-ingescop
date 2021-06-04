@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
-* @Route("/maître-d'oeuvre", name="professionnal_")
+* @Route("/pro", name="professionnal_")
 */
 
 class ProfessionnalController extends AbstractController
