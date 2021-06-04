@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ProfessionnalRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\ProfessionnalRepository")
  */
 class Professionnal
 {
@@ -30,9 +30,9 @@ class Professionnal
     private string $job;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="owner")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Project", mappedBy="owner")
      */
-    private Project $projects;
+    private mixed $projects;
 
     public function __construct()
     {

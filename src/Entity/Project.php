@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ProjectRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
  */
 class Project
 {
@@ -27,7 +27,7 @@ class Project
     /**
      * @ORM\Column(type="date")
      */
-    private date $entryDate;
+    private mixed $entryDate;
 
     /**
      * @ORM\Column(type="integer")
@@ -35,9 +35,9 @@ class Project
     private int $note;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Professionnal::class, inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Professionnal", inversedBy="projects")
      */
-    private Professionnal $owner;
+    private mixed $owner;
 
     public function __construct()
     {
