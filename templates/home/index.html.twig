@@ -1,8 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}INGE SCOP{% endblock %}
 
-{% block body %}
-    <h1>Welcome on your project 3</h1>
-    <img src="https://media.giphy.com/media/hS58Kb2OOCMPS/giphy.gif" alt="Dewey dancing">
+{% block pageContainer %}
+
+    <div class="home-page">
+        <div class="home-container">
+            <p class="sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="home-container-top">
+                <a href="{{ path("professionnal_list") }}">Maître d'oeuvre</a></li>
+                <a href="{{ path("client_list") }}">Maître d'ouvrage</a>
+            </div>
+            <div class="home-container-bottom">
+                <a href="{{ path("presentation") }}">Qui sommes-nous ?</a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
+
+

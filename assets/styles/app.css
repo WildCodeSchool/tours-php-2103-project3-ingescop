@@ -1,0 +1,244 @@
+@import 'variables.css';
+
+/*========== GENERAL PRESETS ==========*/
+/*=====================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #F4F4F4;
+    color: #000;
+    overflow-x: hidden;
+}
+
+/*========== HEADER ==========*/
+/*============================*/
+
+header {
+    max-width: 100vw;
+    height: 12vh;
+    background-color: #B3A19A;
+    color: #fff;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 7.2rem;
+}
+
+.header--logo {
+    width: 7%;
+    height: 80%;
+    border: 1px solid #fff;
+    margin: 3.2rem;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+header nav {
+    height: 100%;
+    width: 50%;
+}
+
+header ul {
+    height:  100%;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 2.4rem;
+}
+
+.header--form-links {
+    margin-right: 1.6rem;
+}
+
+.header--form-links p {
+    font-size: 2.4rem;
+    padding: 0.8rem;
+    margin: 0.8rem 1.6rem;
+    text-align: center;
+    border-radius: 40px;
+    border: 1px solid #fff;
+}
+
+/*========= Footer ===========*/
+/*============================*/
+
+footer {
+    max-width: 100vw;
+    height: 12vh;
+    background-color: #B3A19A;
+    color: #fff;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-left {
+    background-color: #fff;
+    padding: 1.6rem 4.8rem;
+    margin: 1.6rem;
+    color: rgb(37, 12, 12);
+    font-size: 2.4rem;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-right p {
+    margin: 0 3.2rem;
+    padding: 3.2rem;
+    font-size: 2.4rem;
+    border: 1px solid #5A4D47;
+    border-radius: 50%;
+}
+
+/*========== ACCUEIL PAGE (home page) ==========*/
+/*==================================*/
+
+.home-page {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.home-container {
+    width : 100vw;
+    height: 76vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-container .sentence {
+    font-size: 2.4rem;
+    width: 65%;
+    margin: 3vh auto;
+    line-height: 3.2rem;
+    letter-spacing: 2px;
+}
+
+.home-container-top {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.home-container-top a {
+    text-decoration: none;
+    font-size: 4.8rem;
+    padding: 2%;
+    background-color: #EAE5E1;
+    color: rgb(61, 53, 53);
+}
+
+.home-container-bottom {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-container-bottom a {
+    text-decoration: none;
+    font-size: 4.8rem;
+    padding: 2%;
+    background-color: #EAE5E1;
+    color: rgb(61, 53, 53);
+}
+
+
+/*========== PRESENTATION PAGE (Qui sommes-nous ?) ==========*/
+/*=======================================*/
+
+.presentation-page p {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    letter-spacing: 2px;
+    width: 60%;
+    margin: 3% auto;
+}
+
+/*========== PROFESSIONNEL PAGES ==========*/
+/*========================================*/
+
+/*========== List page ==========*/
+
+.professionnal-list-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.professionnal-list-page h1 {
+    font-size: 4.8rem;
+    margin: 3% auto;
+}
+
+.professionnals-list ul {
+    width: 60%;
+    font-size: 2.4rem;
+    margin: 0 auto 3% auto;
+    border: 2px solid rgb(37, 12, 12);
+    border-radius: 40px;
+    background-color: #fdeee2;
+}
+
+.professionnals-list ul li {
+    margin: 2.4rem 4.8rem;
+}
+
+/*========== ClIENT PAGES ==========*/
+/*=================================*/
+
+/*========== List-services ==========*/
+
+.client-service-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.client-service-page h1 {
+    font-size: 4.8rem;
+    margin: 3% auto;
+}
+
+.services-list ul {
+    width: 60%;
+    font-size: 2.4rem;
+    margin: 0 auto 3% auto;
+    border: 2px solid rgb(37, 12, 12);
+    border-radius: 40px;
+    background-color: #fdeee2;
+}
+
+.services-list ul li {
+    margin: 2.4rem 4.8rem;
+}
+
