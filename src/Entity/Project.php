@@ -27,7 +27,7 @@ class Project
     /**
      * @ORM\Column(type="date")
      */
-    private DateTimeInteface $entryDate;
+    private ?\DateTimeInterface $entryDate;
 
     /**
      * @ORM\Column(type="integer")
