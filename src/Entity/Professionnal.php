@@ -32,7 +32,7 @@ class Professionnal
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Project", mappedBy="owner")
      */
-    private mixed $projects;
+    private Collection $projects;
 
     public function __construct()
     {
@@ -71,7 +71,7 @@ class Professionnal
     /**
      * @return Collection|Project[]
      */
-    public function getProjects(): mixed
+    public function getProjects(): Collection
     {
         return $this->projects;
     }
