@@ -17,11 +17,9 @@ class ProfessionnalController extends AbstractController
     /**
      * @Route("/list", name="list")
      */
-    public function list(): Response
+    public function list(ProfessionnalRepository $proRepository): Response
     {
-        $professionnal = $this->getDoctrine()
-            ->getRepository(Professionnal::class)
-            ->findAll();
+        $professionnal = $proRepository->findAll();
         return $this->render('professionnal/list.html.twig', ['professionnels' => $professionnal]);
     }
 }
