@@ -17,6 +17,36 @@
 		{% endblock %}
 	</head>
 	<body>
-		{% block body %}{% endblock %}
+		{% block header %}
+			<header>
+				<div class="header--logo">Ingé Scop logo</div>
+				<nav>
+					<ul>
+						<li><a href="{{ path("home") }}">Accueil</a></li>
+						<li><a href="{{ path("professionnal_list") }}">Maître d'oeuvre</a></li>
+						<li><a href="{{ path("client_list") }}">Maître d'ouvrage</a></li>
+						<li><a href="{{ path("home") }}">Références</a></li>
+					</ul>
+				</nav>
+				<div class="header--form-links">
+					<p>Nous rejoindre</p>
+					<p>Services</p>
+				</div>
+			</header>
+		{% endblock %}
+
+		{% block pageContainer %}{% endblock %}
+		{% block footer %}
+			<footer>
+				<div class="footer-left">
+					<p>Adresse</p>
+				</div>
+				<div class="footer-right">
+					<p>partenaire</p>
+					<p>partenaire</p>
+					<p>partenaire</p>
+				</div>
+			</footer>
+		{% endblock %}
 	</body>
 </html>
