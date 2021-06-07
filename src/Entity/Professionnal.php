@@ -71,7 +71,7 @@ class Professionnal
     /**
      * @return Collection|Project[]
      */
-    public function getProjects(): Collection
+    public function getProjects(): ?Collection
     {
         return $this->projects;
     }
