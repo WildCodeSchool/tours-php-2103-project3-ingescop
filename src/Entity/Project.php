@@ -27,7 +27,7 @@ class Project
     /**
      * @ORM\Column(type="date")
      */
-    private mixed $entryDate;
+    private ?\DateTimeInterface $entryDate;
 
     /**
      * @ORM\Column(type="integer")
@@ -37,7 +37,7 @@ class Project
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Professionnal", inversedBy="projects")
      */
-    private mixed $owner;
+    private Collection $owner;
 
     public function __construct()
     {
