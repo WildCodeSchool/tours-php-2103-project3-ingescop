@@ -19,7 +19,7 @@ class ProfessionnalController extends AbstractController
      */
     public function list(ProfessionnalRepository $proRepository): Response
     {
-        $professionnal = $proRepository->findAll();
+        $professionnal = $proRepository->findBy(array(), array('name' => 'ASC'));
         return $this->render('professionnal/list.html.twig', ['professionnels' => $professionnal]);
     }
 }
