@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Professionnal;
+use App\Repository\ProfessionnalRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,8 +17,9 @@ class ProfessionnalController extends AbstractController
     /**
      * @Route("/list", name="list")
      */
-    public function list(): Response
+    public function list(ProfessionnalRepository $proRepository): Response
     {
-        return $this->render('professionnal/list.html.twig');
+        $professionnal = $proRepository->findAll();
+        return $this->render('professionnal/list.html.twig', ['professionnels' => $professionnal]);
     }
 }

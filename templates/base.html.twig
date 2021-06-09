@@ -22,10 +22,24 @@
 				<div class="header--logo">Ingé Scop logo</div>
 				<nav>
 					<ul>
-						<li><a href="{{ path("home") }}">Accueil</a></li>
-						<li><a href="{{ path("professionnal_list") }}">Maître d'oeuvre</a></li>
-						<li><a href="{{ path("client_list") }}">Maître d'ouvrage</a></li>
-						<li><a href="{{ path("home") }}">Références</a></li>
+						{% if app.request.attributes.get('_route') == 'home' %}
+							<li><a href="{{ path("reference") }}">Références</a></li>
+						{% endif %}
+						{% if app.request.attributes.get('_route') == 'presentation' %}
+							<li><a href="{{ path("home") }}">Accueil</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnel</a></li>
+							<li><a href="{{ path('client_list') }}">Client</a></li>
+						{% endif %}
+						{% if app.request.attributes.get('_route') == 'professionnal_list' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+							<li><a href="{{ path('client_list') }}">Client</li></a>
+							<li><a href="{{ path('reference') }}">Références</li></a>
+						{% endif %}
+						{% if app.request.attributes.get('_route') == 'client_list' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnel</a></li>
+							<li><a href="{{ path('reference') }}">Références</li></a>
+						{% endif %}
 					</ul>
 				</nav>
 				<div class="header--form-links">
@@ -41,11 +55,13 @@
 				<div class="footer-left">
 					<p>Adresse</p>
 				</div>
-				<div class="footer-right">
+				{% if app.request.attributes.get('_route') == 'home' %}
+					<div class="footer-right">
 					<p>partenaire</p>
 					<p>partenaire</p>
 					<p>partenaire</p>
 				</div>
+				{% endif %}
 			</footer>
 		{% endblock %}
 	</body>
