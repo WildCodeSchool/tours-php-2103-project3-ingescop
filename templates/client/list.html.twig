@@ -5,20 +5,10 @@
 
         <h1>Nos services</h1>
         <div class="services-list">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+            {#
+            {% for service in services %}
+                < class="bubble-service"><p>{{ service.name }}</p></>
+            {% endfor %} #}
         </div>
     </div>
 

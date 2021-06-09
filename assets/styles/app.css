@@ -9,6 +9,17 @@
     box-sizing: border-box;
 }
 
+/*For using variables you need to write 'var(--variableName)', for example, 'color: var(--red)'*/
+
+:root {
+    --grey: rgba(196,196,196,1.0);
+    --orange: rgba(237,114,26,1.0);
+    --red: rgba(161,25,27,1.0);
+    --white: rgba(243,244,239,1.0);
+    --black: rgba(59,62,71,1.0);
+    --brown: rgba(181,147,138,1.0);
+}
+
 html {
     font-size: 62.5%;
 }
@@ -200,17 +211,31 @@ footer {
     margin: 3% auto;
 }
 
-.professionnals-list ul {
-    width: 60%;
-    font-size: 2.4rem;
-    margin: 0 auto 3% auto;
-    border: 2px solid rgb(37, 12, 12);
-    border-radius: 40px;
-    background-color: #fdeee2;
+.professionnals-list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.professionnals-list ul li {
-    margin: 2.4rem 4.8rem;
+.bubble-pro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 3px solid rgba(59,62,71,0.3);
+    width: 10%;
+    height: 200px;
+    margin: 5%;
+    background-size: cover;
+    -webkit-box-shadow: 0px 0px 28px 24px var(--grey); 
+    box-shadow: 0px 0px 28px 4px var(--grey);
+}
+
+.bubble-pro p {
+    text-align: center;
+    font-size: 2.4rem;
 }
 
 /*========== ClIENT PAGES ==========*/
@@ -229,16 +254,11 @@ footer {
     margin: 3% auto;
 }
 
-.services-list ul {
-    width: 60%;
-    font-size: 2.4rem;
-    margin: 0 auto 3% auto;
-    border: 2px solid rgb(37, 12, 12);
-    border-radius: 40px;
-    background-color: #fdeee2;
-}
-
-.services-list ul li {
-    margin: 2.4rem 4.8rem;
+.services-list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
