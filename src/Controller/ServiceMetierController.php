@@ -17,11 +17,22 @@ class ServiceMetierController extends AbstractController
     /**
      * @Route("/list", name="list")
      */
-    public function list(ServiceMetierRepository $serviceMetierRepository): Response
+    public function list(ServiceMetierRepository $serviceRepository): Response
     {
-        $services = $serviceMetierRepository->findAll();
+        $services = $serviceRepository->findAll();
         return $this->render('services/list.html.twig', [
             'services' => $services
+        ]);
+    }
+
+    /**
+     * @Route("show/{id}", methods={"GET"}, name="show")
+     */
+    public function show(int $id, ServiceMetierRepository $serviceRepository): Response
+    {
+        $service = $serviceRepository->findOneById($id);
+        return $this->render('services/show.html.twig', [
+            'service' => $service
         ]);
     }
 }

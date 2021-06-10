@@ -6,7 +6,7 @@
         <h1>Nos services</h1>
         <div class="services-list">
             {% for service in services %}
-                <div class="bubble-pro"><p>{{ service.name }}</p></div>
+                <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-pro"><p>{{ service.name }}</p></a>
             {% endfor %}
         </div>
     </div>

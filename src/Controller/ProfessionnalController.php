@@ -24,11 +24,11 @@ class ProfessionnalController extends AbstractController
     }
 
     /**
-     * @Route("{name}", methods={"GET"}, name="show")
+     * @Route("show/{id}", methods={"GET"}, name="show")
      */
-    public function show(string $name, ProfessionnalRepository $proRepository): Response
+    public function show(int $id, ProfessionnalRepository $proRepository): Response
     {
-        $pro = $proRepository->findOneByName($name);
+        $pro = $proRepository->findOneById($id);
         return $this->render('professionnal/show.html.twig', [
             'profil' => $pro
         ]);
