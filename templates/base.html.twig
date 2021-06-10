@@ -23,14 +23,14 @@
 						{% if app.request.attributes.get('_route') == 'presentation' %}
 							<li><a href="{{ path("home") }}">Accueil</a></li>
 							<li><a href="{{ path('professionnal_list') }}">Professionnel</a></li>
-							<li><a href="{{ path('client_list') }}">Client</a></li>
+							<li><a href="{{ path('services_list') }}">Services</a></li>
 						{% endif %}
 						{% if app.request.attributes.get('_route') == 'professionnal_list' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('client_list') }}">Client</li></a>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
 							<li><a href="{{ path('home') }}">Références</li></a>
 						{% endif %}
-						{% if app.request.attributes.get('_route') == 'client_list' %}
+						{% if app.request.attributes.get('_route') == 'services_list' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
 							<li><a href="{{ path('professionnal_list') }}">Professionnel</a></li>
 							<li><a href="{{ path('home') }}">Références</li></a>

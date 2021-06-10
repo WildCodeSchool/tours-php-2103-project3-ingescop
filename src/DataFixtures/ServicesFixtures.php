@@ -6,7 +6,7 @@ use App\Entity\ServiceMetier;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class ServiceMetierFixtures extends Fixture
+class ServicesFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
