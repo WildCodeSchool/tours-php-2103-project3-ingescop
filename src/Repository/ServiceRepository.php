@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ServiceMetier;
+use App\Entity\Service;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ServiceMetier|null find($id, $lockMode = null, $lockVersion = null)
- * @method ServiceMetier|null findOneBy(array $criteria, array $orderBy = null)
- * @method ServiceMetier[]    findAll()
- * @method ServiceMetier[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Service|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Service|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Service[]    findAll()
+ * @method Service[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ServiceMetierRepository extends ServiceEntityRepository
+class ServiceRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ServiceMetier::class);
+        parent::__construct($registry, Service::class);
     }
 
     // /**
-    //  * @return ServiceMetier[] Returns an array of ServiceMetier objects
+    //  * @return Service[] Returns an array of Service objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ServiceMetierRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ServiceMetier
+    public function findOneBySomeField($value): ?Service
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')

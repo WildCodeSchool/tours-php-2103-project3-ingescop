@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\ServiceMetier;
-use App\Repository\ServiceMetierRepository;
+use App\Entity\Service;
+use App\Repository\ServiceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,12 +12,12 @@ use Symfony\Component\Routing\Annotation\Route;
 * @Route("/services", name="services_")
 */
 
-class ServiceMetierController extends AbstractController
+class ServiceController extends AbstractController
 {
     /**
      * @Route("/list", name="list")
      */
-    public function list(ServiceMetierRepository $serviceRepository): Response
+    public function list(ServiceRepository $serviceRepository): Response
     {
         $services = $serviceRepository->findAll();
         return $this->render('services/list.html.twig', [
@@ -28,7 +28,7 @@ class ServiceMetierController extends AbstractController
     /**
      * @Route("show/{id}", methods={"GET"}, name="show")
      */
-    public function show(int $id, ServiceMetierRepository $serviceRepository): Response
+    public function show(int $id, ServiceRepository $serviceRepository): Response
     {
         $service = $serviceRepository->findOneById($id);
         return $this->render('services/show.html.twig', [

@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\ServiceMetierRepository;
+use App\Repository\ServiceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ServiceMetierRepository::class)
+ * @ORM\Entity(repositoryClass=ServiceRepository::class)
  */
-class ServiceMetier
+class Service
 {
     /**
      * @ORM\Id
@@ -30,7 +30,7 @@ class ServiceMetier
     private string $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Professionnal::class, inversedBy="serviceMetiers")
+     * @ORM\ManyToMany(targetEntity=Professionnal::class, inversedBy="service")
      */
     private Collection $professionnal;
 
