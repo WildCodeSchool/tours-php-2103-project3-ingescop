@@ -28,8 +28,12 @@ const bubblesServices = document.querySelectorAll('.bubble-service');
 
 for (let i = 0; i < bubblesProfessionnals.length; i += 1) {
     bubblesProfessionnals[i].style.borderRadius = randomBorder();
+    bubblesProfessionnals[i].style.transitionDelay = `${i / 5}s`;
+    bubblesProfessionnals[i].classList.add('appear');
 }
 
 for (let i = 0; i < bubblesServices.length; i += 1) {
     bubblesServices[i].style.borderRadius = randomBorder();
+    bubblesServices[i].style.transitionDelay = `${i / 5}s`;
+    bubblesServices[i].classList.add('appear');
 }
