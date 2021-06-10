@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Form\ContactDataType;
 use App\FormData\ContactData;
 use Symfony\Component\Mime\Email;
@@ -24,8 +23,6 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
-
             $message = (new Email())
                 ->from($data->getEmailAddress())
                 ->to('s.sauvaget41000@gmail.com')
