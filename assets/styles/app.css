@@ -209,14 +209,20 @@ footer {
     flex-wrap: wrap;
 }
 
+.professionnals-list a {
+    font-size: 2.4rem;
+    text-decoration: none;
+    color: #000;
+}
+
 .bubble-pro {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     border: 3px solid rgba(59,62,71,0.3);
-    width: 10%;
-    height: 200px;
+    width: 12%;
+    height: 250px;
     margin: 5%;
     background-size: cover;
     -webkit-box-shadow: 0px 0px 28px 24px var(--grey); 
@@ -234,7 +240,7 @@ footer {
     font-size: 2.4rem;
 }
 
-/*========== ClIENT PAGES ==========*/
+/*========== SERVICE PAGES ==========*/
 /*=================================*/
 
 /*========== List-services ==========*/
@@ -258,5 +264,51 @@ footer {
     flex-wrap: wrap;
 }
 
+
+
+.bubble-service {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    border: 3px solid rgba(59,62,71,0.3);
+    width: 12%;
+    height: 250px;
+    margin: 3% 6%;
+    background-size: cover;
+    -webkit-box-shadow: 0px 0px 28px 24px var(--grey); 
+    box-shadow: 0px 0px 28px 4px var(--grey);
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.bubble-service.appear {
+    opacity: 1;
+}
+
+.services-list a {
+    font-size: 2.4rem;
+    text-decoration: none;
+    color: #000;
+}
+
+.amo {
+    border: 3px solid rgba(237, 114, 26, 0.3);
+    -webkit-box-shadow: 0px 0px 28px 24px var(--orange); 
+    box-shadow: 0px 0px 28px 4px var(--orange);
+}
+
+.moe {
+    border: 3px solid rgba(161, 25, 27, 0.3);
+    -webkit-box-shadow: 0px 0px 28px 24px var(--red); 
+    box-shadow: 0px 0px 28px 4px var(--red);
+}
+
+.conseil {
+    border: 3px solid rgba(181, 147, 138, 0.3);
+    -webkit-box-shadow: 0px 0px 28px 24px var(--brown); 
+    box-shadow: 0px 0px 28px 4px var(--brown);
+}
 
 

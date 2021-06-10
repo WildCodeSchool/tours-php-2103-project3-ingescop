@@ -6,7 +6,15 @@
         <h1>Nos services</h1>
         <div class="services-list">
             {% for service in services %}
-                <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-pro"><p>{{ service.name }}</p></a>
+                {% if service.category == 'AMO' %}
+                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service amo"><p>{{ service.name }}</p></a>
+                {% endif %}
+                {% if service.category == 'MOE' %}
+                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service moe"><p>{{ service.name }}</p></a>
+                {% endif %}
+                {% if service.category == 'Conseil' %}
+                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service conseil"><p>{{ service.name }}</p></a>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
