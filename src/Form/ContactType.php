@@ -13,20 +13,19 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('nom', TextType::class, [])
             ->add('prenom', TextType::class, [])
-            ->add('tel', TelType::class, [
-                'attr' =>['class' => "int"]])
+            ->add('tel', TelType::class, [])
             ->add('email', EmailType::class, [])
             ->add('message', TextareaType::class, [
                 'attr' => ['rows' => 6],
             ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             // Configure your form options here

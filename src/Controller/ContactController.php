@@ -27,11 +27,11 @@ class ContactController extends AbstractController
                 ->from($contactFormData['email'])
                 ->to('contact@1gscop.fr')
                 ->subject('Vous avez reçu un nouveau mail')
-                ->text('Send by : ' . $contactFormData['email'] . \PHP_EOL.
+                ->text('Send by : ' . $contactFormData['email'] . \PHP_EOL .
                  $contactFormData['message'], 'text/plain');
                  $mailer->send($message);
 
-                 $this->addFlash('Votre message à été envoyé avec succès !');
+                 $this->addFlash("Parfait", 'Votre message à été envoyé avec succès !');
                  return $this->redirectToRoute('contact');
         }
         return $this->render('contact/index.html.twig', [
