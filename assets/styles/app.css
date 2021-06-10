@@ -240,6 +240,50 @@ footer {
     font-size: 2.4rem;
 }
 
+/*========== Professionnal-show-page ==========*/
+
+.profil-title-image {
+    display: flex;
+    justify-content: space-between;
+    height: 50vh;
+}
+
+.profil-title-image h1 {
+    font-size: 4.8rem;
+    margin: auto;
+}
+
+.profil-title-image .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 3% 0 0;
+    border: 3px solid var(--black);
+    width: 20%;
+    height: 90%;
+    border-radius: 55% 45% 28% 72% / 70% 45% 55% 30%;
+}
+
+.profil-title-image .image p {
+    font-size: 2.4rem;
+}
+
+.profil-description {
+    padding: 3%;
+}
+
+.profil-description h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1%;
+}
+
+.profil-description p {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    columns: 2;
+}
+
 /*========== SERVICE PAGES ==========*/
 /*=================================*/
 
@@ -263,8 +307,6 @@ footer {
     justify-content: space-around;
     flex-wrap: wrap;
 }
-
-
 
 .bubble-service {
     display: flex;
@@ -309,6 +351,50 @@ footer {
     border: 3px solid rgba(181, 147, 138, 0.3);
     -webkit-box-shadow: 0px 0px 28px 24px var(--brown); 
     box-shadow: 0px 0px 28px 4px var(--brown);
+}
+
+/*========== Service-show-page ==========*/
+
+.service-title-image {
+    display: flex;
+    justify-content: space-between;
+    height: 50vh;
+}
+
+.service-title-image h1 {
+    font-size: 4.8rem;
+    margin: auto;
+}
+
+.service-title-image .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 3% 0 0;
+    border: 3px solid var(--black);
+    width: 20%;
+    height: 90%;
+    border-radius: 55% 45% 28% 72% / 70% 45% 55% 30%;
+}
+
+.service-title-image .image p {
+    font-size: 2.4rem;
+}
+
+.service-description {
+    padding: 3%;
+}
+
+.service-description h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1%;
+}
+
+.service-description p {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    columns: 2;
 }
 
 
