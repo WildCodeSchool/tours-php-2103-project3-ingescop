@@ -12,65 +12,65 @@ class ServicesFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        $serviceMetier = new Service();
-        $serviceMetier->setName('Programmation')
+        $service = new Service();
+        $service->setName('Programmation')
             ->setCategory('AMO');
-        $manager->persist($serviceMetier);
+        $manager->persist($service);
 
-        $serviceMetier1 = new Service();
-        $serviceMetier1->setName('Montage de projets')
+        $service1 = new Service();
+        $service1->setName('Montage de projets')
             ->setCategory('AMO');
-        $manager->persist($serviceMetier1);
+        $manager->persist($service1);
 
-        $serviceMetier2 = new Service();
-        $serviceMetier2->setName('Conseil juridico-financier')
+        $service2 = new Service();
+        $service2->setName('Conseil juridico-financier')
             ->setCategory('AMO');
-        $manager->persist($serviceMetier2);
+        $manager->persist($service2);
 
-        $serviceMetier3 = new Service();
-        $serviceMetier3->setName('Gestion du patrimoine bâti')
+        $service3 = new Service();
+        $service3->setName('Gestion du patrimoine bâti')
             ->setCategory('AMO');
-        $manager->persist($serviceMetier3);
+        $manager->persist($service3);
 
-        $serviceMetier4 = new Service();
-        $serviceMetier4->setName('Ingénieurs')
+        $service4 = new Service();
+        $service4->setName('Ingénieurs')
             ->setCategory('MOE');
-        $manager->persist($serviceMetier4);
+        $manager->persist($service4);
 
-        $serviceMetier5 = new Service();
-        $serviceMetier5->setName('Architecture')
+        $service5 = new Service();
+        $service5->setName('Architecture')
             ->setCategory('MOE');
-        $manager->persist($serviceMetier5);
+        $manager->persist($service5);
 
-        $serviceMetier6 = new Service();
-        $serviceMetier6->setName('Paysagisme')
+        $service6 = new Service();
+        $service6->setName('Paysagisme')
             ->setCategory('MOE');
-        $manager->persist($serviceMetier6);
+        $manager->persist($service6);
 
-        $serviceMetier7 = new Service();
-        $serviceMetier7->setName('Économistes')
+        $service7 = new Service();
+        $service7->setName('Économistes')
             ->setCategory('MOE');
-        $manager->persist($serviceMetier7);
+        $manager->persist($service7);
 
-        $serviceMetier8 = new Service();
-        $serviceMetier8->setName('Formateurs')
+        $service8 = new Service();
+        $service8->setName('Formateurs')
             ->setCategory('Conseil');
-        $manager->persist($serviceMetier8);
+        $manager->persist($service8);
 
-        $serviceMetier9 = new Service();
-        $serviceMetier9->setName('Animateurs Pédagogiques')
+        $service9 = new Service();
+        $service9->setName('Animateurs Pédagogiques')
             ->setCategory('Conseil');
-        $manager->persist($serviceMetier9);
+        $manager->persist($service9);
 
-        $serviceMetier10 = new Service();
-        $serviceMetier10->setName('Stage transdisciplinaire')
+        $service10 = new Service();
+        $service10->setName('Stage transdisciplinaire')
             ->setCategory('Conseil');
-        $manager->persist($serviceMetier10);
+        $manager->persist($service10);
 
-        $serviceMetier11 = new Service();
-        $serviceMetier11->setName('Parrainage')
+        $service11 = new Service();
+        $service11->setName('Parrainage')
             ->setCategory('Conseil');
-        $manager->persist($serviceMetier11);
+        $manager->persist($service11);
 
         $manager->flush();
     }
