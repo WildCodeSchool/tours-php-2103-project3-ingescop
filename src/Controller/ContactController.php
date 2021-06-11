@@ -25,10 +25,9 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $message = (new Email())
                 ->from($data->getEmailAddress())
-                ->to('s.sauvaget41000@gmail.com')
-                ->subject('Vous avez reçu un nouveau mail')
-                ->text('Send by : ' . $data->getEmailAddress() . \PHP_EOL .
-                 $data->getMessage(), 'text/plain');
+                ->to('contact@1gscop.fr')
+                ->subject('Vous avez reçu un nouveau mail' . $data->getLastName() . ' ' . $data->getFirstName())
+                ->text($data->getMessage(), 'text/plain');
                  $mailer->send($message);
 
                  $this->addFlash("Success", 'Votre message à été envoyé avec succès !');
