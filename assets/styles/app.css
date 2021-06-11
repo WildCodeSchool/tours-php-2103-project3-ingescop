@@ -82,6 +82,18 @@ body {
     }
 }
 
+@keyframes moveInTop{
+    0% {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /*========== HEADER ==========*/
 /*============================*/
 
@@ -315,6 +327,7 @@ footer {
 .profil-title-image h1 {
     font-size: 4.8rem;
     margin: auto;
+    animation: moveInTop 1s ease-out;
 }
 
 .profil-title-image .image {
@@ -452,6 +465,7 @@ footer {
 .service-title-image h1 {
     font-size: 4.8rem;
     margin: auto;
+    animation: moveInTop 1s ease-out;
 }
 
 .service-title-image .image {
