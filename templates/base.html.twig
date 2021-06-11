@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
 		<title>
-			{% block title %}Projet 3 Name{% endblock %}
+			{% block title %}1gscop{% endblock %}
 		</title>
 
 		{% block stylesheets %}
@@ -23,7 +23,7 @@
 				<nav>
 					<ul>
 						{% if app.request.attributes.get('_route') == 'home' %}
-							<li><a href="{{ path("home") }}">Références</a></li>
+							<li><a href="{{ path("reference") }}">Références</a></li>
 						{% endif %}
 						{% if app.request.attributes.get('_route') == 'presentation' %}
 							<li><a href="{{ path("home") }}">Accueil</a></li>
@@ -33,18 +33,18 @@
 						{% if app.request.attributes.get('_route') == 'professionnal_list' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
 							<li><a href="{{ path('client_list') }}">Client</li></a>
-							<li><a href="{{ path('home') }}">Références</li></a>
+							<li><a href="{{ path('reference') }}">Références</li></a>
 						{% endif %}
 						{% if app.request.attributes.get('_route') == 'client_list' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
 							<li><a href="{{ path('professionnal_list') }}">Professionnel</a></li>
-							<li><a href="{{ path('home') }}">Références</li></a>
+							<li><a href="{{ path('reference') }}">Références</li></a>
 						{% endif %}
 					</ul>
 				</nav>
 				<div class="header--form-links">
-					<p>Nous rejoindre</p>
-					<p>Services</p>
+					<p><a href="{{ path('contactpro') }}">Nous rejoindre</a></p>
+					<p>Nous contacter</p>
 				</div>
 			</header>
 		{% endblock %}
