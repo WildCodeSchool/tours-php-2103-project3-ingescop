@@ -5,7 +5,15 @@
     <div class="service-show-page">
         <div class="service-title-image">
                 <h1>{{ service.name }}</h1>
-            <div class="image"><p>Photo</p></div>
+                {% if service.category == 'AMO' %}
+                    <div class="image amo"><p>Photo</p></div>
+                {% endif %}
+                {% if service.category == 'MOE' %}
+                    <div class="image moe"><p>Photo</p></div>
+                {% endif %}
+                {% if service.category == 'Conseil' %}
+                    <div class="image conseil"><p>Photo</p></div>
+                {% endif %}
         </div>
         <div class="service-description">
             <p>Description</p>

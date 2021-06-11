@@ -7,13 +7,13 @@
         <div class="services-list">
             {% for service in services %}
                 {% if service.category == 'AMO' %}
-                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service amo"><p>{{ service.name }}</p></a>
+                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service amo"><p>{{ service.name }}</p><p class="handwriting-category color-amo">{{ service.category }}</p></a>
                 {% endif %}
                 {% if service.category == 'MOE' %}
-                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service moe"><p>{{ service.name }}</p></a>
+                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service moe"><p>{{ service.name }}</p><p class="handwriting-category color-moe">{{ service.category }}</p></a>
                 {% endif %}
                 {% if service.category == 'Conseil' %}
-                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service conseil"><p>{{ service.name }}</p></a>
+                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service conseil"><p>{{ service.name }}</p><p class="handwriting-category color-conseil">{{ service.category }}</p></a>
                 {% endif %}
             {% endfor %}
         </div>
