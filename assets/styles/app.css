@@ -11,14 +11,14 @@
 
 @font-face {
     font-family: 'caveat';
-    src: url(/assets/policies/Caveat/Caveat-VariableFont_wght.ttf);
+    src: url(/public/fonts/Caveat/Caveat-VariableFont_wght.ttf);
     font-style: normal;
     /*font-weight 400, 500, 600 ou 700*/
 }
 
 @font-face {
     font-family: 'open-sans';
-    src: url(/assets/policies/Open_Sans/OpenSans-Regular.ttf);
+    src: url(/public/fonts/Open_Sans/OpenSans-Regular.ttf);
 }
 
 html {
