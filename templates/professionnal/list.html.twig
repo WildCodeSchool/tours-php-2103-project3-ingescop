@@ -5,10 +5,9 @@
 
         <h1>Nos professionnels</h1>
         <div class="professionnals-list">
-            <ul>{% for professionnal in professionnels %}
-                <li>{{ professionnal.name }} / {{ professionnal.job }} </li>
-                {% endfor %}
-            </ul>
+            {% for professionnal in professionnels %}
+                <div class="bubble-pro"><p>{{ professionnal.name }}</p> <p>{{ professionnal.job }}</p></div>
+            {% endfor %}
         </div>
     </div>
 

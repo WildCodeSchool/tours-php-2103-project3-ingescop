@@ -17,7 +17,7 @@ class ReferenceController extends AbstractController
     {
         $references = $projectRepository->findAll();
         return $this->render('reference/reference.html.twig', [
-           'reference' => $references
-           ]);
+            'reference' => $references
+            ]);
     }
 }
