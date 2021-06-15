@@ -1,1 +1,10 @@
+/*For using variables you need to write 'var(--variableName)', for example, 'color: var(--red)'*/
 
+:root {
+    --grey: rgba(196,196,196,1.0);
+    --orange: rgba(237,114,26,1.0);
+    --red: rgba(161,25,27,1.0);
+    --white: rgba(243,244,239,1.0);
+    --black: rgba(59,62,71,1.0);
+    --brown: rgba(181,147,138,1.0);
+}
