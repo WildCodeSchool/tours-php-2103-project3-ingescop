@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\ContactDataType;
+use App\Form\ContactUsType;
 use App\FormData\ContactData;
 use Symfony\Component\Mime\Email;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,7 +19,7 @@ class ContactUsController extends AbstractController
     public function index(Request $request, MailerInterface $mailer): Response
     {
         $contact = new ContactData();
-        $form = $this->createForm(ContactDataType::class, $contact);
+        $form = $this->createForm(ContactUsType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
