@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Références{% endblock %}
+
+{% block pageContainer %}
+    <h1>Références</h1>
+    {% for reference in references %}
+        <div>
+            <img src="{{ asset(reference.photoOne) }}"/>
+        </div>
+    {% endfor %}
+{% endblock %}

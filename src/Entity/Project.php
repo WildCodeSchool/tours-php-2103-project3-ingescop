@@ -39,9 +39,50 @@ class Project
      */
     private Collection $owner;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $place;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $client;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $missionIngescop;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $budget;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $calendar;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $workInProgress;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private string $resume;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private string $photoOne;
+
     public function __construct()
     {
         $this->owner = new ArrayCollection();
+        $this->entryDate = new \DateTime('now');
     }
 
     public function getId(): ?int
@@ -64,13 +105,6 @@ class Project
     public function getEntryDate(): ?\DateTimeInterface
     {
         return $this->entryDate;
-    }
-
-    public function setEntryDate(\DateTimeInterface $entryDate): self
-    {
-        $this->entryDate = $entryDate;
-
-        return $this;
     }
 
     public function getNote(): ?int
@@ -105,6 +139,102 @@ class Project
     public function removeOwner(Professionnal $owner): self
     {
         $this->owner->removeElement($owner);
+
+        return $this;
+    }
+
+    public function getPlace(): ?string
+    {
+        return $this->place;
+    }
+
+    public function setPlace(string $place): self
+    {
+        $this->place = $place;
+
+        return $this;
+    }
+
+    public function getClient(): ?string
+    {
+        return $this->client;
+    }
+
+    public function setClient(string $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function getMissionIngescop(): ?string
+    {
+        return $this->missionIngescop;
+    }
+
+    public function setMissionIngescop(string $missionIngescop): self
+    {
+        $this->missionIngescop = $missionIngescop;
+
+        return $this;
+    }
+
+    public function getBudget(): ?string
+    {
+        return $this->budget;
+    }
+
+    public function setBudget(string $budget): self
+    {
+        $this->budget = $budget;
+
+        return $this;
+    }
+
+    public function getCalendar(): ?string
+    {
+        return $this->calendar;
+    }
+
+    public function setCalendar(string $calendar): self
+    {
+        $this->calendar = $calendar;
+
+        return $this;
+    }
+
+    public function getWorkInProgress(): ?string
+    {
+        return $this->workInProgress;
+    }
+
+    public function setWorkInProgress(string $workInProgress): self
+    {
+        $this->workInProgress = $workInProgress;
+
+        return $this;
+    }
+
+    public function getResume(): ?string
+    {
+        return $this->resume;
+    }
+
+    public function setResume(string $resume): self
+    {
+        $this->resume = $resume;
+
+        return $this;
+    }
+
+    public function getPhotoOne(): string
+    {
+        return $this->photoOne;
+    }
+
+    public function setPhotoOne(string $photoOne): self
+    {
+        $this->photoOne = $photoOne;
 
         return $this;
     }

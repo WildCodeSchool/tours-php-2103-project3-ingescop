@@ -31,9 +31,9 @@ class ServiceController extends AbstractController
      */
     public function show(int $id, ServiceRepository $serviceRepository): Response
     {
-        $service = $serviceRepository->findOneById($id);
+        $services = $serviceRepository->findOneById($id);
         return $this->render('services/show.html.twig', [
-            'service' => $service
+            'services' => $services
         ]);
     }
 }
