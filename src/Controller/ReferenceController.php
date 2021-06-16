@@ -26,4 +26,15 @@ class ReferenceController extends AbstractController
             'references' => $references
             ]);
     }
+
+    /**
+     * @Route("show/{id}", methods={"GET"}, name="show")
+     */
+    public function show(int $id, ProjectRepository $projectRepository): Response
+    {
+        $reference = $projectRepository->findOneById($id);
+        return $this->render('reference/show.html.twig', [
+            'reference' => $reference
+        ]);
+    }
 }

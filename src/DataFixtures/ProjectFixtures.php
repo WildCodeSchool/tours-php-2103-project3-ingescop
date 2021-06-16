@@ -18,7 +18,8 @@ class ProjectFixtures extends Fixture
                 /*->setEntryDate(2019/05/24)*/
                 ->setPlace('Ferme de Cément, Chinon (37)')
                 ->setClient('FBH Invest')
-                ->setMissionIngescop('Maitrise d’oeuvre structure bois, pierre, béton, Ordonancement Pilotage Coordination (OPC)')
+                ->setMissionIngescop('Maitrise d’oeuvre structure bois, pierre
+                , béton, Ordonancement Pilotage Coordination (OPC)')
                 ->setBudget('1,6M€HT')
                 ->setCalendar('#études2019-2020 #livraison2021')
                 ->setWorkInProgress('Livré')
