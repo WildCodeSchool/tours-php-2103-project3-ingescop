@@ -14,7 +14,9 @@
 	<body>
 		{% block header %}
 			<header>
-				<div class="header--logo">Ingé Scop logo</div>
+				<div class="header--logo">
+					<img src="{{ asset('build/images/Logo_1gscop.png') }}"/>
+				</div>
 				<nav>
 					<ul>
 						{% if app.request.attributes.get('_route') == 'home' %}
@@ -22,18 +24,37 @@
 						{% endif %}
 						{% if app.request.attributes.get('_route') == 'presentation' %}
 							<li><a href="{{ path("home") }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnel</a></li>
-							<li><a href="{{ path('client_list') }}">Client</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+							<li><a href="{{ path('services_list') }}">Services</a></li>
 						{% endif %}
 						{% if app.request.attributes.get('_route') == 'professionnal_list' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('client_list') }}">Client</li></a>
-							<li><a href="{{ path('reference') }}">Références</li></a>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
+							<li><a href="{{ path('home') }}">Références</li></a>
 						{% endif %}
-						{% if app.request.attributes.get('_route') == 'client_list' %}
+						{% if app.request.attributes.get('_route') == 'professionnal_show' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnel</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
+							<li><a href="{{ path('home') }}">Références</li></a>
+						{% endif %}
+						{% if app.request.attributes.get('_route') == 'services_list' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
 							<li><a href="{{ path('reference') }}">Références</li></a>
+
+						{% endif %}
+						{% if app.request.attributes.get('_route') == 'services_show' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+
+							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
+							<li><a href="{{ path('reference') }}">Références</li></a>
+
+						{% endif %}
+						{% if app.request.attributes.get('_route') == 'contactpro' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
 						{% endif %}
 					</ul>
 				</nav>
