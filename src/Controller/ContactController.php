@@ -21,11 +21,13 @@ class ContactController extends AbstractController
         $data = new ContactData();
         $form = $this->createForm(ContactDataType::class, $data);
         $form->handleRequest($request);
+        $adminEmail = $this->getParameter('app.admin_email');
 
-        if ($form->isSubmitted() && $form->isValid()) {
+
+        if ($form->isSubmitted() && $form->isValid() && is_string($adminEmail)) {
             $message = (new Email())
                 ->from($data->getEmailAddress())
-                ->to('contact@1gscop.fr')
+                ->to($adminEmail)
                 ->subject('Vous avez reçu un nouveau mail de ' . $data->getLastName() . ' ' . $data->getFirstName())
                 ->text($data->getMessage() . PHP_EOL . PHP_EOL . "Envoyez par : " . PHP_EOL . $data->getLastName() .
                  PHP_EOL . $data->getFirstName() . PHP_EOL . $data->getPhoneNumber() . PHP_EOL .
