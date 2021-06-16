@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class ContactDataType extends AbstractType
+class ContactUsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -20,8 +20,8 @@ class ContactDataType extends AbstractType
             ->add('phoneNumber', TextType::class, ['label' => 'Téléphone'])
             ->add('emailAddress', EmailType::class, ['label' => 'E-mail'])
             ->add('message', TextareaType::class, [
-                'label' => 'Tes motivations',
-                'attr' => ['placeholder' => 'sois direct et précis, on adore !'],
+                'label' => "Demande d'informations",
+                'attr' => ['placeholder' => 'décrivez votre demande'],
                 ]);
     }
 
