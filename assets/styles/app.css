@@ -9,6 +9,18 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'caveat';
+    src: url(/public/fonts/Caveat/Caveat-VariableFont_wght.ttf);
+    font-style: normal;
+    /*font-weight 400, 500, 600 ou 700*/
+}
+
+@font-face {
+    font-family: 'open-sans';
+    src: url(/public/fonts/Open_Sans/OpenSans-Regular.ttf);
+}
+
 html {
     font-size: 62.5%;
 }
@@ -17,6 +29,69 @@ body {
     background-color: #F4F4F4;
     color: #000;
     overflow-x: hidden;
+    font-family: open-sans;
+    font-weight: 300;
+}
+
+/*========== ANIMATIONS KEYFRAMES ==========*/
+/*==========================================*/
+
+@keyframes moveInLeft {
+    0% {
+            opacity: 0;
+            transform: translateX(-10rem);
+    }
+
+    80% {
+            opacity: 0.6;
+            transform: translateX(1rem);
+    }
+
+    100% {
+            opacity: 1;
+            transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+            opacity: 0;
+            transform: translateX(10rem);
+    }
+
+    80% {
+            opacity: 0.6;
+            transform: translateX(-1rem);
+    }
+
+    100% {
+            opacity: 1;
+            transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom{
+    0% {
+            opacity: 0;
+            transform: translateY(3rem);
+    }
+
+    100% {
+            opacity: 1;
+            transform: translateY(0);
+    }
+}
+
+@keyframes moveInTop{
+    0% {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /*========== HEADER ==========*/
@@ -26,7 +101,7 @@ header {
     max-width: 100vw;
     height: 12vh;
     background-color: #B3A19A;
-    color: #fff;
+    color: rgb(131, 37, 37);
     font-size: 1.6rem;
     display: flex;
     justify-content: space-between;
@@ -198,22 +273,97 @@ footer {
 .professionnal-list-page h1 {
     font-size: 4.8rem;
     margin: 3% auto;
+    color: var(--red);
 }
 
-.professionnals-list ul {
-    width: 60%;
+.professionnals-list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.professionnals-list a {
     font-size: 2.4rem;
-    margin: 0 auto 3% auto;
-    border: 2px solid rgb(37, 12, 12);
-    border-radius: 40px;
-    background-color: #fdeee2;
+    text-decoration: none;
+    color: #000;
 }
 
-.professionnals-list ul li {
-    margin: 2.4rem 4.8rem;
+.bubble-pro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 3px solid rgba(59,62,71,1);
+    width: 13%;
+    height: 250px;
+    margin: 5%;
+    word-wrap: break-word;
+    background-size: cover;
+    -webkit-box-shadow: 0px 0px 28px 24px var(--grey); 
+    box-shadow: 0px 0px 28px 4px var(--grey);
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
-/*========== ClIENT PAGES ==========*/
+.bubble-pro.appear {
+    opacity: 1;
+}
+
+.bubble-pro p {
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+/*========== Professionnal-show-page ==========*/
+
+.profil-title-image {
+    display: flex;
+    justify-content: space-between;
+    height: 50vh;
+}
+
+.profil-title-image h1 {
+    font-size: 4.8rem;
+    margin: auto;
+    animation: moveInTop 1s ease-out;
+}
+
+.profil-title-image .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 3% 0 0;
+    border: 3px solid var(--black);
+    width: 22%;
+    height: 90%;
+    border-radius: 55% 45% 28% 72% / 70% 45% 55% 30%;
+    animation: moveInRight 1s ease-out;
+}
+
+.profil-title-image .image p {
+    font-size: 2.4rem;
+}
+
+.profil-description {
+    padding: 3%;
+    animation: moveInLeft 1s ease-out;
+}
+
+.profil-description h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1%;
+}
+
+.profil-description p {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    columns: 2;
+}
+
+/*========== SERVICE PAGES ==========*/
 /*=================================*/
 
 /*========== List-services ==========*/
@@ -229,19 +379,125 @@ footer {
     margin: 3% auto;
 }
 
-.services-list ul {
-    width: 60%;
+.services-list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.bubble-service {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    border: 3px solid rgba(59,62,71,1);
+    width: 13%;
+    height: 250px;
+    margin: 3% 6%;
+    word-wrap: break-word;
+    background-size: cover;
+    -webkit-box-shadow: 0px 0px 28px 24px var(--grey); 
+    box-shadow: 0px 0px 28px 4px var(--grey);
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.bubble-service.appear {
+    opacity: 1;
+}
+
+.services-list a {
     font-size: 2.4rem;
-    margin: 0 auto 3% auto;
-    border: 2px solid rgb(37, 12, 12);
-    border-radius: 40px;
-    background-color: #fdeee2;
+    text-decoration: none;
+    color: #000;
 }
 
-.services-list ul li {
-    margin: 2.4rem 4.8rem;
+.handwriting-category {
+    font-family: caveat;
+    font-size: 4rem;
+    font-weight: 500;
+    position: absolute;
+    top: 0%;
+    left: -2%;
 }
 
-/*========== Références ==========*/
-/*================================*/
+.handwriting-category.color-amo {
+    color:var(--orange);
+}
+
+.handwriting-category.color-moe {
+    color:var(--red);
+}
+
+.handwriting-category.color-conseil {
+    color:var(--brown);
+}
+
+.amo {
+    border: 3px solid rgba(237, 114, 26, 1);
+    -webkit-box-shadow: 0px 0px 28px 24px var(--orange); 
+    box-shadow: 0px 0px 28px 4px var(--orange);
+}
+
+.moe {
+    border: 3px solid rgba(161, 25, 27, 1);
+    -webkit-box-shadow: 0px 0px 28px 24px var(--red); 
+    box-shadow: 0px 0px 28px 4px var(--red);
+}
+
+.conseil {
+    border: 3px solid rgba(181, 147, 138, 1);
+    -webkit-box-shadow: 0px 0px 28px 24px var(--brown); 
+    box-shadow: 0px 0px 28px 4px var(--brown);
+}
+
+/*========== Service-show-page ==========*/
+
+.service-title-image {
+    display: flex;
+    justify-content: space-between;
+    height: 50vh;
+}
+
+.service-title-image h1 {
+    font-size: 4.8rem;
+    margin: auto;
+    animation: moveInTop 1s ease-out;
+}
+
+.service-title-image .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 3% 0 0;
+    width: 20%;
+    height: 90%;
+    border-radius: 55% 45% 28% 72% / 70% 45% 55% 30%;
+    animation: moveInRight 1s ease-out;
+}
+
+.service-title-image .image p {
+    font-size: 2.4rem;
+}
+
+.service-description {
+    padding: 3%;
+    animation: moveInLeft 1s ease-out;
+}
+
+.service-description h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1%;
+}
+
+.service-description p {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    columns: 2;
+}
+
 

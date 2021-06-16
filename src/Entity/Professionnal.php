@@ -34,9 +34,15 @@ class Professionnal
      */
     private Collection $projects;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Service::class, mappedBy="professionnal")
+     */
+    private Collection $service;
+
     public function __construct()
     {
         $this->projects = new ArrayCollection();
+        $this->service = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -90,6 +96,33 @@ class Professionnal
     {
         if ($this->projects->removeElement($project)) {
             $project->removeOwner($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Service[]
+     */
+    public function getServices(): Collection
+    {
+        return $this->service;
+    }
+
+    public function addService(Service $service): self
+    {
+        if (!$this->service->contains($service)) {
+            $this->service[] = $service;
+            $service->addProfessionnal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeService(Service $service): self
+    {
+        if ($this->service->removeElement($service)) {
+            $service->removeProfessionnal($this);
         }
 
         return $this;
