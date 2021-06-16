@@ -27,8 +27,11 @@ class ContactUsController extends AbstractController
                 ->from($contact->getEmailAddress())
                 ->to('s.sauvaget41000@gmail.com')
                 ->subject('Vous avez reçu un nouveau mail')
-                ->text('Send by : ' . $contact->getEmailAddress() . \PHP_EOL .
-                 $contact->getMessage(), 'text/plain');
+                ->text($contact->getMessage() . PHP_EOL . PHP_EOL . 'Envoyé par : ' . PHP_EOL .
+                 $contact->getLastName() . PHP_EOL .
+                 $contact->getFirstName() . PHP_EOL .
+                 $contact->getPhoneNumber() . PHP_EOL .
+                 $contact->getEmailAddress(), 'text/plain');
                  $mailer->send($message);
 
                  $this->addFlash("Success", 'Votre message à été envoyé avec succès !');
