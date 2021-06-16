@@ -27,16 +27,17 @@ class ContactController extends AbstractController
                 ->from($data->getEmailAddress())
                 ->to('contact@1gscop.fr')
                 ->subject('Vous avez reçu un nouveau mail de ' . $data->getLastName() . ' ' . $data->getFirstName())
-                ->text($data->getMessage() . PHP_EOL . PHP_EOL . "Envoyez par " . PHP_EOL . $data->getLastName() .
+                ->text($data->getMessage() . PHP_EOL . PHP_EOL . "Envoyez par : " . PHP_EOL . $data->getLastName() .
                  PHP_EOL . $data->getFirstName() . PHP_EOL . $data->getPhoneNumber() . PHP_EOL .
                   $data->getEmailAddress() . PHP_EOL, 'text/plain');
-                 $mailer->send($message);
+                $mailer->send($message);
 
-                 $this->addFlash("Success", 'Votre message à été envoyé avec succès !');
+                 $this->addFlash("Success", 'Votre message a été envoyé avec succès !');
                  return $this->redirectToRoute('contactpro');
         }
         return $this->render('contact/contactpro.html.twig', [
             'form' => $form->createView()
         ]);
+
     }
 }
