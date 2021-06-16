@@ -14,9 +14,9 @@
 	<body>
 		{% block header %}
 			<header>
-				<div class="header--logo">
-					<img src="{{ asset('build/images/Logo_1gscop.png') }}"/>
-				</div>
+				
+					<img class="header--logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/>
+				
 				<nav>
 					<ul>
 						{% if app.request.attributes.get('_route') == 'home' %}
@@ -60,7 +60,7 @@
 				</nav>
 				<div class="header--form-links">
 					<p><a href="{{ path('contactpro') }}">Nous rejoindre</a></p>
-					<p>Nous contacter</p>
+					<p><a href="{{ path('contactus') }}">Nous contacter</a></p>
 				</div>
 			</header>
 		{% endblock %}

@@ -113,9 +113,8 @@ header h1 {
 }
 
 .header--logo {
-    width: 7%;
-    height: 80%;
-    border: 1px solid #fff;
+    width: 10%;
+    height: auto;
     margin: 3.2rem;
     font-size: 2.4rem;
     text-align: center;
