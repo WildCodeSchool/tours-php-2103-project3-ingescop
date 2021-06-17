@@ -7,7 +7,9 @@
         {% for reference in references %}
             <a href="{{ path('reference_show', {id: reference.id}) }}"
             class="reference-block">
-                <img src="{{ asset(reference.photoOne) }}" class="bubble-reference"/>
+                <div class="bubble-reference">
+                    <img src="{{ asset(reference.photoOne) }}"/>
+                </div>
                 <h3>{{ reference.name }}</h3>
             </a>
         {% endfor %}

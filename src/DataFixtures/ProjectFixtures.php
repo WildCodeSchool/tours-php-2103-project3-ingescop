@@ -31,7 +31,15 @@ class ProjectFixtures extends Fixture
                 . Les matériaux sont choisis dans des panels locaux, avec 
                 notamment 100% d’isolants biosourcés pour les locaux chauffés 
                 (liège, laine de bois, chaux-chanvre).')
-                ->setPhotoOne('build/images/cement.jpg');
+                ->setStrongPoints('#ossature bois/#isolants biosourcés : liège, chanvre, laine de bois
+                /#projection chaux-chanvre
+                /#dallages à la chaux
+                /#murs de soutènement poids en pierre de Tuffeau
+                /#bardage châtaigner
+                /#matériaux locaux #réemploi de pierres issues des déconstructions')
+                ->setPhotoOne('build/images/cement.jpg')
+                ->setPhotoTwo('build/images/Cement-chantier.jpg')
+                ->setPhotoThree('build/images/Cement-chantier2.jpg');
         $manager->persist($project);
 
         $project1 = new Project();
@@ -45,6 +53,10 @@ class ProjectFixtures extends Fixture
                 ->setWorkInProgress('En travaux')
                 ->setResume('Le projet prévoit l’aménagement d’un gîte ouvert 
                 au public, à l’étage d’une maison de maitre en Tuffeau.')
+                ->setStrongPoints('#gîte
+                /#chaudière à granulés bois
+                /#isolants biosourcés
+                /#copropriété#site remarquable')
                 ->setPhotoOne('build/images/candes-st-martin2.jpg');
         $manager->persist($project1);
 
@@ -66,6 +78,11 @@ class ProjectFixtures extends Fixture
                 sociaux et une crèche, avec une ambition environnementale 
                 très forte, dans le respect et même au delà des exigences 
                 du Plan Climat Air Energie de la Ville de Paris.')
+                ->setStrongPoints('#habitat partagé
+                /#ossature bois
+                /#isolant biosourcé
+                /#ventilation double flux
+                /#locaux communs partagés')
                 ->setPhotoOne('build/images/Paris.jpg');
         $manager->persist($project2);
 
@@ -85,7 +102,14 @@ class ProjectFixtures extends Fixture
                 béton armé, composé du RdC et du noyau dur que forment 
                 l’escalier et la cage d’ascenseur. Sur ce socle, est posée 
                 la structure à ossature bois des étages.')
-                ->setPhotoOne('build/images/la-riche2.jpg');
+                ->setStrongPoints('#géothermie sur nappe#planchers chauffants
+                /#réemploi de matériaux
+                /#surélévation en ossature bois
+                /#isolants biosourcés
+                /#puit canadien
+                /#récupération de calories sur eaux grises')
+                ->setPhotoOne('build/images/la-riche2.jpg')
+                ->setPhotoTwo('build/images/Paris.jpg');
         $manager->persist($project3);
 
         $manager->flush();

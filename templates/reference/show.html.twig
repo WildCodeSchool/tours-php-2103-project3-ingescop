@@ -14,7 +14,19 @@
             <p><strong>Mission Ingescop : </strong>{{ reference.missionIngescop }}</p>
             <p><strong>Budget : </strong>{{ reference.budget }}</p>
             <p><strong>Calendrier : </strong> {{ reference.calendar }}</p>
+            <p><strong>Points forts du projet : </strong></p>
+            {% for point in strongPoints %}
+                <p class="point">{{ point }}</p>
+            {% endfor %}
             <p><strong>En bref</strong><br>{{ reference.resume }}</p>
+            <div class="bottom-pics">
+                {% if reference.photoTwo != 0 %}
+                    <img src="{{ asset(reference.photoTwo) }}"/>
+                {% endif %}
+                {% if reference.photoThree != 0 %}
+                    <img src="{{ asset(reference.photoThree) }}"/>
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}

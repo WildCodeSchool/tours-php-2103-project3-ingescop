@@ -79,6 +79,21 @@ class Project
      */
     private string $photoOne;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private string $strongPoints;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $photoTwo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $photoThree;
+
     public function __construct()
     {
         $this->owner = new ArrayCollection();
@@ -235,6 +250,42 @@ class Project
     public function setPhotoOne(string $photoOne): self
     {
         $this->photoOne = $photoOne;
+
+        return $this;
+    }
+
+    public function getStrongPoints(): string
+    {
+        return $this->strongPoints;
+    }
+
+    public function setStrongPoints(string $strongPoints): self
+    {
+        $this->strongPoints = $strongPoints;
+
+        return $this;
+    }
+
+    public function getPhotoTwo(): ?string
+    {
+        return $this->photoTwo;
+    }
+
+    public function setPhotoTwo(string $photoTwo): self
+    {
+        $this->photoTwo = $photoTwo;
+
+        return $this;
+    }
+
+    public function getPhotoThree(): ?string
+    {
+        return $this->photoThree;
+    }
+
+    public function setPhotoThree(string $photoThree): self
+    {
+        $this->photoThree = $photoThree;
 
         return $this;
     }
