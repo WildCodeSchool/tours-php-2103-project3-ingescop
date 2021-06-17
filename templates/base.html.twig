@@ -14,9 +14,14 @@
 	<body>
 		{% block header %}
 			<header>
-				
-					<img class="header--logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/>
-				
+				<div class="header--logo" >
+					<a href="{{ path("app_login") }}"><img class="logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/></a>
+				</div>
+				{% block Admin %}{% endblock %}
+				{% if app.user %}
+    				{{ app.user }}
+    				<a href="{{ path('app_logout') }}"> Se déconnecter</a>
+				{% endif %}
 				<nav>
 					<ul>
 						{% if app.request.attributes.get('_route') == 'home' %}
@@ -54,6 +59,9 @@
 
 						{% endif %}
 						{% if app.request.attributes.get('_route') == 'contactpro' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+						{% endif %}
+						{% if app.request.attributes.get('_route') == 'contactus' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
 						{% endif %}
 					</ul>
