@@ -40,7 +40,7 @@ It's symfony website-skeleton project with some additional tools to validate cod
 3. Copy the files .env  for create your .env.local
 4. Uncomment MAILER_DSN and DATABASE_URL="mysql" and comment DATABASE_URL="postgresql"
 5. For work in local don't forget to create a database with `symfony console d:d:c`
-6. After pull remote branch dont't forget to play the migration `symfony console do:mi:mi`
+6. After pull remote branch don't forget to play the migration `symfony console do:mi:mi`
 
 ### Testing
 
