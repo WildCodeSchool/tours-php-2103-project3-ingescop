@@ -6,12 +6,22 @@
 
     <div class="home-page">
         <div class="home-container">
-            <p class="sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <div class="home-container-top">
-                <a href="{{ path("professionnal_list") }}">Maître d'oeuvre</a></li>
-                <a href="{{ path("services_list") }}">Maître d'ouvrage</a>
+            <div class="home-banner">
+                <div class="sentence-block">
+                    <p class="sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="home-container-top">
+                    <div class="link-block">
+                        <a id="home-link-pro" href="{{ path("professionnal_list") }}">Maître d'oeuvre</a></li>
+                        <p>Vous voulez rejoindre la coopérative</p>
+                    </div>
+                    <div class="link-block">
+                        <a href="{{ path("services_list") }}">Maître d'ouvrage</a>
+                        <p>Vous rechercher un service</p>
+                    </div>
+                </div>
             </div>
             <div class="home-container-bottom">
                 <a href="{{ path("presentation") }}">Qui sommes-nous ?</a>
