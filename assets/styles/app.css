@@ -520,6 +520,7 @@ footer {
     width: 40%;
     margin: 3%;
     text-decoration: none;
+    border: 2px solid red;
 }
 
 .bubble-reference img {
