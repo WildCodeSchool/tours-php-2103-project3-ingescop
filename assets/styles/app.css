@@ -26,7 +26,7 @@ html {
 }
 
 body {
-    background-color: #F4F4F4;
+    background-color: #fff;
     color: #000;
     overflow-x: hidden;
     font-family: open-sans;
@@ -100,16 +100,12 @@ body {
 header {
     max-width: 100vw;
     height: 12vh;
-    background-color: #B3A19A;
-    color: rgb(131, 37, 37);
+    background-color: #fff;
     font-size: 1.6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-header h1 {
-    font-size: 7.2rem;
+    border-bottom: 2px solid rgba(196, 196, 196, 0.445);
 }
 
 .header--logo {
@@ -136,9 +132,14 @@ header ul {
 
 header nav ul li a{
     text-decoration: none;
-    color: #fff;
+    color: var(--black);
     display: inline-block;
     font-size: 2.4rem;
+}
+
+header nav ul li a.custom {
+    border-top: 3px solid var(--black);
+    border-bottom: 3px solid var(--red);
 }
 
 .header--form-links {
@@ -148,10 +149,29 @@ header nav ul li a{
 .header--form-links p {
     font-size: 2.4rem;
     padding: 0.8rem;
-    margin: 0.8rem 1.6rem;
+    margin: 0.6rem 1.6rem;
     text-align: center;
     border-radius: 40px;
-    border: 1px solid #fff;
+}
+
+.header--form-links p:first-child {
+    border: 1px solid var(--black);
+}
+
+.header--form-links p:first-child a {
+    text-decoration: none;
+    color: var(--black);
+    padding: 0 0.8rem;
+}
+
+.header--form-links p:nth-child(2) {
+    background-color: var(--black);
+}
+
+.header--form-links p:nth-child(2) a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0 0.8rem;
 }
 
 /*========= Footer ===========*/
@@ -160,12 +180,13 @@ header nav ul li a{
 footer {
     max-width: 100vw;
     height: 12vh;
-    background-color: #B3A19A;
-    color: #fff;
+    background-color: #fff;
+    color: var(--black);
     font-size: 1.6rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-top: 2px solid rgba(196, 196, 196, 0.445);
 }
 
 .footer-left {
@@ -225,9 +246,11 @@ footer {
 .home-container-top a {
     text-decoration: none;
     font-size: 4.8rem;
-    padding: 2%;
-    background-color: #EAE5E1;
-    color: rgb(61, 53, 53);
+    padding: 1% 2%;
+    background-color: #fff;
+    border: 2px solid var(--black);
+    border-radius: 100px;
+    color: var(--black);
 }
 
 .home-container-bottom {
@@ -241,9 +264,11 @@ footer {
 .home-container-bottom a {
     text-decoration: none;
     font-size: 4.8rem;
-    padding: 2%;
-    background-color: #EAE5E1;
-    color: rgb(61, 53, 53);
+    padding: 1% 2%;
+    background-color: #fff;
+    border: 2px solid var(--black);
+    border-radius: 100px;
+    color: var(--black);
 }
 
 
