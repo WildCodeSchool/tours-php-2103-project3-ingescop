@@ -520,7 +520,61 @@ footer {
     width: 40%;
     margin: 3%;
     text-decoration: none;
-    border: 2px solid red;
+    position: relative;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.reference-block:hover .bubble-reference{
+    filter: contrast(140%);
+}
+
+.reference-block.appear {
+    opacity: 1;
+}
+
+.bubble-reference {
+    overflow: hidden;
+    transition: filter 0.5s ease;
+}
+
+.in-study {
+    border: 3px solid rgba(181, 147, 138, 1);
+    -webkit-box-shadow: 0px 0px 28px 24px var(--brown); 
+    box-shadow: 0px 0px 28px 4px var(--brown);
+}
+
+.in-work {
+    border: 3px solid rgba(237, 114, 26, 1);
+    -webkit-box-shadow: 0px 0px 28px 24px var(--orange); 
+    box-shadow: 0px 0px 28px 4px var(--orange);
+}
+
+.finished {
+    border: 3px solid rgba(161, 25, 27, 1);
+    -webkit-box-shadow: 0px 0px 28px 24px var(--red); 
+    box-shadow: 0px 0px 28px 4px var(--red);
+}
+
+.handwriting-project {
+    font-family: caveat;
+    font-size: 4rem;
+    font-weight: 500;
+    position: absolute;
+    top: 0%;
+    left: -2%;
+}
+
+.handwriting-in-study {
+    color:var(--brown);
+}
+
+.handwriting-in-work {
+    color:var(--orange);
+}
+
+.handwriting-finished {
+    color:var(--red);
 }
 
 .bubble-reference img {
@@ -530,7 +584,7 @@ footer {
 .reference-block h3 {
     color: var(--black);
     font-size: 2rem;
-    margin: 4% 0;
+    margin: 5% 0;
     padding: 0 2%;
 }
 
@@ -549,6 +603,7 @@ footer {
     display: flex;
     justify-content: flex-end;
     margin-left: 9.5%;
+    animation: moveInLeft 1s ease-out;
 }
 
 .reference-show-image img {
@@ -559,6 +614,7 @@ footer {
 
 .reference-show-description {
     width: 40%;
+    animation: moveInRight 1s ease-out;
 }
 
 .reference-show-description h1 {

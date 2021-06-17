@@ -98,7 +98,7 @@ class Project
     public function __construct()
     {
         $this->owner = new ArrayCollection();
-        $this->entryDate = new \DateTime('now');
+        $this->entryDate = new DateTime('now');
     }
 
     public function getId(): ?int
