@@ -4,6 +4,10 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    # the parameter name is an arbitrary string (the 'app.' prefix is recommended
+    # to better differentiate your parameters from Symfony parameters).
+    app.admin_email: 'contact@1gscop.fr'
+
 
 services:
     # default configuration for services in *this* file
