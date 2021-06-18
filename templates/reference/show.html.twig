@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Références{% endblock %}
+
+{% block pageContainer %}
+    <div class="reference-show-block">
+    <div class="reference-show-image">
+            <img src="{{ asset(reference.photoOne) }}"/>
+        </div>
+        <div class="reference-show-description">
+            <h1>{{ reference.name }}</h1>
+            <p><strong>Lieu : </strong>{{ reference.place }}</p>
+            <p><strong>Maître d'ouvrage : </strong>{{ reference.client }}</p>
+            <p><strong>Mission Ingescop : </strong>{{ reference.missionIngescop }}</p>
+            <p><strong>Budget : </strong>{{ reference.budget }}</p>
+            <p><strong>Calendrier : </strong> {{ reference.calendar }}</p>
+            <p><strong>Points forts du projet : </strong></p>
+            {% for point in strongPoints %}
+                <p class="point">{{ point }}</p>
+            {% endfor %}
+            <p><strong>En bref</strong><br>{{ reference.resume }}</p>
+            <div class="bottom-pics">
+                {% if reference.photoTwo != 0 %}
+                    <img src="{{ asset(reference.photoTwo) }}"/>
+                {% endif %}
+                {% if reference.photoThree != 0 %}
+                    <img src="{{ asset(reference.photoThree) }}"/>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
