@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Références{% endblock %}
+
+{% block pageContainer %}
+    <div class="references-list-block">
+        {% for reference in references %}
+            {% if reference.workInProgress == 'En études' %}
+                <a href="{{ path('reference_show', {id: reference.id}) }}"
+                class="reference-block">
+                    <div class="bubble-reference in-study">
+                        <img src="{{ asset(reference.photoOne) }}"/>
+                    </div>
+                    <p class="handwriting-project handwriting-in-study">{{ reference.workInProgress }}</p>
+                    <h3>{{ reference.name }}</h3>
+                </a>
+            {% endif %}
+            {% if reference.workInProgress == 'En travaux' %}
+                <a href="{{ path('reference_show', {id: reference.id}) }}"
+                class="reference-block">
+                    <div class="bubble-reference in-work">
+                        <img src="{{ asset(reference.photoOne) }}"/>
+                    </div>
+                    <p class="handwriting-project handwriting-in-work">{{ reference.workInProgress }}</p>
+                    <h3>{{ reference.name }}</h3>
+                </a>
+            {% endif %}
+            {% if reference.workInProgress == 'Livré' %}
+                <a href="{{ path('reference_show', {id: reference.id}) }}"
+                class="reference-block">
+                    <div class="bubble-reference finished">
+                        <img src="{{ asset(reference.photoOne) }}"/>
+                    </div>
+                    <p class="handwriting-project handwriting-finished">{{ reference.workInProgress }}</p>
+                    <h3>{{ reference.name }}</h3>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

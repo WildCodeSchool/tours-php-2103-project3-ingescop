@@ -21,17 +21,20 @@ class ContactController extends AbstractController
         $data = new ContactData();
         $form = $this->createForm(ContactDataType::class, $data);
         $form->handleRequest($request);
+        $adminEmail = $this->getParameter('app.admin_email');
 
-        if ($form->isSubmitted() && $form->isValid()) {
+
+        if ($form->isSubmitted() && $form->isValid() && is_string($adminEmail)) {
             $message = (new Email())
                 ->from($data->getEmailAddress())
-                ->to('s.sauvaget41000@gmail.com')
-                ->subject('Vous avez reçu un nouveau mail')
-                ->text('Send by : ' . $data->getEmailAddress() . \PHP_EOL .
-                 $data->getMessage(), 'text/plain');
-                 $mailer->send($message);
+                ->to($adminEmail)
+                ->subject('Vous avez reçu un nouveau mail de ' . $data->getLastName() . ' ' . $data->getFirstName())
+                ->text($data->getMessage() . PHP_EOL . PHP_EOL . "Envoyez par : " . PHP_EOL . $data->getLastName() .
+                 PHP_EOL . $data->getFirstName() . PHP_EOL . $data->getPhoneNumber() . PHP_EOL .
+                  $data->getEmailAddress() . PHP_EOL, 'text/plain');
+                $mailer->send($message);
 
-                 $this->addFlash("Success", 'Votre message à été envoyé avec succès !');
+                 $this->addFlash("Success", 'Votre message a été envoyé avec succès !');
                  return $this->redirectToRoute('contactpro');
         }
         return $this->render('contact/contactpro.html.twig', [
