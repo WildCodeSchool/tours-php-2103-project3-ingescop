@@ -14,46 +14,85 @@
 	<body>
 		{% block header %}
 			<header>
-				
-					<img class="header--logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/>
-				
+				<div class="header--logo" >
+					<a href="{{ path("app_login") }}"><img class="logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/></a>
+				</div>
+				{% block Admin %}{% endblock %}
+				{% if app.user %}
+    				{{ app.user }}
+    				<a href="{{ path('app_logout') }}"> Se déconnecter</a>
+				{% endif %}				
 				<nav>
 					<ul>
+						{# HOME PAGE #}
 						{% if app.request.attributes.get('_route') == 'home' %}
-							<li><a href="{{ path("reference") }}">Références</a></li>
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
 						{% endif %}
+						{# WHO ARE WE PAGE #}
 						{% if app.request.attributes.get('_route') == 'presentation' %}
-							<li><a href="{{ path("home") }}">Accueil</a></li>
+							<li><a href="{{ path('home') }}">Accueil</a></li>
 							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</a></li>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
 						{% endif %}
+						{# PROFESSIONNAL LIST PAGE #}
 						{% if app.request.attributes.get('_route') == 'professionnal_list' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
 							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('home') }}">Références</li></a>
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
 						{% endif %}
+						{# PROFESSIONNAL SHOW PAGE #}
 						{% if app.request.attributes.get('_route') == 'professionnal_show' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
 							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
 							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('home') }}">Références</li></a>
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
 						{% endif %}
+						{# SERVICE LIST PAGE #}
 						{% if app.request.attributes.get('_route') == 'services_list' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
 							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
 							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference') }}">Références</li></a>
-
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
 						{% endif %}
+						{# SERVICE SHOW PAGE #}
 						{% if app.request.attributes.get('_route') == 'services_show' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
-
 							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
 							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference') }}">Références</li></a>
-
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
 						{% endif %}
+						{# CONTACT PRO PAGE #}
 						{% if app.request.attributes.get('_route') == 'contactpro' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
+						{% endif %}
+						{# CONTACT US PAGE #}
+						{% if app.request.attributes.get('_route') == 'contactus' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
+						{% endif %}
+						{# REFERENCE LIST PAGE #}
+						{% if app.request.attributes.get('_route') == 'reference_list' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
+						{% endif %}
+						{# REFERENCE SHOW PAGE #}
+						{% if app.request.attributes.get('_route') == 'reference_show' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
+							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+							<li><a href="{{ path('services_list') }}">Services</li></a>
+							<li><a href="{{ path('reference_list') }}">Références</li></a>
+						{% endif %}
+						{% if app.request.attributes.get('_route') == 'contactus' %}
 							<li><a href="{{ path('home') }}">Accueil</a></li>
 						{% endif %}
 					</ul>
@@ -69,15 +108,20 @@
 		{% block flashMessage %}{% endblock %}
 		{% block footer %}
 			<footer>
-				<div class="footer-left">
-					<p>Adresse</p>
-				</div>
 				{% if app.request.attributes.get('_route') == 'home' %}
-					<div class="footer-right">
-					<p>partenaire</p>
-					<p>partenaire</p>
-					<p>partenaire</p>
-				</div>
+					<div class="footer-home">
+						<div id="footer-left">
+							<p>contact@1gscop.fr30</p><p>rue André Theuriet37000</p><p>Tours06 58 39 21 46</p>
+						</div>
+						<div id="footer-right">
+							<p>Partenaire de</p>
+							<a href="https://www.nova-bat.coop/" target="blank"><img class="footer-logo-partenaire" src="{{ asset('build/images/Logo_novabat.png') }}"/></a>
+						</div>
+					</div>
+				{% else %}
+					<p>contact@1gscop.fr30</p>
+					<p>rue André Theuriet<br>37000 Tours</p>
+					<p>06 58 39 21 46</p>
 				{% endif %}
 			</footer>
 		{% endblock %}

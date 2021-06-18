@@ -9,7 +9,7 @@
 import './styles/app.css';
 
 // start the Stimulus application
-// import './bootstrap';
+import './bootstrap';
 
 // ====== CONST & GLOBAL VARIABLES ======
 const borderRadiusArray = [
@@ -24,6 +24,8 @@ function randomBorder() {
 
 const bubblesProfessionnals = document.querySelectorAll('.bubble-pro');
 const bubblesServices = document.querySelectorAll('.bubble-service');
+const bubblesReferences = document.querySelectorAll('.bubble-reference');
+const blockReferences = document.querySelectorAll('.reference-block');
 
 for (let i = 0; i < bubblesProfessionnals.length; i += 1) {
     bubblesProfessionnals[i].style.borderRadius = randomBorder();
@@ -35,4 +37,13 @@ for (let i = 0; i < bubblesServices.length; i += 1) {
     bubblesServices[i].style.borderRadius = randomBorder();
     bubblesServices[i].style.transitionDelay = `${i / 5}s`;
     bubblesServices[i].classList.add('appear');
+}
+
+for (let i = 0; i < bubblesReferences.length; i += 1) {
+    bubblesReferences[i].style.borderRadius = randomBorder();
+}
+
+for (let i = 0; i < blockReferences.length; i += 1) {
+    blockReferences[i].style.transitionDelay = `${i / 5}s`;
+    blockReferences[i].classList.add('appear');
 }
