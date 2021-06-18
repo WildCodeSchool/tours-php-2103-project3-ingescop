@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block pageContainer %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+        <input type ="submit" value="Envoyer">
+    {{ form_end(form) }}
+{% endblock %}
+{% block flashMessage %}
+    {% for message in app.flashes('Success') %}
+        {{ message }}
+    {% endfor %}
+{% endblock %}

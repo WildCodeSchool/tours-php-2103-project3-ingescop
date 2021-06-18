@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block pageContainer %}
+
+    <div class="professionnal-list-page">
+
+        <h1>Nos professionnels</h1>
+        <div class="professionnals-list">
+            {% for professionnal in professionnels %}
+                <a href="{{ path('professionnal_show', {id: professionnal.id}) }}" class="bubble-pro"><p>{{ professionnal.name }}</p> <p>{{ professionnal.job }}</p></a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

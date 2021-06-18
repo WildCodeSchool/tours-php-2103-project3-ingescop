@@ -6,7 +6,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "doctrine/doctrine-fixtures-bundle": "^3.3",
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
@@ -47,6 +46,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "friendsoftwig/twigcs": ">=4",
         "phpmd/phpmd": "*",
         "phpro/grumphp": "*",
