@@ -305,7 +305,7 @@ footer p {
 .home-banner {
     width: 100%;
     height: 80%;
-    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.671), rgba(0, 0, 0, 0.349)), url(/assets/images/1gscop-pano-accueil.jpg);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.253)), url(/assets/images/1gscop-pano-accueil-2.jpg);
     background-size: cover;
 }
 
@@ -337,11 +337,13 @@ footer p {
 .home-container-top .link-block {
     width: 25%;
     height: 80%;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: appear 1s ease;
+    transition: all 1s ease;
+    animation: appear 0.6s ease;
 }
 
 .home-container-top .link-block:first-child  {
@@ -355,7 +357,7 @@ footer p {
 }
 
 .home-container-top .link-block p {
-    font-size: 2rem;
+    font-size: 3.2rem;
     color: var(--white);
     margin-top: 5%;
 }
@@ -365,17 +367,12 @@ footer p {
     font-size: 3.2rem;
     padding: 2% 4%;
     color: var(--white);
-    border: 3px solid var(--white);
     border-radius: 100px;
 }
 
-.home-container-top .link-block:nth-child(2) a {
-    color: var(--black);
-    border: 3px solid var(--black);
-}
-
+.home-container-top .link-block:nth-child(2) a,
 .home-container-top .link-block:nth-child(2) p {
-    color: var(--black);
+    color: var(--white);
 }
 
 .home-container-bottom {
@@ -384,6 +381,26 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.home-container-top #home-link-pro:hover {
+    background-color: rgba(243, 244, 239, 0.438);
+    transform: translateX(-3rem);
+}
+
+.home-container-top #home-link-pro:hover p{
+    color: rgba(59,62,71,1.0);
+    filter: contrast(200%);
+}
+
+.home-container-top #home-link-service:hover {
+    background-color: rgba(243, 244, 239, 0.438);
+    transform: translateX(3rem);
+}
+
+.home-container-top #home-link-service:hover p{
+    color: rgba(59,62,71,1.0);
+    filter: contrast(200%);
 }
 
 .home-container-bottom a {
