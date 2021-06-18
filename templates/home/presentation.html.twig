@@ -1,13 +1,83 @@
 {% extends 'base.html.twig' %}
-
 {% block pageContainer %}
-
-    <div class="presentation-page">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <h1>QUI SOMMES NOUS?</h1>
+    <div class="presentation-generale">
+        <div class="explication-CAE">
+            <h2 id="pres">Présentation de la Cooperative d'Activités et d'Emplois (CAE)</h2>
+                <p id="description-cae">
+                    <em id="log">1</em><em>G</em>scop est une Coopérative d’Activités et d’Emplois dédiée à la rénovation et à la construction,
+                    de l’échelle du bâtiment jusqu’à l’échelle urbaine.
+                    Le projet 1gscop est né à l’heure où il était question du déploiement de la 5G en France…
+                    et à une époque de l’histoire humaine où il n’a jamais été aussi important de (re)concilier le soin des femmes
+                    et des hommes avec celui qu’il convient de porter à notre Terre.
+                </p>
+        </div>
+        <div class="explication-titre">
+            <p id="G">
+                <em>1G</em>, oui, résolument, comme une évidence, faire un pas de côté face à l’agitation des mécanismes actuels,
+                pour prendre le rythme des enjeux contemporains qui émanent d’une préoccupation globale :
+                du soin de notre Terre, du soin de l’habitat et notamment de celui des plus fragiles,
+                de l’attention portée au cadre de vie des femmes et des hommes.
+            </p>
+            <p id="INGE">
+                <em>INGE</em>, oui, car le collectif est animé par ce qui est ingénieux,
+                dans le sens où il doit répondre précisément et efficacement aux besoins d’actions contemporaines ;
+                la page des années « copier-coller » est tournée.
+                Le collectif est baigné dans le bain de l’ingénierie, où l’intelligence se travaille collectivement,
+                nourrie de sciences humaines et techniques.
+            </p>
+            <p id="SCOP">
+                <em>SCOP</em>, oui, car c’est un projet qui émerge d’un collectif,
+                d’une vision où le tempo des actions est décidé ensemble car il s’agit d’aller loin,
+                d’être endurants et non de s’épuiser après un sprint de départ trop vite mené.
+            </p>
+        </div>
+        <div class="utilisation">
+            <p>
+                Les terrains de prédilection d’1gscop sont de manière croisée :
+                L’attention aux femmes et aux hommes, plus particulièrement les plus fragiles
+                Le choix de matériaux de construction sains et respectueux de la santé de ceux qui
+                les mettent en œuvre et de ceux qui habitent ces lieux (logement, travail, etc…)
+                Une attention à la qualité et à la performance technique des interventions sur l’habitat
+                Une écoute singulière des besoins, un esprit critique ouvert et constructif
+                Une expertise dans ses domaines d’actions
+                Une audace pour faire évoluer les métiers face aux besoins qui émergent
+                Et voilà, vous savez tout où presque ! (sinon, il va falloir continuer de surfer sur le site…)
+            </p>
+       </div>
     </div>
-
+    <div class="cogerants">
+        <h2 id="pres-co">Presentation des cogerants</h2>
+            <div class="bubble-portrait">
+                <a href=""id="robert"><img src="{{ asset('build/images/robert.png') }}" alt="ROBERT"></a>
+                <a href=""id="alice"><img src="{{ asset('build/images/alice.png') }}" alt="ALICE"></a>
+                <a href=""id="patrick"><img src="{{ asset('build/images/patrick.png') }}" alt="PATRICK"></a>
+            </div>
+            <div class="explication-portrait">
+                <p id="R">
+                    <em>ROBERT</em>
+                    est orléanais, il aime les grands espaces marins, tout comme, une fois qu’il est sec,
+                    enfiler ses chaussures de randonnée. Robert BORJA est conseiller juridique et financier et rénovation énergétique.
+                    Après une maitrise en écologie à Paris 6ème,
+                    il alterne des missions de consultants en environnement et de conseillers techniques,
+                    financiers et juridiques en rénovation énergétique.
+                </p>
+                <p id="A">
+                    <em>ALICE</em>
+                    est chinonaise, elle aime écouter les pinsons au printemps, marcher dans les vignes,
+                    faire des poupées avec des coquelicots. Alice PERROTTE est architecte,
+                    diplômée de la Bartlett School of Architecture de Londres, elle puise son inspiration et son regard affiné
+                    et aguerri d’une expérience de plus de 30 ans en architecture sur les terrains du libéral, des agences d’architecture,
+                    des structures publiques d’aménagement et de conseils de l’échelle de la maison jusqu’à celle de la ville.
+                </p>
+                <p id="P">
+                    <em>PATRICK</em>
+                    est tourangeau, il aime le vélo, surtout le tandem parce que cela rime pour lui avec les vacances.
+                    Patrick GARREAU est ingénieur des ponts et chaussées et diplômé en architecture.
+                    Il a exercé au Tchad et au Honduras, en France dans des bureaux d’études sur de nombreux sujets
+                    liés à l’ingénierie de la construction.
+                    Il est également formateur et accompagnateur de groupements d’artisans pour la rénovation performante de maisons individuelles.
+                </p>
+            </div>
+    </div>
 {% endblock %}
