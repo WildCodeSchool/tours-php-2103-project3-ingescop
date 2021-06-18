@@ -14,7 +14,15 @@
 	<body>
 		{% block header %}
 			<header>
-					<img class="header--logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/>
+
+				<div class="header--logo" >
+					<a href="{{ path("app_login") }}"><img class="logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/></a>
+				</div>
+				{% block Admin %}{% endblock %}
+				{% if app.user %}
+    				{{ app.user }}
+    				<a href="{{ path('app_logout') }}"> Se déconnecter</a>
+				{% endif %}				
 				<nav>
 					<ul>
 						{# HOME PAGE #}
@@ -84,6 +92,9 @@
 							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
 							<li><a href="{{ path('services_list') }}">Services</li></a>
 							<li><a href="{{ path('reference_list') }}">Références</li></a>
+						{% endif %}
+						{% if app.request.attributes.get('_route') == 'contactus' %}
+							<li><a href="{{ path('home') }}">Accueil</a></li>
 						{% endif %}
 					</ul>
 				</nav>
