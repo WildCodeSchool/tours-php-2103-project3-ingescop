@@ -37,6 +37,10 @@ It's symfony website-skeleton project with some additional tools to validate cod
 
 1. Run `symfony server:start` to launch your local php web server
 2. Run `yarn run dev --watch` to launch your local server for assets
+3. Copy the files .env  for create your .env.local
+4. Uncomment MAILER_DSN and DATABASE_URL="mysql" and comment DATABASE_URL="postgresql"
+5. For work in local don't forget to create a database with `symfony console d:d:c`
+6. After pull remote branch don't forget to play the migration `symfony console do:mi:mi`
 
 ### Testing
 
