@@ -29,9 +29,15 @@ const blockReferences = document.querySelectorAll('.reference-block');
 const footer = document.querySelector('.footer-others');
 const burgerMenu = document.querySelector('.responsive-menu');
 const burgherIcon = document.querySelector('.burger-icon');
+const lineOne = document.querySelector('.line1');
+const lineTwo = document.querySelector('.line2');
+const lineThree = document.querySelector('.line3');
 
 burgherIcon.addEventListener('click', () => {
-    burgerMenu.classList.toggle('appear');
+    burgerMenu.classList.toggle('change');
+    lineOne.classList.toggle('rotateOne');
+    lineTwo.classList.toggle('byby');
+    lineThree.classList.toggle('rotateThree');
 });
 
 window.addEventListener('scroll', () => {
