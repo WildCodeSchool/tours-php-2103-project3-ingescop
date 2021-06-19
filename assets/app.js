@@ -26,6 +26,21 @@ const bubblesProfessionnals = document.querySelectorAll('.bubble-pro');
 const bubblesServices = document.querySelectorAll('.bubble-service');
 const bubblesReferences = document.querySelectorAll('.bubble-reference');
 const blockReferences = document.querySelectorAll('.reference-block');
+const footer = document.querySelector('.footer-others');
+const burgerMenu = document.querySelector('.responsive-menu');
+const burgherIcon = document.querySelector('.burger-icon');
+
+burgherIcon.addEventListener('click', () => {
+    burgerMenu.classList.toggle('appear');
+});
+
+window.addEventListener('scroll', () => {
+    const scrollValue = (window.innerHeight + window.scrollY) / (document.body.offsetHeight);
+    if (scrollValue > 0.9) {
+        footer.style.animation = 'moveFooter 0.8s 0.5s ease';
+        footer.style.animationFillMode = 'backwards';
+    }
+});
 
 for (let i = 0; i < bubblesProfessionnals.length; i += 1) {
     bubblesProfessionnals[i].style.borderRadius = randomBorder();
