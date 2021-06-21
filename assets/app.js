@@ -43,7 +43,7 @@ burgherIcon.addEventListener('click', () => {
 window.addEventListener('scroll', () => {
     const scrollValue = (window.innerHeight + window.scrollY) / (document.body.offsetHeight);
     if (scrollValue > 0.9) {
-        footer.style.animation = 'moveFooter 0.8s 0.5s ease';
+        footer.style.animation = 'moveFooter 0.8s 0.3s ease';
         footer.style.animationFillMode = 'backwards';
     }
 });
