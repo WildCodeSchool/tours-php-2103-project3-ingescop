@@ -21,85 +21,106 @@
 				{% if app.user %}
     				{{ app.user }}
     				<a href="{{ path('app_logout') }}"> Se déconnecter</a>
-				{% endif %}				
-				<nav>
-					<ul>
-						{# HOME PAGE #}
-						{% if app.request.attributes.get('_route') == 'home' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{# WHO ARE WE PAGE #}
-						{% if app.request.attributes.get('_route') == 'presentation' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{# PROFESSIONNAL LIST PAGE #}
-						{% if app.request.attributes.get('_route') == 'professionnal_list' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{# PROFESSIONNAL SHOW PAGE #}
-						{% if app.request.attributes.get('_route') == 'professionnal_show' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{# SERVICE LIST PAGE #}
-						{% if app.request.attributes.get('_route') == 'services_list' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{# SERVICE SHOW PAGE #}
-						{% if app.request.attributes.get('_route') == 'services_show' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{# CONTACT PRO PAGE #}
-						{% if app.request.attributes.get('_route') == 'contactpro' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{# CONTACT US PAGE #}
-						{% if app.request.attributes.get('_route') == 'contactus' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{# REFERENCE LIST PAGE #}
-						{% if app.request.attributes.get('_route') == 'reference_list' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{# REFERENCE SHOW PAGE #}
-						{% if app.request.attributes.get('_route') == 'reference_show' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-							<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
-							<li><a href="{{ path('services_list') }}">Services</li></a>
-							<li><a href="{{ path('reference_list') }}">Références</li></a>
-						{% endif %}
-						{% if app.request.attributes.get('_route') == 'contactus' %}
-							<li><a href="{{ path('home') }}">Accueil</a></li>
-						{% endif %}
-					</ul>
-				</nav>
-				<div class="header--form-links">
-					<p><a href="{{ path('contactpro') }}">Nous rejoindre</a></p>
-					<p><a href="{{ path('contactus') }}">Nous contacter</a></p>
+				{% endif %}
+				<div class="responsive-menu">
+					<nav>
+						<ul id="home-links">
+							{# HOME PAGE #}
+							{% if app.request.attributes.get('_route') == 'home' %}
+								<li><a class="custom" href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+							{% endif %}
+							{# WHO ARE WE PAGE #}
+							{% if app.request.attributes.get('_route') == 'presentation' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a class="custom" href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+							{# PROFESSIONNAL LIST PAGE #}
+							{% if app.request.attributes.get('_route') == 'professionnal_list' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a class="custom" href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+							{# PROFESSIONNAL SHOW PAGE #}
+							{% if app.request.attributes.get('_route') == 'professionnal_show' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+							{# SERVICE LIST PAGE #}
+							{% if app.request.attributes.get('_route') == 'services_list' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a class="custom" href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+							{# SERVICE SHOW PAGE #}
+							{% if app.request.attributes.get('_route') == 'services_show' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+							{# REFERENCE LIST PAGE #}
+							{% if app.request.attributes.get('_route') == 'reference_list' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a class="custom" href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+							{# REFERENCE SHOW PAGE #}
+							{% if app.request.attributes.get('_route') == 'reference_show' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+							{# CONTACT PRO PAGE #}
+							{% if app.request.attributes.get('_route') == 'contactpro' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+							{# CONTACT US PAGE #}
+							{% if app.request.attributes.get('_route') == 'contactus' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+							{# ADMIN PAGE #}
+							{% if app.request.attributes.get('_route') == 'app_login' %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
+						</ul>
+					</nav>
+					<div class="header--form-links">
+						<p><a href="{{ path('contactpro') }}">Nous rejoindre</a></p>
+						<p><a href="{{ path('contactus') }}">Nous contacter</a></p>
+					</div>
+				</div>
+				<div class="burger-icon">
+					<div class="burger-row line1"></div>
+					<div class="burger-row line2"></div>
+					<div class="burger-row line3"></div>
 				</div>
 			</header>
 		{% endblock %}
@@ -111,7 +132,7 @@
 				{% if app.request.attributes.get('_route') == 'home' %}
 					<div class="footer-home">
 						<div id="footer-left">
-							<p>contact@1gscop.fr30</p><p>rue André Theuriet37000</p><p>Tours06 58 39 21 46</p>
+							<p><a href="mailto:contact@1gscop.fr">contact@1gscop.fr</a></p><p>30 rue André Theuriet 37000 Tours</p><p>06 58 39 21 46</p>
 						</div>
 						<div id="footer-right">
 							<p>Partenaire de</p>
@@ -119,9 +140,11 @@
 						</div>
 					</div>
 				{% else %}
-					<p>contact@1gscop.fr30</p>
-					<p>rue André Theuriet<br>37000 Tours</p>
-					<p>06 58 39 21 46</p>
+					<div class='footer-others'>
+						<p><a href="mailto:contact@1gscop.fr">contact@1gscop.fr</a></p>
+						<p>30 rue André Theuriet<br>37000 Tours</p>
+						<p>06 58 39 21 46</p>
+					</div>
 				{% endif %}
 			</footer>
 		{% endblock %}
