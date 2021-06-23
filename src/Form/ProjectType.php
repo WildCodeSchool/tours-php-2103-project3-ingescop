@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ProjectType extends AbstractType
 {
@@ -17,7 +18,9 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('note', IntegerType::class)
+            ->add('note', ChoiceType::class, [
+                'choices' => [0, 1, 2, 3, 4, 5]
+            ])
             ->add('place', TextType::class)
             ->add('client', TextType::class)
             ->add('missionIngescop', TextType::class)
@@ -29,7 +32,7 @@ class ProjectType extends AbstractType
             ->add('strongPoints', TextType::class)
             ->add('photoTwo', TextType::class)
             ->add('photoThree', TextType::class)
-            ->add('owner', CollectionType::class)
+            ->add('owner', null, ['choice_label' => 'name'])
         ;
     }
 
