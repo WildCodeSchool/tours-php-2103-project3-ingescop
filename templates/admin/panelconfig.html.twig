@@ -45,8 +45,8 @@
                 <td>{{ project.photoTwo }}</td>
                 <td>{{ project.photoThree }}</td>
                 <td>
-                    <a href="{{ path('admin_show', {'id': project.id}) }}">show</a>
-                    <a href="{{ path('admin_edit', {'id': project.id}) }}">edit</a>
+                    <a href="{{ path('admin_showproject', {'id': project.id}) }}">show</a>
+                    <a href="{{ path('admin_editproject', {'id': project.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -57,5 +57,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_new') }}">Create new</a>
+    <a href="{{ path('admin_newproject') }}">Create new</a>
 {% endblock %}

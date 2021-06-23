@@ -23,7 +23,7 @@ class AdminFixtures extends Fixture
         ->setRoles(["ROLE_ADMIN"])
         ->setPassword($this->passworddEncoder->encodePassword(
             $admin,
-            '\$argon2id\$v=19\$m=65536,t=4,p=1\$BQG+jovPcunctc30xG5PxQ\$TiGbx451NKdo+g9vLtfkMy4KjASKSOcnNxjij4gTX1s'
+            'banane'
         ));
         $manager->persist($admin);
         $manager->flush();

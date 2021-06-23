@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/panel")
+ * @Route("/admin", name="admin_")
  */
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_index", methods={"GET"})
+     * @Route("/", name="panelconfig", methods={"GET"})
      */
     public function listProject(ProjectRepository $projectRepository): Response
     {
@@ -26,7 +26,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="admin_new", methods={"GET","POST"})
+     * @Route("/new", name="newproject", methods={"GET","POST"})
      */
     public function newProject(Request $request): Response
     {
@@ -49,7 +49,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_show", methods={"GET"})
+     * @Route("/{id}", name="showproject", methods={"GET"})
      */
     public function showProject(Project $project): Response
     {
@@ -59,7 +59,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="admin_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="editproject", methods={"GET","POST"})
      */
     public function editProject(Request $request, Project $project): Response
     {
@@ -79,7 +79,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_delete", methods={"POST"})
+     * @Route("/{id}", name="deleteproject", methods={"POST"})
      */
     public function deleteProject(Request $request, Project $project): Response
     {

@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
@@ -22,6 +23,9 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez choisir un nom")
+     * @Assert\Length(max="255", maxMessage="Le projet saisie {{ value }} contient trop
+     * de charactères, vous devez en rentrez {{ limit }} maximum")
      */
     private string $name;
 
@@ -32,6 +36,11 @@ class Project
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 5,
+     *      notInRangeMessage = "Vous devez entrez une note comprise entre {{ min }} et {{ max }}"
+     * )
      */
     private int $note;
 
@@ -101,12 +110,12 @@ class Project
         $this->entryDate = new DateTime('now');
     }
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
