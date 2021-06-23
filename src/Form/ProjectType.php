@@ -18,7 +18,7 @@ class ProjectType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('note', IntegerType::class)
-            ->add('place', CollectionType::class)
+            ->add('place', TextType::class)
             ->add('client', TextType::class)
             ->add('missionIngescop', TextType::class)
             ->add('budget', TextType::class)
