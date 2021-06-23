@@ -18,9 +18,9 @@ class AdminController extends AbstractController
     /**
      * @Route("/", name="admin_index", methods={"GET"})
      */
-    public function index(ProjectRepository $projectRepository): Response
+    public function listProject(ProjectRepository $projectRepository): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/panelconfig.html.twig', [
             'projects' => $projectRepository->findAll(),
         ]);
     }
@@ -28,7 +28,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/new", name="admin_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function newProject(Request $request): Response
     {
         $project = new Project();
         $form = $this->createForm(ProjectType::class, $project);
@@ -51,7 +51,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/{id}", name="admin_show", methods={"GET"})
      */
-    public function show(Project $project): Response
+    public function showProject(Project $project): Response
     {
         return $this->render('admin/show.html.twig', [
             'project' => $project,
@@ -61,7 +61,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Project $project): Response
+    public function editProject(Request $request, Project $project): Response
     {
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
@@ -81,7 +81,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/{id}", name="admin_delete", methods={"POST"})
      */
-    public function delete(Request $request, Project $project): Response
+    public function deleteProject(Request $request, Project $project): Response
     {
         if ($this->isCsrfTokenValid('delete' . $project->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

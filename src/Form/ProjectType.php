@@ -17,7 +17,6 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('entryDate', DateTimeInterface::class)
             ->add('note', IntegerType::class)
             ->add('place', CollectionType::class)
             ->add('client', TextType::class)
