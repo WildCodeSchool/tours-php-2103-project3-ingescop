@@ -1014,6 +1014,16 @@ h1 {
     margin-bottom: 0;
 }
 
+#reference-professionnal-links {
+    text-decoration: none;
+    color: var(--brown);
+    transition: 0.5s color ease;
+}
+
+#reference-professionnal-links:hover {
+    color: var(--orange);
+}
+
 .reference-show-description .bottom-pics {
     margin: 4.5% 0% 1% 3.5%;
     overflow: hidden;
@@ -1033,7 +1043,8 @@ h1 {
 /*===== TABLETS AND IPHONES =====*/
 
 @media screen and (max-width: 860px) {
-    /*HOME PAGE*/
+    /*HEADER*/
+    /*BURGER MENU*/
     .burger-icon {
         width: 5%;
         height: 20%;
