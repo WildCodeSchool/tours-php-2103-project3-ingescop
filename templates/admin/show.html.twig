@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project{% endblock %}
+
+{% block pageContainer %}
+    <h1>Project</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ project.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ project.name }}</td>
+            </tr>
+            <tr>
+                <th>EntryDate</th>
+                <td>{{ project.entryDate ? project.entryDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ project.note }}</td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td>{{ project.place }}</td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ project.client }}</td>
+            </tr>
+            <tr>
+                <th>MissionIngescop</th>
+                <td>{{ project.missionIngescop }}</td>
+            </tr>
+            <tr>
+                <th>Budget</th>
+                <td>{{ project.budget }}</td>
+            </tr>
+            <tr>
+                <th>Calendar</th>
+                <td>{{ project.calendar }}</td>
+            </tr>
+            <tr>
+                <th>WorkInProgress</th>
+                <td>{{ project.workInProgress }}</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>{{ project.resume }}</td>
+            </tr>
+            <tr>
+                <th>PhotoOne</th>
+                <td>{{ project.photoOne }}</td>
+            </tr>
+            <tr>
+                <th>StrongPoints</th>
+                <td>{{ project.strongPoints }}</td>
+            </tr>
+            <tr>
+                <th>PhotoTwo</th>
+                <td>{{ project.photoTwo }}</td>
+            </tr>
+            <tr>
+                <th>PhotoThree</th>
+                <td>{{ project.photoThree }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_index') }}">back to list</a>
+
+    <a href="{{ path('admin_edit', {'id': project.id}) }}">edit</a>
+
+    {{ include('admin/_delete_form.html.twig') }}
+{% endblock %}
