@@ -4,7 +4,10 @@
 
 {% block pageContainer %}
     <div class="reference-show-block">
-    <div class="reference-show-image">
+            {% if app.user %}
+                    <a id="panelcongig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
+            {% endif %}
+        <div class="reference-show-image">
             <img src="{{ asset(reference.photoOne) }}"/>
         </div>
         <div class="reference-show-description">
@@ -18,6 +21,13 @@
             {% for point in strongPoints %}
                 <p class="point">{{ point }}</p>
             {% endfor %}
+            {% if reference.owner != null %}
+                <p><strong>Professionnels ayant participés au projet : </strong><br>
+                    {% for professionnal in reference.owner %}
+                    <a id="reference-professionnal-links" href="{{ path('professionnal_show', {id: professionnal.id}) }}">{{ professionnal.name }}</a><br>
+                {% endfor %}
+                </p>
+            {% endif %}
             <p><strong>En bref</strong><br>{{ reference.resume }}</p>
             <div class="bottom-pics">
                 {% if reference.photoTwo != 0 %}

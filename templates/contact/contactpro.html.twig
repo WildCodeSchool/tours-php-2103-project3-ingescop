@@ -3,6 +3,9 @@
 {% block title %}{% endblock %}
 
 {% block pageContainer %}
+    {% if app.user %}
+        <a id="panelcongig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
+    {% endif %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
         <input type ="submit" value="Envoyer">

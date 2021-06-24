@@ -3,6 +3,9 @@
 {% block pageContainer %}
 
     <div class="service-show-page">
+        {% if app.user %}
+            <a id="panelcongig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
+        {% endif %}
         <div class="service-title-image">
                 <h1>{{ service.name }}</h1>
                 {% if service.category == 'AMO' %}

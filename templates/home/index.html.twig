@@ -3,7 +3,9 @@
 {% block title %}INGE SCOP{% endblock %}
 
 {% block pageContainer %}
-
+    {% if app.user %}
+            <a id="panelcongig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
+    {% endif %}
     <div class="home-page">
         <div class="home-container">
             <div class="home-banner">
@@ -15,11 +17,11 @@
                 <div class="home-container-top">
                     <a id="home-link-pro" class="link-block" href="{{ path("professionnal_list") }}">
                         <p>Maître d'oeuvre</p>
-                        <p>Vous rechercher un professionnel</p>
+                        <p>Vous recherchez un professionnel</p>
                     </a>
                     <a id= "home-link-service" class="link-block" href="{{ path("services_list") }}">
                         <p>Maître d'ouvrage</p>
-                        <p>Vous rechercher un service</p>
+                        <p>Vous recherchez un service</p>
                     </a>
                 </div>
             </div>

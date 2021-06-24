@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block pageContainer %}
 
+    {% if app.user %}
+            <a id="panelcongig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
+    {% endif %}
     <div class="professionnal-list-page">
 
         <h1>Nos professionnels</h1>
