@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panneau de Configuration{% endblock %}
+
+{% block pageContainer %}
+<a href="{{ path("admin_newservice") }}"> Créer un service</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Catégorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for service in services %}
+            <tr>
+                <td>{{ service.id }}</td>
+                <td>{{ service.name }}</td>
+                <td>{{ service.category }}</td>
+                <td>
+                    <a href="{{ path("admin_editservice", {"id": service.id}) }}">Editer</a>
+                    <a href="{{ path("services_show", {"id": service.id}) }}">Voir</a>
+                </td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
