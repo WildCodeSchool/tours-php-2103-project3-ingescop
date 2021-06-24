@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Project{% endblock %}
+
+{% block pageContainer %}
+    <h1>Éditer le Project</h1>
+
+    {{ include('admin/_form_project.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('admin_panelconfig') }}">Retour à la liste des projets</a>
+
+    {{ include('admin/_delete_form_project.html.twig') }}
+{% endblock %}
