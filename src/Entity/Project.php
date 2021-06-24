@@ -25,7 +25,7 @@ class Project
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez choisir un nom")
      * @Assert\Length(max="255", maxMessage="Le projet saisie {{ value }} contient trop
-     * de charactères, vous devez en rentrez {{ limit }} maximum")
+     * de charactères, vous devez en rentrez {{ limit }} au maximum")
      */
     private string $name;
 
@@ -51,36 +51,61 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez rentrer le lieu où le projet de
+     * rénovation a été réalisé, dans le champs ('lieu')")
+     * @Assert\Length(max="255", maxMessage="Le lieu saisie (champ 'place') {{ value }} contient trop
+     * de charactères, vous devez en rentrez {{ limit }} au maximum")
      */
     private string $place;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez rentrer le client pour qui le
+     * projet a été réalisé, dans le champ ('lieu')")
+     * @Assert\Length(max="255", maxMessage="Le nom de client  saisie
+     * (champ 'client') {{ value }} contient trop
+     * de charactères, vous devez en rentrez {{ limit }} au maximum")
      */
     private string $client;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez rentrer une description de la mission
+     * ingéscop éffectuée, dans le champ ('Mission ingéscop')")
+     * @Assert\Length(max="255", maxMessage="Le descriptif de la mission ingéscope  saisie
+     * (champ 'Mission ingéscope') {{ value }} contient trop
+     * de charactères, vous devez en rentrez {{ limit }} au maximum")
      */
     private string $missionIngescop;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\NotBlank(message="Vous devez rentrer le budget, dans le champ ('budget')")
+     * @Assert\Length(max="255", maxMessage="Le budget  saisie
+     * (champ 'budget') {{ value }} contient trop
+     * de charactères, vous devez en rentrez {{ limit }} au maximum")
      */
     private string $budget;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\NotBlank(message="Vous devez rentrer les dates de dédut et de fin, dans le champ ('Calendar')")
+     * @Assert\Length(max="255", maxMessage="Le calendrier  saisie
+     * (champ 'Calendar') {{ value }} contient trop
+     * de charactères, vous devez en rentrez {{ limit }} au maximum")
      */
     private string $calendar;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez rentrer l'état actuel du projet', dans le
+     * champ ('Work in progress'), vous avez le choix entre 'En études', 'En travaux' et 'Livré'")
      */
     private string $workInProgress;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Vous devez rentrer un résumé descriptif du projet, dans le champ ('Resume)")
      */
     private string $resume;
 

@@ -26,10 +26,12 @@ class ProjectType extends AbstractType
             ->add('missionIngescop', TextType::class)
             ->add('budget', TextType::class)
             ->add('calendar', TextType::class)
-            ->add('workInProgress', TextType::class)
+            ->add('workInProgress', ChoiceType::class, [
+                'choices' => ['En études' => 'En études','En travaux' => 'En travaux', 'Livré' => 'Livré']
+            ])
+            ->add('strongPoints', TextType::class)
             ->add('resume', TextType::class)
             ->add('photoOne', TextType::class)
-            ->add('strongPoints', TextType::class)
             ->add('photoTwo', TextType::class)
             ->add('photoThree', TextType::class)
             ->add('owner', null, ['choice_label' => 'name'])
