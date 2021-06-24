@@ -26,7 +26,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="newproject", methods={"GET","POST"})
+     * @Route("/newproject", name="newproject", methods={"GET","POST"})
      */
     public function newProject(Request $request): Response
     {
@@ -42,24 +42,14 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin_panelconfig');
         }
 
-        return $this->render('admin/new.html.twig', [
+        return $this->render('admin/new_project.html.twig', [
             'project' => $project,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="showproject", methods={"GET"})
-     */
-    public function showProject(Project $project): Response
-    {
-        return $this->render('admin/showproject.html.twig', [
-            'project' => $project,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="editproject", methods={"GET","POST"})
+     * @Route("/{id}/editproject", name="editproject", methods={"GET","POST"})
      */
     public function editProject(Request $request, Project $project): Response
     {
@@ -72,14 +62,14 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin_panelconfig');
         }
 
-        return $this->render('admin/edit.html.twig', [
+        return $this->render('admin/edit_project.html.twig', [
             'project' => $project,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="deleteproject", methods={"POST"})
+     * @Route("/{id}/deleteproject", name="deleteproject", methods={"POST"})
      */
     public function deleteProject(Request $request, Project $project): Response
     {

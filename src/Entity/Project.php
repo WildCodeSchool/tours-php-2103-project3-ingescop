@@ -23,8 +23,10 @@ class Project
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez choisir un nom")
-     * @Assert\Length(max="255", maxMessage="Le projet saisie {{ value }} contient trop
-     * de charactères, vous devez en rentrez {{ limit }} au maximum")
+     * @Assert\Length(
+     *      max = "255",
+     *      maxMessage = "Le projet saisie {{ value }} contient trop de charactères, {{ limit }} au maximum"
+     * )
      */
     private string $name;
 
@@ -111,7 +113,7 @@ class Project
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $photoOne;
+    private ?string $photoOne;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -276,7 +278,7 @@ class Project
         return $this;
     }
 
-    public function getPhotoOne(): string
+    public function getPhotoOne(): ?string
     {
         return $this->photoOne;
     }

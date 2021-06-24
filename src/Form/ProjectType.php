@@ -32,8 +32,8 @@ class ProjectType extends AbstractType
             ->add('strongPoints', TextType::class, ['label' => 'Points forts'])
             ->add('resume', TextType::class, ['label' => 'En bref'])
             ->add('photoOne', TextType::class, ['label' => 'Photo principale'])
-            ->add('photoTwo', TextType::class, ['label' => 'Photo secondaire'])
-            ->add('photoThree', TextType::class, ['label' => 'Photo secondaire'])
+            ->add('photoTwo', TextType::class, ['label' => 'Photo secondaire', 'required' => false])
+            ->add('photoThree', TextType::class, ['label' => 'Photo secondaire', 'required' => false])
             ->add('owner', EntityType::class, [
                 'class' => Professionnal::class,
                 'choice_label' => 'name',
