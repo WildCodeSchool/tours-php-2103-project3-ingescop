@@ -4,6 +4,9 @@
 
 {% block pageContainer %}
     <div class="references-list-block">
+        {% if app.user %}
+                    <a id="panelcongig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panneau de configuration</a>
+            {% endif %}
         {% for reference in references %}
             {% if reference.workInProgress == 'En études' %}
                 <a href="{{ path('reference_show', {id: reference.id}) }}"

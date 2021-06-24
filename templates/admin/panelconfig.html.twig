@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project index{% endblock %}
+
+{% block pageContainer %}
+    <h1>Project index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>EntryDate</th>
+                <th>Note</th>
+                <th>Lieu</th>
+                <th>Client</th>
+                <th>Mission Ingescop</th>
+                <th>Budget</th>
+                <th>Calendrier</th>
+                <th>État du projet</th>
+                <th>En bref</th>
+                <th>Points forts</th>
+                <th>Photo principale</th>
+                <th>Photo secondaire</th>
+                <th>Photo secondaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>{{ project.name }}</td>
+                <td>{{ project.entryDate ? project.entryDate|date('Y-m-d') : '' }}</td>
+                <td>{{ project.note }}</td>
+                <td>{{ project.place }}</td>
+                <td>{{ project.client }}</td>
+                <td>{{ project.missionIngescop }}</td>
+                <td>{{ project.budget }}</td>
+                <td>{{ project.calendar }}</td>
+                <td>{{ project.workInProgress }}</td>
+                <td>{{ project.resume }}</td>
+                <td>{{ project.strongPoints }}</td>
+                <td>{{ project.photoOne }}</td>
+                <td>{{ project.photoTwo }}</td>
+                <td>{{ project.photoThree }}</td>
+                <td>
+                    <a href="{{ path('reference_show', {id: project.id}) }}">Voir le projet</a>
+                    <a href="{{ path('admin_editproject', {'id': project.id}) }}">Éditer le projet</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">Pas d'enregistrements trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_newproject') }}">Créer un nouveau projet</a>
+{% endblock %}

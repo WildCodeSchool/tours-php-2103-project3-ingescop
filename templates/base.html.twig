@@ -19,8 +19,7 @@
 				</div>
 				{% block Admin %}{% endblock %}
 				{% if app.user %}
-    				{{ app.user }}
-    				<a href="{{ path('app_logout') }}"> Se déconnecter</a>
+    				<a id="logout-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
 				{% endif %}
 				<div class="responsive-menu">
 					<nav>
