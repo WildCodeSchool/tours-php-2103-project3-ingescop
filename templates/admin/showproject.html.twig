@@ -12,7 +12,7 @@
                 <td>{{ project.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ project.name }}</td>
             </tr>
             <tr>
@@ -24,7 +24,7 @@
                 <td>{{ project.note }}</td>
             </tr>
             <tr>
-                <th>Place</th>
+                <th>Lieu</th>
                 <td>{{ project.place }}</td>
             </tr>
             <tr>
@@ -32,7 +32,7 @@
                 <td>{{ project.client }}</td>
             </tr>
             <tr>
-                <th>MissionIngescop</th>
+                <th>Mission Ingescop</th>
                 <td>{{ project.missionIngescop }}</td>
             </tr>
             <tr>
@@ -40,39 +40,39 @@
                 <td>{{ project.budget }}</td>
             </tr>
             <tr>
-                <th>Calendar</th>
+                <th>Calendrier</th>
                 <td>{{ project.calendar }}</td>
             </tr>
             <tr>
-                <th>WorkInProgress</th>
+                <th>État du projet</th>
                 <td>{{ project.workInProgress }}</td>
             </tr>
             <tr>
-                <th>Resume</th>
+                <th>En bref</th>
                 <td>{{ project.resume }}</td>
             </tr>
             <tr>
-                <th>PhotoOne</th>
-                <td>{{ project.photoOne }}</td>
-            </tr>
-            <tr>
-                <th>StrongPoints</th>
+                <th>Points forts</th>
                 <td>{{ project.strongPoints }}</td>
             </tr>
             <tr>
-                <th>PhotoTwo</th>
+                <th>Photo principale</th>
+                <td>{{ project.photoOne }}</td>
+            </tr>
+            <tr>
+                <th>Photo secondaire</th>
                 <td>{{ project.photoTwo }}</td>
             </tr>
             <tr>
-                <th>PhotoThree</th>
+                <th>Photo secondaire</th>
                 <td>{{ project.photoThree }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('admin_panelconfig') }}">back to list</a>
+    <a href="{{ path('admin_panelconfig') }}">Revenir à la liste des projets</a>
 
-    <a href="{{ path('admin_editproject', {'id': project.id}) }}">edit</a>
+    <a href="{{ path('admin_editproject', {'id': project.id}) }}">Éditer</a>
 
     {{ include('admin/_delete_form.html.twig') }}
 {% endblock %}

@@ -91,4 +91,19 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('admin_panelconfig');
     }
+
+    /**
+     * @Route("show/{id}", methods={"GET"}, name="show")
+     */
+    public function show(int $id, ProjectRepository $projectRepository): Response
+    {
+        $reference = $projectRepository->findOneById($id);
+        $strongPoints = $reference->getStrongPoints();
+        $strongPoints = explode('/', $strongPoints);
+        array_shift($strongPoints);
+        return $this->render('reference/show.html.twig', [
+            'reference' => $reference,
+            'strongPoints' => $strongPoints
+        ]);
+    }
 }
