@@ -8,7 +8,7 @@
                     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
             {% endif %}
         <div class="reference-show-image">
-            <img src="{{ asset(reference.photoOne) }}"/>
+            <img src="{{ asset('uploads/images/' ~ reference.photoOne) }}" alt="{{ reference.name }}">
         </div>
         <div class="reference-show-description">
             <h1>{{ reference.name }}</h1>
@@ -31,10 +31,10 @@
             <p><strong>En bref</strong><br>{{ reference.resume }}</p>
             <div class="bottom-pics">
                 {% if reference.photoTwo != 0 %}
-                    <img src="{{ asset(reference.photoTwo) }}"/>
+                    <img src="{{ asset('uploads/images/' ~ reference.photoTwo) }}" alt="{{ reference.name }}">
                 {% endif %}
                 {% if reference.photoThree != 0 %}
-                    <img src="{{ asset(reference.photoThree) }}"/>
+                    <img src="{{ asset('uploads/images/' ~ reference.photoThree) }}" alt="{{ reference.name }}">
                 {% endif %}
             </div>
         </div>

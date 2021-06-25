@@ -37,7 +37,7 @@ class ProjectType extends AbstractType
             ->add('photoOne', FileType::class, [
                 'label' => 'Photo principale',
                 'mapped' => false,
-                'multiple' => true,
+                'multiple' => false,
                 'required' => false,
                 'constraints' => [
                     new Image([
@@ -45,8 +45,28 @@ class ProjectType extends AbstractType
                     ])
                 ]
             ])
-            ->add('photoTwo', TextType::class, ['label' => 'Photo secondaire', 'required' => false])
-            ->add('photoThree', TextType::class, ['label' => 'Photo secondaire', 'required' => false])
+            ->add('photoTwo', FileType::class, [
+                'label' => 'Photo secondaire',
+                'mapped' => false,
+                'multiple' => false,
+                'required' => false,
+                'constraints' => [
+                    new Image([
+                        'maxSize' => '1024k',
+                    ])
+                ]
+            ])
+            ->add('photoThree', FileType::class, [
+                'label' => 'Photo secondaire',
+                'mapped' => false,
+                'multiple' => false,
+                'required' => false,
+                'constraints' => [
+                    new Image([
+                        'maxSize' => '1024k',
+                    ])
+                ]
+            ])
             ->add('owner', EntityType::class, [
                 'class' => Professionnal::class,
                 'choice_label' => 'name',
