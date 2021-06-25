@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Professionnal;
+use App\Form\ProfessionnalType;
+use App\Repository\ProfessionnalRepository;
 use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
@@ -18,11 +21,33 @@ class AdminController extends AbstractController
     /**
      * @Route("/", name="panelconfig", methods={"GET"})
      */
-    public function listProject(ProjectRepository $projectRepository): Response
+    public function list(ProjectRepository $projectRepository, ProfessionnalRepository $proRepository): Response
     {
         return $this->render('admin/panelconfig.html.twig', [
             'projects' => $projectRepository->findAll(),
+            'pro' => $proRepository->findAll(),
         ]);
+    }
+
+    /**
+     * @Route("/newpro", name="newpro", methods={"GET","POST"})
+     */
+    public function newprofessionnal(Request $request): Response
+    {
+        $pro = new Professionnal();
+        $form = $this->createForm(ProfessionnalType::class, $pro);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($pro);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_panelconfig');
+        }
+        return $this->render('admin/newprofessionnal.html.twig', [
+            'pro' => $pro,
+            'form' => $form->createView(),]);
     }
 
     /**
@@ -41,11 +66,28 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute('admin_panelconfig');
         }
-
         return $this->render('admin/new_project.html.twig', [
             'project' => $project,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}/editpro", name="editpro", methods={"GET","POST"})
+     */
+    public function editprofessionnal(Request $request, Professionnal $pro): Response
+    {
+        $form = $this->createForm(ProfessionnalType::class, $pro);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_panelconfig');
+        }
+        return $this->render('admin/editprofessionnal.html.twig', [
+            'pro' => $pro,
+            'form' => $form->createView(),]);
     }
 
     /**
@@ -61,11 +103,22 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute('admin_panelconfig');
         }
-
         return $this->render('admin/edit_project.html.twig', [
             'project' => $project,
-            'form' => $form->createView(),
-        ]);
+            'form' => $form->createView(),]);
+    }
+
+    /**
+     * @Route("/{id}", name="deletepro", methods={"POST"})
+     */
+    public function deletePro(Request $request, Professionnal $pro): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $pro->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($pro);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('admin_panelconfig');
     }
 
     /**
@@ -80,20 +133,5 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_panelconfig');
-    }
-
-    /**
-     * @Route("show/{id}", methods={"GET"}, name="show")
-     */
-    public function show(int $id, ProjectRepository $projectRepository): Response
-    {
-        $reference = $projectRepository->findOneById($id);
-        $strongPoints = $reference->getStrongPoints();
-        $strongPoints = explode('/', $strongPoints);
-        array_shift($strongPoints);
-        return $this->render('reference/show.html.twig', [
-            'reference' => $reference,
-            'strongPoints' => $strongPoints
-        ]);
     }
 }
