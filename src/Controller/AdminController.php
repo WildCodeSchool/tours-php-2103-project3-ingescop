@@ -5,10 +5,16 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/admin", name="admin_")
@@ -28,17 +34,49 @@ class AdminController extends AbstractController
     /**
      * @Route("/newproject", name="newproject", methods={"GET","POST"})
      */
-    public function newProject(Request $request): Response
-    {
+    public function newProject(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        SluggerInterface $sluggerInterface
+    ): Response {
         $project = new Project();
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
+            $imageFile = $form->get('image')->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $sluggerInterface->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+
+                try {
+                    $directory = $this->getParameter('images_directory');
+                    if (is_string($directory)) {
+                        $imageFile->move(
+                            $directory,
+                            $newFilename
+                        );
+                    } else {
+                        throw new HttpException(
+                            500,
+                            "Les paramètres du répertoire d'images sont invalides,
+                        contacter les administrateurs du site"
+                        );
+                    }
+                } catch (FileException $e) {
+                    return $this->render('admin/new_project.html.twig', [
+                        'form' => $form->createView(),
+                        'error' => 'Une erreur a eu lieu lor de l\'upload du fichier, veuillez rééssayer'
+                    ]);
+                } catch (ServiceNotFoundException $e) {
+                    throw $e;
+                }
+                $project->setPhotoOne($newFilename);
+            }
             $entityManager->persist($project);
             $entityManager->flush();
-
+            $this->addFlash('succes', "La photo a bien été tranférée");
             return $this->redirectToRoute('admin_panelconfig');
         }
 
@@ -80,20 +118,5 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_panelconfig');
-    }
-
-    /**
-     * @Route("show/{id}", methods={"GET"}, name="show")
-     */
-    public function show(int $id, ProjectRepository $projectRepository): Response
-    {
-        $reference = $projectRepository->findOneById($id);
-        $strongPoints = $reference->getStrongPoints();
-        $strongPoints = explode('/', $strongPoints);
-        array_shift($strongPoints);
-        return $this->render('reference/show.html.twig', [
-            'reference' => $reference,
-            'strongPoints' => $strongPoints
-        ]);
     }
 }

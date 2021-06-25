@@ -9,7 +9,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Image;
 
 class ProjectType extends AbstractType
 {
@@ -31,7 +34,17 @@ class ProjectType extends AbstractType
             ])
             ->add('strongPoints', TextType::class, ['label' => 'Points forts'])
             ->add('resume', TextType::class, ['label' => 'En bref'])
-            ->add('photoOne', TextType::class, ['label' => 'Photo principale'])
+            ->add('photoOne', FileType::class, [
+                'label' => 'Photo principale',
+                'mapped' => false,
+                'multiple' => true,
+                'required' => false,
+                'constraints' => [
+                    new Image([
+                        'maxSize' => '1024k',
+                    ])
+                ]
+            ])
             ->add('photoTwo', TextType::class, ['label' => 'Photo secondaire', 'required' => false])
             ->add('photoThree', TextType::class, ['label' => 'Photo secondaire', 'required' => false])
             ->add('owner', EntityType::class, [

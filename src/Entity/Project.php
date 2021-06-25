@@ -283,7 +283,7 @@ class Project
         return $this->photoOne;
     }
 
-    public function setPhotoOne(string $photoOne): self
+    public function setPhotoOne(?string $photoOne): self
     {
         $this->photoOne = $photoOne;
 
