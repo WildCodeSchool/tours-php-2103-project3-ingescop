@@ -75,6 +75,12 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $photoOne = $project->getPhotoOne();
+            $photoTwo = $project->getPhotoTwo();
+            $photoThree = $project->getPhotoThree();
+            $photos = [];
+            $photos = [$photoOne, $photoTwo, $photoThree];
+            $uploadService->delete($photos);
             /** @var UploadedFile $imageFile */
             $imageFile = $form->get('photoOne')->getData();
             $imageFile2 = $form->get('photoTwo')->getData();
