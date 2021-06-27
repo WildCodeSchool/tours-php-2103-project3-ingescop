@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
+use App\Service\ImagesProjectService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
@@ -37,7 +38,8 @@ class AdminController extends AbstractController
     public function newProject(
         Request $request,
         EntityManagerInterface $entityManager,
-        SluggerInterface $sluggerInterface
+        SluggerInterface $sluggerInterface,
+        ImagesProjectService $uploadService
     ): Response {
         $project = new Project();
         $form = $this->createForm(ProjectType::class, $project);
@@ -46,34 +48,18 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $imageFile */
             $imageFile = $form->get('photoOne')->getData();
-            if ($imageFile !== null) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $sluggerInterface->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageFile->guessExtension();
-
-                try {
-                    $directory = $this->getParameter('images_directory');
-                    if (is_string($directory)) {
-                        $imageFile->move(
-                            $directory,
-                            $newFilename
-                        );
-                    } else {
-                        throw new HttpException(
-                            500,
-                            "Les paramètres du répertoire d'images sont invalides,
-                        contacter les administrateurs du site"
-                        );
-                    }
-                } catch (FileException $e) {
-                    return $this->render('admin/new_project.html.twig', [
-                        'form' => $form->createView(),
-                        'error' => 'Une erreur a eu lieu lor de l\'upload du fichier, veuillez rééssayer'
-                    ]);
-                } catch (ServiceNotFoundException $e) {
-                    throw $e;
+            $imageFile2 = $form->get('photoTwo')->getData();
+            $imageFile3 = $form->get('photoThree')->getData();
+            $imageArray = [$imageFile, $imageFile2, $imageFile3];
+            $fileNameArray = $uploadService->upload($imageArray, $sluggerInterface);
+            for ($i = 0; $i < count($fileNameArray); $i++) {
+                if ($i === 0) {
+                    $project->setPhotoOne($fileNameArray[$i]);
+                } elseif ($i === 1) {
+                    $project->setPhotoTwo($fileNameArray[$i]);
+                } else {
+                    $project->setPhotoThree($fileNameArray[$i]);
                 }
-                $project->setPhotoOne($newFilename);
             }
             $entityManager->persist($project);
             $entityManager->flush();

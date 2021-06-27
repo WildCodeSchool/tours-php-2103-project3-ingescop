@@ -41,7 +41,7 @@ class ProjectType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new Image([
-                        'maxSize' => '1024k',
+                        'maxSize' => '2500k',
                     ])
                 ]
             ])
@@ -52,7 +52,7 @@ class ProjectType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new Image([
-                        'maxSize' => '1024k',
+                        'maxSize' => '2500k',
                     ])
                 ]
             ])
@@ -63,7 +63,7 @@ class ProjectType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new Image([
-                        'maxSize' => '1024k',
+                        'maxSize' => '2500k',
                     ])
                 ]
             ])

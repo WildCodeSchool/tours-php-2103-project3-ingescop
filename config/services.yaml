@@ -26,6 +26,9 @@ services:
             - '../src/Kernel.php'
             - '../src/Tests/'
 
+    App\Service\ImagesProjectService:
+        arguments:
+            $directory: '%images_directory%'
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
