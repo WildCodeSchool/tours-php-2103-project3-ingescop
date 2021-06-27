@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\Project;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -19,8 +20,9 @@ class ImagesProjectService
 
     public function upload(
         array $imageArray,
-        SluggerInterface $sluggerInterface
-    ): array {
+        SluggerInterface $sluggerInterface,
+        Project $project
+    ): void {
         for ($i = 0; $i < count($imageArray); $i++) {
             if ($imageArray[$i] !== null) {
                 $originalFilename = pathinfo($imageArray[$i]->getClientOriginalName(), PATHINFO_FILENAME);
@@ -43,7 +45,25 @@ class ImagesProjectService
                 $this->outputArray[] = $newFilename;
             }
         }
-        return $this->outputArray;
+        for ($i = 0; $i < count($this->outputArray); $i++) {
+            if ($i === 0) {
+                $project->setPhotoOne($this->outputArray[$i]);
+            } elseif ($i === 1) {
+                $project->setPhotoTwo($this->outputArray[$i]);
+            } else {
+                $project->setPhotoThree($this->outputArray[$i]);
+            }
+        }
+    }
+
+    public function delete(array $photos): void
+    {
+        for ($i = 0; $i < count($photos); $i++) {
+            if ($photos[$i] != null) {
+                $photoName = $this->getDirectory() . '/' . $photos[$i];
+                unlink($photoName);
+            }
+        }
     }
 
     public function getDirectory(): string
