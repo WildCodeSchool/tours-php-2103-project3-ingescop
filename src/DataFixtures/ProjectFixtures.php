@@ -15,7 +15,6 @@ class ProjectFixtures extends Fixture
         $project = new Project();
         $project->setName('Restauration et construction, Ferme de Cément, Chinon')
                 ->setNote(3)
-                /*->setEntryDate(2019/05/24)*/
                 ->setPlace('Ferme de Cément, Chinon (37)')
                 ->setClient('FBH Invest')
                 ->setMissionIngescop('Maitrise d’oeuvre structure bois, pierre
