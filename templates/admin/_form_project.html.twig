@@ -1,4 +1,13 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
+
+    {% if app.request.attributes.get('_route') == 'editproject' %}
+        <h2>Images</h2>
+        {% for image in project.images %}
+            <div>
+                <img src="{{ asset('/uploads/' ~ image.name) }}" alt="image" width="150px">
+            </div>
+        {% endfor %}
+    {% endif %}
     <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

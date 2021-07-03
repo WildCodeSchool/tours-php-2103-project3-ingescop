@@ -8,7 +8,7 @@
                     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
             {% endif %}
         <div class="reference-show-image">
-            <img src="{{ asset('uploads/images/' ~ reference.photoOne) }}" alt="{{ reference.name }}">
+            <img src="{{ asset('uploads/images/' ~ images[0]) }}" alt="{{ reference.name }}">
         </div>
         <div class="reference-show-description">
             <h1>{{ reference.name }}</h1>
@@ -18,9 +18,7 @@
             <p><strong>Budget : </strong>{{ reference.budget }}</p>
             <p><strong>Calendrier : </strong> {{ reference.calendar }}</p>
             <p><strong>Points forts du projet : </strong></p>
-            {% for point in strongPoints %}
-                <p class="point">{{ point }}</p>
-            {% endfor %}
+            <p>{{ reference.strongPoints }}<p>
             {% if reference.owner != null %}
                 <p><strong>Professionnels ayant participés au projet : </strong><br>
                     {% for professionnal in reference.owner %}
@@ -30,11 +28,12 @@
             {% endif %}
             <p><strong>En bref</strong><br>{{ reference.resume }}</p>
             <div class="bottom-pics">
-                {% if reference.photoTwo != 0 %}
-                    <img src="{{ asset('uploads/images/' ~ reference.photoTwo) }}" alt="{{ reference.name }}">
-                {% endif %}
-                {% if reference.photoThree != 0 %}
-                    <img src="{{ asset('uploads/images/' ~ reference.photoThree) }}" alt="{{ reference.name }}">
+                {% if images != null %}
+                    {% for image in images %}
+                        {% if image != images[0] %}
+                            <img src="{{ asset('uploads/images/' ~ image) }}" alt="{{ image }}">
+                        {% endif %}
+                    {% endfor %}
                 {% endif %}
             </div>
         </div>

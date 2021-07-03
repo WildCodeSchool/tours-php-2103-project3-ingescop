@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\All;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\Image;
 
@@ -34,36 +35,16 @@ class ProjectType extends AbstractType
             ])
             ->add('strongPoints', TextType::class, ['label' => 'Points forts'])
             ->add('resume', TextType::class, ['label' => 'En bref'])
-            ->add('photoOne', FileType::class, [
-                'label' => 'Photos',
+            ->add('images', FileType::class, [
+                'label' => 'Images',
                 'mapped' => false,
-                'multiple' => false,
+                'multiple' => true,
                 'required' => true,
                 'constraints' => [
-                    new Image([
-                        'maxSize' => '2500k',
-                    ])
-                ]
-            ])
-            ->add('photoTwo', FileType::class, [
-                'label' => 'Photo secondaire',
-                'mapped' => false,
-                'multiple' => false,
-                'required' => false,
-                'constraints' => [
-                    new Image([
-                        'maxSize' => '2500k',
-                    ])
-                ]
-            ])
-            ->add('photoThree', FileType::class, [
-                'label' => 'Photo secondaire',
-                'mapped' => false,
-                'multiple' => false,
-                'required' => false,
-                'constraints' => [
-                    new Image([
-                        'maxSize' => '2500k',
+                    new All([
+                        new Image([
+                            'maxSize' => '2500k',
+                        ])
                     ])
                 ]
             ])

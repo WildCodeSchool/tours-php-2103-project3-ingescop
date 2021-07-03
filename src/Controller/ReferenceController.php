@@ -33,12 +33,14 @@ class ReferenceController extends AbstractController
     public function show(int $id, ProjectRepository $projectRepository): Response
     {
         $reference = $projectRepository->findOneById($id);
-        $strongPoints = $reference->getStrongPoints();
-        $strongPoints = explode('/', $strongPoints);
-        array_shift($strongPoints);
+        $images = $reference->getImages();
+        $imagesNames = [];
+        foreach ($images as $image) {
+            $imagesNames[] = $image->getName();
+        }
         return $this->render('reference/show.html.twig', [
             'reference' => $reference,
-            'strongPoints' => $strongPoints
+            'images' => $imagesNames
         ]);
     }
 }

@@ -1022,7 +1022,7 @@ h1 {
 .reference-show-image img {
     margin-right: 5%;
     width: 460px;
-    height: 350px
+    height: 350px;
 }
 
 .reference-show-description {
@@ -1073,6 +1073,34 @@ h1 {
     width: 48%;
     height: 70%;
 }
+
+/*=========================================*/
+/*========== EDIT REFERENCE FORM ==========*/
+
+.images-project-edit {
+    width: 80%;
+    margin: 3% auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.images-project-edit h3 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 5% 0;
+}
+
+#edit-project-primary-image {
+    width: 450px;
+    height: 310px;
+}
+
+#edit-project-secondary-image {
+    width: 320px;
+    height: 210px;
+}
+
 
 /*=========================================*/
 /*=============== RESPONSIVE ===============*/

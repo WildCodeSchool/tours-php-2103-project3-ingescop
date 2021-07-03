@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @Route("/admin", name="admin_")
@@ -25,8 +24,9 @@ class AdminController extends AbstractController
      */
     public function listProject(ProjectRepository $projectRepository): Response
     {
+        $projects = $projectRepository->findAll();
         return $this->render('admin/panelconfig.html.twig', [
-            'projects' => $projectRepository->findAll(),
+            'projects' => $projects,
         ]);
     }
 
@@ -43,12 +43,8 @@ class AdminController extends AbstractController
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $imageFile */
-            $imageFile = $form->get('photoOne')->getData();
-            $imageFile2 = $form->get('photoTwo')->getData();
-            $imageFile3 = $form->get('photoThree')->getData();
-            $imageArray = [$imageFile, $imageFile2, $imageFile3];
-            $uploadService->upload($imageArray, $sluggerInterface, $project);
+            $images = $form->get('images')->getData();
+            $uploadService->upload($images, $sluggerInterface, $project);
             $entityManager->persist($project);
             $entityManager->flush();
             $this->addFlash('succes', "La photo a bien été tranférée");
@@ -75,18 +71,6 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $photoOne = $project->getPhotoOne();
-            $photoTwo = $project->getPhotoTwo();
-            $photoThree = $project->getPhotoThree();
-            $photos = [];
-            $photos = [$photoOne, $photoTwo, $photoThree];
-            $uploadService->delete($photos);
-            /** @var UploadedFile $imageFile */
-            $imageFile = $form->get('photoOne')->getData();
-            $imageFile2 = $form->get('photoTwo')->getData();
-            $imageFile3 = $form->get('photoThree')->getData();
-            $imageArray = [$imageFile, $imageFile2, $imageFile3];
-            $uploadService->upload($imageArray, $sluggerInterface, $project);
             $entityManager->persist($project);
             $entityManager->flush();
 
@@ -109,12 +93,15 @@ class AdminController extends AbstractController
         ImagesProjectService $uploadService
     ): Response {
         if ($this->isCsrfTokenValid('delete' . $project->getId(), $request->request->get('_token'))) {
-            $photoOne = $project->getPhotoOne();
-            $photoTwo = $project->getPhotoTwo();
-            $photoThree = $project->getPhotoThree();
-            $photos = [];
-            $photos = [$photoOne, $photoTwo, $photoThree];
-            $uploadService->delete($photos);
+            $images = $project->getImages();
+            if ($images !== null) {
+                foreach ($images as $image) {
+                    if (is_string($this->getParameter('images_directory'))) {
+                        $imageName = $this->getParameter('images_directory') . '/' . $image->getName();
+                        unlink($imageName);
+                    }
+                }
+            }
             $entityManager->remove($project);
             $entityManager->flush();
         }
