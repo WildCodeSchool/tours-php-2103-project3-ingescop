@@ -44,9 +44,13 @@ class ImagesProjectService
                 } catch (ServiceNotFoundException $e) {
                     throw $e;
                 }
-                $img = new Images();
-                $img->setName($newFilename);
-                $project->addImage($img);
+                if ($i === 0) {
+                    $project->setMainPhoto($newFilename);
+                } elseif ($i > 0) {
+                    $img = new Images();
+                    $img->setName($newFilename);
+                    $project->addImage($img);
+                }
             }
         }
     }
@@ -78,7 +82,6 @@ class ImagesProjectService
                 $this->outputArray[] = $newFilename;
             }
         }
-        //dd($this->outputArray);
     }
 
     public function getDirectory(): string

@@ -6,13 +6,16 @@
     <div class="references-list-block">
         {% if is_granted('ROLE_ADMIN') %}
                     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panneau de configuration</a>
-            {% endif %}
+        {% endif %}
         {% for reference in references %}
             {% if reference.workInProgress == 'En études' %}
                 <a href="{{ path('reference_show', {id: reference.id}) }}"
                 class="reference-block">
                     <div class="bubble-reference in-study">
-                        <img src="{{ asset(reference.photoOne) }}"/>
+                            <img id="references-images" src="{{ asset('uploads/images/' ~ reference.mainPhoto) }}"/>
+                            {% for images in reference %}
+                                <p>{{ images.name }}</p>
+                            {% endfor %}
                     </div>
                     <p class="handwriting-project handwriting-in-study">{{ reference.workInProgress }}</p>
                     <h3>{{ reference.name }}</h3>
@@ -22,7 +25,7 @@
                 <a href="{{ path('reference_show', {id: reference.id}) }}"
                 class="reference-block">
                     <div class="bubble-reference in-work">
-                        <img src="{{ asset(reference.photoOne) }}"/>
+                            {# <img id="references-images" src="{{ asset('uploads/images/' ~ image ) }}"/> #}
                     </div>
                     <p class="handwriting-project handwriting-in-work">{{ reference.workInProgress }}</p>
                     <h3>{{ reference.name }}</h3>
@@ -32,7 +35,7 @@
                 <a href="{{ path('reference_show', {id: reference.id}) }}"
                 class="reference-block">
                     <div class="bubble-reference finished">
-                        <img src="{{ asset(reference.photoOne) }}"/>
+                            {# <img id="references-images" src="{{ asset('uploads/images/' ~ image ) }}"/> #}
                     </div>
                     <p class="handwriting-project handwriting-finished">{{ reference.workInProgress }}</p>
                     <h3>{{ reference.name }}</h3>

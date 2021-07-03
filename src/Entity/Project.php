@@ -121,6 +121,11 @@ class Project
      */
     private Collection $images;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $mainPhoto;
+
     public function __construct()
     {
         $this->owner = new ArrayCollection();
@@ -308,6 +313,18 @@ class Project
                 $image->setProject(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMainPhoto(): ?string
+    {
+        return $this->mainPhoto;
+    }
+
+    public function setMainPhoto(string $mainPhoto): self
+    {
+        $this->mainPhoto = $mainPhoto;
 
         return $this;
     }

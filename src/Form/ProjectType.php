@@ -35,11 +35,21 @@ class ProjectType extends AbstractType
             ])
             ->add('strongPoints', TextType::class, ['label' => 'Points forts'])
             ->add('resume', TextType::class, ['label' => 'En bref'])
+            ->add('mainPhoto', FileType::class, [
+                'label' => 'Image Principale',
+                'mapped' => false,
+                'required' => true,
+                'constraints' => [
+                    new Image([
+                        'maxSize' => '2500k',
+                    ])
+                ]
+            ])
             ->add('images', FileType::class, [
                 'label' => 'Images',
                 'mapped' => false,
                 'multiple' => true,
-                'required' => true,
+                'required' => false,
                 'constraints' => [
                     new All([
                         new Image([

@@ -23,7 +23,7 @@ class ReferenceController extends AbstractController
             ['note' => 'DESC']
         );
         return $this->render('reference/list.html.twig', [
-            'references' => $references
+            'references' => $references,
             ]);
     }
 
@@ -34,13 +34,13 @@ class ReferenceController extends AbstractController
     {
         $reference = $projectRepository->findOneById($id);
         $images = $reference->getImages();
-        $imagesNames = [];
+        $imagesProject = [];
         foreach ($images as $image) {
-            $imagesNames[] = $image->getName();
+            $imagesProject[] = $image->getName();
         }
         return $this->render('reference/show.html.twig', [
             'reference' => $reference,
-            'images' => $imagesNames
+            'images' => $imagesProject
         ]);
     }
 }
