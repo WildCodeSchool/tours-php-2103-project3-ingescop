@@ -10,6 +10,30 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>Service</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for professionnal in pro %}
+            <tr>
+                <td>{{ professionnal.id }}</td>
+                <td>{{ professionnal.name }}</td>
+                <td>{{ professionnal.job }}</td>
+                <td>
+                    <a href="{{ path("admin_editpro", {"id": professionnal.id}) }}">Editer</a>
+                    <a href="{{ path("professionnal_show", {"id": professionnal.id}) }}">Voir</a>
+                </td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+    </div>
+<a href="{{ path("admin_newpro") }}">Créer un professionnel</a>
+
+    <table>
+        <thead>
+            <tr>
                 <th>EntryDate</th>
                 <th>Note</th>
                 <th>Lieu</th>
