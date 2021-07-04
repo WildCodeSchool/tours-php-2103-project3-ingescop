@@ -38,7 +38,7 @@ class ProjectType extends AbstractType
             ->add('mainPhoto', FileType::class, [
                 'label' => 'Image Principale',
                 'mapped' => false,
-                'required' => true,
+                'required' => false,
                 'constraints' => [
                     new Image([
                         'maxSize' => '2500k',

@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
@@ -76,11 +75,17 @@ class AdminController extends AbstractController
     ): Response {
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            $images = [];
+            $images[] = $form->get('mainPhoto')->getData();
+            $othersImages = $form->get('images')->getData();
+            for ($i = 0; $i < count($othersImages); $i++) {
+                $images[] = $othersImages[$i];
+            }
+            $uploadService->edit($images, $sluggerInterface, $project);
+            $uploadService->upload($images, $sluggerInterface, $project);
             $entityManager->persist($project);
             $entityManager->flush();
-
             return $this->redirectToRoute('admin_panelconfig');
         }
         return $this->render('admin/edit_project.html.twig', [
@@ -117,27 +122,5 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_panelconfig');
-    }
-
-    /**
-     * @Route("/delete/image/{id}", name="project_delete_image", methods={"DELETE"})
-     */
-    public function deleteImage(
-        Images $image,
-        Request $request,
-        EntityManagerInterface $entityManager
-    ): Response {
-        $data = json_decode($request->getContent(), true);
-        if ($this->isCsrfTokenValid('delete' . $image->getId(), $data['_token'])) {
-            $name = $image->getName();
-            if (is_string($this->getParameter('images_directory'))) {
-                unlink($this->getParameter('images_directory') . '/' . $name);
-                $entityManager->remove($image);
-                $entityManager->flush();
-            }
-            return new JsonResponse(['succes' => 1]);
-        } else {
-            return new JsonResponse(['error' => 'invalide token'], 400);
-        }
     }
 }

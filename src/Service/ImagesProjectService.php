@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\File\File;
 
 class ImagesProjectService
 {
-    private array $outputArray = [];
     private string $directory;
 
     public function __construct(string $directory)
@@ -60,26 +59,19 @@ class ImagesProjectService
         SluggerInterface $sluggerInterface,
         Project $project
     ): void {
+        $images = $project->getImages();
+        $arrImgs = [];
+        foreach ($images as $image) {
+            $arrImgs[] = $image;
+        }
         for ($i = 0; $i < count($imageArray); $i++) {
             if ($imageArray[$i] !== null) {
-                $originalFilename = pathinfo($imageArray[$i]->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $sluggerInterface->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageArray[$i]->guessExtension();
-                try {
-                    $imageArray[$i]->move(
-                        $this->getDirectory(),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    throw new HttpException(
-                        500,
-                        "Les paramètres du répertoire d'images sont invalides,
-                    contacter les administrateurs du site"
-                    );
-                } catch (ServiceNotFoundException $e) {
-                    throw $e;
+                if ($i === 0) {
+                    if (is_string($this->getDirectory())) {
+                        $imageName = $this->getDirectory() . '/' . $project->getMainPhoto();
+                        unlink($imageName);
+                    }
                 }
-                $this->outputArray[] = $newFilename;
             }
         }
     }
