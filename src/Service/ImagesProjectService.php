@@ -13,25 +13,26 @@ use Symfony\Component\HttpFoundation\File\File;
 class ImagesProjectService
 {
     private string $directory;
+    private SluggerInterface $slugger;
 
-    public function __construct(string $directory)
+    public function __construct(string $directory, SluggerInterface $slugger)
     {
         $this->directory = $directory;
+        $this->slugger = $slugger;
     }
 
     public function upload(
         array $imageArray,
-        SluggerInterface $sluggerInterface,
         Project $project
     ): void {
         for ($i = 0; $i < count($imageArray); $i++) {
             if ($imageArray[$i] !== null) {
                 $originalFilename = pathinfo($imageArray[$i]->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $sluggerInterface->slug($originalFilename);
+                $safeFilename = $this->slugger->slug($originalFilename);
                 $newFilename = $safeFilename . '-' . uniqid() . '.' . $imageArray[$i]->guessExtension();
                 try {
                     $imageArray[$i]->move(
-                        $this->getDirectory(),
+                        $this->directory,
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -40,8 +41,6 @@ class ImagesProjectService
                         "Les paramètres du répertoire d'images sont invalides,
                     contacter les administrateurs du site"
                     );
-                } catch (ServiceNotFoundException $e) {
-                    throw $e;
                 }
                 if ($i === 0) {
                     $project->setMainPhoto($newFilename);
@@ -56,7 +55,6 @@ class ImagesProjectService
 
     public function edit(
         array $imageArray,
-        SluggerInterface $sluggerInterface,
         Project $project
     ): void {
         $images = $project->getImages();

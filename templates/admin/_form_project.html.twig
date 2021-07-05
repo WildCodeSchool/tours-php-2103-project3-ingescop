@@ -1,16 +1,5 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
 
-    {% if app.request.attributes.get('_route') == 'admin_editproject' %}
-        <h2>Images</h2>
-        <h3>Image Principal</h3>
-        <img src="{{ asset('/uploads/images/' ~ project.mainPhoto) }}" alt="{{ project.mainPhoto }}" width="150px">
-        <h3>Images Secondaires</h3>
-        {% for image in project.images %}
-            <div>
-                <img src="{{ asset('/uploads/images/' ~ image.name) }}" alt="{{ image.id }}" width="150px">
-            </div>
-        {% endfor %}
-    {% endif %}
     <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

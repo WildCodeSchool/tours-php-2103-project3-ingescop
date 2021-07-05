@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\String\Slugger\SluggerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/admin", name="admin_")
@@ -35,7 +35,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/newpro", name="newpro", methods={"GET","POST"})
+     * @Route("/pro/new", name="newpro", methods={"GET","POST"})
      */
     public function newprofessionnal(Request $request): Response
     {
@@ -56,7 +56,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/editpro", name="editpro", methods={"GET","POST"})
+     * @Route("/pro/edit/{id}", name="editpro", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
     public function editprofessionnal(Request $request, Professionnal $pro): Response
     {
@@ -74,7 +74,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="deletepro", methods={"POST"})
+     * @Route("/pro/delete/{id}", name="deletepro", methods={"POST"}, requirements={"id": "\d+"})
      */
     public function deletePro(Request $request, Professionnal $pro): Response
     {
@@ -87,12 +87,11 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/newproject", name="newproject", methods={"GET","POST"})
+     * @Route("/project/new", name="newproject", methods={"GET","POST"})
      */
     public function newProject(
         Request $request,
         EntityManagerInterface $entityManager,
-        SluggerInterface $sluggerInterface,
         ImagesProjectService $uploadService
     ): Response {
         $project = new Project();
@@ -101,11 +100,10 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $images = [];
             $images[] = $form->get('mainPhoto')->getData();
-            $othersImages = $form->get('images')->getData();
-            for ($i = 0; $i < count($othersImages); $i++) {
-                $images[] = $othersImages[$i];
+            foreach ($form->get('images')->getData() as $picture) {
+                $images[] = $picture;
             }
-            $uploadService->upload($images, $sluggerInterface, $project);
+            $uploadService->upload($images, $project);
             $entityManager->persist($project);
             $entityManager->flush();
             $this->addFlash('succes', "La photo a bien été tranférée");
@@ -118,26 +116,24 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/editproject", name="editproject", methods={"GET","POST"})
+     * @Route("/project/edit/{id}", name="editproject", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
     public function editProject(
         Request $request,
         Project $project,
         EntityManagerInterface $entityManager,
-        ImagesProjectService $uploadService,
-        SluggerInterface $sluggerInterface
+        ImagesProjectService $uploadService
     ): Response {
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $images = [];
             $images[] = $form->get('mainPhoto')->getData();
-            $othersImages = $form->get('images')->getData();
-            for ($i = 0; $i < count($othersImages); $i++) {
-                $images[] = $othersImages[$i];
+            foreach ($form->get('images')->getData() as $picture) {
+                $images[] = $picture;
             }
-            $uploadService->edit($images, $sluggerInterface, $project);
-            $uploadService->upload($images, $sluggerInterface, $project);
+            $uploadService->edit($images, $project);
+            $uploadService->upload($images, $project);
             $entityManager->persist($project);
             $entityManager->flush();
             return $this->redirectToRoute('admin_panelconfig');
@@ -148,7 +144,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/deleteproject", name="deleteproject", methods={"POST"})
+     * @Route("/project/delete/{id}", name="deleteproject", methods={"POST"}, requirements={"id": "\d+"})
      */
     public function deleteProject(
         Request $request,
@@ -174,6 +170,34 @@ class AdminController extends AbstractController
             $entityManager->flush();
         }
 
+        return $this->redirectToRoute('admin_panelconfig');
+    }
+
+    /**
+     * @Route("/project/{project_id}/delete/image/{image_id}", name="delete_project_image")
+     * @ParamConverter("project", class="App\Entity\Project",
+     * options={"mapping": {"project_id": "id"}}
+     * )
+     * @ParamConverter(
+     * "image", class="App\Entity\Images",
+     * options={"mapping": {"image_id": "id"}}
+     * )
+     */
+    public function deleteImageProject(
+        Request $request,
+        Project $project,
+        Images $image,
+        EntityManagerInterface $entityManager
+    ): Response {
+        if ($this->isCsrfTokenValid('delete' . $image->getId(), $request->request->get('_token'))) {
+            $deleteImg = $image->getName();
+            if (is_string($this->getParameter('images_directory'))) {
+                $imageName = $this->getParameter('images_directory') . '/' . $deleteImg;
+                unlink($imageName);
+            }
+            $entityManager->remove($image);
+            $entityManager->flush();
+        }
         return $this->redirectToRoute('admin_panelconfig');
     }
 }
