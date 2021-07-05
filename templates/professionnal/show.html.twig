@@ -7,12 +7,15 @@
     <div class="professionnal-show-page">
         <div class="profil-title-image">
             <h1>{{ pro.name }}</h1>
-            <div class="image"><p>Photo</p></div>
+            <div class="image">
+                <img id="references-images" src="{{ asset('uploads/images/' ~ pro.profilPhoto) }}"/>
+            </div>
         </div>
         <div class="profil-description">
-            <h2>Métier : </h2>
+            <h2>Métier : {{ pro.job }}</h2>
             <p>Description</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum in purus interdum, at tincidunt dolor mattis. Donec at suscipit metus. Aliquam erat volutpat. Suspendisse potenti. Vestibulum tempor vestibulum diam hendrerit aliquam. Curabitur fermentum leo quis sapien feugiat, quis pharetra nisi venenatis. Sed iaculis, ante eget pretium imperdiet, nibh eros sollicitudin augue, vitae fermentum sem massa vitae risus. Curabitur posuere tincidunt sapien quis mollis. Fusce vel orci cursus, molestie arcu id, condimentum tellus. Suspendisse posuere accumsan placerat. Vivamus ultricies eu lacus vitae suscipit. Fusce ut nisl leo. Ut vel tincidunt lorem, sit amet finibus dui. Quisque lobortis, quam ut egestas varius, lacus arcu varius sem, vitae porta neque nulla tincidunt dolor. Aliquam dignissim rhoncus commodo.
+            <p>
+                {{ pro.resume }}
             </p>
         </div>
     </div>

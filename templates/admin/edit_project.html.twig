@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editer Projet{% endblock %}
+{% block title %}éditer Projet{% endblock %}
 
 {% block pageContainer %}
     <h1>Éditer le Project</h1>
@@ -20,7 +20,7 @@
 </form>
     {% endfor %}
 
-    <a href="{{ path('admin_panelconfig') }}">Retour à la liste des projets</a>
+    <a href="{{ path('admin_panelconfig') }}">Revenir au panneau de configuration</a>
 
     {{ include('admin/_delete_form_project.html.twig') }}
 {% endblock %}

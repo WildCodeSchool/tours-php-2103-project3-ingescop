@@ -9,6 +9,7 @@ use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Entity\Images;
 use App\Repository\ProjectRepository;
+use App\Service\ImageProfessionnalService;
 use App\Service\ImagesProjectService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,17 +38,23 @@ class AdminController extends AbstractController
     /**
      * @Route("/pro/new", name="newpro", methods={"GET","POST"})
      */
-    public function newprofessionnal(Request $request): Response
-    {
+    public function newprofessionnal(
+        Request $request,
+        ImageProfessionnalService $uploadProfessionnal,
+        EntityManagerInterface $entityManager
+    ): Response {
         $pro = new Professionnal();
         $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
+            $image = [];
+            $image[] = $form->get('profilPhoto')->getData();
+            $uploadProfessionnal->upload($image, $pro);
             $entityManager->persist($pro);
             $entityManager->flush();
 
+            $this->addFlash('succes', "La photo a bien été tranférée");
             return $this->redirectToRoute('admin_panelconfig');
         }
         return $this->render('admin/newprofessionnal.html.twig', [
@@ -58,13 +65,22 @@ class AdminController extends AbstractController
     /**
      * @Route("/pro/edit/{id}", name="editpro", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
-    public function editprofessionnal(Request $request, Professionnal $pro): Response
-    {
+    public function editprofessionnal(
+        Request $request,
+        Professionnal $pro,
+        EntityManagerInterface $entityManager,
+        ImageProfessionnalService $uploadProfessionnal
+    ): Response {
         $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $images = [];
+            $images[] = $form->get('profilPhoto')->getData();
+            $uploadProfessionnal->edit($images, $pro);
+            $uploadProfessionnal->upload($images, $pro);
+            $entityManager->persist($pro);
+            $entityManager->flush();
 
             return $this->redirectToRoute('admin_panelconfig');
         }
@@ -76,10 +92,17 @@ class AdminController extends AbstractController
     /**
      * @Route("/pro/delete/{id}", name="deletepro", methods={"POST"}, requirements={"id": "\d+"})
      */
-    public function deletePro(Request $request, Professionnal $pro): Response
-    {
+    public function deletePro(
+        Request $request,
+        Professionnal $pro,
+        EntityManagerInterface $entityManager
+    ): Response {
         if ($this->isCsrfTokenValid('delete' . $pro->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
+            $profilPhoto = $pro->getProfilPhoto();
+            if (is_string($this->getParameter('images_directory'))) {
+                $imageName = $this->getParameter('images_directory') . '/' . $profilPhoto;
+                unlink($imageName);
+            }
             $entityManager->remove($pro);
             $entityManager->flush();
         }
