@@ -106,8 +106,11 @@ class AdminController extends AbstractController
     /**
      * @Route("/pro/edit/{id}", name="editpro", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
-    public function editProfessionnal(Request $request, Professionnal $pro, EntityManagerInterface $entityManager): Response
-    {
+    public function editProfessionnal(
+        Request $request,
+        Professionnal $pro,
+        EntityManagerInterface $entityManager
+    ): Response {
         $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
 
@@ -193,7 +196,6 @@ class AdminController extends AbstractController
     public function deleteProject(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $project->getId(), $request->request->get('_token'))) {
-            
             $entityManager->remove($project);
             $entityManager->flush();
         }
