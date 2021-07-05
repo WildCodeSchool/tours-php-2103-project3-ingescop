@@ -3,13 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Project;
-use App\Form\ProjectType;
-use App\Repository\ProjectRepository;
 use App\Entity\Service;
+use App\Form\ProjectType;
 use App\Form\ServiceType;
-use App\Repository\ServiceRepository;
 use App\Entity\Professionnal;
 use App\Form\ProfessionnalType;
+use App\Repository\ProjectRepository;
+use App\Repository\ServiceRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ProfessionnalRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,16 +40,15 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/newpro", name="newpro", methods={"GET","POST"})
+     * @Route("/pro/new", name="newpro", methods={"GET","POST"})
      */
-    public function newProfessionnal(Request $request): Response
+    public function newProfessionnal(Request $request, EntityManagerInterface $entityManager): Response
     {
         $pro = new Professionnal();
         $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($pro);
             $entityManager->flush();
 
@@ -60,16 +60,15 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/newservice", name="newservice", methods={"GET","POST"})
+     * @Route("/service/new", name="newservice", methods={"GET","POST"})
      */
-    public function newService(Request $request): Response
+    public function newService(Request $request, EntityManagerInterface $entityManager): Response
     {
         $service = new Service();
         $form = $this->createForm(ServiceType::class, $service);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($service);
             $entityManager->flush();
 
@@ -83,16 +82,15 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/newproject", name="newproject", methods={"GET","POST"})
+     * @Route("/project/new", name="newproject", methods={"GET","POST"})
      */
-    public function newProject(Request $request): Response
+    public function newProject(Request $request, EntityManagerInterface $entityManager): Response
     {
         $project = new Project();
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($project);
             $entityManager->flush();
 
@@ -106,15 +104,15 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/editpro", name="editpro", methods={"GET","POST"})
+     * @Route("/pro/edit/{id}", name="editpro", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
-    public function editProfessionnal(Request $request, Professionnal $pro): Response
+    public function editProfessionnal(Request $request, Professionnal $pro, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager->flush();
 
             return $this->redirectToRoute('admin_panelconfig');
         }
@@ -124,16 +122,16 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/editproject", name="editproject", methods={"GET","POST"})
+     * @Route("/project/edit/{id}", name="editproject", methods={"GET","POST"}, requirements={"id": "\d+"})
 
      */
-    public function editProject(Request $request, Project $project): Response
+    public function editProject(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager->flush();
 
             return $this->redirectToRoute('admin_panelconfig');
         }
@@ -145,15 +143,15 @@ class AdminController extends AbstractController
     }
 
     /**
-    * @Route("/{id}/edit", name="editservice", methods={"GET","POST"})
+    * @Route("/service/edit/{id}", name="editservice", methods={"GET","POST"}, requirements={"id": "\d+"})
     */
-    public function editService(Request $request, Service $service): Response
+    public function editService(Request $request, Service $service, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ServiceType::class, $service);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager->flush();
 
             return $this->redirectToRoute('admin_panelconfig');
         }
@@ -165,12 +163,11 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="deleteservice", methods={"POST"})
+     * @Route("/service/delete/{id}", name="deleteservice", methods={"POST"}, requirements={"id": "\d+"})
      */
-    public function deleteService(Request $request, Service $service): Response
+    public function deleteService(Request $request, Service $service, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid("delete" . $service->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($service);
             $entityManager->flush();
         }
@@ -179,12 +176,11 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="deletepro", methods={"POST"})
+     * @Route("/pro/delete/{id}", name="deletepro", methods={"POST"}, requirements={"id": "\d+"})
      */
-    public function deletePro(Request $request, Professionnal $pro): Response
+    public function deletePro(Request $request, Professionnal $pro, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $pro->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($pro);
             $entityManager->flush();
         }
@@ -192,12 +188,12 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="deleteproject", methods={"POST"})
+     * @Route("/project/delete/{id}", name="deleteproject", methods={"POST"}, requirements={"id": "\d+"})
      */
-    public function deleteProject(Request $request, Project $project): Response
+    public function deleteProject(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $project->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
+            
             $entityManager->remove($project);
             $entityManager->flush();
         }
