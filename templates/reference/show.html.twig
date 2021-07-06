@@ -30,7 +30,9 @@
             <div class="bottom-pics">
                 {% if images != null %}
                     {% for image in images %}
-                        <img src="{{ asset('uploads/images/' ~ image) }}" alt="{{ image }}">
+                        <a href="{{ asset('uploads/images/' ~ image) }}" target="_blank">
+                            <img src="{{ asset('uploads/images/' ~ image) }}" alt="{{ image }}">
+                        </a>
                     {% endfor %}
                 {% endif %}
             </div>

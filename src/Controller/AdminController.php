@@ -9,7 +9,7 @@ use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Entity\Images;
 use App\Repository\ProjectRepository;
-use App\Service\ImageProfessionnalService;
+use App\Service\FileUploaderService;
 use App\Service\ImagesProjectService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,7 +40,7 @@ class AdminController extends AbstractController
      */
     public function newprofessionnal(
         Request $request,
-        ImageProfessionnalService $uploadProfessionnal,
+        FileUploaderService $uploadProfessionnal,
         EntityManagerInterface $entityManager
     ): Response {
         $pro = new Professionnal();
@@ -48,9 +48,11 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $image = [];
-            $image[] = $form->get('profilPhoto')->getData();
-            $uploadProfessionnal->upload($image, $pro);
+            $imageData = $form->get('profilPhoto')->getData();
+            if ($imageData !== null) {
+                $newImageName = $uploadProfessionnal->upload($imageData);
+                $pro->setProfilPhoto($newImageName);
+            }
             $entityManager->persist($pro);
             $entityManager->flush();
 
@@ -69,16 +71,22 @@ class AdminController extends AbstractController
         Request $request,
         Professionnal $pro,
         EntityManagerInterface $entityManager,
-        ImageProfessionnalService $uploadProfessionnal
+        FileUploaderService $uploadProfessionnal
     ): Response {
         $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $images = [];
-            $images[] = $form->get('profilPhoto')->getData();
-            $uploadProfessionnal->edit($images, $pro);
-            $uploadProfessionnal->upload($images, $pro);
+            $imageData = $form->get('profilPhoto')->getData();
+            $image = $pro->getProfilPhoto();
+            if ($image !== null) {
+                if (is_string($this->getParameter('images_directory'))) {
+                    $imageName = $this->getParameter('images_directory') . '/' . $pro->getProfilPhoto();
+                    unlink($imageName);
+                }
+            }
+            $newImageName = $uploadProfessionnal->upload($imageData);
+            $pro->setProfilPhoto($newImageName);
             $entityManager->persist($pro);
             $entityManager->flush();
 
@@ -221,6 +229,6 @@ class AdminController extends AbstractController
             $entityManager->remove($image);
             $entityManager->flush();
         }
-        return $this->redirectToRoute('admin_panelconfig');
+        return $this->redirectToRoute('admin_editproject', ['id' => $project->getId()]);
     }
 }

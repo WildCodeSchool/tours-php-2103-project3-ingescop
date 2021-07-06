@@ -434,7 +434,7 @@ footer p a:hover {
 .home-banner {
     width: 100%;
     height: 80%;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.253)), url(/assets/images/1gscop-pano-accueil-2.jpg);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.253)), url(/assets/images/1gscop-pano-accueil-1.jpg);
     background-size: cover;
 }
 

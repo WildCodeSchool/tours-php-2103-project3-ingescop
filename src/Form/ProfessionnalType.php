@@ -28,7 +28,7 @@ class ProfessionnalType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new Image([
-                        'maxSize' => '2500k',
+                        'maxSize' => '100k',
                     ])
                 ]
             ]);
