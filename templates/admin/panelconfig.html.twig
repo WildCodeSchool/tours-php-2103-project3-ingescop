@@ -3,9 +3,8 @@
 {% block title %}Panneau de Configuration{% endblock %}
 
 {% block pageContainer %}
-
+    <h1>Liste des services</h1>
     <table class="table">
-<a href="{{ path("admin_newservice") }}"> Créer un service</a>
     <table>
         <thead>
             <tr>
@@ -30,7 +29,7 @@
     {% endfor %}
         </tbody>
     </table>
-
+    <a href="{{ path("admin_newservice") }}"> Créer un service</a>
     <h1>Liste des professionnels</h1>
     <table>
         <thead>
@@ -56,8 +55,7 @@
     {% endfor %}
         </tbody>
     </table>
-    </div>
-<a href="{{ path("admin_newpro") }}">Créer un professionnel</a>
+    <a href="{{ path("admin_newpro") }}">Créer un professionnel</a>
 
     <h1>Liste des références</h1>
     <table>

@@ -10,7 +10,7 @@
     <h3>Photo de profil</h3>
     <img src="{{ asset('/uploads/images/' ~ pro.profilPhoto) }}" alt="{{ pro.profilPhoto }}" width="150px">
 
-    {{ include('admin/professionnal/_deleteprofessionnal.html.twig') }}
+    {{ include('admin/professionnal/_delete.html.twig') }}
 
     <a href="{{ path('admin_panelconfig') }}">Revenir au panneau de configuration</a>
 {% endblock %}

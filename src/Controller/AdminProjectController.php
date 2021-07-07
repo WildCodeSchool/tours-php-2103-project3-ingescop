@@ -43,7 +43,7 @@ class AdminProjectController extends AbstractController
             $this->addFlash('succes', "La photo a bien été tranférée");
             return $this->redirectToRoute('admin_panelconfig');
         }
-        return $this->render('admin/project/new_project.html.twig', [
+        return $this->render('admin/project/new.html.twig', [
             'project' => $project,
             'form' => $form->createView(),
         ]);
@@ -72,7 +72,7 @@ class AdminProjectController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('admin_panelconfig');
         }
-        return $this->render('admin/project/edit_project.html.twig', [
+        return $this->render('admin/project/edit.html.twig', [
             'project' => $project,
             'form' => $form->createView(),]);
     }

@@ -40,7 +40,7 @@ class AdminProfessionnalController extends AbstractController
             $this->addFlash('succes', "La photo a bien été tranférée");
             return $this->redirectToRoute('admin_panelconfig');
         }
-        return $this->render('admin/professionnal/newprofessionnal.html.twig', [
+        return $this->render('admin/professionnal/new.html.twig', [
             'pro' => $pro,
             'form' => $form->createView(),]);
     }
@@ -73,7 +73,7 @@ class AdminProfessionnalController extends AbstractController
 
             return $this->redirectToRoute('admin_panelconfig');
         }
-        return $this->render('admin/professionnal/editprofessionnal.html.twig', [
+        return $this->render('admin/professionnal/edit.html.twig', [
             'pro' => $pro,
             'form' => $form->createView(),]);
     }

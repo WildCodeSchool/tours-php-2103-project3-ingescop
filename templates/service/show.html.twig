@@ -9,13 +9,19 @@
         <div class="service-title-image">
                 <h1>{{ service.name }}</h1>
                 {% if service.category == 'AMO' %}
-                    <div class="image amo"><p>Photo</p></div>
+                    <div class="image amo">
+                        <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}" width="150px">
+                    </div>
                 {% endif %}
                 {% if service.category == 'MOE' %}
-                    <div class="image moe"><p>Photo</p></div>
+                    <div class="image moe">
+                        <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}" width="150px">
+                    </div>
                 {% endif %}
                 {% if service.category == 'Conseil' %}
-                    <div class="image conseil"><p>Photo</p></div>
+                    <div class="image conseil">
+                        <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}" width="150px">
+                    </div>
                 {% endif %}
         </div>
         <div class="service-description">
