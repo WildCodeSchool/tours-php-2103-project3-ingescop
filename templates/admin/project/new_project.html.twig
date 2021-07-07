@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouveau professionnel{% endblock %}
+{% block title %}Nouveau projet{% endblock %}
 
 {% block pageContainer %}
-    <h1>Ajouter un nouveau professionnel</h1>
-    {{ include('admin/_formprofessionnal.html.twig') }}
+    <h1>Créer un nouveau projet</h1>
+
+    {{ include('admin/_form.html.twig') }}
+
     <a href="{{ path('admin_panelconfig') }}">Revenir au panneau de configuration</a>
 {% endblock %}

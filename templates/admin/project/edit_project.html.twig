@@ -5,7 +5,7 @@
 {% block pageContainer %}
     <h1>Éditer le Project</h1>
 
-    {{ include('admin/_form_project.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {{ include('admin/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
     <h2>Images</h2>
     <h3>Image Principal</h3>
     <img src="{{ asset('/uploads/images/' ~ project.mainPhoto) }}" alt="{{ project.mainPhoto }}" width="150px">
@@ -22,5 +22,5 @@
 
     <a href="{{ path('admin_panelconfig') }}">Revenir au panneau de configuration</a>
 
-    {{ include('admin/_delete_form_project.html.twig') }}
+    {{ include('admin/project/_delete_form_project.html.twig') }}
 {% endblock %}

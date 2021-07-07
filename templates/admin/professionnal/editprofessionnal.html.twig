@@ -5,12 +5,12 @@
 {% block pageContainer %}
     <h1>Éditer un professionnel</h1>
 
-    {{ include('admin/_formprofessionnal.html.twig') }}
+    {{ include('admin/_form.html.twig') }}
 
     <h3>Photo de profil</h3>
     <img src="{{ asset('/uploads/images/' ~ pro.profilPhoto) }}" alt="{{ pro.profilPhoto }}" width="150px">
 
-    {{ include('admin/_deleteprofessionnal.html.twig') }}
+    {{ include('admin/professionnal/_deleteprofessionnal.html.twig') }}
 
     <a href="{{ path('admin_panelconfig') }}">Revenir au panneau de configuration</a>
 {% endblock %}
