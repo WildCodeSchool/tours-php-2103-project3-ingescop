@@ -3,7 +3,7 @@
 {% block title %}Project index{% endblock %}
 
 {% block pageContainer %}
-    <h1>Liste des projets</h1>
+    <h1>Liste des professionnels</h1>
 
     <table class="table">
         <thead>
@@ -31,6 +31,7 @@
     </div>
 <a href="{{ path("admin_newpro") }}">Créer un professionnel</a>
 
+    <h1>Liste des références</h1>
     <table>
         <thead>
             <tr>
@@ -77,4 +78,34 @@
     </table>
 
     <a href="{{ path('admin_newproject') }}">Créer un nouveau projet</a>
+
+    <h1>Listes des partenaires</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Logo</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for partner in partners %}
+            <tr>
+                <td>{{ partner.id }}</td>
+                <td>{{ partner.name }}</td>
+                <td>{{ partner.logo }}</td>
+                <td>
+                    <a href="{{ path('home') }}">Voir</a>
+                    <a href="{{ path('admin_partner_edit', {'id': partner.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">pas d'enregistrements trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_partner_new') }}">Create un nouveau partenaire</a>
 {% endblock %}

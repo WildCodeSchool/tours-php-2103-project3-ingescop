@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partenaire{% endblock %}
+
+{% block pageContainer %}
+    <h1>Partenaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ partner.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ partner.name }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ partner.logo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_panelconfig') }}">Revenir au panneau de configuration</a>
+
+    <a href="{{ path('partner_edit', {'id': partner.id}) }}">Éditer</a>
+
+    {{ include('partner/_delete_form.html.twig') }}
+{% endblock %}

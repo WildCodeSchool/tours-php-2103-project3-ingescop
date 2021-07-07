@@ -135,7 +135,11 @@
 						</div>
 						<div id="footer-right">
 							<p>Partenaire de</p>
-							<a href="https://www.nova-bat.coop/" target="blank"><img class="footer-logo-partenaire" src="{{ asset('build/images/Logo_novabat.png') }}"/></a>
+							{% for partner in partners %}
+                        		<a href="{{ partner.link }}" target="_blank">
+                            		<img src="{{ asset('uploads/images/' ~ partner.logo) }}" alt="{{ partner.name }}">
+                        		</a>
+                    {% endfor %}
 						</div>
 					</div>
 				{% else %}

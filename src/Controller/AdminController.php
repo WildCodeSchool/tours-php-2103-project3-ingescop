@@ -7,8 +7,11 @@ use App\Form\ProfessionnalType;
 use App\Repository\ProfessionnalRepository;
 use App\Entity\Project;
 use App\Form\ProjectType;
-use App\Entity\Images;
 use App\Repository\ProjectRepository;
+use App\Entity\Partner;
+use App\Form\PartnerType;
+use App\Repository\PartnerRepository;
+use App\Entity\Images;
 use App\Service\FileUploaderService;
 use App\Service\ImagesProjectService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,11 +30,15 @@ class AdminController extends AbstractController
     /**
      * @Route("/", name="panelconfig", methods={"GET"})
      */
-    public function list(ProjectRepository $projectRepository, ProfessionnalRepository $proRepository): Response
-    {
+    public function list(
+        ProjectRepository $projectRepository,
+        ProfessionnalRepository $proRepository,
+        PartnerRepository $partnerRepository
+    ): Response {
         return $this->render('admin/panelconfig.html.twig', [
             'projects' => $projectRepository->findAll(),
             'pro' => $proRepository->findAll(),
+            'partners' => $partnerRepository->findAll()
         ]);
     }
 
