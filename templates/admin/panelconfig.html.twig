@@ -1,20 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Project index{% endblock %}
+{% block title %}Panneau de Configuration{% endblock %}
 
 {% block pageContainer %}
-    <h1>Liste des professionnels</h1>
 
     <table class="table">
+<a href="{{ path("admin_newservice") }}"> Créer un service</a>
+    <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>Catégorie</th>
                 <th>Service</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
+    {% for service in services %}
+            <tr>
+                <td>{{ service.id }}</td>
+                <td>{{ service.name }}</td>
+                <td>{{ service.category }}</td>
+                <td>
+                    <a href="{{ path("admin_editservice", {"id": service.id}) }}">Editer</a>
+                    <a href="{{ path("services_show", {"id": service.id}) }}">Voir</a>
+                </td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Liste des professionnels</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Métier</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
     {% for professionnal in pro %}
             <tr>
                 <td>{{ professionnal.id }}</td>

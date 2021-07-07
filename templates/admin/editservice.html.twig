@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Modification Service{% endblock %}
+
+{% block pageContainer %}
+    <h1>Vous pouvez modifier vos services</h1>
+
+    {{ include("admin/_formservice.html.twig", {'button_label': 'Mettre à jour'}) }}
+    {{ include("admin/_deleteservice.html.twig") }}
+    <a href="{{ path('admin_panelconfig') }}">Retour</a>
+{% endblock %}
