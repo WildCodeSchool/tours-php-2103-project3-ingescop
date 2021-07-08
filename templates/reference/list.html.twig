@@ -5,7 +5,7 @@
 {% block pageContainer %}
     <div class="references-list-block">
         {% if is_granted('ROLE_ADMIN') %}
-                    <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panneau de configuration</a>
+                    <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong>Retour au panneau de configuration</a>
         {% endif %}
         {% for reference in references %}
             {% if reference.workInProgress == 'En études' %}
