@@ -4,7 +4,7 @@
 
     <div class="service-show-page">
         {% if is_granted('ROLE_ADMIN') %}
-            <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panneau de configuration</a>
+            <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
         {% endif %}
         <div class="service-title-image">
                 <h1>{{ service.name }}</h1>
