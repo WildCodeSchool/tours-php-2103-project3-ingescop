@@ -531,17 +531,20 @@ footer p a:hover {
 h1 {
     text-align: center;
     margin: 3% auto;
-    color: var(--red);
+    color: var(--orange);
+}
+
+.chantier {
+width: 100%;
+border-radius: 0 0 10px 10px;
 }
 
 .explication-CAE {
     text-align: left;
-    padding: 0 5rem;
-    border: 3px solid rgba(161, 25, 27, 1);
+    padding: 5rem;
+    box-shadow: 0px 0px 12px 2px rgba(196, 196, 196, 0.534);
+    border-radius: 10px;
     margin: 5%;
-    background-size: cover;
-    box-shadow: 0px 0px 28px 4px var(--red);
-    opacity: 50;
 }
 
 .explication-CAE em {
@@ -550,10 +553,10 @@ h1 {
 
 #pres {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: var(--red);
     margin: 3% auto;
     text-align: center;
     font-size: 2rem;
+    text: black;
 }
 
 #log {
@@ -563,6 +566,12 @@ h1 {
 
 #description-cae {
     font-size: 2rem;
+    background-color: rgba(196, 196, 196, 0.863);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    margin: 3% 0 0 0;
+    padding: 2rem;
+    color: white;
 }
 
 .explication-titre {
@@ -570,82 +579,114 @@ h1 {
     justify-content: space-around;
     margin: 5%;
     padding: 0 5rem;
-    font-size: 2rem;
-    
+    font-size: 2rem;    
+}
+
+.explication-titre p {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.explication-titre p.appear {
+    opacity: 1;
 }
 
 .explication-titre em {
     color:red;
 }
 
-#G, #INGE, #SCOP, #description-cae {
-    margin: 3%;
-    padding: 2rem;
-    border: 3px solid rgba(59,62,71,1);
-    box-shadow: 0px 0px 28px 4px var(--grey);
-    text-align: center;
+#G, #INGE, #SCOP {
+    margin: 1%;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px 2px rgba(196, 196, 196, 0.534);
+    text-align: left;
 } 
 
-.utilisation {
-    margin: 5%;
-    padding: 2rem;
-    border: 3px solid rgb(131, 37, 37);
-    box-shadow: 0px 0px 28px 4px var(--red);
+#utilisation {
     font-size: 2rem;
-    text-align: center;
-}
-
-.cogerants {
     text-align: left;
-    padding: 0 5rem;
-    border: 3px solid rgba(161, 25, 27, 1);
-    margin: 5%;
-    background-size: cover;
-    box-shadow: 0px 0px 28px 4px var(--red);
-    opacity: 50;
+    margin: 0 0 2% 0;
+    column-count: 3;
+    padding-top: 5rem;
 }
 
 #pres-co {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 3% auto;
-    color: var(--red);
     text-align: center;
     font-size: 2rem;
-}
-
-.bubble-portrait {
-    display: flex;
-    justify-content: space-around;
-    margin: 3%;
-    font-size: 2rem;
-    
-}
-
-#robert, #alice, #patrick {
-    border: 3px solid rgb(131, 37, 37);
-    box-shadow: 0px 0px 28px 4px var(--red);
-    padding: 2rem;
 }
 
 .explication-portrait {
-    display: flex;
-    justify-content: space-around;
+        text-align: left;
+        padding: 5rem;
+        box-shadow: 0px 0px 12px 2px rgba(196, 196, 196, 0.534);
+        border-radius: 10px;
+        margin: 5%;
 }
 
-#A, #P, #R {
-    margin: 3%;
-    padding: 2rem;
-    border: 3px solid rgba(59,62,71,1);
-    box-shadow: 0px 0px 28px 4px var(--grey);
-    text-align: center;
+.portrait-block {
+    margin: 5%;
+    text-align: left;
     font-size: 2rem;
+    display: flex;
+    justify-content: space-evenly;
 } 
 
-#A em, #P em, #R em {
+.portrait-block h3 {
     color: rgba(161, 25, 27, 1);
+    width: 10%;
+    text-align: left;
+    margin: 0 1%;
 } 
 
+.portrait-block a {
+    width: 10%;
+    text-align: center;
+}
 
+.portrait-block p {
+    width: 80%;
+    margin: 0 1%;
+}
+
+.trait {
+    border-top: 1px solid rgba(196, 196, 196, 0.445);
+    box-shadow: 0px 0px 10px 0px rgba(196, 196, 196, 0.849);
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+@media screen and (max-width: 900px) {
+    /* general css */
+
+    .explication-titre {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #utilisation {
+        column-count: 1;
+    }
+
+    .portrait-block {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1100px) {
+
+    #utilisation {
+        column-count: 2;
+    }
+
+    .portrait-block {
+        display: flex;
+        flex-direction: column;
+    }
+}
 /*========== PROFESSIONNEL PAGES ==========*/
 /*========================================*/
 

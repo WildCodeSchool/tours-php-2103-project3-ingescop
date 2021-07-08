@@ -32,6 +32,7 @@ const burgherIcon = document.querySelector('.burger-icon');
 const lineOne = document.querySelector('.line1');
 const lineTwo = document.querySelector('.line2');
 const lineThree = document.querySelector('.line3');
+const explicationTitre = document.querySelectorAll('.explication-titre p');
 
 burgherIcon.addEventListener('click', () => {
     burgerMenu.classList.toggle('change');
@@ -47,6 +48,11 @@ window.addEventListener('scroll', () => {
         footer.style.animationFillMode = 'backwards';
     }
 });
+
+for (let i = 0; i < explicationTitre.length; i += 1) {
+    explicationTitre[i].style.transitionDelay = `${i / 2}s`;
+    explicationTitre[i].classList.add('appear');
+}
 
 for (let i = 0; i < bubblesProfessionnals.length; i += 1) {
     bubblesProfessionnals[i].style.borderRadius = randomBorder();
