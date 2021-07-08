@@ -23,5 +23,13 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "autoprefixer": "^10.2.6",
+        "glob-all": "^3.2.1",
+        "path": "^0.12.7",
+        "postcss-loader": "^6.1.1",
+        "purgecss-webpack-plugin": "^4.0.3",
+        "tailwindcss": "^2.2.4"
     }
 }

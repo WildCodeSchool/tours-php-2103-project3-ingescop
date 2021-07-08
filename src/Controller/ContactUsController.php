@@ -34,7 +34,7 @@ class ContactUsController extends AbstractController
                  $contact->getEmailAddress(), 'text/plain');
                  $mailer->send($message);
 
-                 $this->addFlash("Success", 'Votre message à été envoyé avec succès !');
+                 $this->addFlash("Success", ' Votre message à été envoyé avec succès !');
                  return $this->redirectToRoute('contactus');
         }
         return $this->render('contact_us/contactus.html.twig', [
