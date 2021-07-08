@@ -21,7 +21,7 @@ class ServiceController extends AbstractController
     {
         $services = $serviceRepository->findAll();
         shuffle($services);
-        return $this->render('services/list.html.twig', [
+        return $this->render('service/list.html.twig', [
             'services' => $services
         ]);
     }
@@ -32,7 +32,7 @@ class ServiceController extends AbstractController
     public function show(int $id, ServiceRepository $serviceRepository): Response
     {
         $service = $serviceRepository->findOneById($id);
-        return $this->render('services/show.html.twig', [
+        return $this->render('service/show.html.twig', [
             'service' => $service
         ]);
     }

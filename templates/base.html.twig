@@ -15,11 +15,12 @@
 		{% block header %}
 			<header>
 				<div class="header--logo" >
-					<a href="{{ path("app_login") }}"><img class="logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/></a>
+					<a href="/"><img class="logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/></a>
 				</div>
 				{% block Admin %}{% endblock %}
 				{% if app.user %}
     				<a id="logout-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
+					<a id="change-password" href="{{ path('reset-password') }}"> Changer de mot de passe</a>
 				{% endif %}
 				<div class="responsive-menu">
 					<nav>
@@ -135,7 +136,11 @@
 						</div>
 						<div id="footer-right">
 							<p>Partenaire de</p>
-							<a href="https://www.nova-bat.coop/" target="blank"><img class="footer-logo-partenaire" src="{{ asset('build/images/Logo_novabat.png') }}"/></a>
+							{% for partner in partners %}
+                        		<a href="{{ partner.link }}" target="_blank">
+                            		<img src="{{ asset('uploads/images/' ~ partner.logo) }}" alt="{{ partner.name }}">
+                        		</a>
+                    {% endfor %}
 						</div>
 					</div>
 				{% else %}

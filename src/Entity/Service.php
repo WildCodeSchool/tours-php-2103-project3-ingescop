@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ServiceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,6 +21,7 @@ class Service
     private int $id;
 
     /**
+     *
      * @ORM\Column(type="string", length=255)
      */
     private string $name;
@@ -33,6 +35,11 @@ class Service
      * @ORM\ManyToMany(targetEntity=Professionnal::class, inversedBy="service")
      */
     private Collection $professionnal;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $image;
 
     public function __construct()
     {
@@ -88,6 +95,18 @@ class Service
     public function removeProfessionnal(Professionnal $professionnal): self
     {
         $this->professionnal->removeElement($professionnal);
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

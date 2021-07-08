@@ -34,6 +34,24 @@ body {
     position: relative;
 }
 
+#panelconfig-link {
+    display: block;
+    position: fixed;
+    top: 85%;
+    left: 3%;
+    text-decoration: none;
+    font-size: 2.4rem;
+    padding: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.815);
+    color: var(--orange);
+    z-index: 100;
+    transition: transform 0.5s ease;
+}
+
+#panelconfig-link:hover {
+    transform: translateX(-2%);
+}
+
 /*========== ANIMATIONS KEYFRAMES ==========*/
 /*==========================================*/
 
@@ -168,6 +186,24 @@ header {
 }
 
 #logout-link:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+#change-password {
+    display: block;
+    border: 1px solid var(--black);
+    border-radius: 40px;
+    width: 15%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 0.8rem 0.4rem;
+    color: var(--black);
+    transition: all 0.5s ease;
+}
+
+#change-password:hover {
     color: var(--orange);
     border-color: var(--orange);
 }
@@ -416,7 +452,7 @@ footer p a:hover {
 .home-banner {
     width: 100%;
     height: 80%;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.253)), url(/assets/images/1gscop-pano-accueil-2.jpg);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.253)), url(/assets/images/1gscop-pano-accueil-1.jpg);
     background-size: cover;
 }
 
@@ -911,7 +947,7 @@ h1 {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 40%;
+    width: 35%;
     margin: 3%;
     text-decoration: none;
     position: relative;
@@ -955,8 +991,8 @@ h1 {
     font-size: 4rem;
     font-weight: 500;
     position: absolute;
-    top: 0%;
-    left: -2%;
+    top: -2%;
+    left: -5%;
 }
 
 .handwriting-in-study {
@@ -1004,25 +1040,7 @@ h1 {
 .reference-show-image img {
     margin-right: 5%;
     width: 460px;
-    height: 350px
-}
-
-#panelcongig-link {
-    display: block;
-    position: fixed;
-    top: 85%;
-    left: 3%;
-    text-decoration: none;
-    font-size: 2.4rem;
-    padding: 0.4rem;
-    background-color: rgba(255, 255, 255, 0.815);
-    color: var(--orange);
-    z-index: 100;
-    transition: transform 0.5s ease;
-}
-
-#panelcongig-link:hover {
-    transform: translateX(-2%);
+    height: 350px;
 }
 
 .reference-show-description {
@@ -1063,16 +1081,45 @@ h1 {
 
 .reference-show-description .bottom-pics {
     margin: 4.5% 0% 1% 3.5%;
-    overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .reference-show-description .bottom-pics img {
+    margin-top: 3%;
     object-fit: cover;
     width: 48%;
     height: 70%;
 }
+
+/*=========================================*/
+/*========== EDIT REFERENCE FORM ==========*/
+
+.images-project-edit {
+    width: 80%;
+    margin: 3% auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.images-project-edit h3 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 5% 0;
+}
+
+#edit-project-primary-image {
+    width: 450px;
+    height: 310px;
+}
+
+#edit-project-secondary-image {
+    width: 320px;
+    height: 210px;
+}
+
 
 /*=========================================*/
 /*=============== RESPONSIVE ===============*/

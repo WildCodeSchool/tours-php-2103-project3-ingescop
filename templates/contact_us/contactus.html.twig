@@ -3,8 +3,8 @@
 {% block title %}{% endblock %}
 
 {% block pageContainer %}
-    {% if app.user %}
-        <a id="panelcongig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
     {% endif %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
