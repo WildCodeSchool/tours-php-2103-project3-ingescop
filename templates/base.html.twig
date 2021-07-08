@@ -20,6 +20,7 @@
 				{% block Admin %}{% endblock %}
 				{% if app.user %}
     				<a id="logout-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
+					<a id="change-password" href="{{ path('reset-password') }}"> Changer de mot de passe</a>
 				{% endif %}
 				<div class="responsive-menu">
 					<nav>

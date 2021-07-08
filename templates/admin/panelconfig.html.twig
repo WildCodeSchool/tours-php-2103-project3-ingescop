@@ -1,8 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Panneau de Configuration{% endblock %}
+{% block title %}Panneau de configuration{% endblock %}
 
 {% block pageContainer %}
+    {% block flashMessage %}
+        {% for message in app.flashes('notice') %}
+                    {{ message }}
+        {% endfor %}
+    {% endblock %}
+    <h1>Panneau de configuration</h1>
+    <table class="table">
     <h1>Liste des services</h1>
     <table class="table">
     <table>

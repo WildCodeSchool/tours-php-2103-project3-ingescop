@@ -190,6 +190,24 @@ header {
     border-color: var(--orange);
 }
 
+#change-password {
+    display: block;
+    border: 1px solid var(--black);
+    border-radius: 40px;
+    width: 15%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 0.8rem 0.4rem;
+    color: var(--black);
+    transition: all 0.5s ease;
+}
+
+#change-password:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
 .responsive-menu {
     width: 88%;
     display: flex;
