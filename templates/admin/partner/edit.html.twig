@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un partenaire{% endblock %}
+
+{% block pageContainer %}
+    <h1>Ajouter un partenaire</h1>
+
+    {{ include('admin/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <img src="{{ asset('/uploads/images/' ~ partner.logo) }}" alt="{{ partner.logo }}" width="150px">
+    <a href="{{ path('admin_panelconfig') }}">Revenir au panneau de configuration</a>
+
+    {{ include('admin/partner/_delete.html.twig') }}
+{% endblock %}

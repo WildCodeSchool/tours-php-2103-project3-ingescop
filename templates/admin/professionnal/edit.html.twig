@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Éditer un professionnel{% endblock %}
+
+{% block pageContainer %}
+    <h1>Éditer un professionnel</h1>
+
+    {{ include('admin/_form.html.twig') }}
+
+    <h3>Photo de profil</h3>
+    <img src="{{ asset('/uploads/images/' ~ pro.profilPhoto) }}" alt="{{ pro.profilPhoto }}" width="150px">
+
+    {{ include('admin/professionnal/_delete.html.twig') }}
+
+    <a href="{{ path('admin_panelconfig') }}">Revenir au panneau de configuration</a>
+{% endblock %}
