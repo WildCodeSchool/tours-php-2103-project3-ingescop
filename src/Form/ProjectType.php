@@ -9,7 +9,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\All;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Image;
 
 class ProjectType extends AbstractType
 {
@@ -31,9 +35,29 @@ class ProjectType extends AbstractType
             ])
             ->add('strongPoints', TextType::class, ['label' => 'Points forts'])
             ->add('resume', TextType::class, ['label' => 'En bref'])
-            ->add('photoOne', TextType::class, ['label' => 'Photo principale'])
-            ->add('photoTwo', TextType::class, ['label' => 'Photo secondaire', 'required' => false])
-            ->add('photoThree', TextType::class, ['label' => 'Photo secondaire', 'required' => false])
+            ->add('mainPhoto', FileType::class, [
+                'label' => 'Image Principale',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new Image([
+                        'maxSize' => '100k',
+                    ])
+                ]
+            ])
+            ->add('images', FileType::class, [
+                'label' => 'Images',
+                'mapped' => false,
+                'multiple' => true,
+                'required' => false,
+                'constraints' => [
+                    new All([
+                        new Image([
+                            'maxSize' => '100k',
+                        ])
+                    ])
+                ]
+            ])
             ->add('owner', EntityType::class, [
                 'class' => Professionnal::class,
                 'choice_label' => 'name',
