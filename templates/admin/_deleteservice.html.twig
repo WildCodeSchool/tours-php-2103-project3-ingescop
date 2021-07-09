@@ -1,4 +1,0 @@
-<form method="post" action="{{ path('admin_deleteservice', {'id': service.id}) }}" onsubmit="return confirm('Êtes vous sûr de bien vouloir supprimer ce service ?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ service.id) }}">
-    <button class="btn">Supprimer</button>
-</form>

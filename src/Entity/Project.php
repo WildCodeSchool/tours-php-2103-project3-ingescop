@@ -111,29 +111,26 @@ class Project
     private string $resume;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $photoOne;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Vous devez rentrer un résumé descriptif du projet, dans le champ ('Resume)")
      */
     private string $strongPoints;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="project", orphanRemoval=true, cascade={"persist"})
      */
-    private ?string $photoTwo;
+    private Collection $images;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private ?string $photoThree;
+    private string $mainPhoto;
 
     public function __construct()
     {
         $this->owner = new ArrayCollection();
         $this->entryDate = new DateTime('now');
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): int
@@ -278,18 +275,6 @@ class Project
         return $this;
     }
 
-    public function getPhotoOne(): ?string
-    {
-        return $this->photoOne;
-    }
-
-    public function setPhotoOne(string $photoOne): self
-    {
-        $this->photoOne = $photoOne;
-
-        return $this;
-    }
-
     public function getStrongPoints(): string
     {
         return $this->strongPoints;
@@ -302,26 +287,44 @@ class Project
         return $this;
     }
 
-    public function getPhotoTwo(): ?string
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
     {
-        return $this->photoTwo;
+        return $this->images;
     }
 
-    public function setPhotoTwo(string $photoTwo): self
+    public function addImage(Images $image): self
     {
-        $this->photoTwo = $photoTwo;
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setProject($this);
+        }
 
         return $this;
     }
 
-    public function getPhotoThree(): ?string
+    public function removeImage(Images $image): self
     {
-        return $this->photoThree;
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getProject() === $this) {
+                $image->setProject(null);
+            }
+        }
+
+        return $this;
     }
 
-    public function setPhotoThree(string $photoThree): self
+    public function getMainPhoto(): ?string
     {
-        $this->photoThree = $photoThree;
+        return $this->mainPhoto;
+    }
+
+    public function setMainPhoto(string $mainPhoto): self
+    {
+        $this->mainPhoto = $mainPhoto;
 
         return $this;
     }

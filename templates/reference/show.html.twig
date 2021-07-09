@@ -4,11 +4,11 @@
 
 {% block pageContainer %}
     <div class="reference-show-block">
-            {% if app.user %}
-                    <a id="panelcongig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                    <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
             {% endif %}
         <div class="reference-show-image">
-            <img src="{{ asset(reference.photoOne) }}"/>
+            <img src="{{ asset('uploads/images/' ~ reference.getMainPhoto) }}" alt="{{ reference.name }}">
         </div>
         <div class="reference-show-description">
             <h1>{{ reference.name }}</h1>
@@ -18,9 +18,7 @@
             <p><strong>Budget : </strong>{{ reference.budget }}</p>
             <p><strong>Calendrier : </strong> {{ reference.calendar }}</p>
             <p><strong>Points forts du projet : </strong></p>
-            {% for point in strongPoints %}
-                <p class="point">{{ point }}</p>
-            {% endfor %}
+            <p>{{ reference.strongPoints }}<p>
             {% if reference.owner != null %}
                 <p><strong>Professionnels ayant participés au projet : </strong><br>
                     {% for professionnal in reference.owner %}
@@ -30,11 +28,12 @@
             {% endif %}
             <p><strong>En bref</strong><br>{{ reference.resume }}</p>
             <div class="bottom-pics">
-                {% if reference.photoTwo != 0 %}
-                    <img src="{{ asset(reference.photoTwo) }}"/>
-                {% endif %}
-                {% if reference.photoThree != 0 %}
-                    <img src="{{ asset(reference.photoThree) }}"/>
+                {% if images != null %}
+                    {% for image in images %}
+                        <a href="{{ asset('uploads/images/' ~ image) }}" target="_blank">
+                            <img src="{{ asset('uploads/images/' ~ image) }}" alt="{{ image }}">
+                        </a>
+                    {% endfor %}
                 {% endif %}
             </div>
         </div>
