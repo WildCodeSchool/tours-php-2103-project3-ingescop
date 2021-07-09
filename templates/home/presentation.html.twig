@@ -3,18 +3,8 @@
 {% if is_granted('ROLE_ADMIN') %}
         <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 {% endif %}
- <h1>QUI SOMMES NOUS?</h1>
+ <h1>QUI SOMMES NOUS ?</h1>
     <div class="presentation-generale">
-        <div class="explication-CAE">
-            <h2 id="pres">Présentation de la Cooperative d'Activités et d'Emplois (CAE)</h2>
-                <p id="description-cae">
-                    <em id="log">1</em><em>G</em>scop est une Coopérative d’Activités et d’Emplois dédiée à la rénovation et à la construction,
-                    de l’échelle du bâtiment jusqu’à l’échelle urbaine.
-                    Le projet 1gscop est né à l’heure où il était question du déploiement de la 5G en France…
-                    et à une époque de l’histoire humaine où il n’a jamais été aussi important de (re)concilier le soin des femmes
-                    et des hommes avec celui qu’il convient de porter à notre Terre.
-                </p>
-        </div>
         <div class="explication-titre">
             <p id="G">
                 <em>1G</em>, oui, résolument, comme une évidence, faire un pas de côté face à l’agitation des mécanismes actuels,
@@ -35,8 +25,19 @@
                 d’être endurants et non de s’épuiser après un sprint de départ trop vite mené.
             </p>
         </div>
-        <div class="utilisation">
-            <p>
+        <div class="explication-CAE">
+            <h2 id="pres">Présentation de la Cooperative d'Activités et d'Emplois (CAE)</h2>
+            <p id="description-cae">
+                <em id="log">1</em><em>G</em>scop est une Coopérative d’Activités et d’Emplois dédiée à la rénovation et à la construction,
+                de l’échelle du bâtiment jusqu’à l’échelle urbaine.
+                Le projet 1gscop est né à l’heure où il était question du déploiement de la 5G en France…
+                et à une époque de l’histoire humaine où il n’a jamais été aussi important de (re)concilier le soin des femmes
+                et des hommes avec celui qu’il convient de porter à notre Terre.
+            </p>
+            <a>
+                <img class="chantier" src="{{ asset('build/images/1gscop-pano-accueil.jpg') }}"/>
+            </a>
+            <p id="utilisation">
                 Les terrains de prédilection d’1gscop sont de manière croisée :
                 L’attention aux femmes et aux hommes, plus particulièrement les plus fragiles
                 Le choix de matériaux de construction sains et respectueux de la santé de ceux qui
@@ -47,40 +48,46 @@
                 Une audace pour faire évoluer les métiers face aux besoins qui émergent
                 Et voilà, vous savez tout où presque ! (sinon, il va falloir continuer de surfer sur le site…)
             </p>
-       </div>
+        </div>
     </div>
     <div class="cogerants">
-        <h2 id="pres-co">Presentation des cogerants</h2>
-            <div class="bubble-portrait">
-                <a href=""id="robert"><img src="{{ asset('build/images/robert.png') }}" alt="ROBERT"></a>
-                <a href=""id="alice"><img src="{{ asset('build/images/alice.png') }}" alt="ALICE"></a>
-                <a href=""id="patrick"><img src="{{ asset('build/images/patrick.png') }}" alt="PATRICK"></a>
-            </div>
-            <div class="explication-portrait">
-                <p id="R">
-                    <em>ROBERT</em>
-                    est orléanais, il aime les grands espaces marins, tout comme, une fois qu’il est sec,
-                    enfiler ses chaussures de randonnée. Robert BORJA est conseiller juridique et financier et rénovation énergétique.
-                    Après une maitrise en écologie à Paris 6ème,
-                    il alterne des missions de consultants en environnement et de conseillers techniques,
-                    financiers et juridiques en rénovation énergétique.
-                </p>
-                <p id="A">
-                    <em>ALICE</em>
-                    est chinonaise, elle aime écouter les pinsons au printemps, marcher dans les vignes,
-                    faire des poupées avec des coquelicots. Alice PERROTTE est architecte,
-                    diplômée de la Bartlett School of Architecture de Londres, elle puise son inspiration et son regard affiné
-                    et aguerri d’une expérience de plus de 30 ans en architecture sur les terrains du libéral, des agences d’architecture,
-                    des structures publiques d’aménagement et de conseils de l’échelle de la maison jusqu’à celle de la ville.
-                </p>
-                <p id="P">
-                    <em>PATRICK</em>
-                    est tourangeau, il aime le vélo, surtout le tandem parce que cela rime pour lui avec les vacances.
-                    Patrick GARREAU est ingénieur des ponts et chaussées et diplômé en architecture.
-                    Il a exercé au Tchad et au Honduras, en France dans des bureaux d’études sur de nombreux sujets
-                    liés à l’ingénierie de la construction.
-                    Il est également formateur et accompagnateur de groupements d’artisans pour la rénovation performante de maisons individuelles.
-                </p>
-            </div>
+        <div class="explication-portrait">
+            <h2 id="pres-co">Presentation des cogerants</h2>
+                <div class="portrait-block R">
+                    <a href=""id="robert"><img src="{{ asset('build/images/robert.png') }}" alt="ROBERT"></a>
+                    <h3>ROBERT </h3>
+                    <p>
+                        est orléanais, il aime les grands espaces marins, tout comme, une fois qu’il est sec,
+                        enfiler ses chaussures de randonnée. Robert BORJA est conseiller juridique et financier et rénovation énergétique.
+                        Après une maitrise en écologie à Paris 6ème,
+                        il alterne des missions de consultants en environnement et de conseillers techniques,
+                        financiers et juridiques en rénovation énergétique.
+                    </p>
+                </div>
+                <div class="trait"></div>
+                <div class="portrait-block A">
+                    <a href=""id="alice"><img src="{{ asset('build/images/alice.png') }}" alt="ALICE"></a>
+                    <h3>ALICE</h3>
+                    <p>
+                        est chinonaise, elle aime écouter les pinsons au printemps, marcher dans les vignes,
+                        faire des poupées avec des coquelicots. Alice PERROTTE est architecte,
+                        diplômée de la Bartlett School of Architecture de Londres, elle puise son inspiration et son regard affiné
+                        et aguerri d’une expérience de plus de 30 ans en architecture sur les terrains du libéral, des agences d’architecture,
+                        des structures publiques d’aménagement et de conseils de l’échelle de la maison jusqu’à celle de la ville.
+                    </p>
+                </div>
+                <div class="trait"></div>
+                <div class="portrait-block P">
+                    <a href=""id="patrick"><img src="{{ asset('build/images/patrick.png') }}" alt="PATRICK"></a>
+                    <h3>PATRICK</h3>
+                    <p>
+                        est tourangeau, il aime le vélo, surtout le tandem parce que cela rime pour lui avec les vacances.
+                        Patrick GARREAU est ingénieur des ponts et chaussées et diplômé en architecture.
+                        Il a exercé au Tchad et au Honduras, en France dans des bureaux d’études sur de nombreux sujets
+                        liés à l’ingénierie de la construction.
+                        Il est également formateur et accompagnateur de groupements d’artisans pour la rénovation performante de maisons individuelles.
+                    </p>
+                </div>
+        </div>
     </div>
 {% endblock %}

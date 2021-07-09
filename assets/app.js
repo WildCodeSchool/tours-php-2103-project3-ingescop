@@ -32,6 +32,11 @@ const burgherIcon = document.querySelector('.burger-icon');
 const lineOne = document.querySelector('.line1');
 const lineTwo = document.querySelector('.line2');
 const lineThree = document.querySelector('.line3');
+const explicationTitre = document.querySelectorAll('.explication-titre p');
+const utilisation = document.getElementById('utilisation');
+const portraitRobert = document.querySelector('.R');
+const portraitAlice = document.querySelector('.A');
+const portraitPatrick = document.querySelector('.P');
 
 burgherIcon.addEventListener('click', () => {
     burgerMenu.classList.toggle('change');
@@ -42,11 +47,40 @@ burgherIcon.addEventListener('click', () => {
 
 window.addEventListener('scroll', () => {
     const scrollValue = (window.innerHeight + window.scrollY) / (document.body.offsetHeight);
+
+    if (scrollValue > 0.48) {
+        utilisation.style.animation = 'moveFooter 1.5s ease';
+        utilisation.style.animationFillMode = 'backwards';
+    }
+
+    if (scrollValue > 0.645) {
+        portraitRobert.style.transitionDelay = '1s';
+        portraitRobert.style.animation = 'moveInLeft 1.8s ease';
+        portraitRobert.style.animationFillMode = 'backwards';
+    }
+
+    if (scrollValue > 0.75) {
+        portraitAlice.style.transitionDelay = '1s';
+        portraitAlice.style.animation = 'moveInLeft 1.8s ease';
+        portraitAlice.style.animationFillMode = 'backwards';
+    }
+
+    if (scrollValue > 0.86) {
+        portraitPatrick.style.transitionDelay = '1s';
+        portraitPatrick.style.animation = 'moveInLeft 1.8s ease';
+        portraitPatrick.style.animationFillMode = 'backwards';
+    }
+
     if (scrollValue > 0.9) {
         footer.style.animation = 'moveFooter 0.8s 0.3s ease';
         footer.style.animationFillMode = 'backwards';
     }
 });
+
+for (let i = 0; i < explicationTitre.length; i += 1) {
+    explicationTitre[i].style.transitionDelay = `${i / 2}s`;
+    explicationTitre[i].classList.add('appear');
+}
 
 for (let i = 0; i < bubblesProfessionnals.length; i += 1) {
     bubblesProfessionnals[i].style.borderRadius = randomBorder();
