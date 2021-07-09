@@ -49,26 +49,26 @@ window.addEventListener('scroll', () => {
     const scrollValue = (window.innerHeight + window.scrollY) / (document.body.offsetHeight);
 
     if (scrollValue > 0.48) {
-        utilisation.style.animation = 'moveFooter 1.5s ease';
-        utilisation.style.animationFillMode = 'backwards';
+        utilisation.style.animation = 'moveInBottom 1.5s ease';
+        utilisation.style.animationFillMode = 'forwards';
     }
 
     if (scrollValue > 0.645) {
         portraitRobert.style.transitionDelay = '1s';
-        portraitRobert.style.animation = 'moveInLeft 1.8s ease';
-        portraitRobert.style.animationFillMode = 'backwards';
+        portraitRobert.style.animation = 'moveInLeft 1.5s ease';
+        portraitRobert.style.animationFillMode = 'forwards';
     }
 
     if (scrollValue > 0.75) {
         portraitAlice.style.transitionDelay = '1s';
-        portraitAlice.style.animation = 'moveInLeft 1.8s ease';
-        portraitAlice.style.animationFillMode = 'backwards';
+        portraitAlice.style.animation = 'moveInLeft 1.5s ease';
+        portraitAlice.style.animationFillMode = 'forwards';
     }
 
     if (scrollValue > 0.86) {
         portraitPatrick.style.transitionDelay = '1s';
-        portraitPatrick.style.animation = 'moveInLeft 1.8s ease';
-        portraitPatrick.style.animationFillMode = 'backwards';
+        portraitPatrick.style.animation = 'moveInLeft 1.5s ease';
+        portraitPatrick.style.animationFillMode = 'forwards';
     }
 
     if (scrollValue > 0.9) {
