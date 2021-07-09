@@ -41,6 +41,7 @@ It's symfony website-skeleton project with some additional tools to validate cod
 4. Uncomment MAILER_DSN and DATABASE_URL="mysql" and comment DATABASE_URL="postgresql"
 5. For work in local don't forget to create a database with `symfony console d:d:c`
 6. After pull remote branch don't forget to play the migration `symfony console do:mi:mi`
+7. Don't forget to load the fixtures with `symfony console do:fi:lo`
 
 ### Testing
 

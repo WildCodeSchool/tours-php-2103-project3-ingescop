@@ -41,6 +41,7 @@ h1 {
     font-family: caveat;
     letter-spacing: 3px;
     color: var(--orange);
+}
   
 #panelconfig-link {
     display: block;
