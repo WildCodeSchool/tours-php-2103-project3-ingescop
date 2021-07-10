@@ -55,7 +55,6 @@ class AdminProfessionnalController extends AbstractController
     ): Response {
         $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('profilPhoto')->getData();
             $image = $pro->getProfilPhoto();

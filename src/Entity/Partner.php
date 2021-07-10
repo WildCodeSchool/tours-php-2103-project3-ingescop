@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
@@ -18,11 +19,17 @@ class Partner
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez choisir un nom")
+     * @Assert\Length(
+     *      max = "255",
+     *      maxMessage = "Le partenaire saisie {{ value }} contient trop de charactères, {{ limit }} au maximum"
+     * )
      */
     private string $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *  @Assert\NotBlank(message="Vous devez choisir un logo")
      */
     private string $logo;
 
