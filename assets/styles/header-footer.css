@@ -297,6 +297,7 @@ footer p a:hover {
 }
 
 /*========== RESPONSIVE ==========*/
+/*================================*/
 /*Desktop*/
 @media screen and (max-width: 1600px) {
     .header--form-links p {
@@ -306,11 +307,50 @@ footer p a:hover {
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1450px) {
+    #logout-link {
+        font-size: 1.6rem;
+        width: 13%;
+    }
+
     #home-links a {
         font-size: 1.6rem;
     }
 }
+
+@media screen and (max-width: 1150px) {
+    #logout-link {
+        font-size: 1.6rem;
+        width: 15%;
+    }
+
+    #home-links {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+
+    .header--logo {
+        margin: 0rem;
+    }
+
+    .responsive-menu nav {
+        width: 70%;
+        margin-right: 1%;
+    }
+
+    #logout-link {
+        font-size: 1.6rem;
+        width: 19%;
+        padding: 0.4rem;
+    }
+
+    .header--form-links p {
+        margin: 0.4rem 0.8rem;
+    }
+}
+
 
 /*TABLETS & IPHONES*/
 @media screen and (max-width: 860px) {

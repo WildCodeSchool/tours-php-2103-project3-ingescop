@@ -43,6 +43,12 @@ h1 {
     color: var(--orange);
 }
 
+h3 {
+    font-size: 3.2rem;
+    font-family: caveat;
+    letter-spacing: 1px;
+}
+
 #panelconfig-link {
     display: block;
     position: fixed;
