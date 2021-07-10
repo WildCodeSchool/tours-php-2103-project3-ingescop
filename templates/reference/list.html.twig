@@ -7,6 +7,7 @@
         {% if is_granted('ROLE_ADMIN') %}
                     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong>Retour au panneau de configuration</a>
         {% endif %}
+        <h1>Nos references</h1>
         {% for reference in references %}
             {% if reference.workInProgress == 'En études' %}
                 <a href="{{ path('reference_show', {id: reference.id}) }}"

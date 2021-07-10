@@ -22,6 +22,7 @@ function randomBorder() {
     return borderRadiusArray[Math.floor(Math.random() * borderRadiusArray.length)];
 }
 
+const professionnalsBlocks = document.querySelectorAll('.pro-block');
 const bubblesProfessionnals = document.querySelectorAll('.bubble-pro');
 const bubblesServices = document.querySelectorAll('.bubble-service');
 const bubblesReferences = document.querySelectorAll('.bubble-reference');
@@ -82,10 +83,13 @@ for (let i = 0; i < explicationTitre.length; i += 1) {
     explicationTitre[i].classList.add('appear');
 }
 
+for (let i = 0; i < professionnalsBlocks.length; i += 1) {
+    professionnalsBlocks[i].style.transitionDelay = `${i / 5}s`;
+    professionnalsBlocks[i].classList.add('appear');
+}
+
 for (let i = 0; i < bubblesProfessionnals.length; i += 1) {
     bubblesProfessionnals[i].style.borderRadius = randomBorder();
-    bubblesProfessionnals[i].style.transitionDelay = `${i / 5}s`;
-    bubblesProfessionnals[i].classList.add('appear');
 }
 
 for (let i = 0; i < bubblesServices.length; i += 1) {
