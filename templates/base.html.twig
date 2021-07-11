@@ -31,6 +31,14 @@
 				<div class="responsive-menu">
 					<nav>
 						<ul id="home-links">
+							{# ADMIN #}
+							{% if is_granted('ROLE_ADMIN') %}
+								<li><a href="{{ path('home') }}">Accueil</a></li>
+								<li><a href="{{ path('professionnal_list') }}">Professionnels</a></li>
+								<li><a href="{{ path('services_list') }}">Services</li></a>
+								<li><a href="{{ path('reference_list') }}">Références</li></a>
+								<li><a href="{{ path('presentation') }}">À propos</li></a>
+							{% endif %}
 							{# HOME PAGE #}
 							{% if app.request.attributes.get('_route') == 'home' %}
 								<li><a class="custom" href="{{ path('home') }}">Accueil</a></li>
