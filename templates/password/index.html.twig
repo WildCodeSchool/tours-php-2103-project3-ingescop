@@ -6,8 +6,22 @@
     {% if app.user %}
         <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
     {% endif %}
+
     {{ form_start(form) }}
-    {{ form_widget(form) }}
-        <input type ="submit" value="Envoyer">
+    <div class="decoration-clone bg-gradient-to-b from-yellow-200">
+        <div class="flex flex-col text-center space-y-6 items-center justify-center min-h-screen">
+            <h1 class="text-center text-5xl font-semibold text-yellow-600">Changement de mot de passe</h1>
+            <div>
+                {{ form_label(form.oldPassword, 'Ancien mot de passe', {'label_attr': {'class': 'text-5xl text-gray-600'}}) }}
+            </div>
+            <div>
+                {{ form_widget(form.oldPassword, {'attr': {'class': 'shadow appearance-none box-border border-yellow-200 h-15 w-32 p-4 border-4 w-full'}}) }}
+            </div>
+            <div>
+                {{ form_widget(form.Password) }}
+            </div>
+            <input type ="submit" value="Valider" class="bg-yellow-700 hover:bg-yellow-400 text-white text-5xl font-bold py-9 px-16 rounded-full focus:outline-none focus:shadow-outline" type="button">
+        </div>
+    </div>
     {{ form_end(form) }}
 {% endblock %}
