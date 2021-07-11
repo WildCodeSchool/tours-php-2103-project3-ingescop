@@ -24,6 +24,7 @@ function randomBorder() {
 
 const professionnalsBlocks = document.querySelectorAll('.pro-block');
 const bubblesProfessionnals = document.querySelectorAll('.bubble-pro');
+const servicesBlocks = document.querySelectorAll('.service-block');
 const bubblesServices = document.querySelectorAll('.bubble-service');
 const bubblesReferences = document.querySelectorAll('.bubble-reference');
 const blockReferences = document.querySelectorAll('.reference-block');
@@ -83,6 +84,15 @@ for (let i = 0; i < explicationTitre.length; i += 1) {
     explicationTitre[i].classList.add('appear');
 }
 
+for (let i = 0; i < servicesBlocks.length; i += 1) {
+    servicesBlocks[i].style.transitionDelay = `${i / 5}s`;
+    servicesBlocks[i].classList.add('appear');
+}
+
+for (let i = 0; i < bubblesServices.length; i += 1) {
+    bubblesServices[i].style.borderRadius = randomBorder();
+}
+
 for (let i = 0; i < professionnalsBlocks.length; i += 1) {
     professionnalsBlocks[i].style.transitionDelay = `${i / 5}s`;
     professionnalsBlocks[i].classList.add('appear');
@@ -90,12 +100,6 @@ for (let i = 0; i < professionnalsBlocks.length; i += 1) {
 
 for (let i = 0; i < bubblesProfessionnals.length; i += 1) {
     bubblesProfessionnals[i].style.borderRadius = randomBorder();
-}
-
-for (let i = 0; i < bubblesServices.length; i += 1) {
-    bubblesServices[i].style.borderRadius = randomBorder();
-    bubblesServices[i].style.transitionDelay = `${i / 5}s`;
-    bubblesServices[i].classList.add('appear');
 }
 
 for (let i = 0; i < bubblesReferences.length; i += 1) {

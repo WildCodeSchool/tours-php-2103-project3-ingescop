@@ -123,7 +123,6 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
-     *  @Assert\NotBlank(message="Vous devez choisir au moins une image principale")
      */
     private string $mainPhoto;
 

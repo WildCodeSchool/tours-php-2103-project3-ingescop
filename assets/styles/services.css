@@ -10,7 +10,6 @@
 }
 
 .client-service-page h1 {
-    font-size: 4.8rem;
     margin: 3% auto;
 }
 
@@ -22,31 +21,51 @@
     flex-wrap: wrap;
 }
 
-.bubble-service {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+.service-block {
     position: relative;
-    width: 13%;
-    height: 250px;
-    margin: 3% 6%;
     word-wrap: break-word;
-    background-size: cover;
-    -webkit-box-shadow: 0px 0px 28px 24px var(--grey); 
-    box-shadow: 0px 0px 28px 4px var(--grey);
+    width: 20%;
+    height: 300px;
+    margin: 5% 6%;
     opacity: 0;
     transition: opacity 1s ease;
 }
 
-.bubble-service.appear {
+.service-block.appear {
     opacity: 1;
 }
 
 .services-list a {
-    font-size: 2.4rem;
     text-decoration: none;
-    color: #000;
+}
+
+
+.service-block p:first-child {
+    font-size: 3.2rem;
+    position: absolute;
+    top: -30%;
+    left: -10%;
+}
+
+.service-block p:nth-child(2) {
+    font-size: 1.6rem;
+    position: absolute;
+    top: -15%;
+    left: -10%;
+}
+
+.bubble-service {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bubble-service img {
+    object-fit: cover;
+    width: 70%;
+    height: 80%;
 }
 
 .handwriting-category {
@@ -71,19 +90,19 @@
 }
 
 .amo {
-    border: 1px solid rgba(237, 114, 26, 0.705);
+    border: 1px solid rgba(237, 114, 26, 0.8);
     -webkit-box-shadow: 0px 0px 10px 12px var(--orange); 
     box-shadow: 0px 0px 12px 2px rgba(237, 114, 26, 0.527);
 }
 
 .moe {
-    border: 1px solid rgba(161, 25, 27, 0.712);
+    border: 1px solid rgba(161, 25, 27, 0.8);
     -webkit-box-shadow: 0px 0px 10px 12px var(--red); 
     box-shadow: 0px 0px 12px 2px rgba(161, 25, 27, 0.534);
 }
 
 .conseil {
-    border: 1px solid rgba(181, 147, 138, 0.712);
+    border: 1px solid rgba(181, 147, 138, 0.8);
     -webkit-box-shadow: 0px 0px 10px 12px var(--brown); 
     box-shadow: 0px 0px 12px 2px rgba(181, 147, 138, 0.527);
 }
@@ -93,6 +112,7 @@
 .service-title-image {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 50vh;
 }
 
@@ -107,16 +127,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 3% 3% 0 0;
+    margin: 3% 1% 0 0;
     width: 20%;
-    height: 90%;
+    height: 65%;
     border-radius: 55% 45% 28% 72% / 70% 45% 55% 30%;
     animation: appear 1s ease-out 1s;
     animation-fill-mode: backwards;
+    overflow: hidden;
 }
 
-.service-title-image .image p {
-    font-size: 2.4rem;
+.service-title-image .image img {
+    object-fit: cover;
+    width: 50%;
+    height: 50%;
 }
 
 .service-description {
@@ -131,8 +154,198 @@
 }
 
 .service-description p {
-    font-size: 2.4rem;
-    line-height: 1.5;
-    letter-spacing: 1px;
+    font-size: 2rem;
+    line-height: 1.7;
+    letter-spacing: 2px;
     columns: 2;
+}
+
+/*=========================================*/
+/*=============== RESPONSIVE ===============*/
+
+/*=========== Desktop ==========*/
+@media screen and (max-width: 1500px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 3% auto 6% auto;
+    }
+
+    .service-block {
+        width: 25%;
+        height: 300px;
+    }
+    
+}
+
+@media screen and (max-width: 1300px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 3% auto 8% auto;
+    }
+
+    .service-block {
+        width: 30%;
+        height: 300px;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 25%;
+        height: 65%;
+    }
+
+    .service-description p {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 10% auto;
+    }
+
+    .service-block {
+        width: 35%;
+        height: 300px;
+    }
+
+    .bubble-service img {
+        object-fit: cover;
+        width: 60%;
+        height: 70%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        margin: 0% 3% 0% 5%;
+        width: 30%;
+        height: 65%;
+    }
+    
+}
+
+@media screen and (max-width: 860px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 11% auto;
+    }
+
+    .service-block {
+        margin: 7% 6%;
+        width: 40%;
+        height: 300px;
+    }
+
+    /*Service-show-page*/
+    .service-title-image {
+        flex-direction: column;
+        height: 50vh;
+    }
+
+    .service-title-image .image {
+        margin: 1.6rem auto;
+        width: 40%;
+        height: 70%;
+    }
+
+    .service-description p {
+        columns: 1;
+        margin-bottom: 2%;
+    }
+    
+}
+
+@media screen and (max-width: 750px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 11% auto;
+    }
+
+    .service-block {
+        margin: 9% 6%;
+        width: 50%;
+        height: 300px;
+    }
+
+    .bubble-service img {
+        width: 60%;
+        height: 60%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 50%;
+        height: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 13% auto;
+    }
+
+    .service-block {
+        margin: 9% 4%;
+        width: 50%;
+        height: 250px;
+    }
+
+    .bubble-service img {
+        width: 50%;
+        height: 50%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 60%;
+        height: 70%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 15% auto;
+    }
+
+    .service-block {
+        margin: 14% 2%;
+        width: 60%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 75%;
+        height: 65%;
+    }
+
+    .service-title-image .image img {
+        width: 60%;
+        height: 60%;
+    }
+
+    .service-description p {
+        margin-bottom: 5%;
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 18% auto;
+    }
+
+    .service-block {
+        margin: 14% 1%;
+        width: 70%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 80%;
+        height: 60%;
+    }
 }

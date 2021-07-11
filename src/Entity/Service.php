@@ -43,9 +43,13 @@ class Service
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
-     *  @Assert\NotBlank(message="Vous devez entrer une icône")
      */
     private string $image;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private ?string $description;
 
     public function __construct()
     {
@@ -113,6 +117,18 @@ class Service
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

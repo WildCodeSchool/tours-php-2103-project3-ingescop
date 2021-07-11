@@ -495,7 +495,20 @@ footer p a:hover {
     }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 700px) {
+    #logout-link {
+        width: 23%;
+        padding: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 581px) {
+    #logout-link {
+        width: 26%;
+        font-size: 1.4rem;
+    }
+
+    /*footer*/
     footer p {
         font-size: 1.2rem;
     }
@@ -509,7 +522,18 @@ footer p a:hover {
     }
 }
 
+@media screen and (max-width: 480px) {
+    #logout-link {
+        width: 35%;
+    }
+}
+
 @media screen and (max-width: 360px) {
+    #logout-link {
+        width: 43%;
+    }
+
+    /*footer*/
     footer p {
         font-size: 1rem;
     }

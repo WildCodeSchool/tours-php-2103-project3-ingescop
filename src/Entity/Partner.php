@@ -29,7 +29,6 @@ class Partner
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     *  @Assert\NotBlank(message="Vous devez choisir un logo")
      */
     private string $logo;
 
