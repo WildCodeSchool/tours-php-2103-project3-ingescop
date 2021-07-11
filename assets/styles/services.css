@@ -21,6 +21,10 @@
     flex-wrap: wrap;
 }
 
+.services-list a {
+    text-decoration: none;
+}
+
 .service-block {
     position: relative;
     word-wrap: break-word;
@@ -34,11 +38,6 @@
 .service-block.appear {
     opacity: 1;
 }
-
-.services-list a {
-    text-decoration: none;
-}
-
 
 .service-block p:first-child {
     font-size: 3.2rem;
@@ -60,7 +59,13 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    transition: transform 0.5s ease;
 }
+
+.bubble-service:hover {
+    transform: scale(1.05);
+}
+
 
 .bubble-service img {
     object-fit: cover;
