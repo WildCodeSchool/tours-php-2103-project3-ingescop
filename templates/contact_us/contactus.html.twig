@@ -13,7 +13,8 @@
         {% endfor %}
         </div>
     </div>
-    {{ form_start(form) }}
+    <div class="flex flex-column justify-center m-48">
+    {{ form_start(form, {'attr': {'class': ' text-5xl'}}) }}
     <div>
         {{ form_widget(form.lastName, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
     </div>
@@ -29,8 +30,9 @@
     <div>
         {{ form_widget(form.message, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
     </div>
-        <input type ="submit" value="Envoyer" class ="rounded-full transition delay-150 text-white px-8 bg-gray-600 hover:bg-white hover:text-yellow-500 hover:border-2 border-yellow-500">
+        <input type ="submit" value="Envoyer" class =" m-8 rounded-full transition delay-150 text-white px-8 bg-gray-600 hover:bg-white hover:text-yellow-500 hover:border-2 border-yellow-500">
     {{ form_end(form) }}
+    </div>
     {% for message in app.flashes('Success') %}
     <div class="border-2 bg-green-200 text-xl py-2 max-w-md">
                 <p> &#10004; {{ message }} </p>
