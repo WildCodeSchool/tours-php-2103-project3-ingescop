@@ -47,6 +47,9 @@ class ServiceType extends AbstractType
                         'maxSize' => '100k',
                     ])
                 ]
+            ])
+            ->add('description', TextType::class, [
+                'label' => 'Description'
             ]);
         ;
     }
