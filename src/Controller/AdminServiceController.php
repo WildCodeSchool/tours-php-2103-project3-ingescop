@@ -42,7 +42,7 @@ class AdminServiceController extends AbstractController
             $this->addFlash('succes', "La photo a bien été tranférée");
             return $this->redirectToRoute('admin_panelconfig');
         }
-        return $this->render('admin/professionnal/new.html.twig', [
+        return $this->render('admin/service/new.html.twig', [
             'service' => $service,
             'form' => $form->createView(),]);
     }
@@ -60,10 +60,13 @@ class AdminServiceController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('image')->getData();
+            $image = $service->getImage();
             if ($imageData !== null) {
-                if (is_string($this->getParameter('images_directory'))) {
-                    $imageName = $this->getParameter('images_directory') . '/' . $service->getImage();
-                    unlink($imageName);
+                if ($image !== null) {
+                    if (is_string($this->getParameter('images_directory'))) {
+                        $imageName = $this->getParameter('images_directory') . '/' . $service->getImage();
+                        unlink($imageName);
+                    }
                 }
                 $newImageName = $uploadImage->upload($imageData);
                 $service->setImage($newImageName);
@@ -88,9 +91,11 @@ class AdminServiceController extends AbstractController
     ): Response {
         if ($this->isCsrfTokenValid('delete' . $service->getId(), $request->request->get('_token'))) {
             $imageName = $service->getImage();
-            if (is_string($this->getParameter('images_directory'))) {
-                $imagePath = $this->getParameter('images_directory') . '/' . $imageName;
-                unlink($imagePath);
+            if ($imageName !== null) {
+                if (is_string($this->getParameter('images_directory'))) {
+                    $imagePath = $this->getParameter('images_directory') . '/' . $imageName;
+                    unlink($imagePath);
+                }
             }
             $entityManager->remove($service);
             $entityManager->flush();

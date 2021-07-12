@@ -8,7 +8,8 @@
                     {{ message }}
         {% endfor %}
     {% endblock %}
-    <h1>Panneau de configuration</h1>
+    <h1>PANNEAU DE CONFIGURATION</h1>
+    <a id="change-password" href="{{ path('reset-password') }}"> Changer de mot de passe</a>
     <table class="table">
     <h1>Liste des services</h1>
     <table class="table">
@@ -36,7 +37,7 @@
     {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path("admin_newservice") }}"> Créer un service</a>
+    <a href="{{ path("admin_newservice") }}">Créer un service</a>
     <h1>Liste des professionnels</h1>
     <table>
         <thead>
@@ -140,5 +141,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_partner_new') }}">Create un nouveau partenaire</a>
+    <a href="{{ path('admin_partner_new') }}">Créer un nouveau partenaire</a>
 {% endblock %}

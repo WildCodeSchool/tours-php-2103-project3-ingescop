@@ -1,0 +1,282 @@
+/*========== PROFESSIONNEL PAGES ==========*/
+/*========================================*/
+
+/*========== List page ==========*/
+
+.professionnal-list-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.professionnal-list-page h1 {
+    margin: 3% auto;
+}
+
+.professionnals-list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.professionnals-list a {
+    text-decoration: none;
+}
+
+.pro-block {
+    position: relative;
+    word-wrap: break-word;
+    width: 13%;
+    height: 250px;
+    margin: 5% 7%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.pro-block.appear {
+    opacity: 1;
+}
+
+.pro-block p:first-child {
+    font-size: 2rem;
+    position: absolute;
+    top: -20%;
+    left: -40%;
+}
+
+.pro-block p:nth-child(2) {
+    font-size: 1.6rem;
+    position: absolute;
+    top: -5%;
+    left: -40%;
+}
+
+.bubble-pro {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(59, 62, 71, 0.726);
+    -webkit-box-shadow: 0px 0px 12px 2px rgba(59, 62, 71, 0.514); 
+    box-shadow: 0px 0px 12px 2px rgba(59, 62, 71, 0.527);
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.bubble-pro:hover {
+    transform: scale(1.05);
+}
+
+.bubble-pro img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/*========== Professionnal-show-page ==========*/
+
+.profil-title-image {
+    display: flex;
+    justify-content: space-between;
+    height: 50vh;
+}
+
+.profil-title-image h1 {
+    font-size: 4.8rem;
+    margin: auto;
+    animation: appear 0.5s ease 0.5s;
+    animation-fill-mode: backwards;
+}
+
+.profil-title-image .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 3% 0 0;
+    border: 2px solid rgba(59, 62, 71, 0.897);
+    width: 22%;
+    height: 95%;
+    border-radius: 55% 45% 28% 72% / 70% 45% 55% 30%;
+    animation: appear 1s ease-out 0.7s;
+    animation-fill-mode: backwards;
+    overflow: hidden;
+}
+
+.profil-title-image .image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.profil-description {
+    padding: 3%;
+    animation: appear 0.7s ease-out 1s;
+    animation-fill-mode: backwards;
+}
+
+.profil-description h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1%;
+}
+
+.profil-description p {
+    font-size: 2rem;
+    line-height: 1.7;
+    letter-spacing: 2px;
+    columns: 2;
+}
+
+/*=========================================*/
+/*=============== RESPONSIVE ===============*/
+
+/*=========== Desktop ==========*/
+@media screen and (max-width: 1500px) {
+    /*Professional-list-page*/
+    .pro-block {
+        width: 15%;
+        height: 240px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    /*Professional-list-page*/
+    .pro-block {
+        width: 17%;
+        height: 230px;
+    }
+
+    /*Professionnal-show-page*/
+    .profil-title-image .image {
+        width: 28%;
+        height: 90%;
+    }
+
+    .profil-description p {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    /*Professional-list-page*/
+    .pro-block {
+        width: 22%;
+        height: 220px;
+        margin: 5% 10%;
+    }
+
+    /*Professionnal-show-page*/
+    .profil-title-image .image {
+        width: 33%;
+        height: 85%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    /*Professional-list-page*/
+    .pro-block {
+        width: 24%;
+        height: 210px;
+    }
+
+    /*Professionnal-show-page*/
+    .profil-title-image {
+        flex-direction: column;
+        height: 50vh;
+    }
+
+    .profil-title-image .image {
+        margin: 1.6rem auto;
+        width: 40%;
+        height: 100%;
+    }
+
+    .profil-description p {
+        columns: 1;
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /*Professional-list-page*/
+    .pro-block {
+        width: 40%;
+        height: 280px;
+        margin: 10% 15%;
+    }
+
+    /*Professionnal-show-page*/
+    .profil-title-image {
+        height: 50vh;
+    }
+
+    .profil-title-image .image {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    /*Professional-list-page*/
+    .pro-block {
+        width: 45%;
+        height: 280px;
+        margin: 10% 14%;
+    }
+
+    /*Professionnal-show-page*/
+    .profil-title-image .image {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    /*Professional-list-page*/
+    .pro-block {
+        width: 55%;
+        height: 280px;
+        margin: 10% 13%;
+    }
+
+    .pro-block p:first-child {
+        top: -25%;
+        left: -35%;
+    }
+    
+    .pro-block p:nth-child(2) {
+        top: -10%;
+        left: -35%;
+    }
+
+    /*Professionnal-show-page*/
+    .profil-title-image .image {
+        width: 60%;
+    }
+
+    .profil-description p {
+        margin-bottom: 5%;
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    /*Professional-list-page*/
+    .pro-block {
+        width: 62%;
+        height: 280px;
+        margin: 15% 10%;
+    }
+
+    .pro-block p:first-child {
+        left: -25%;
+    }
+    
+    .pro-block p:nth-child(2) {
+        left: -25%;
+    }
+
+    /*Professionnal-show-page*/
+    .profil-title-image .image {
+        width: 70%;
+    }
+}

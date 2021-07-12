@@ -6,7 +6,6 @@
     <h1>Éditer le Project</h1>
 
     {{ include('admin/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-    <h2>Images</h2>
     <h3>Image Principal</h3>
     <img src="{{ asset('/uploads/images/' ~ project.mainPhoto) }}" alt="{{ project.mainPhoto }}" width="150px">
     <h3>Images Secondaires</h3>
