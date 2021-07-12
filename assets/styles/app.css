@@ -596,7 +596,6 @@ border-radius: 0 0 10px 10px;
     text-align: center;
     font-size: 2.8rem;
     color: var(--orange);
-    text: black;
 }
 
 #log {
@@ -649,6 +648,7 @@ border-radius: 0 0 10px 10px;
     margin: 0 0 2% 0;
     column-count: 3;
     padding-top: 5rem;
+    opacity: 0;
 }
 
 #pres-co {
@@ -696,6 +696,18 @@ border-radius: 0 0 10px 10px;
     object-fit: cover;
     width: 100%;
     height: auto;
+}
+
+.R {
+    opacity: 0;
+}
+
+.A{
+    opacity: 0;
+}
+
+.P {
+    opacity: 0;
 }
 
 .trait {
