@@ -13,24 +13,26 @@
         {% endfor %}
         </div>
     </div>
-    <div class="flex flex-column justify-center m-48">
+    <div class="flex justify-center m-48">
     {{ form_start(form, {'attr': {'class': ' text-5xl'}}) }}
-    <div>
+    <div class ="p-4">
         {{ form_widget(form.lastName, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
     </div>
-    <div>
+    <div class ="p-4">
         {{ form_widget(form.firstName, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
     </div>
-    <div>
+    <div class ="p-4">
         {{ form_widget(form.phoneNumber, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
     </div>
-    <div>
+    <div class ="p-4">
         {{ form_widget(form.emailAddress, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
     </div>
-    <div>
+    <div class ="p-4">
         {{ form_widget(form.message, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
     </div>
-        <input type ="submit" value="Envoyer" class =" m-8 rounded-full transition delay-150 text-white px-8 bg-gray-600 hover:bg-white hover:text-yellow-500 hover:border-2 border-yellow-500">
+    <div class="flex justify-end">
+        <input type ="submit" value="Envoyer" class ="m-4 rounded-full transition delay-150 text-white px-8 bg-gray-600 hover:bg-white hover:text-yellow-500 hover:border-2 border-yellow-500">
+    </div>
     {{ form_end(form) }}
     </div>
     {% for message in app.flashes('Success') %}
