@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\ProfessionnalRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProfessionnalRepository")
@@ -21,11 +21,21 @@ class Professionnal
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez choisir un nom")
+     * @Assert\Length(
+     *      max = "255",
+     *      maxMessage = "Le projet saisie {{ value }} contient trop de charactères, {{ limit }} au maximum"
+     * )
      */
     private string $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez choisir un nom")
+     * @Assert\Length(
+     *      max = "255",
+     *      maxMessage = "Le métier saisie {{ value }} contient trop de charactères, {{ limit }} au maximum"
+     * )
      */
     private string $job;
 
@@ -38,6 +48,16 @@ class Professionnal
      * @ORM\ManyToMany(targetEntity=Service::class, mappedBy="professionnal")
      */
     private Collection $service;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private ?string $profilPhoto;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private string $resume;
 
     public function __construct()
     {
@@ -124,6 +144,30 @@ class Professionnal
         if ($this->service->removeElement($service)) {
             $service->removeProfessionnal($this);
         }
+
+        return $this;
+    }
+
+    public function getProfilPhoto(): ?string
+    {
+        return $this->profilPhoto;
+    }
+
+    public function setProfilPhoto(?string $profilPhoto): self
+    {
+        $this->profilPhoto = $profilPhoto;
+
+        return $this;
+    }
+
+    public function getResume(): ?string
+    {
+        return $this->resume;
+    }
+
+    public function setResume(string $resume): self
+    {
+        $this->resume = $resume;
 
         return $this;
     }

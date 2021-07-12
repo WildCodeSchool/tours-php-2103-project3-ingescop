@@ -2,20 +2,38 @@
 {% block pageContainer %}
 
     <div class="client-service-page">
-        {% if app.user %}
-                <a id="panelcongig-link" href="{{ path('admin_panelconfig') }}"><strong><=</strong> Retour au panel de configuration</a>
+        {% if is_granted('ROLE_ADMIN') %}
+                <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
         {% endif %}
         <h1>Nos services</h1>
         <div class="services-list">
             {% for service in services %}
                 {% if service.category == 'AMO' %}
-                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service amo"><p>{{ service.name }}</p><p class="handwriting-category color-amo">{{ service.category }}</p></a>
+                    <div class="service-block">
+                        <p class="handwriting-category color-amo">{{ service.category }}</p>
+                        <p>{{ service.name }}</p>
+                        <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service amo">
+                            <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}">
+                        </a>
+                    </div>
                 {% endif %}
                 {% if service.category == 'MOE' %}
-                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service moe"><p>{{ service.name }}</p><p class="handwriting-category color-moe">{{ service.category }}</p></a>
+                    <div class="service-block">
+                        <p class="handwriting-category color-moe">{{ service.category }}</p>
+                        <p>{{ service.name }}</p>
+                        <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service moe">
+                            <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}">
+                        </a>
+                    </div>
                 {% endif %}
                 {% if service.category == 'Conseil' %}
-                    <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service conseil"><p>{{ service.name }}</p><p class="handwriting-category color-conseil">{{ service.category }}</p></a>
+                    <div class="service-block">
+                        <p class="handwriting-category color-conseil">{{ service.category }}</p>
+                        <p>{{ service.name }}</p>
+                        <a href="{{ path('services_show', {id: service.id}) }}" class="bubble-service conseil">
+                            <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}">
+                        </a>
+                    </div>
                 {% endif %}
             {% endfor %}
         </div>

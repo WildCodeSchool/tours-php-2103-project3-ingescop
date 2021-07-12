@@ -7,6 +7,7 @@ parameters:
     # the parameter name is an arbitrary string (the 'app.' prefix is recommended
     # to better differentiate your parameters from Symfony parameters).
     app.admin_email: 'contact@1gscop.fr'
+    images_directory: '%kernel.project_dir%/public/uploads/images'
 
 
 services:
@@ -25,6 +26,12 @@ services:
             - '../src/Kernel.php'
             - '../src/Tests/'
 
+    App\Service\ImagesProjectService:
+        arguments:
+            $directory: '%images_directory%'
+    App\Service\FileUploaderService:
+        arguments:
+            $directory: '%images_directory%'
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:

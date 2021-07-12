@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ServiceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,7 +21,13 @@ class Service
     private int $id;
 
     /**
+     *
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez choisir un nom")
+     * @Assert\Length(
+     *      max = "255",
+     *      maxMessage = "Le service saisie {{ value }} contient trop de charactères, {{ limit }} au maximum"
+     * )
      */
     private string $name;
 
@@ -33,6 +40,16 @@ class Service
      * @ORM\ManyToMany(targetEntity=Professionnal::class, inversedBy="service")
      */
     private Collection $professionnal;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private string $image;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private ?string $description;
 
     public function __construct()
     {
@@ -88,6 +105,30 @@ class Service
     public function removeProfessionnal(Professionnal $professionnal): self
     {
         $this->professionnal->removeElement($professionnal);
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

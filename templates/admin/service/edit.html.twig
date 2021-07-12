@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Modification Service{% endblock %}
+
+{% block pageContainer %}
+    <h1>Vous pouvez modifier vos services</h1>
+
+    {{ include("admin/_form.html.twig", {'button_label': 'Mettre à jour'}) }}
+    <h2>Image Actuelle</h2>
+    <div>
+        <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}" width="150px">
+    </div>
+    {{ include("admin/service/_delete.html.twig") }}
+    <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
+{% endblock %}

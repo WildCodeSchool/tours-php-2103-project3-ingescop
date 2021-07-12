@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}éditer Projet{% endblock %}
+
+{% block pageContainer %}
+    <h1>Éditer le Project</h1>
+
+    {{ include('admin/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <h3>Image Principal</h3>
+    <img src="{{ asset('/uploads/images/' ~ project.mainPhoto) }}" alt="{{ project.mainPhoto }}" width="150px">
+    <h3>Images Secondaires</h3>
+    {% for image in project.images %}
+        <div>
+            <img src="{{ asset('/uploads/images/' ~ image.name) }}" alt="{{ image.id }}" width="150px">
+        </div>
+        <form method="post" action="{{ path('admin_delete_project_image', {'project_id': project.id, 'image_id': image.id}) }}" onsubmit="return confirm('Êtes vous sûr de bien vouloir supprimer cette image?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+    <button class="btn">Supprimer</button>
+</form>
+    {% endfor %}
+
+    <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
+
+    {{ include('admin/project/_delete.html.twig') }}
+{% endblock %}
