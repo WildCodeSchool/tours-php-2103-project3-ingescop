@@ -27,7 +27,6 @@ class AdminProfessionnalController extends AbstractController
         $pro = new Professionnal();
         $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('profilPhoto')->getData();
             if ($imageData !== null) {
@@ -56,18 +55,19 @@ class AdminProfessionnalController extends AbstractController
     ): Response {
         $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('profilPhoto')->getData();
             $image = $pro->getProfilPhoto();
-            if ($image !== null) {
-                if (is_string($this->getParameter('images_directory'))) {
-                    $imageName = $this->getParameter('images_directory') . '/' . $pro->getProfilPhoto();
-                    unlink($imageName);
+            if ($imageData !== null) {
+                if ($image !== null) {
+                    if (is_string($this->getParameter('images_directory'))) {
+                        $imageName = $this->getParameter('images_directory') . '/' . $pro->getProfilPhoto();
+                        unlink($imageName);
+                    }
                 }
+                $newImageName = $uploadProfessionnal->upload($imageData);
+                $pro->setProfilPhoto($newImageName);
             }
-            $newImageName = $uploadProfessionnal->upload($imageData);
-            $pro->setProfilPhoto($newImageName);
             $entityManager->persist($pro);
             $entityManager->flush();
 
@@ -88,9 +88,11 @@ class AdminProfessionnalController extends AbstractController
     ): Response {
         if ($this->isCsrfTokenValid('delete' . $pro->getId(), $request->request->get('_token'))) {
             $profilPhoto = $pro->getProfilPhoto();
-            if (is_string($this->getParameter('images_directory'))) {
-                $imageName = $this->getParameter('images_directory') . '/' . $profilPhoto;
-                unlink($imageName);
+            if ($profilPhoto !== null) {
+                if (is_string($this->getParameter('images_directory'))) {
+                    $imageName = $this->getParameter('images_directory') . '/' . $profilPhoto;
+                    unlink($imageName);
+                }
             }
             $entityManager->remove($pro);
             $entityManager->flush();

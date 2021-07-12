@@ -1,0 +1,356 @@
+/*========== SERVICE PAGES ==========*/
+/*=================================*/
+
+/*========== List-services ==========*/
+
+.client-service-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.client-service-page h1 {
+    margin: 3% auto;
+}
+
+.services-list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.services-list a {
+    text-decoration: none;
+}
+
+.service-block {
+    position: relative;
+    word-wrap: break-word;
+    width: 20%;
+    height: 300px;
+    margin: 5% 6%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.service-block.appear {
+    opacity: 1;
+}
+
+.service-block p:first-child {
+    font-size: 3.2rem;
+    position: absolute;
+    top: -30%;
+    left: -10%;
+}
+
+.service-block p:nth-child(2) {
+    font-size: 1.6rem;
+    position: absolute;
+    top: -15%;
+    left: -10%;
+}
+
+.bubble-service {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.bubble-service:hover {
+    transform: scale(1.05);
+}
+
+
+.bubble-service img {
+    object-fit: cover;
+    width: 70%;
+    height: 80%;
+}
+
+.handwriting-category {
+    font-family: caveat;
+    font-size: 4rem;
+    font-weight: 500;
+    position: absolute;
+    top: 0%;
+    left: -2%;
+}
+
+.handwriting-category.color-amo {
+    color:var(--orange);
+}
+
+.handwriting-category.color-moe {
+    color:var(--red);
+}
+
+.handwriting-category.color-conseil {
+    color:var(--brown);
+}
+
+.amo {
+    border: 1px solid rgba(237, 114, 26, 0.8);
+    -webkit-box-shadow: 0px 0px 10px 12px var(--orange); 
+    box-shadow: 0px 0px 12px 2px rgba(237, 114, 26, 0.527);
+}
+
+.moe {
+    border: 1px solid rgba(161, 25, 27, 0.8);
+    -webkit-box-shadow: 0px 0px 10px 12px var(--red); 
+    box-shadow: 0px 0px 12px 2px rgba(161, 25, 27, 0.534);
+}
+
+.conseil {
+    border: 1px solid rgba(181, 147, 138, 0.8);
+    -webkit-box-shadow: 0px 0px 10px 12px var(--brown); 
+    box-shadow: 0px 0px 12px 2px rgba(181, 147, 138, 0.527);
+}
+
+/*========== Service-show-page ==========*/
+
+.service-title-image {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50vh;
+}
+
+.service-title-image h1 {
+    font-size: 4.8rem;
+    margin: auto;
+    animation: appear 1s ease-out 1.5s;
+    animation-fill-mode: backwards;
+}
+
+.service-title-image .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 1% 0 0;
+    width: 20%;
+    height: 65%;
+    border-radius: 55% 45% 28% 72% / 70% 45% 55% 30%;
+    animation: appear 1s ease-out 1s;
+    animation-fill-mode: backwards;
+    overflow: hidden;
+}
+
+.service-title-image .image img {
+    object-fit: cover;
+    width: 50%;
+    height: 50%;
+}
+
+.service-description {
+    padding: 3%;
+    animation: appear 1s ease-out 1s;
+    animation-fill-mode: backwards;
+}
+
+.service-description h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1%;
+}
+
+.service-description p {
+    font-size: 2rem;
+    line-height: 1.7;
+    letter-spacing: 2px;
+    columns: 2;
+}
+
+/*=========================================*/
+/*=============== RESPONSIVE ===============*/
+
+/*=========== Desktop ==========*/
+@media screen and (max-width: 1500px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 3% auto 6% auto;
+    }
+
+    .service-block {
+        width: 25%;
+        height: 300px;
+    }
+    
+}
+
+@media screen and (max-width: 1300px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 3% auto 8% auto;
+    }
+
+    .service-block {
+        width: 30%;
+        height: 300px;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 25%;
+        height: 65%;
+    }
+
+    .service-description p {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 10% auto;
+    }
+
+    .service-block {
+        width: 35%;
+        height: 300px;
+    }
+
+    .bubble-service img {
+        object-fit: cover;
+        width: 60%;
+        height: 70%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        margin: 0% 3% 0% 5%;
+        width: 30%;
+        height: 65%;
+    }
+    
+}
+
+@media screen and (max-width: 860px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 11% auto;
+    }
+
+    .service-block {
+        margin: 7% 6%;
+        width: 40%;
+        height: 300px;
+    }
+
+    /*Service-show-page*/
+    .service-title-image {
+        flex-direction: column;
+        height: 50vh;
+    }
+
+    .service-title-image .image {
+        margin: 1.6rem auto;
+        width: 40%;
+        height: 70%;
+    }
+
+    .service-description p {
+        columns: 1;
+        margin-bottom: 2%;
+    }
+    
+}
+
+@media screen and (max-width: 750px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 11% auto;
+    }
+
+    .service-block {
+        margin: 9% 6%;
+        width: 50%;
+        height: 300px;
+    }
+
+    .bubble-service img {
+        width: 60%;
+        height: 60%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 50%;
+        height: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 13% auto;
+    }
+
+    .service-block {
+        margin: 9% 4%;
+        width: 50%;
+        height: 250px;
+    }
+
+    .bubble-service img {
+        width: 50%;
+        height: 50%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 60%;
+        height: 70%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 15% auto;
+    }
+
+    .service-block {
+        margin: 14% 2%;
+        width: 60%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 75%;
+        height: 65%;
+    }
+
+    .service-title-image .image img {
+        width: 60%;
+        height: 60%;
+    }
+
+    .service-description p {
+        margin-bottom: 5%;
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    /*Service-list-page*/
+    .client-service-page h1 {
+        margin: 4% auto 18% auto;
+    }
+
+    .service-block {
+        margin: 14% 1%;
+        width: 70%;
+    }
+
+    /*Service-show-page*/
+    .service-title-image .image {
+        width: 80%;
+        height: 60%;
+    }
+}

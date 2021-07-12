@@ -9,10 +9,13 @@
         <h1>Nos professionnels</h1>
         <div class="professionnals-list">
             {% for professionnal in professionnels %}
-                <a href="{{ path('professionnal_show', {id: professionnal.id}) }}" class="bubble-pro">
-                <img id="references-images" src="{{ asset('uploads/images/' ~ professionnal.ProfilPhoto) }}"/>
-                    <p>{{ professionnal.name }}</p> <p>{{ professionnal.job }}</p>
-                </a>
+                <div class="pro-block">
+                    <p>{{ professionnal.name }}</p>
+                    <p>{{ professionnal.job }}</p>
+                    <a href="{{ path('professionnal_show', {id: professionnal.id}) }}" class="bubble-pro">
+                        <img id="references-images" src="{{ asset('uploads/images/' ~ professionnal.ProfilPhoto) }}"/>
+                    </a>
+                </div>
             {% endfor %}
         </div>
     </div>
