@@ -9,6 +9,13 @@
 		</title>
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
+			{{ encore_entry_link_tags('navs') }}
+			{{ encore_entry_link_tags('pro') }}
+			{{ encore_entry_link_tags('services') }}
+			{{ encore_entry_link_tags('references') }}
+			{{ encore_entry_link_tags('presentation') }}
+			{{ encore_entry_link_tags('admin') }}
+			{{ encore_entry_link_tags('keyframes') }}
 		{% endblock %}
 	</head>
 	<body>
@@ -20,7 +27,6 @@
 				{% block Admin %}{% endblock %}
 				{% if app.user %}
     				<a id="logout-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
-					<a id="change-password" href="{{ path('reset-password') }}"> Changer de mot de passe</a>
 				{% endif %}
 				<div class="responsive-menu">
 					<nav>

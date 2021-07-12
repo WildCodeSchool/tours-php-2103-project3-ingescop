@@ -1,0 +1,336 @@
+@import 'variables.css';
+
+/*========== GENERAL PRESETS ==========*/
+/*=====================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'caveat';
+    src: url(/public/fonts/Caveat/Caveat-VariableFont_wght.ttf);
+    font-style: normal;
+    /*font-weight 400, 500, 600 ou 700*/
+}
+
+@font-face {
+    font-family: 'open-sans';
+    src: url(/public/fonts/Open_Sans/OpenSans-Regular.ttf);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #fff;
+    color: var(--black);
+    overflow-x: hidden;
+    font-family: open-sans;
+    font-weight: 300;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    margin: 3% auto;
+    font-size: 4.8rem;
+    font-family: caveat;
+    letter-spacing: 3px;
+    color: var(--orange);
+}
+
+h3 {
+    font-size: 3.2rem;
+    font-family: caveat;
+    letter-spacing: 1px;
+}
+
+#panelconfig-link {
+    display: block;
+    position: fixed;
+    top: 85%;
+    left: 3%;
+    text-decoration: none;
+    font-size: 2.4rem;
+    padding: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.815);
+    color: var(--orange);
+    z-index: 100;
+    transition: transform 0.5s ease;
+}
+
+#panelconfig-link:hover {
+    transform: translateX(-2%);
+}
+
+/*========== ACCUEIL PAGE (home page) ==========*/
+/*==================================*/
+
+.home-page {
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;   
+}
+
+.home-container {
+    width : 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-banner {
+    width: 100%;
+    height: 80%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.253)), url(/assets/images/1gscop-pano-accueil-1.jpg);
+    background-size: cover;
+}
+
+.sentence-block {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-banner .sentence {
+    font-size: 2rem;
+    width: 65%;
+    color: var(--white);
+    line-height: 4rem;
+    letter-spacing: 1px;
+    animation: appear 1.5s ease 1.5s;
+    animation-fill-mode: backwards;
+}
+
+.home-container-top {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.home-container-top .link-block {
+    width: 25%;
+    height: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s ease;
+    animation: appear 0.6s ease;
+}
+
+.home-container-top .link-block:first-child  {
+    border-radius: 40% 60%;
+    background-color: rgba(59, 62, 71, 0.65);
+}
+
+.home-container-top .link-block:nth-child(2)  {
+    border-radius: 60% 40%;
+    background-color: rgba(237, 114, 26, 0.644);
+}
+
+.home-container-top .link-block p:first-child {
+    font-size: 3.2rem;
+    color: var(--white);
+    margin-top: 5%;
+}
+
+.home-container-top a {
+    text-decoration: none;
+    font-size: 2.4rem;
+    padding: 2% 4%;
+    color: var(--white);
+    border-radius: 100px;
+}
+
+.home-container-top .link-block:nth-child(2) a,
+.home-container-top .link-block:nth-child(2) p {
+    color: var(--white);
+}
+
+.home-container-top #home-link-pro:hover {
+    background-color: rgba(243, 244, 239, 0.438);
+    transform: translateX(-3rem);
+}
+
+.home-container-top #home-link-pro:hover p{
+    color: rgba(59,62,71,1.0);
+    filter: contrast(200%);
+}
+
+.home-container-top #home-link-service:hover {
+    background-color: rgba(243, 244, 239, 0.438);
+    transform: translateX(3rem);
+}
+
+.home-container-top #home-link-service:hover p{
+    color: rgba(59,62,71,1.0);
+    filter: contrast(200%);
+}
+
+.home-container-bottom {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-container-bottom a {
+    text-decoration: none;
+    font-size: 3.2rem;
+    padding: 0.5% 3%;
+    background-color: #fff;
+    border: 2px solid var(--black);
+    border-radius: 100px;
+    color: var(--black);
+    transition: all 0.5s ease;
+}
+
+.home-container-bottom a:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+/*=========================================*/
+/*=============== RESPONSIVE ===============*/
+
+/*=========== Desktop ==========*/
+@media screen and (max-width: 1600px) {
+    /*HopePage*/
+    .home-banner .sentence-block .sentence {
+        font-size: 2rem;
+        width: 75%;
+    }
+
+    .home-container-top .link-block p:first-child {
+        font-size: 2.4rem;
+    }
+
+    .home-container-top .link-block p:nth-child(2) {
+        font-size: 2rem;
+    }
+    
+    .home-container-top a {
+        font-size: 3.2rem;
+    }
+
+    .home-container-bottom a {
+        font-size: 2.4rem;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    /*HomePage*/
+    .home-banner .sentence-block .sentence {
+        font-size: 1.6rem;
+        width: 75%;
+    }
+
+    .home-container-top .link-block {
+        width: 25%;
+        height: 70%;
+    }
+
+    .home-container-top .link-block p:first-child {
+        font-size: 2rem;
+        margin-bottom: 1%;
+        padding: 1% 2%;
+    }
+
+    .home-container-top .link-block p:nth-child(2) {
+        font-size: 1.6rem;
+        padding: 1% 2%;
+    }
+
+    .home-container-bottom a {
+        font-size: 2rem;
+    }
+}
+
+/*===== TABLETS AND IPHONES =====*/
+
+@media screen and (max-width: 860px) {
+    /*HomePage*/
+    .home-banner .sentence-block {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .home-banner .sentence-block .sentence {
+        font-size: 1.6rem;
+        width: 100%;
+        line-height: 3.2rem;
+        margin: 0 auto;
+    }
+
+    .home-container-top .link-block {
+        width: 25%;
+        height: 55%;
+    }
+
+    .home-container-top .link-block p:first-child {
+        font-size: 1.6rem;
+        margin-bottom: 1%;
+        padding: 1% 2%;
+    }
+
+    .home-container-top .link-block p:nth-child(2) {
+        font-size: 1.2rem;
+        padding: 1% 2%;
+    }
+
+    .home-container-bottom a {
+        font-size: 1.6rem;
+    }
+
+}
+
+@media screen and (max-width: 580px) {
+    /*homePage*/
+    .home-banner .sentence-block .sentence {
+        font-size: 1.4rem;
+        line-height: 2.8rem;
+    }
+
+    .home-container-top .link-block {
+        width: 30%;
+    }
+
+    .home-container-bottom a {
+        font-size: 1.4rem;
+    }
+
+}
+
+@media screen and (max-width: 460px) {
+    /*homePage*/
+    .home-banner .sentence-block .sentence {
+        font-size: 1.2rem;
+        line-height: 2.4rem;
+    }
+
+    .home-container-top .link-block {
+        width: 35%;
+        height: 55%;
+    }
+
+    home-container-top .link-block p:first-child {
+        font-size: 1.4rem;
+        margin-bottom: 1%;
+        padding: 1% 2%;
+    }
+
+    .home-container-top .link-block p:nth-child(2) {
+        font-size: 1.2rem;
+        padding: 1% 2%;
+    }
+}
