@@ -6,22 +6,25 @@
     {% if app.user %}
         <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
     {% endif %}
-
-    {{ form_start(form) }}
-    <div class="decoration-clone bg-gradient-to-b from-yellow-200">
-        <div class="flex flex-col text-center space-y-6 items-center justify-center min-h-screen">
-            <h1 class="text-center text-5xl font-semibold text-yellow-600">Changement de mot de passe</h1>
-            <div>
-                {{ form_label(form.oldPassword, 'Ancien mot de passe', {'label_attr': {'class': 'text-5xl text-gray-600'}}) }}
+<div class="">
+    <div class="flex justify-center">
+        {{ form_start(form, {'attr': {'class': 'box-content p-4'}}) }}
+        <div class="decoration-clone bg-gray-200 my-48 p-20">
+            <div class="flex flex-col text-center space-y-6 items-center justify-center">
+                <h1 class="text-center text-5xl font-semibold text-yellow-600">Changement de mot de passe</h1>
+                <div>
+                    {{ form_widget(form.oldPassword, {'attr': {'class': 'shadow appearance-none h-15 w-32 p-4 w-full focus:outline-none border-b-2 border-yellow-500 placeholder-gray-400 text-5xl text-center'}}) }}
+                </div>
+                <div>
+                    {{ form_row(form.Password.first, {'attr': {'class': 'shadow appearance-none h-15 w-32 p-4 w-full focus:outline-none border-b-2 border-yellow-500 placeholder-gray-400 text-5xl text-center'}}) }}
+                </div>
+                <div>
+                    {{ form_row(form.Password.second, {'attr': {'class': 'shadow appearance-none h-15 w-32 p-4 w-full focus:outline-none border-b-2 border-yellow-500 placeholder-gray-400 text-5xl text-center'}}) }}
+                </div>
+                <input type ="submit" value="Valider" class="bg-yellow-700 hover:bg-yellow-400 text-white text-5xl font-bold py-9 px-16 rounded-full focus:outline-none focus:shadow-outline" type="button">
             </div>
-            <div>
-                {{ form_widget(form.oldPassword, {'attr': {'class': 'shadow appearance-none box-border border-yellow-200 h-15 w-32 p-4 border-4 w-full'}}) }}
-            </div>
-            <div>
-                {{ form_widget(form.Password) }}
-            </div>
-            <input type ="submit" value="Valider" class="bg-yellow-700 hover:bg-yellow-400 text-white text-5xl font-bold py-9 px-16 rounded-full focus:outline-none focus:shadow-outline" type="button">
         </div>
     </div>
-    {{ form_end(form) }}
+</div>
+        {{ form_end(form) }}
 {% endblock %}

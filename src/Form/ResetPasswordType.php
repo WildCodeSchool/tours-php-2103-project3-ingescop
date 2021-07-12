@@ -16,20 +16,17 @@ class ResetPasswordType extends AbstractType
     {
         $builder
                 ->add('oldPassword', PasswordType::class, [
-                    'label' => 'Ancien mot de passe',
+                    'attr' => ['placeholder' => 'Ancien mot de passe']
                 ])
                 ->add('Password', RepeatedType::class, array(
                     'type' => PasswordType::class,
-                    'first_options' => ['label' => 'Nouveau mot de passe',
-                                        'label_attr' => ['class' => 'text-5xl text-gray-600']],
-                    'second_options' => ['label' => 'Retapez le nouveau mot de passe',
-                                         'label_attr' => ['class' => 'text-5xl text-gray-600']],
+                    'first_options' => ['label' => false,
+                                        'attr' => ['placeholder' => 'Nouveau mot de passe'
+                                        ]],
+                    'second_options' => ['label' => false,
+                                        'attr' => ['placeholder' => 'Retapez le nouveau mot de passe'
+                                        ]],
                     'invalid_message' => 'Les deux mots de passe doivent être identiques',
-                    'options' => [
-                        'attr' => [
-                            'class' => 'shadow appearance-none border-yellow-200 h-15 w-32 p-4 border-4 w-full'
-                        ]
-                    ],
                     'required' => true,
                 ));
     }
