@@ -435,7 +435,7 @@ footer p a:hover {
     }
 
     .line3.rotateThree {
-        transform: rotateZ(405deg) translate(-6px, -3px);
+        transform: rotateZ(405deg) translate(-5px, -3px);
     }
 
     .responsive-menu nav {
