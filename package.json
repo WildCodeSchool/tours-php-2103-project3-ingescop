@@ -2,6 +2,8 @@
     "devDependencies": {
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.0.0",
+        "@tailwindcss/postcss7-compat": "^2.2.4",
+        "autoprefixer": "^9",
         "core-js": "^3.0.0",
         "eslint": "^7.12.1",
         "eslint-config-airbnb": "^18.2.0",
@@ -10,10 +12,13 @@
         "eslint-plugin-react": "^7.21.5",
         "file-loader": "^6.0.0",
         "node-sass": "^5.0.0",
+        "postcss": "^7",
+        "postcss-loader": "^5.3.0",
         "regenerator-runtime": "^0.13.2",
         "sass-lint": "^1.13.1",
         "sass-loader": "^10.0.5",
         "stimulus": "^2.0.0",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -23,5 +28,9 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@tailwindcss/forms": "^0.3.3",
+        "bootstrap": "^5.0.2"
     }
 }
