@@ -13,7 +13,7 @@
                 {% if reference.workInProgress == 'En études' %}
                     <div class="reference-block">
                         <p class="handwriting-project handwriting-in-study">{{ reference.workInProgress }}</p>
-                        <h3>{{ reference.name }}</h3>
+                        <p>{{ reference.name }}</p>
                         <a href="{{ path('reference_show', {id: reference.id}) }}" class="bubble-reference in-study">
                             <img id="references-images" src="{{ asset('uploads/images/' ~ reference.mainPhoto) }}"/>
                         </a>
@@ -22,7 +22,7 @@
                 {% if reference.workInProgress == 'En travaux' %}
                     <div class="reference-block">
                         <p class="handwriting-project handwriting-in-work">{{ reference.workInProgress }}</p>
-                        <h3>{{ reference.name }}</h3>
+                        <p>{{ reference.name }}</p>
                         <a href="{{ path('reference_show', {id: reference.id}) }}" class="bubble-reference in-work">
                             <img id="references-images" src="{{ asset('uploads/images/' ~ reference.mainPhoto) }}"/>
                         </a>
@@ -31,7 +31,7 @@
                 {% if reference.workInProgress == 'Livré' %}
                     <div class="reference-block">
                         <p class="handwriting-project handwriting-finished">{{ reference.workInProgress }}</p>
-                        <h3>{{ reference.name }}</h3>
+                        <p>{{ reference.name }}</p>
                         <a href="{{ path('reference_show', {id: reference.id}) }}" class="bubble-reference finished">
                             <img id="references-images" src="{{ asset('uploads/images/' ~ reference.mainPhoto) }}"/>
                         </a>
