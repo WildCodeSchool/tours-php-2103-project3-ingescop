@@ -202,7 +202,7 @@ header nav ul li a:hover::after {
 
 footer {
     width: 100vw;
-    height: 10vh;
+    min-height: 10vh;
     background-color: rgba(255, 255, 255, 0.801);
     color: var(--black);
     font-size: 1.6rem;
@@ -244,7 +244,6 @@ footer p a:hover {
     border-top: 2px solid rgba(196, 196, 196, 0.445);
     display: flex;
     justify-content: space-between;
-    align-items: center;
     animation: moveInBottom 0.5s ease 0.5s;
     animation-fill-mode: backwards;
 }
@@ -252,54 +251,67 @@ footer p a:hover {
 .footer-home p {
     font-size: 1.6rem;
     text-align: left;
-    line-height: 1.5;
+    line-height: 1.7;
+}
+
+.footer-home a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.footer-home #footer-left {
+    margin: 0.8rem 1.6rem 0.8rem 3.2rem;
+    color: var(--black);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
 }
 
 .footer-home #footer-left p a {
     display: inline-block;
 }
 
-.footer-home #footer-left {
-    padding: 1.6rem 4.8rem;
-    margin: 1.6rem;
-    color: var(--black);
-    text-align: left;
-    width: 50%;
-}
-
 .footer-home #footer-right {
-    width: 50%;
+    width: 30%;
     height: 100%;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 3.2rem;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 0.8rem 3.2rem 0.8rem 1.6rem;
 }
 
 .footer-home #footer-right p {
-    margin: 0 3.2rem;
-    padding: 3.2rem;
     font-size: 2rem;
+    margin-bottom: 0.4rem;
 }
 
-.footer-home a {
-    width: 20%;
-    height: 60%;
+#footer-right .partners-block {
+    width: 25%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
 }
 
-.footer-logo-partenaire {
-    height: auto;
-    margin: 3.2rem;
+.footer-home a img {
+    object-fit: cover;
     width: 100%;
+    height: 100%;
 }
 
 /*========== RESPONSIVE ==========*/
 /*================================*/
 /*Desktop*/
 @media screen and (max-width: 1600px) {
+    /*header*/
     .header--form-links p {
         font-size: 1.6rem;
         padding: 0.4rem;
@@ -308,6 +320,7 @@ footer p a:hover {
 }
 
 @media screen and (max-width: 1450px) {
+    /*header*/
     #logout-link {
         font-size: 1.6rem;
         width: 13%;
@@ -319,6 +332,7 @@ footer p a:hover {
 }
 
 @media screen and (max-width: 1150px) {
+    /*header*/
     #logout-link {
         font-size: 1.6rem;
         width: 15%;
@@ -330,7 +344,7 @@ footer p a:hover {
 }
 
 @media screen and (max-width: 1040px) {
-
+    /*header*/
     .header--logo {
         margin: 0rem;
     }
@@ -348,6 +362,11 @@ footer p a:hover {
 
     .header--form-links p {
         margin: 0.4rem 0.8rem;
+    }
+
+    /*footer*/
+    #footer-right .partners-block {
+        width: 30%;
     }
 }
 
@@ -477,28 +496,45 @@ footer p a:hover {
     footer p {
         font-size: 1.4rem;
     }
+
     .footer-home #footer-left {
-        padding: 0;
+        margin: 0.8rem 1.6rem 0.8rem 1.6rem;
     }
+
     .footer-home #footer-left p {
         font-size: 1.4rem;
         width: 100%;
     }
     
     .footer-home #footer-right {
-        width: 50%;
+        width: 30%;
         margin-right: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
     }
     
     .footer-home #footer-right p {
         font-size: 1.4rem;
+        padding: 0;
+        margin: 0.8rem 0;
+    }
+
+    #footer-right .partners-block {
+        width: 50%;
     }
 }
 
 @media screen and (max-width: 700px) {
+    /*header*/
     #logout-link {
         width: 23%;
         padding: 0.8rem;
+    }
+
+    /*footer*/
+    #footer-right .partners-block {
+        width: 55%;
     }
 }
 
@@ -517,18 +553,29 @@ footer p a:hover {
         font-size: 1.2rem;
     }
 
+    #footer-right .partners-block {
+        width: 60%;
+    }
+
     .footer-home #footer-right p {
         font-size: 1.2rem;
     }
 }
 
 @media screen and (max-width: 480px) {
+    /*header*/
     #logout-link {
         width: 35%;
+    }
+
+    /*footer*/
+    #footer-right .partners-block {
+        width: 75%;
     }
 }
 
 @media screen and (max-width: 360px) {
+    /*header*/
     #logout-link {
         width: 43%;
     }

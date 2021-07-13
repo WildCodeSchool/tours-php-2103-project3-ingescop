@@ -143,10 +143,12 @@
 						<div id="footer-right">
 							<p>Partenaire de</p>
 							{% for partner in partners %}
-                        		<a href="{{ partner.link }}" target="_blank">
-                            		<img src="{{ asset('uploads/images/' ~ partner.logo) }}" alt="{{ partner.name }}">
-                        		</a>
-                    {% endfor %}
+								<div class="partners-block">
+                        			<a href="{{ partner.link }}" target="_blank">
+                            			<img src="{{ asset('uploads/images/' ~ partner.logo) }}" alt="{{ partner.name }}">
+                        			</a>
+								</div>
+                    		{% endfor %}
 						</div>
 					</div>
 				{% else %}
