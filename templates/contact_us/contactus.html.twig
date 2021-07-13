@@ -6,39 +6,37 @@
     {% if is_granted('ROLE_ADMIN') %}
         <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
     {% endif %}
-    <div class="flex justify-center">
-    {% for message in app.flashes('Success') %}
-        <div class="border-2 bg-green-200 text-xl py-2 max-w-3xl">
-            <p> &#10004; {{ message }} </p>
-        {% endfor %}
-        </div>
-    </div>
-    <div class="flex justify-center m-48">
-    {{ form_start(form, {'attr': {'class': ' text-5xl'}}) }}
-    <div class ="p-4">
-        {{ form_widget(form.lastName, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
-    </div>
-    <div class ="p-4">
-        {{ form_widget(form.firstName, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
-    </div>
-    <div class ="p-4">
-        {{ form_widget(form.phoneNumber, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
-    </div>
-    <div class ="p-4">
-        {{ form_widget(form.emailAddress, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
-    </div>
-    <div class ="p-4">
-        {{ form_widget(form.message, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
-    </div>
-    <div class="flex justify-end">
-        <input type ="submit" value="Envoyer" class ="m-4 rounded-full transition delay-150 text-white px-8 bg-gray-600 hover:bg-white hover:text-yellow-500 hover:border-2 border-yellow-500">
-    </div>
-    {{ form_end(form) }}
-    </div>
-    {% for message in app.flashes('Success') %}
-    <div class="border-2 bg-green-200 text-xl py-2 max-w-md">
+    <h1>Nous contacter</h1>
+    <div  id="tailwind_height" class="xs:pl-40 flex justify-center items-center relative">
+        {% for message in app.flashes('Success') %}
+            <div class="border-2 bg-green-200 text-2xl py-4 px-16 h-16   xs:right-24 top-3 absolute">
                 <p> &#10004; {{ message }} </p>
-        {% endfor %}
+            </div>
+            {% endfor %}
+        <div class="">
+            {{ form_start(form, {'attr': {'class': ' xs:text-3xl xs:border-none  border-r-2 border-gray-200 text-4xl mr-8 pr-8'}}) }}
+            <div class ="p-4">
+                {{ form_widget(form.lastName, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
+            </div>
+            <div class ="p-4">
+                {{ form_widget(form.firstName, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
+            </div>
+            <div class ="p-4">
+                {{ form_widget(form.phoneNumber, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
+            </div>
+            <div class ="p-4">
+                {{ form_widget(form.emailAddress, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
+            </div>
+            <div class ="p-4">
+                {{ form_widget(form.message, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
+            </div>
+            <div class="flex justify-end">
+                <input type ="submit" value="Envoyer" class ="xs:mt-8 m-4  p-4 rounded-full transition delay-300 text-white px-8 bg-gray-600 hover:bg-white hover:text-yellow-500 hover:border-2 border-yellow-500">
+            </div>
+            {{ form_end(form) }}
+        </div>
+        <div class="w-3/12">
+            <img class =" xs:hidden object-cover mx-8" src="{{ asset('build/images/coustou.jpg') }}">
+            </div>
     </div>
-
 {% endblock %}

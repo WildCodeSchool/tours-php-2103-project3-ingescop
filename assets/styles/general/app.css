@@ -1,4 +1,7 @@
 @import 'variables.css';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /*========== GENERAL PRESETS ==========*/
 /*=====================================*/
@@ -198,6 +201,13 @@ h3 {
 .home-container-bottom a:hover {
     border-color: var(--orange);
     color: var(--orange);
+}
+
+/*=========================================*/
+/*=============== CONTACT PAGES ===============*/
+
+#tailwind_height{
+    height:60vh;
 }
 
 /*=========================================*/
