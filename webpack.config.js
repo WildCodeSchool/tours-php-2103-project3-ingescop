@@ -39,6 +39,7 @@ Encore
     .addEntry('presentation', '/assets/styles/presentation.css')
     .addEntry('admin', '/assets/styles/admin/admin.css')
     .addEntry('keyframes', '/assets/styles/general/keyframes.css')
+    .addEntry('notice', '/assets/styles/notice.css')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

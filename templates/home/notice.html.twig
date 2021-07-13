@@ -3,51 +3,55 @@
 {% if is_granted('ROLE_ADMIN') %}
         <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 {% endif %}
-<h1>Mentions légales</h1>
+<div class="globale">
+    <h1>Mentions légales</h1>
     <div class="legale">
         <h3>Informations légales</h3>
-        <p>
-            <h4>Propriétaire du site</h4>
-            Nom de la de société
-            30 rue André Theuriet
-            37000 Tours
-            contact@1gscop.fr
-        </p>
-        <p>
-            <h4>Hébergement du site wwww.1Gscoop.fr</h4>
-            Nom de l'hébergeur
-        </p>
-        <p>
-            <h4>Créateurs du site</h4>
-            Stéphane Sauvaget, Cedric Perrotin,
-            Thibault Bardinet Langlois et Floriane Cheneveau
-        </p>
-        <p>
-            <h4>Crédit photos</h4>
-            Patrick Garreau
-        </p>
+        <div class="legalenotice">
+            <p>
+                <h4>Propriétaire du site</h4>
+                Nom de la de société
+                30 rue André Theuriet
+                37000 Tours
+                contact@1gscop.fr
+            </p>
+            <p>
+                <h4>Hébergement du site</h4>
+                Nom de l'hébergeur
+            </p>
+            <p>
+                <h4>Créateurs du site</h4>
+                Stéphane Sauvaget, Cedric Perrotin,
+                Thibault Bardinet Langlois et Floriane Cheneveau
+            </p>
+            <p>
+                <h4>Crédit photos</h4>
+                Patrick Garreau
+            </p>
+        </div>
     </div>
-    <div class="conditionG">
+    <div class="condition">
         <h3>Conditions générales d'utilisation du site</h3>
-        <p>
-            Conformément aux dispositions en vigueur de la loi française,
-            l’intégralité de la structure et du contenu du site
-            (logos, images, textes, articles, documents, vidéos, services, etc.)
-            sont la propriété exclusive de l’Editeur ou de ses partenaires.
-            Toute utilisation, reproduction, diffusion, commercialisation,
-            modification de toute ou partie du site, sans l’autorisation de 1Gscoop
-            est prohibée et pourra entraîner des actions et poursuites judiciaires telles que notamment
-            prévues par le code de la propriété intellectuelle et/ou le code civil.
-        </p>
-        <p>
-            <h4>Politique sur les cookies</h4>
-        </p>
-        <p>
-            <h4>Politique sur la protection des donéees personnelles (RGPD)</h4>
-
-        </p>
+        <div class="conditionG">
+            <p>
+                Conformément aux dispositions en vigueur de la loi française,
+                l’intégralité de la structure et du contenu du site
+                (logos, images, textes, articles, documents, vidéos, services, etc.)
+                sont la propriété exclusive de l’Editeur ou de ses partenaires.
+                Toute utilisation, reproduction, diffusion, commercialisation,
+                modification de toute ou partie du site, sans l’autorisation de 1Gscoop
+                est prohibée et pourra entraîner des actions et poursuites judiciaires telles que notamment
+                prévues par le code de la propriété intellectuelle et/ou le code civil.
+            </p>
+            <p>
+                <h4>Politique sur les cookies</h4>
+            </p>
+            <p>
+                <h4>Politique sur la protection des donéees personnelles (RGPD)</h4>
+            </p>
+        </div>
     </div>
-
+</div>
 {% endblock %}
 
 
