@@ -19,4 +19,12 @@ class HomeController extends AbstractController
             'partners' => $partnerRepository->findAll()
         ]);
     }
+
+     /**
+     * @Route("/notice", name="notice")
+     */
+    public function notice(): Response
+    {
+        return $this->render('home/notice.html.twig');
+    }
 }
