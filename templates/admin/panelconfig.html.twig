@@ -9,137 +9,173 @@
         {% endfor %}
     {% endblock %}
     <h1>PANNEAU DE CONFIGURATION</h1>
+    <div class="flex justify-center">
     <a id="change-password" href="{{ path('reset-password') }}"> Changer de mot de passe</a>
-    <table class="table">
-    <h1>Liste des services</h1>
-    <table class="table">
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Catégorie</th>
-                <th>Service</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-    {% for service in services %}
-            <tr>
-                <td>{{ service.id }}</td>
-                <td>{{ service.name }}</td>
-                <td>{{ service.category }}</td>
-                <td>
-                    <a href="{{ path("admin_editservice", {"id": service.id}) }}">Editer</a>
-                    <a href="{{ path("services_show", {"id": service.id}) }}">Voir</a>
-                </td>
-            </tr>
-    {% endfor %}
-        </tbody>
-    </table>
-    <a href="{{ path("admin_newservice") }}">Créer un service</a>
-    <h1>Liste des professionnels</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Métier</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    </div>
+    <div class="flex flex-col w-6/12 m-auto">
+        <h1>Liste des services</h1>
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200 rounded-xl">
+            <div class="py-12 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left">Id</th>
+                                <th scope="col" class="px-6 py-3 text-left">Nom</th>
+                                <th scope="col" class="px-6 py-3 text-left">Catégorie</th>
+                                <th scope="col" class="px-6 py-3 text-left">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-4xl font-semibold text-gray-700">
+                        {% for service in services %}
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ service.id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ service.name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ service.category }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <a href="{{ path("admin_editservice", {"id": service.id}) }}"><img src="/uploads/images/crayon.png"></a>
+                                    <a href="{{ path("services_show", {"id": service.id}) }}"><img src="/uploads/images/oeil.png"></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col text-right">
+        <a href="{{ path("admin_newservice") }}"><input type ="submit" value="Créer un service" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline" type="button"></a>
+        </div>
+    </div>
+    <div class="flex flex-col w-6/12 m-auto">
+        <h1>Liste des professionnels</h1>
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200 rounded-xl">
+            <div class="py-12 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left">Id</th>
+                                <th scope="col" class="px-6 py-3 text-left">Nom</th>
+                                <th scope="col" class="px-6 py-3 text-left">Métier</th>
+                                <th scope="col" class="px-6 py-3 text-left">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-4xl font-semibold text-gray-700">
 
-    {% for professionnal in pro %}
-            <tr>
-                <td>{{ professionnal.id }}</td>
-                <td>{{ professionnal.name }}</td>
-                <td>{{ professionnal.job }}</td>
-                <td>
-                    <a href="{{ path("admin_editpro", {"id": professionnal.id}) }}">Éditer</a>
-                    <a href="{{ path("professionnal_show", {"id": professionnal.id}) }}">Voir</a>
-                </td>
-            </tr>
-    {% endfor %}
-        </tbody>
-    </table>
-    <a href="{{ path("admin_newpro") }}">Créer un professionnel</a>
-
-    <h1>Liste des références</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>EntryDate</th>
-                <th>Note</th>
-                <th>Lieu</th>
-                <th>Client</th>
-                <th>Mission Ingescop</th>
-                <th>Budget</th>
-                <th>Calendrier</th>
-                <th>État du projet</th>
-                <th>En bref</th>
-                <th>Points forts</th>
-                <th>Images</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for project in projects %}
-            <tr>
-                <td>{{ project.id }}</td>
-                <td>{{ project.name }}</td>
-                <td>{{ project.entryDate ? project.entryDate|date('Y-m-d') : '' }}</td>
-                <td>{{ project.note }}</td>
-                <td>{{ project.place }}</td>
-                <td>{{ project.client }}</td>
-                <td>{{ project.missionIngescop }}</td>
-                <td>{{ project.budget }}</td>
-                <td>{{ project.calendar }}</td>
-                <td>{{ project.workInProgress }}</td>
-                <td>{{ project.resume }}</td>
-                <td>{{ project.strongPoints }}</td>
-                <td>
-                    <a href="{{ path('reference_show', {id: project.id}) }}">Voir le projet</a>
-                    <a href="{{ path('admin_editproject', {'id': project.id}) }}">Éditer le projet</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="16">Pas d'enregistrements trouvés</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('admin_newproject') }}">Créer un nouveau projet</a>
-
-    <h1>Listes des partenaires</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Logo</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for partner in partners %}
-            <tr>
-                <td>{{ partner.id }}</td>
-                <td>{{ partner.name }}</td>
-                <td>{{ partner.logo }}</td>
-                <td>
-                    <a href="{{ path('home') }}">Voir</a>
-                    <a href="{{ path('admin_partner_edit', {'id': partner.id}) }}">Éditer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">pas d'enregistrements trouvés</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('admin_partner_new') }}">Créer un nouveau partenaire</a>
+                            {% for professionnal in pro %}
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ professionnal.id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ professionnal.name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ professionnal.job }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <a href="{{ path("admin_editpro", {"id": professionnal.id}) }}"><img src="/uploads/images/crayon.png"></a>
+                                    <a href="{{ path("professionnal_show", {"id": professionnal.id}) }}"><img src="/uploads/images/oeil.png"></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col text-right">
+        <a href="{{ path("admin_newpro") }}"><input type ="submit" value="Créer un professionnel" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline" type="button"></a>
+        </div>
+    </div>
+    <div class="flex flex-col mx-28">
+        <h1>Liste des références</h1>
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200 rounded-xl">
+            <div class="py-12 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left">Id</th>
+                                <th scope="col" class="px-6 py-3 text-left">Nom</th>
+                                <th scope="col" class="px-6 py-3 text-left">EntryDate</th>
+                                <th scope="col" class="px-6 py-3 text-left">Note</th>
+                                <th scope="col" class="px-6 py-3 text-left">Lieu</th>
+                                <th scope="col" class="px-6 py-3 text-left">Client</th>
+                                <th scope="col" class="px-6 py-3 text-left">Mission Ingescop</th>
+                                <th scope="col" class="px-6 py-3 text-left">Budget</th>
+                                <th scope="col" class="px-6 py-3 text-left">Calendrier</th>
+                                <th scope="col" class="px-6 py-3 text-left">État du projet</th>
+                                <th scope="col" class="px-6 py-3 text-left">En bref</th>
+                                <th scope="col" class="px-6 py-3 text-left">Points forts</th>
+                                <th scope="col" class="px-6 py-3 text-left">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-4xl font-semibold text-gray-700">
+                        {% for project in projects %}
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.entryDate ? project.entryDate|date('Y-m-d') : '' }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.note }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.place }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.client }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.missionIngescop }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.budget }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.calendar }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.workInProgress }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.resume }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ project.strongPoints }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <a href="{{ path('admin_editproject', {'id': project.id}) }}"><img src="/uploads/images/crayon.png"></a>
+                                    <a href="{{ path('reference_show', {id: project.id}) }}"><img src="/uploads/images/oeil.png"></a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="16">Pas d'enregistrements trouvés</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col text-right">
+    <a href="{{ path('admin_newproject') }}"><input type ="submit" value="Créer un nouveau projet" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline mx-28" type="button"></a>
+    </div>
+    <div class="flex flex-col w-6/12 m-auto">
+        <h1>Listes des partenaires</h1>
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200 rounded-xl">
+            <div class="py-12 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left">Id</th>
+                                <th scope="col" class="px-6 py-3 text-left">Nom</th>
+                                <th scope="col" class="px-6 py-3 text-left">Logo</th>
+                                <th scope="col" class="px-6 py-3 text-left">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-4xl font-semibold text-gray-700">
+                        {% for partner in partners %}
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ partner.id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ partner.name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ partner.logo }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <a href="{{ path('admin_partner_edit', {'id': partner.id}) }}"><img src="/uploads/images/crayon.png"></a>
+                                    <a href="{{ path('home') }}"><img src="/uploads/images/oeil.png"></a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="4">pas d'enregistrements trouvés</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <div class="flex flex-col text-right">
+    <a href="{{ path('admin_partner_new') }}"><input type ="submit" value="Créer un nouveau partenaire" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline" type="button"></a>
+    </div>
 {% endblock %}
