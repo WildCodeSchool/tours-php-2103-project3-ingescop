@@ -30,7 +30,12 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "@tailwindcss/forms": "^0.3.3",
-        "bootstrap": "^5.0.2"
+        "autoprefixer": "^10.2.6",
+        "glob-all": "^3.2.1",
+        "path": "^0.12.7",
+        "postcss": "^8.3.5",
+        "postcss-loader": "^6.1.1",
+        "purgecss-webpack-plugin": "^4.0.3",
+        "tailwindcss": "^2.2.4"
     }
 }
