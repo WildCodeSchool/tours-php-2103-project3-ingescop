@@ -6,10 +6,10 @@
     <h1>Vous pouvez modifier vos services</h1>
 
     {{ include("admin/_form.html.twig", {'button_label': 'Mettre à jour'}) }}
-    <h2>Image Actuelle</h2>
-    <div>
-        <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}" width="150px">
+    <div  class="flex flex-col text-center space-y-6 items-center justify-center">
+        <h2 class="text-5xl font-semibold text-gray-700">Image Actuelle</h2>
+            <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}" width="150px">
+        {{ include("admin/service/_delete.html.twig") }}
     </div>
-    {{ include("admin/service/_delete.html.twig") }}
     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 {% endblock %}
