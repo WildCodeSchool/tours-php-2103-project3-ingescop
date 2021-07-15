@@ -25,7 +25,6 @@
 				<div class="header--logo" >
 					<a href="/"><img class="logo" src="{{ asset('build/images/Logo_1gscop.png') }}"/></a>
 				</div>
-				{% block Admin %}{% endblock %}
 				{% if app.user %}
     				<a id="logout-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
 				{% endif %}
@@ -139,7 +138,7 @@
 				</div>
 			</header>
 		{% endblock %}
-
+		{% block Admin %}{% endblock %}
 		{% block pageContainer %}{% endblock %}
 		{% block flashMessage %}{% endblock %}
 		{% block footer %}
@@ -154,9 +153,11 @@
 						<div id="footer-right">
 							<p>Partenaire de</p>
 							{% for partner in partners %}
-                        		<a href="{{ partner.link }}" target="_blank">
-                            		<img src="{{ asset('uploads/images/' ~ partner.logo) }}" alt="{{ partner.name }}">
-                        		</a>
+								<div class="partners-block">
+                        			<a href="{{ partner.link }}" target="_blank">
+                            			<img src="{{ asset('uploads/images/' ~ partner.logo) }}" alt="{{ partner.name }}">
+                        			</a>
+								</div>
                     		{% endfor %}
 						</div>
 					</div>
