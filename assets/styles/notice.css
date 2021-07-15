@@ -1,11 +1,11 @@
 /*========== Legal Notice ==========*/
 /*=======================================*/
-.globale {
+.global {
     margin: 5% 10%;
     font-size: 1.5rem;
 }
 
-.legale {
+.legal {
     text-align: center;
     margin-bottom: 10%;
     border-top: 1px solid rgba(196, 196, 196, 0.445);
@@ -15,7 +15,7 @@
     padding: 3%;
 }
 
-.legalenotice {
+.legalnotice {
     margin: 5%;
 }
 
@@ -36,11 +36,7 @@ p {
     margin: 2rem;
 }
 
-h3 {
-    font-size: 3.2rem;
-}
-
-h4 {
+.particulartitle {
     margin: 1rem;
     font-size: 1.8rem;
 }
