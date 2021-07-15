@@ -277,6 +277,11 @@ footer p a:hover {
 
 #footer-link-notice {
     width: 30%;
+    transition: color 0.5s ease;
+}
+
+#footer-link-notice:hover {
+    color: var(--orange);
 }
 
 .footer-home #footer-right {
