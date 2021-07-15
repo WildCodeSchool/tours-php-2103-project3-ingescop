@@ -165,6 +165,17 @@
     columns: 2;
 }
 
+.service-description-pro-link {
+    display: flex;
+}
+
+.service-description-pro-link a {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 1.7;
+    padding: 1%;
+}
+
 /*=========================================*/
 /*=============== RESPONSIVE ===============*/
 
@@ -200,6 +211,10 @@
     }
 
     .service-description p {
+        font-size: 1.6rem;
+    }
+
+    .service-description-pro-link a {
         font-size: 1.6rem;
     }
 }
@@ -257,6 +272,10 @@
     .service-description p {
         columns: 1;
         margin-bottom: 2%;
+    }
+
+    .service-description-pro-link {
+        flex-wrap: wrap;
     }
     
 }
@@ -333,6 +352,10 @@
 
     .service-description p {
         margin-bottom: 5%;
+        font-size: 1.4rem;
+    }
+
+    .service-description-pro-link a {
         font-size: 1.4rem;
     }
 }
