@@ -8,7 +8,9 @@
                     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
             {% endif %}
         <div class="reference-show-image">
-            <img src="{{ asset('uploads/images/' ~ reference.getMainPhoto) }}" alt="{{ reference.name }}">
+            <a href="{{ asset('uploads/images/' ~ reference.getMainPhoto) }}" target="blank">
+                <img src="{{ asset('uploads/images/' ~ reference.getMainPhoto) }}" alt="{{ reference.name }}">
+            </a>
         </div>
         <div class="reference-show-description">
             <h1>{{ reference.name }}</h1>
@@ -17,8 +19,10 @@
             <p><strong>Mission Ingescop : </strong>{{ reference.missionIngescop }}</p>
             <p><strong>Budget : </strong>{{ reference.budget }}</p>
             <p><strong>Calendrier : </strong> {{ reference.calendar }}</p>
-            <p><strong>Points forts du projet : </strong></p>
-            <p>{{ reference.strongPoints }}<p>
+            <p>
+                <strong>Points forts du projet :</strong>
+                {{ reference.strongPoints|replace({'#': '\n#'})|nl2br }}
+            <p>
             {% if reference.owner != null %}
                 <p><strong>Professionnels ayant participés au projet : </strong><br>
                     {% for professionnal in reference.owner %}
@@ -31,7 +35,7 @@
                 {% if images != null %}
                     {% for image in images %}
                         <a href="{{ asset('uploads/images/' ~ image) }}" target="_blank">
-                            <img src="{{ asset('uploads/images/' ~ image) }}" alt="{{ image }}">
+                            <img id="reference-other-pic" src="{{ asset('uploads/images/' ~ image) }}" alt="{{ image }}">
                         </a>
                     {% endfor %}
                 {% endif %}
