@@ -42,6 +42,7 @@ It's symfony website-skeleton project with some additional tools to validate cod
 5. For work in local don't forget to create a database with `symfony console d:d:c`
 6. After pull remote branch don't forget to play the migration `symfony console do:mi:mi`
 7. Don't forget to load the fixtures with `symfony console do:fi:lo`
+8. For the first connection in production you need to go the the URL `/register` for create your first Admin account.
 
 ### Testing
 

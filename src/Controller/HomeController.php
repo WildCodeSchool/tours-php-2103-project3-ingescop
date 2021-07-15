@@ -17,25 +17,8 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(
-        PartnerRepository $partnerRepository,
-        UserPasswordEncoderInterface $passwordEncoder,
-        EntityManagerInterface $manager,
-        AdminRepository $adminRepository
-    ): Response {
-        $admin = $adminRepository->findAll();
-        if (empty($admin)) {
-            $firstAdmin = new Admin();
-            $firstAdmin->setUsername('admin');
-            $firstAdmin->setRoles(['ROLE_ADMIN']);
-            $firstAdmin->setPassword($passwordEncoder->encodePassword(
-                $firstAdmin,
-                'patrickgarreau123@'
-            ));
-
-            $manager->persist($firstAdmin);
-            $manager->flush();
-        }
+    public function index(PartnerRepository $partnerRepository): Response
+    {
 
         return $this->render('home/index.html.twig', [
             'partners' => $partnerRepository->findAll()
