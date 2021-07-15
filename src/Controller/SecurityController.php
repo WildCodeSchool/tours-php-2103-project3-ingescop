@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Admin;
+use App\Form\AdminType;
 use App\FormData\PasswordData;
 use App\Form\ResetPasswordType;
+use App\Repository\AdminRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,6 +19,35 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
+    /**
+     * @Route("/register", name="app_register")
+     */
+    public function register(
+        Request $request,
+        UserPasswordEncoderInterface $passwordEncoder,
+        EntityManagerInterface $manager,
+        AdminRepository $adminRepository
+    ): Response {
+        $admin = $adminRepository->findAll();
+        if (empty($admin)) {
+            $firstAdmin = new Admin();
+            $form = $this->createForm(AdminType::class, $firstAdmin);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $password = $passwordEncoder->encodePassword($firstAdmin, $firstAdmin->getPassword());
+                $firstAdmin->setPassword($password);
+                $firstAdmin->setRoles(['ROLE_ADMIN']);
+                $manager->persist($firstAdmin);
+                $manager->flush();
+                return $this->redirectToRoute('home');
+            }
+            return $this->render('registration/register.html.twig', [
+                'form' => $form->createView(),
+            ]);
+        }
+        return $this->redirectToRoute('home');
+    }
+
     /**
      * @Route("/login", name="app_login")
      */
