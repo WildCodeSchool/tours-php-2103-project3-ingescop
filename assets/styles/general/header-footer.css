@@ -136,7 +136,7 @@ header nav ul li a:hover::after {
 }
 
 .header--form-links {
-    width: 11%;
+    width: 14%;
     animation: moveInRight 1s 0.5s ease;
     animation-fill-mode: backwards;
 }
@@ -148,6 +148,7 @@ header nav ul li a:hover::after {
     text-align: center;
     border-radius: 40px;
     transition: all 0.5s ease;
+    border: 1px solid green;
 }
 
 .header--form-links p:first-child {
@@ -334,7 +335,7 @@ footer p a:hover {
     }
 
     .header--form-links {
-        width: 14%;
+        width: 15%;
     }
 
     .header--form-links p a {
@@ -378,6 +379,10 @@ footer p a:hover {
     #home-links {
         width: 100%;
     }
+
+    .header--form-links {
+        width: 20%;
+    }
 }
 
 @media screen and (max-width: 1040px) {
@@ -391,7 +396,7 @@ footer p a:hover {
     }
 
     .header--form-links {
-        width: 20%;
+        width: 23%;
     }
 
     #logout-link {
@@ -407,6 +412,7 @@ footer p a:hover {
 }
 
 @media screen and (max-width: 940px) {
+    /*header*/
     .responsive-menu {
         width: 90%;
     }
@@ -417,6 +423,10 @@ footer p a:hover {
 
     .header--form-links {
         width: 22%;
+    }
+
+    .header--form-links {
+        width: 27%;
     }
 }
 

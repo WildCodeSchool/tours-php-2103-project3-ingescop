@@ -29,14 +29,14 @@
             <p>
                 {{ service.description }}
             </p>
+            {% if service.professionnal != null %}
+                <h3>Professionnel(s) :</h3>
+                <div class="service-description-pro-link">
+                {% for pro in service.professionnal %}
+                    <a id="reference-professionnal-links" href="{{ path('professionnal_show', {id: pro.id}) }}">{{ pro.name }}</a>
+                {% endfor %}
+            {% endif %}
         </div>
-            <h3>Professionnel(s) :</h3>
-           <p>
-           {% if service.professionnal != null %}
-               {% for pro in service.professionnal %}
-                   <a id="reference-professionnal-links" href="{{ path('professionnal_show', {id: pro.id}) }}">{{ pro.name }}</a><br><br>
-               {% endfor %}
-           {% endif %}
     </div>
 
 {% endblock %}
