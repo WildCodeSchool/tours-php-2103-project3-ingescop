@@ -1,4 +1,10 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
-{{ form_end(form) }}
+<div class="flex justify-center">
+    {{ form_start(form, {'attr': {'class': 'box-content p-4'}}) }}
+        <div class="decoration-clone bg-gray-200 my-48 p-20 rounded-xl border-2">
+            <div class="flex flex-col text-center space-y-6 items-center justify-center">
+                {{ form_widget(form, {'attr': {'class': 'shadow appearance-none h-15 w-32 p-4 w-full focus:outline-none border-b-2 border-yellow-500 placeholder-gray-400 text-4xl text-center m-3'}}) }}
+                <input type ="submit" value="Valider" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline" type="button">
+            </div>
+        </div>
+</div>
+    {{ form_end(form) }}
