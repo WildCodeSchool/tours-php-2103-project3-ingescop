@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
@@ -48,8 +49,13 @@ class ServiceType extends AbstractType
                     ])
                 ]
             ])
-            ->add('description', TextType::class, [
-                'label' => 'Description'
+            ->add('description', TextareaType::class, [
+                'label' => 'Description',
+                'attr' => [
+                    'placeholder' => 'Description du service',
+                    'cols' => '15',
+                    'rows' => '10'
+                ]
             ]);
         ;
     }

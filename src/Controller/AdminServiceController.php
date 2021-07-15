@@ -44,7 +44,7 @@ class AdminServiceController extends AbstractController
         }
         return $this->render('admin/service/new.html.twig', [
             'service' => $service,
-            'form' => $form->createView(),]);
+            'formService' => $form->createView(),]);
     }
 
     /**

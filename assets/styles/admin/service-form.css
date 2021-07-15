@@ -1,0 +1,11 @@
+.service-form-block {
+    border: 2px solid green;
+    width: 35%;
+}
+
+.service-form-group {
+    display: flex;
+    flex-direction: column;
+    
+    border: 1px solid red;
+} 
