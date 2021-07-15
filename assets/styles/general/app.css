@@ -293,12 +293,12 @@ h3 {
     }
 
     .home-container-top .link-block {
-        width: 40%;
+        width: 41%;
     }
 
     .home-container-top .link-block p {
         font-size: 1.8rem;
-        padding: 20% 5%;
+        padding: 20% 0%;
     }
 
     .home-container-top .link-block p em {
