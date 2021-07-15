@@ -509,13 +509,14 @@ footer p a:hover {
     }
 
     #home-links li a {
-        font-size: 2.4rem;
+        font-size: 1.6rem;
     }
 
     .header--form-links {
         position: relative;
         bottom: 20%;
         animation: none;
+        width: 25%;
     }
 
     .header--form-links p {
@@ -523,7 +524,7 @@ footer p a:hover {
     }
 
     .header--form-links p a {
-        font-size: 2.4rem;
+        font-size: 1.6rem;
     }
 
     /*footer*/
@@ -566,6 +567,10 @@ footer p a:hover {
         padding: 0.8rem;
     }
 
+    .header--form-links {
+        width: 30%;
+    }
+
     /*footer*/
     #footer-right .partners-block {
         width: 55%;
@@ -576,6 +581,10 @@ footer p a:hover {
     #logout-link {
         width: 26%;
         font-size: 1.4rem;
+    }
+
+    .header--form-links {
+        width: 35%;
     }
 
     /*footer*/
@@ -602,6 +611,10 @@ footer p a:hover {
         width: 35%;
     }
 
+    .header--form-links {
+        width: 42%;
+    }
+
     /*footer*/
     #footer-right .partners-block {
         width: 75%;
@@ -612,6 +625,10 @@ footer p a:hover {
     /*header*/
     #logout-link {
         width: 43%;
+    }
+
+    .header--form-links {
+        width: 50%;
     }
 
     /*footer*/
