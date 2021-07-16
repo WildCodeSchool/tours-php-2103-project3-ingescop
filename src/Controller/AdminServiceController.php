@@ -99,6 +99,7 @@ class AdminServiceController extends AbstractController
             }
             $entityManager->remove($service);
             $entityManager->flush();
+            $this->addFlash("Valid", 'Le service a bien été supprimé !');
         }
         return $this->redirectToRoute('admin_panelconfig');
     }
