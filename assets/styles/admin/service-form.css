@@ -1,0 +1,78 @@
+#service-form-page {
+    width: 100vw;
+    min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-form-block {
+    width: 45%;
+    background-color: rgba(240, 240, 245, 1);
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4%;
+    padding: 2% 1%;
+}
+
+.service-form-inside-block {
+    width: 90%;
+    overflow: hidden;
+}
+
+.service-form-label-input {
+    border-top: 3px solid rgba(59, 62, 71, 0.048);
+    border-left: 3px solid rgba(59, 62, 71, 0.048);
+    border-right: 3px solid rgba(59, 62, 71, 0.048);
+    border-bottom: 3px solid #F49E0A;
+    border-radius: 10px;
+}
+
+.service-form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 5%;
+} 
+
+.service-form-group label {
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.service-form-group input {
+    outline: none;
+    font-size: 1.6rem;
+    padding: 1%;
+}
+
+.service-form-block select {
+    background-color: #fff;
+    padding: 1%;
+    font-size: 1.6rem;
+    outline: none;
+}
+
+.service-form-group:last-child {
+    margin-bottom: 2%;
+}
+
+.service-form-group #service_description {
+    outline: none;
+    font-size: 1.6rem;
+    padding: 1%;
+}
+
+.service-form-inside-block-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.service-form-inside-block-button input[type="submit"] {
+    font-size: 2rem;
+    margin: 0% 5% 0 0%;
+    padding: 1% 5%;
+}

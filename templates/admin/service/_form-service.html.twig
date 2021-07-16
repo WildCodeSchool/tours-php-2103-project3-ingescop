@@ -1,0 +1,33 @@
+<div id="service-form-page">
+    <div class="service-form service-form-block">
+        <div class="service-form-inside-block">
+            {{ form_start(formService) }}
+                <div class="service-form-label-input">
+                    <div class="service-form-group">
+                        <label for="service_name">Nom</label>
+                        {{ form_widget(formService.name) }}
+                    </div>
+                    <div class="service-form-group">
+                        <label for="service_category">Catégorie</label>
+                        {{ form_widget(formService.category) }}
+                    </div>
+                    <div class="service-form-group">
+                        <label for="service_professionnal">Professionnel(s)</label>
+                        {{ form_widget(formService.professionnal) }}
+                    </div>
+                    <div class="service-form-group">
+                        <label for="service_image">Image</label>
+                        {{ form_widget(formService.image) }}
+                    </div>
+                    <div class="service-form-group">
+                        <label for="service_description">Description</label>
+                        {{ form_widget(formService.description) }}
+                    </div>
+                </div>
+                <div class="service-form-inside-block-button">
+                    <input type ="submit" value="Valider" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white rounded-full focus:outline-none focus:shadow-outline">
+                </div>
+            {{ form_end(formService) }}
+        </div>
+    </div>
+</div>

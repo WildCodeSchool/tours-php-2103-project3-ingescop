@@ -1,0 +1,75 @@
+#pro-form-page {
+    width: 100vw;
+    min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pro-form-block {
+    width: 45%;
+    background-color: rgba(240, 240, 245, 1);
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4%;
+    padding: 2% 1%;
+}
+
+.pro-form-inside-block {
+    width: 90%;
+    overflow: hidden;
+}
+
+.pro-form-label-input {
+    border-top: 3px solid rgba(59, 62, 71, 0.048);
+    border-left: 3px solid rgba(59, 62, 71, 0.048);
+    border-right: 3px solid rgba(59, 62, 71, 0.048);
+    border-bottom: 3px solid #F49E0A;
+    border-radius: 10px;
+}
+
+.pro-form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 5%;
+} 
+
+.pro-form-group label {
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.pro-form-group input {
+    outline: none;
+    font-size: 1.6rem;
+    padding: 1%;
+}
+
+.pro-form-group:last-child {
+    margin-bottom: 2%;
+}
+
+.pro-form-group #professionnal_resume {
+    outline: none;
+    font-size: 1.6rem;
+    padding: 1%;
+}
+
+.pro-form-group textarea {
+    outline: none;
+}
+
+.pro-form-inside-block-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.pro-form-inside-block-button input[type="submit"] {
+    font-size: 2rem;
+    margin: 0% 5% 0 0%;
+    padding: 1% 5%;
+}
