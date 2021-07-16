@@ -41,7 +41,7 @@ class AdminProfessionnalController extends AbstractController
         }
         return $this->render('admin/professionnal/new.html.twig', [
             'pro' => $pro,
-            'form' => $form->createView(),]);
+            'formPro' => $form->createView(),]);
     }
 
     /**
@@ -75,7 +75,7 @@ class AdminProfessionnalController extends AbstractController
         }
         return $this->render('admin/professionnal/edit.html.twig', [
             'pro' => $pro,
-            'form' => $form->createView(),]);
+            'formPro' => $form->createView(),]);
     }
 
     /**

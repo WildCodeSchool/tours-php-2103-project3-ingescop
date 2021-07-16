@@ -53,8 +53,8 @@ class ServiceType extends AbstractType
                 'label' => 'Description',
                 'attr' => [
                     'placeholder' => 'Description du service',
-                    'cols' => '15',
-                    'rows' => '10'
+                    'cols' => '10',
+                    'rows' => '7'
                 ]
             ]);
         ;

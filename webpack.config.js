@@ -44,6 +44,7 @@ Encore
     .addStyleEntry('keyframes', '/assets/styles/general/keyframes.css')
     .addStyleEntry('notice', '/assets/styles/notice.css')
     .addStyleEntry('serviceForm', '/assets/styles/admin/service-form.css')
+    .addStyleEntry('proForm', '/assets/styles/admin/pro-form.css')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
