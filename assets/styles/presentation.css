@@ -215,6 +215,10 @@
         column-count: 1;
     }
 
+    .chantier {
+        display: none;
+    }
+
     .portrait-block {
         display: flex;
         flex-direction: column;

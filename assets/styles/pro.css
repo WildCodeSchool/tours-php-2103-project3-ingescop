@@ -126,6 +126,7 @@
     line-height: 1.7;
     letter-spacing: 2px;
     columns: 2;
+    word-wrap: break-word;
 }
 
 /*=========================================*/
