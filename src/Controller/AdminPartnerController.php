@@ -42,7 +42,7 @@ class AdminPartnerController extends AbstractController
         }
         return $this->render('admin/partner/new.html.twig', [
             'partner' => $partner,
-            'form' => $form->createView(),
+            'formPartner' => $form->createView(),
         ]);
     }
 
@@ -76,7 +76,7 @@ class AdminPartnerController extends AbstractController
 
         return $this->render('admin/partner/edit.html.twig', [
             'partner' => $partner,
-            'form' => $form->createView(),
+            'formPartner' => $form->createView(),
         ]);
     }
 

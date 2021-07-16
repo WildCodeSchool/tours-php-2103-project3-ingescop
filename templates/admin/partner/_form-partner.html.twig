@@ -1,0 +1,25 @@
+<div id="partner-form-page">
+    <div class="partner-form partner-form-block">
+        <div class="partner-form-inside-block">
+            {{ form_start(formPartner) }}
+                <div class="partner-form-label-input">
+                    <div class="partner-form-group">
+                        <label for="partnerfessionnal_name">Nom</label>
+                        {{ form_widget(formPartner.name) }}
+                    </div>
+                    <div class="partner-form-group">
+                        <label for="partnerfessionnal_job">Métier</label>
+                        {{ form_widget(formPartner.link) }}
+                    </div>
+                    <div class="partner-form-group">
+                        <label for="partnerfessionnal_partnerfilPhoto">Image</label>
+                        {{ form_widget(formPartner.logo) }}
+                    </div>
+                </div>
+                <div class="partner-form-inside-block-button">
+                    <input type ="submit" value="Valider" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white rounded-full focus:outline-none focus:shadow-outline">
+                </div>
+            {{ form_end(formPartner) }}
+        </div>
+    </div>
+</div>

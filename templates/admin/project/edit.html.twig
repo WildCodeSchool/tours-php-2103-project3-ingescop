@@ -5,7 +5,7 @@
 {% block pageContainer %}
     <h1>Éditer le Project</h1>
 
-    {{ include('admin/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    {{ include('admin/project/_form-project.html.twig', {'button_label': 'Mettre à jour'}) }}
     <div  class="flex flex-col text-center space-y-6 items-center justify-center">
         <h3>Image Principal</h3>
         <img src="{{ asset('/uploads/images/' ~ project.mainPhoto) }}" alt="{{ project.mainPhoto }}" width="150px">
