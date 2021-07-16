@@ -32,7 +32,11 @@
     margin: 5%;
 }
 
-p {
+.legal p {
+    margin: 2rem;
+}
+
+.condition p {
     margin: 2rem;
 }
 
