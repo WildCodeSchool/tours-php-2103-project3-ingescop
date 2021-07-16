@@ -96,6 +96,7 @@ class AdminProfessionnalController extends AbstractController
             }
             $entityManager->remove($pro);
             $entityManager->flush();
+            $this->addFlash("Valid", 'Le professionnel a bien été supprimé !');
         }
         return $this->redirectToRoute('admin_panelconfig');
     }
