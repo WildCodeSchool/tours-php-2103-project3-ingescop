@@ -32,11 +32,25 @@
     margin: 5%;
 }
 
-p {
+.legal p {
+    margin: 2rem;
+}
+
+.condition p {
     margin: 2rem;
 }
 
 .particulartitle {
     margin: 1rem;
     font-size: 1.8rem;
+}
+
+@media screen and (max-width: 800px) {
+    .legal {
+        margin: 5%;
+    }
+
+    .condition {
+        margin: 5%;
+    }
 }

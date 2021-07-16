@@ -102,6 +102,7 @@ class AdminProjectController extends AbstractController
             }
             $entityManager->remove($project);
             $entityManager->flush();
+            $this->addFlash("Valid", 'Le projet a bien été supprimé !');
         }
 
         return $this->redirectToRoute('admin_panelconfig');

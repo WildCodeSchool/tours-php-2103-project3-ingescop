@@ -5,7 +5,14 @@
 {% block pageContainer %}
     {% block flashMessage %}
         {% for message in app.flashes('notice') %}
-                    {{ message }}
+            <div class="border-2 bg-green-200 text-2xl py-4 px-16 h-16 absolute">
+                   <p> &#10004; {{ message }} </p>
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('Valid') %}
+            <div class="border-2 bg-green-200 text-2xl py-4 px-16 h-16 absolute">
+                   <p> &#10004; {{ message }} </p>
+            </div>
         {% endfor %}
     {% endblock %}
     <h1>PANNEAU DE CONFIGURATION</h1>
@@ -20,7 +27,6 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left">Id</th>
                                 <th scope="col" class="px-6 py-3 text-left">Nom</th>
                                 <th scope="col" class="px-6 py-3 text-left">Catégorie</th>
                                 <th scope="col" class="px-6 py-3 text-left">Actions</th>
@@ -29,13 +35,16 @@
                         <tbody class="text-4xl font-semibold text-gray-700">
                         {% for service in services %}
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ service.id }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ service.name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ service.category }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <a href="{{ path("admin_editservice", {"id": service.id}) }}"><img src="{{ asset('build/images/crayon.png') }}"></a>
                                     <a href="{{ path("services_show", {"id": service.id}) }}"><img src="{{ asset('build/images/oeil.png') }}"></a>
                                 </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="16">Pas d'enregistrements trouvés</td>
                             </tr>
                         {% endfor %}
                         </tbody>
@@ -55,7 +64,6 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left">Id</th>
                                 <th scope="col" class="px-6 py-3 text-left">Nom</th>
                                 <th scope="col" class="px-6 py-3 text-left">Métier</th>
                                 <th scope="col" class="px-6 py-3 text-left">Actions</th>
@@ -65,13 +73,16 @@
 
                             {% for professionnal in pro %}
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ professionnal.id }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ professionnal.name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ professionnal.job }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <a href="{{ path("admin_editpro", {"id": professionnal.id}) }}"><img src="{{ asset('build/images/crayon.png') }}"></a>
                                     <a href="{{ path("professionnal_show", {"id": professionnal.id}) }}"><img src="{{ asset('build/images/oeil.png') }}"></a>
                                 </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="16">Pas d'enregistrements trouvés</td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -83,7 +94,7 @@
         <a href="{{ path("admin_newpro") }}"><input type ="submit" value="Créer un professionnel" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline"></a>
         </div>
     </div>
-    <div class="flex flex-col mx-28">
+    <div class="flex flex-col w-6/12 m-auto">
         <h1>Liste des références</h1>
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200 rounded-xl">
             <div class="py-12 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -91,36 +102,24 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left">Id</th>
                                 <th scope="col" class="px-6 py-3 text-left">Nom</th>
                                 <th scope="col" class="px-6 py-3 text-left">EntryDate</th>
                                 <th scope="col" class="px-6 py-3 text-left">Note</th>
                                 <th scope="col" class="px-6 py-3 text-left">Lieu</th>
                                 <th scope="col" class="px-6 py-3 text-left">Client</th>
-                                <th scope="col" class="px-6 py-3 text-left">Mission Ingescop</th>
-                                <th scope="col" class="px-6 py-3 text-left">Budget</th>
-                                <th scope="col" class="px-6 py-3 text-left">Calendrier</th>
                                 <th scope="col" class="px-6 py-3 text-left">État du projet</th>
-                                <th scope="col" class="px-6 py-3 text-left">En bref</th>
-                                <th scope="col" class="px-6 py-3 text-left">Points forts</th>
                                 <th scope="col" class="px-6 py-3 text-left">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="text-4xl font-semibold text-gray-700">
                         {% for project in projects %}
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.id }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ project.name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ project.entryDate ? project.entryDate|date('Y-m-d') : '' }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ project.note }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ project.place }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ project.client }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.missionIngescop }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.budget }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.calendar }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ project.workInProgress }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.resume }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.strongPoints }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <a href="{{ path('admin_editproject', {'id': project.id}) }}"><img src="{{ asset('build/images/crayon.png') }}"></a>
                                     <a href="{{ path('reference_show', {id: project.id}) }}"><img src="{{ asset('build/images/oeil.png') }}"></a>
@@ -136,9 +135,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="flex flex-col text-right">
-    <a href="{{ path('admin_newproject') }}"><input type ="submit" value="Créer un nouveau projet" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline mx-28"></a>
+        <div class="flex flex-col text-right">
+        <a href="{{ path('admin_newproject') }}"><input type ="submit" value="Créer un nouveau projet" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline"></a>
+        </div>
     </div>
     <div class="flex flex-col w-6/12 m-auto">
         <h1>Listes des partenaires</h1>
@@ -148,7 +147,6 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left">Id</th>
                                 <th scope="col" class="px-6 py-3 text-left">Nom</th>
                                 <th scope="col" class="px-6 py-3 text-left">Logo</th>
                                 <th scope="col" class="px-6 py-3 text-left">Actions</th>
@@ -157,7 +155,6 @@
                         <tbody class="text-4xl font-semibold text-gray-700">
                         {% for partner in partners %}
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ partner.id }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ partner.name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ partner.logo }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -175,7 +172,8 @@
                 </div>
             </div>
         </div>
-    <div class="flex flex-col text-right">
-    <a href="{{ path('admin_partner_new') }}"><input type ="submit" value="Créer un nouveau partenaire" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline"></a>
+        <div class="flex flex-col text-right">
+        <a href="{{ path('admin_partner_new') }}"><input type ="submit" value="Créer un nouveau partenaire" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline"></a>
+        </div>
     </div>
 {% endblock %}

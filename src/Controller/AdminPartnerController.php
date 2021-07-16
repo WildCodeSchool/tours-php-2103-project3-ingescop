@@ -97,6 +97,7 @@ class AdminPartnerController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($partner);
             $entityManager->flush();
+            $this->addFlash("Valid", 'Le partenaire a bien été supprimé !');
         }
 
         return $this->redirectToRoute('admin_panelconfig');
