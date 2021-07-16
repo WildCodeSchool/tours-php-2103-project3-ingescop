@@ -15,7 +15,7 @@ class PartnerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, ['label' => 'name'])
+            ->add('name', TextType::class, ['label' => 'nom'])
             ->add('link', TextType::class, ['label' => 'url'])
             ->add('logo', FileType::class, [
                 'label' => 'Logo',

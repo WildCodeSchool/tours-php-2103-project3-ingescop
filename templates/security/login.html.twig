@@ -1,42 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Identifiez-vous !{% endblock %}
 
 {% block Admin %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<div class="flex justify-center">
+    <div class="decoration-clone bg-gray-200 my-80 p-10 rounded-xl border-2">
+            <div class="flex flex-col text-center items-center justify-center">
+                <form method="post" class="box-content p-4 max-w-lg">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+                    <h2 class="text-center text-5xl font-semibold text-gray-700 my-5">Identifiez-vous</h2>
+                    <label for="inputUsername" class="text-center text-5xl font-semibold text-gray-700 my-5"></label>
+                    <input type="text" placeholder="Identifiant" value="{{ last_username }}" name="username" id="inputUsername" class="form-control shadow appearance-none h-15 w-32 p-4 w-full placeholder-gray-400 text-4xl text-center focus:outline-none border-b-2 border-yellow-500 m-3" autocomplete="username" required autofocus>
+                    <label for="inputPassword" class="text-center text-5xl font-semibold text-gray-700 my-5"></label>
+                    <input type="password" placeholder="Mot de passe" name="password" id="inputPassword" class="form-control shadow appearance-none h-15 w-32 p-4 w-full placeholder-gray-400 text-4xl text-center focus:outline-none border-b-2 border-yellow-500 m-3" autocomplete="current-password" required>
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+                    <input type="hidden" name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                    >
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername">Nom</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
-    <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    {#
+                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                        See https://symfony.com/doc/current/security/remember_me.html
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" name="_remember_me"> Remember me
+                            </label>
+                        </div>
+                    #}
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+                    <input type ="submit" value="Valider" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline" type="button">
+                </form>
+            </div>
+    </div>
+</div>
 {% endblock %}

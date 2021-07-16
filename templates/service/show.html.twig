@@ -25,9 +25,17 @@
                 {% endif %}
         </div>
         <div class="service-description">
-            <p>Description</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum in purus interdum, at tincidunt dolor mattis. Donec at suscipit metus. Aliquam erat volutpat. Suspendisse potenti. Vestibulum tempor vestibulum diam hendrerit aliquam. Curabitur fermentum leo quis sapien feugiat, quis pharetra nisi venenatis. Sed iaculis, ante eget pretium imperdiet, nibh eros sollicitudin augue, vitae fermentum sem massa vitae risus. Curabitur posuere tincidunt sapien quis mollis. Fusce vel orci cursus, molestie arcu id, condimentum tellus. Suspendisse posuere accumsan placerat. Vivamus ultricies eu lacus vitae suscipit. Fusce ut nisl leo. Ut vel tincidunt lorem, sit amet finibus dui. Quisque lobortis, quam ut egestas varius, lacus arcu varius sem, vitae porta neque nulla tincidunt dolor. Aliquam dignissim rhoncus commodo.
+            <h3>Description</h3>
+            <p>
+                {{ service.description }}
             </p>
+            {% if service.professionnal != null %}
+                <h3>Professionnel(s) :</h3>
+                <div class="service-description-pro-link">
+                {% for pro in service.professionnal %}
+                    <a id="reference-professionnal-links" href="{{ path('professionnal_show', {id: pro.id}) }}">{{ pro.name }}</a>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 

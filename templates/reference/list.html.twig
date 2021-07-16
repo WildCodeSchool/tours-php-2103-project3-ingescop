@@ -3,44 +3,41 @@
 {% block title %}Références{% endblock %}
 
 {% block pageContainer %}
-    <div class="references-list-block">
+    <div class="reference-page">
         {% if is_granted('ROLE_ADMIN') %}
-                    <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong>Retour au panneau de configuration</a>
+            <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong>Retour au panneau de configuration</a>
         {% endif %}
-        {% for reference in references %}
-            {% if reference.workInProgress == 'En études' %}
-                <a href="{{ path('reference_show', {id: reference.id}) }}"
-                class="reference-block">
-                    <div class="bubble-reference in-study">
+        <h1>Nos réferences</h1>
+        <div class="references-list">
+            {% for reference in references %}
+                {% if reference.workInProgress == 'En études' %}
+                    <div class="reference-block">
+                        <p class="handwriting-project handwriting-in-study">{{ reference.workInProgress }}</p>
+                        <p>{{ reference.name }}</p>
+                        <a href="{{ path('reference_show', {id: reference.id}) }}" class="bubble-reference in-study">
                             <img id="references-images" src="{{ asset('uploads/images/' ~ reference.mainPhoto) }}"/>
-                            {% for images in reference %}
-                                <p>{{ images.name }}</p>
-                            {% endfor %}
+                        </a>
                     </div>
-                    <p class="handwriting-project handwriting-in-study">{{ reference.workInProgress }}</p>
-                    <h3>{{ reference.name }}</h3>
-                </a>
-            {% endif %}
-            {% if reference.workInProgress == 'En travaux' %}
-                <a href="{{ path('reference_show', {id: reference.id}) }}"
-                class="reference-block">
-                    <div class="bubble-reference in-work">
-                            {# <img id="references-images" src="{{ asset('uploads/images/' ~ image ) }}"/> #}
+                {% endif %}
+                {% if reference.workInProgress == 'En travaux' %}
+                    <div class="reference-block">
+                        <p class="handwriting-project handwriting-in-work">{{ reference.workInProgress }}</p>
+                        <p>{{ reference.name }}</p>
+                        <a href="{{ path('reference_show', {id: reference.id}) }}" class="bubble-reference in-work">
+                            <img id="references-images" src="{{ asset('uploads/images/' ~ reference.mainPhoto) }}"/>
+                        </a>
                     </div>
-                    <p class="handwriting-project handwriting-in-work">{{ reference.workInProgress }}</p>
-                    <h3>{{ reference.name }}</h3>
-                </a>
-            {% endif %}
-            {% if reference.workInProgress == 'Livré' %}
-                <a href="{{ path('reference_show', {id: reference.id}) }}"
-                class="reference-block">
-                    <div class="bubble-reference finished">
-                            {# <img id="references-images" src="{{ asset('uploads/images/' ~ image ) }}"/> #}
+                {% endif %}
+                {% if reference.workInProgress == 'Livré' %}
+                    <div class="reference-block">
+                        <p class="handwriting-project handwriting-finished">{{ reference.workInProgress }}</p>
+                        <p>{{ reference.name }}</p>
+                        <a href="{{ path('reference_show', {id: reference.id}) }}" class="bubble-reference finished">
+                            <img id="references-images" src="{{ asset('uploads/images/' ~ reference.mainPhoto) }}"/>
+                        </a>
                     </div>
-                    <p class="handwriting-project handwriting-finished">{{ reference.workInProgress }}</p>
-                    <h3>{{ reference.name }}</h3>
-                </a>
-            {% endif %}
-        {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

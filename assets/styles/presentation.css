@@ -1,0 +1,267 @@
+/*========== PRESENTATION PAGE (Qui sommes-nous ?) ==========*/
+/*=======================================*/
+
+.explication-titre {
+    display: flex;
+    justify-content: space-around;
+    margin: 5%;
+    padding: 0 5rem;
+    font-size: 2rem;    
+}
+
+.explication-titre p {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.explication-titre p.appear {
+    opacity: 1;
+}
+
+.explication-titre em {
+    color:red;
+}
+
+#G, #INGE, #SCOP {
+    margin: 1%;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px 2px rgba(196, 196, 196, 0.534);
+    text-align: left;
+} 
+
+.chantier {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+}
+
+.explication-CAE {
+    text-align: left;
+    padding: 5rem;
+    box-shadow: 0px 0px 12px 2px rgba(196, 196, 196, 0.534);
+    border-radius: 10px;
+    margin: 5%;
+}
+
+.explication-CAE em {
+    color:red;
+}
+
+#pres {
+    font-family: caveat;
+    margin: 3% auto;
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--orange);
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+#log {
+    font-size: 2rem;
+    color: black;
+}
+
+#description-cae {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    background-color: rgba(196, 196, 196, 0.863);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    margin: 3% 0 0 0;
+    padding: 2rem;
+    color: white;
+}
+
+#utilisation {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-align: left;
+    margin: 0 0 2% 0;
+    column-count: 3;
+    padding-top: 5rem;
+    opacity: 0;
+}
+
+#pres-co {
+    font-family: caveat;
+    color: var(--orange);
+    margin: 3% auto;
+    text-align: center;
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+.explication-portrait {
+        text-align: left;
+        padding: 5rem;
+        box-shadow: 0px 0px 12px 2px rgba(196, 196, 196, 0.534);
+        border-radius: 10px;
+        margin: 5%;
+}
+
+.portrait-block {
+    margin: 5%;
+    text-align: left;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+} 
+
+.portrait-block h3 {
+    color: rgba(161, 25, 27, 1);
+    width: 13%;
+    text-align: center;
+    margin: 0 1%;
+    letter-spacing: 1px;
+    line-height: 1.5;
+} 
+
+.portrait-block div {
+    width: 13%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.portrait-block img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.portrait-block p {
+    width: 74%;
+    margin: 0 1%;
+}
+
+.R {
+    opacity: 0;
+}
+
+.A{
+    opacity: 0;
+}
+
+.P {
+    opacity: 0;
+}
+    
+.trait {
+    border-top: 1px solid rgba(196, 196, 196, 0.445);
+    box-shadow: 0px 0px 10px 0px rgba(196, 196, 196, 0.849);
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+@media screen and (max-width: 1300px) {
+    .presentation-generale .explication-titre {
+        font-size: 1.6rem;
+    }
+
+    #description-cae {
+        font-size: 1.6rem;
+    }
+
+    #utilisation {
+        font-size: 1.6rem;
+    }
+
+    .portrait-block h3 {
+        font-size: 2.4rem;
+    }
+
+    .portrait-block p {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1100px) {
+
+    #utilisation {
+        column-count: 2;
+    }
+
+    .portrait-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .portrait-block div {
+        width: 20%;
+    }
+
+    .portrait-block h3 {
+        width: 100%;
+        margin: 1.6rem 0;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    /* general css */
+
+    .explication-titre {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #utilisation {
+        column-count: 1;
+    }
+
+    .chantier {
+        display: none;
+    }
+
+    .portrait-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .portrait-block p {
+        width: 100%;
+    }
+
+    .portrait-block div {
+        width: 20%;
+    }
+
+    .portrait-block h3 {
+        width: 100%;
+        margin: 0.8rem 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .portrait-block {
+        margin: 5% 0%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .presentation-generale .explication-titre {
+        font-size: 1.4rem;
+    }
+
+    #description-cae {
+        font-size: 1.4rem;
+    }
+
+    #utilisation {
+        font-size: 1.4rem;
+    }
+
+    .portrait-block h3 {
+        font-size: 2rem;
+    }
+
+    .portrait-block p {
+        font-size: 1.4rem;
+    }
+}

@@ -6,10 +6,10 @@
     <h1>Éditer un professionnel</h1>
 
     {{ include('admin/_form.html.twig') }}
-
-    <h3>Photo de profil</h3>
-    <img src="{{ asset('/uploads/images/' ~ pro.profilPhoto) }}" alt="{{ pro.profilPhoto }}" width="150px">
-
+    <div  class="flex flex-col text-center space-y-6 items-center justify-center">
+        <h3>Photo de profil</h3>
+        <img src="{{ asset('/uploads/images/' ~ pro.profilPhoto) }}" alt="{{ pro.profilPhoto }}" width="150px">
+    </div>
     {{ include('admin/professionnal/_delete.html.twig') }}
 
     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
