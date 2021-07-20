@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ContactUsController extends AbstractController
 {
     /**
+     * function to contact the admin
      * @Route("/contact/us", name="contactus")
      */
     public function index(Request $request, MailerInterface $mailer): Response

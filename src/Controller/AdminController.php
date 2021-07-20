@@ -17,6 +17,7 @@ class AdminController extends AbstractController
 {
 
     /**
+     * function to display the control panel for admin
      * @Route("/", name="panelconfig", methods={"GET"})
      */
     public function list(

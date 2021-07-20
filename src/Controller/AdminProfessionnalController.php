@@ -17,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminProfessionnalController extends AbstractController
 {
     /**
+     * function to create a new professional
      * @Route("/pro/new", name="newpro", methods={"GET","POST"})
      */
     public function newprofessionnal(
@@ -45,6 +46,7 @@ class AdminProfessionnalController extends AbstractController
     }
 
     /**
+     * function to edit a professional
      * @Route("/pro/edit/{id}", name="editpro", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
     public function editprofessionnal(
@@ -79,6 +81,7 @@ class AdminProfessionnalController extends AbstractController
     }
 
     /**
+     * function to delete a professional
      * @Route("/pro/delete/{id}", name="deletepro", methods={"POST"}, requirements={"id": "\d+"})
      */
     public function deletePro(
