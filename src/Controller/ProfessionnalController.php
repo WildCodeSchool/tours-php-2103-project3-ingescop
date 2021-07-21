@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProfessionnalController extends AbstractController
 {
     /**
+     * function to display the professional list
      * @Route("/list", name="list")
      */
     public function list(ProfessionnalRepository $proRepository): Response
@@ -22,6 +23,7 @@ class ProfessionnalController extends AbstractController
     }
 
     /**
+     * function to display the detail of a professional
      * @Route("/show/{id}", methods={"GET"}, name="show")
      */
     public function show(int $id, ProfessionnalRepository $proRepository): Response
