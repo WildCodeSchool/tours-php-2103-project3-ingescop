@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class AdminType extends AbstractType
 {
@@ -17,10 +18,17 @@ class AdminType extends AbstractType
             ->add('username', TextType::class, [
                 'attr' => ['placeholder' => 'Identifiant']
             ])
-            ->add('password', PasswordType::class, [
-                'attr' => ['placeholder' => 'Mot de passe']
-            ])
-        ;
+            ->add('Password', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'first_options' => ['label' => false,
+                                    'attr' => ['placeholder' => 'Nouveau mot de passe'
+                                    ]],
+                'second_options' => ['label' => false,
+                                    'attr' => ['placeholder' => 'Nouveau mot de passe'
+                                    ]],
+                'invalid_message' => 'Les deux mots de passe doivent être identiques',
+                'required' => true,
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void
