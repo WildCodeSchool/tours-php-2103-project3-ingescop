@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Partner;
 use App\Form\PartnerType;
+use App\Form\PartnerEditType;
 use App\Repository\PartnerRepository;
 use App\Entity\Images;
 use App\Service\FileUploaderService;
@@ -56,18 +57,20 @@ class AdminPartnerController extends AbstractController
         FileUploaderService $fileUploaderService
     ): Response {
         $image = $partner->getLogo();
-        $form = $this->createForm(PartnerType::class, $partner);
+        $form = $this->createForm(PartnerEditType::class, $partner);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('logo')->getData();
-            if ($image !== null) {
-                if (is_string($this->getParameter('images_directory'))) {
-                    $imageName = $this->getParameter('images_directory') . '/' . $image;
-                    unlink($imageName);
+            if ($imageData !== null) {
+                if ($image !== null) {
+                    if (is_string($this->getParameter('images_directory'))) {
+                        $imageName = $this->getParameter('images_directory') . '/' . $image;
+                        unlink($imageName);
+                    }
                 }
+                $newImageName = $fileUploaderService->upload($imageData);
+                $partner->setLogo($newImageName);
             }
-            $newImageName = $fileUploaderService->upload($imageData);
-            $partner->setLogo($newImageName);
             $entityManager->persist($partner);
             $entityManager->flush();
 

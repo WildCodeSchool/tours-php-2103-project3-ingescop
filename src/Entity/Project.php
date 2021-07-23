@@ -106,7 +106,7 @@ class Project
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Vous devez rentrer un résumé descriptif du projet, dans le champ ('Resume)")
+     * @Assert\NotBlank(message="Vous devez rentrer un résumé descriptif du projet, dans le champ ('Resume')")
      */
     private string $resume;
 
@@ -123,6 +123,7 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @ORM\JoinColumn(nullable=true)
      */
     private string $mainPhoto;
 

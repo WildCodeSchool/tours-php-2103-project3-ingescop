@@ -4,16 +4,19 @@
             {{ form_start(formPartner) }}
                 <div class="partner-form-label-input">
                     <div class="partner-form-group">
-                        <label for="partnerfessionnal_name">Nom</label>
+                        <label for="partner_name">Nom</label>
                         {{ form_widget(formPartner.name) }}
+                        {{ form_errors(formPartner.name) }}
                     </div>
                     <div class="partner-form-group">
-                        <label for="partnerfessionnal_job">Métier</label>
+                        <label for="partner_link">Url</label>
                         {{ form_widget(formPartner.link) }}
+                        {{ form_errors(formPartner.link) }}
                     </div>
                     <div class="partner-form-group">
-                        <label for="partnerfessionnal_partnerfilPhoto">Image</label>
+                        <label for="partner_logo">Logo</label>
                         {{ form_widget(formPartner.logo) }}
+                        {{ form_errors(formPartner.logo) }}
                     </div>
                 </div>
                 <div class="partner-form-inside-block-button">

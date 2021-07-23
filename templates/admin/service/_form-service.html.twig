@@ -18,6 +18,7 @@
                     <div class="service-form-group">
                         <label for="service_image">Image</label>
                         {{ form_widget(formService.image) }}
+                        {{ form_errors(formService.image) }}
                     </div>
                     <div class="service-form-group">
                         <label for="service_description">Description</label>

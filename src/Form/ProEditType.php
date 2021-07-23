@@ -11,13 +11,13 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class ProfessionnalType extends AbstractType
+class ProEditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, ['label' => 'Nom'])
-            ->add('job', TextType::class, ['label' => 'Service'])
+            ->add('name', TextType::class)
+            ->add('job', TextType::class)
             ->add('resume', TextareaType::class, [
                 'label' => "À votre sujet",
                 'attr' => [
@@ -29,19 +29,20 @@ class ProfessionnalType extends AbstractType
             ->add('profilPhoto', FileType::class, [
                 'label' => 'Image Principale',
                 'mapped' => false,
-                'required' => true,
+                'required' => false,
                 'constraints' => [
                     new Image([
                         'maxSize' => '100k',
                     ])
                 ]
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Professionnal::class
+            'data_class' => Professionnal::class,
         ]);
     }
 }

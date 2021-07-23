@@ -52,6 +52,7 @@
                     <div class="project-form-group">
                         <label for="project_mainPhoto">Image Principal</label>
                         {{ form_widget(formProject.mainPhoto) }}
+                        {{ form_errors(formProject.mainPhoto) }}
                     </div>
                     <div class="project-form-group">
                         <label for="project_images">Images secondaires</label>

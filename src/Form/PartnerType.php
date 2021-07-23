@@ -19,8 +19,8 @@ class PartnerType extends AbstractType
             ->add('link', TextType::class, ['label' => 'url'])
             ->add('logo', FileType::class, [
                 'label' => 'Logo',
-                'mapped' => 'false',
-                'required' => 'false',
+                'mapped' => false,
+                'required' => true,
                 'data_class' => null,
                 'constraints' => [
                     new Image([
