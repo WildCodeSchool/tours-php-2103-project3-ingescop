@@ -34,6 +34,8 @@ class Partner
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de m'être une Url")
+     * @Assert\Url(message="L'Url '{{ value }}' n'est pas valide")
      */
     private string $link;
 
