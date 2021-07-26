@@ -53,7 +53,7 @@ class ProjectType extends AbstractType
             ->add('mainPhoto', FileType::class, [
                 'label' => 'Image Principale',
                 'mapped' => false,
-                'required' => false,
+                'required' => $options['main_photo_required'],
                 'constraints' => [
                     new Image([
                         'maxSize' => '200k',
@@ -86,6 +86,9 @@ class ProjectType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Project::class,
+            'main_photo_required' => false
         ]);
+
+        $resolver->setAllowedTypes('main_photo_required', 'bool');
     }
 }

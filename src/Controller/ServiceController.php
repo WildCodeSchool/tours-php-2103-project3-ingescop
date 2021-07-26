@@ -27,7 +27,7 @@ class ServiceController extends AbstractController
     }
 
     /**
-     * @Route("show/{id}", methods={"GET"}, name="show")
+     * @Route("/show/{id}", methods={"GET"}, name="show")
      */
     public function show(int $id, ServiceRepository $serviceRepository): Response
     {

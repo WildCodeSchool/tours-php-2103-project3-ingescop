@@ -2,12 +2,17 @@
 
 {% block title %} Modification Service{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('serviceForm') }}
+{% endblock %}
+
 {% block pageContainer %}
-    <h1>Éditer le service</h1>
+    <h1 class="font-semibold">Éditer ce service</h1>
 
     {{ include("admin/service/_form-service.html.twig", {'button_label': 'Mettre à jour'}) }}
     <div  class="flex flex-col text-center space-y-6 items-center justify-center">
-        <h2 class="text-5xl font-semibold text-gray-700">Image Actuelle</h2>
+        <h3 class="font-semibold text-gray-700">Image Actuelle</h3>
             <img src="{{ asset('/uploads/images/' ~ service.image) }}" alt="{{ service.image }}" width="150px">
         {{ include("admin/service/_delete.html.twig") }}
     </div>

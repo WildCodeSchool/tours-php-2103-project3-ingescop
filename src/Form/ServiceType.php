@@ -42,7 +42,7 @@ class ServiceType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Image Principale',
                 'mapped' => false,
-                'required' => false,
+                'required' => $options['photo_required'],
                 'constraints' => [
                     new Image([
                         'maxSize' => '100k',
@@ -64,6 +64,7 @@ class ServiceType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Service::class,
+            'photo_required' => false
         ]);
     }
 }

@@ -26,7 +26,9 @@ class AdminProfessionnalController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $pro = new Professionnal();
-        $form = $this->createForm(ProfessionnalType::class, $pro);
+        $form = $this->createForm(ProfessionnalType::class, $pro, [
+            'photo_required' => true
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('profilPhoto')->getData();
@@ -54,7 +56,7 @@ class AdminProfessionnalController extends AbstractController
         EntityManagerInterface $entityManager,
         FileUploaderService $uploadProfessionnal
     ): Response {
-        $form = $this->createForm(ProEditType::class, $pro);
+        $form = $this->createForm(ProfessionnalType::class, $pro);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('profilPhoto')->getData();

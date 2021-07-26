@@ -28,7 +28,9 @@ class AdminPartnerController extends AbstractController
         FileUploaderService $uploaderFile
     ): Response {
         $partner = new Partner();
-        $form = $this->createForm(PartnerType::class, $partner);
+        $form = $this->createForm(PartnerType::class, $partner, [
+            'logo_required' => true
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('logo')->getData();
@@ -57,7 +59,7 @@ class AdminPartnerController extends AbstractController
         FileUploaderService $fileUploaderService
     ): Response {
         $image = $partner->getLogo();
-        $form = $this->createForm(PartnerEditType::class, $partner);
+        $form = $this->createForm(PartnerType::class, $partner);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('logo')->getData();

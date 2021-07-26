@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('references') }}
+{% endblock %}
+
 {% block title %}Références{% endblock %}
 
 {% block pageContainer %}

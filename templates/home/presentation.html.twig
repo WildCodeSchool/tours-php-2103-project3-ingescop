@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('presentation') }}
+{% endblock %}
+
 {% block pageContainer %}
 {% if is_granted('ROLE_ADMIN') %}
         <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 {% endif %}
- <h1>Qui sommes nous?</h1>
+<h1>Qui sommes nous?</h1>
     <div class="presentation-generale">
         <div class="explication-titre">
             <p id="G">

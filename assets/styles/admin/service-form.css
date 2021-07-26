@@ -54,6 +54,10 @@
     outline: none;
 }
 
+.service-form-group #service_professionnal div label {
+    font-size: 1.6rem;
+}
+
 .service-form-group:last-child {
     margin-bottom: 2%;
 }
@@ -75,4 +79,24 @@
     font-size: 2rem;
     margin: 0% 5% 0 0%;
     padding: 1% 5%;
+}
+
+.delete-service-button {
+    font-size: 2rem;
+    padding: 0.8rem;
+    margin: 4rem 0;
+}
+
+/*========== RESPONSIVE ==========*/
+
+@media screen and (max-width: 1300px) {
+    .service-form-block {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .service-form-block {
+        width: 70%;
+    }
 }

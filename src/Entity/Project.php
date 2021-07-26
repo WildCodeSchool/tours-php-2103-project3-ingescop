@@ -122,8 +122,7 @@ class Project
     private Collection $images;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private string $mainPhoto;
 

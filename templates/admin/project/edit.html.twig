@@ -1,25 +1,36 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('projectForm') }}
+{% endblock %}
+
 {% block title %}éditer Projet{% endblock %}
 
 {% block pageContainer %}
-    <h1>Éditer le Project</h1>
+    <h1 class="font-semibold">Éditer ce Project</h1>
 
     {{ include('admin/project/_form-project.html.twig', {'button_label': 'Mettre à jour'}) }}
-    <div  class="flex flex-col text-center space-y-6 items-center justify-center">
-        <h3>Image Principal</h3>
-        <img src="{{ asset('/uploads/images/' ~ project.mainPhoto) }}" alt="{{ project.mainPhoto }}" width="150px">
-        <h3>Images Secondaires</h3>
-        {% for image in project.images %}
-            <div>
-                <img src="{{ asset('/uploads/images/' ~ image.name) }}" alt="{{ image.id }}" width="150px">
-            </div>
-        <form method="post" action="{{ path('admin_delete_project_image', {'project_id': project.id, 'image_id': image.id}) }}" onsubmit="return confirm('Êtes vous sûr de bien vouloir supprimer cette image?');">
-            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
-            <input type ="submit" value="Supprimer les images" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline">
-        </form>
+    <div  class="edit-project-description">
+        <h3 class="font-semibold">Image Principal</h3>
+        <div class="edit-project-main-image">
+            <img src="{{ asset('/uploads/images/' ~ project.mainPhoto) }}" alt="{{ project.mainPhoto }}" width="150px">
+        </div>
     </div>
+    <h3 class="font-semibold edit-project-h3">Images Secondaires</h3>
+    <div class="edit-project-secondaries-pics-block">
+        {% for image in project.images %}
+            <div class="edit-project-secondary-pic-block">
+                <div class="edit-project-secondary-pic">
+                    <img src="{{ asset('/uploads/images/' ~ image.name) }}" alt="{{ image.id }}" width="150px">
+                </div>
+                <form method="post" action="{{ path('admin_delete_project_image', {'project_id': project.id, 'image_id': image.id}) }}" onsubmit="return confirm('Êtes vous sûr de bien vouloir supprimer cette image?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+                    <input type ="submit" value="Supprimer l'image" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white rounded-full focus:outline-none focus:shadow-outline project-delete-secondary-image">
+                </form>
+            </div>
     {% endfor %}
+    </div>
 
     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 
