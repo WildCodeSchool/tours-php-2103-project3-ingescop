@@ -18,7 +18,7 @@ class AdminType extends AbstractType
             ->add('username', TextType::class, [
                 'attr' => ['placeholder' => 'Identifiant']
             ])
-            ->add('Password', RepeatedType::class, array(
+            ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'first_options' => ['label' => false,
                                     'attr' => ['placeholder' => 'Nouveau mot de passe'
