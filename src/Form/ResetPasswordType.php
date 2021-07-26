@@ -26,7 +26,7 @@ class ResetPasswordType extends AbstractType
                     'second_options' => ['label' => false,
                                         'attr' => ['placeholder' => 'Nouveau mot de passe'
                                         ]],
-                    'invalid_message' => 'Les deux mots de passe doivent être identiques',
+                    'invalid_message' => 'Les deux nouveaux mots de passe doivent être identiques',
                     'required' => true,
                 ));
     }
