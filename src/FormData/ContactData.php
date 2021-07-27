@@ -6,6 +6,7 @@ namespace App\FormData;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
+//class for the contact and contact us form
 class ContactData
 {
     /**

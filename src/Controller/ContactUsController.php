@@ -22,11 +22,12 @@ class ContactUsController extends AbstractController
         $contact = new ContactData();
         $form = $this->createForm(ContactUsType::class, $contact);
         $form->handleRequest($request);
+        $adminEmail = $this->getParameter('app.admin_email');
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && is_string($adminEmail)) {
             $message = (new Email())
                 ->from($contact->getEmailAddress())
-                ->to('s.sauvaget41000@gmail.com')
+                ->to($adminEmail)
                 ->subject('Vous avez reçu un nouveau mail')
                 ->text($contact->getMessage() . PHP_EOL . PHP_EOL . 'Envoyé par : ' . PHP_EOL .
                  $contact->getLastName() . PHP_EOL .

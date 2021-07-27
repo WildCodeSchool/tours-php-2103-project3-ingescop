@@ -20,6 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminServiceController extends AbstractController
 {
     /**
+     * function to create a new service
      * @Route("/service/new", name="newservice", methods={"GET","POST"})
      */
     public function newService(
@@ -51,6 +52,7 @@ class AdminServiceController extends AbstractController
     }
 
     /**
+     * function to edit a service
      * @Route("/service/edit/{id}", name="editservice", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
     public function editService(
@@ -85,6 +87,7 @@ class AdminServiceController extends AbstractController
     }
 
     /**
+     * function to delete a service
      * @Route("/service/delete/{id}", name="deleteservice", methods={"POST"}, requirements={"id": "\d+"})
      */
     public function deletePro(
