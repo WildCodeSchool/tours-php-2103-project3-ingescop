@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ServiceController extends AbstractController
 {
     /**
+     * function to display all the service
      * @Route("/list", name="list")
      */
     public function list(ServiceRepository $serviceRepository): Response
@@ -27,6 +28,7 @@ class ServiceController extends AbstractController
     }
 
     /**
+     * function to display one service in detail
      * @Route("/show/{id}", methods={"GET"}, name="show")
      */
     public function show(int $id, ServiceRepository $serviceRepository): Response
