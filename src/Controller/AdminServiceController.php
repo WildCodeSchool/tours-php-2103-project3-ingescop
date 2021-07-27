@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Service;
 use App\Form\ServiceType;
+use App\Form\ServiceEditType;
 use App\Repository\ServiceRepository;
 use App\Entity\Images;
 use App\Service\FileUploaderService;
@@ -27,7 +28,9 @@ class AdminServiceController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $service = new Service();
-        $form = $this->createForm(ServiceType::class, $service);
+        $form = $this->createForm(ServiceType::class, $service, [
+            'photo_required' => true
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

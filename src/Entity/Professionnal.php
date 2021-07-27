@@ -50,7 +50,7 @@ class Professionnal
     private Collection $service;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private ?string $profilPhoto;
 

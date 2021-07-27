@@ -51,7 +51,8 @@
     margin-bottom: 2%;
 }
 
-.pro-form-group #professionnal_resume {
+.pro-form-group #professionnal_resume,
+.pro-form-group #pro_edit_resume {
     outline: none;
     font-size: 1.6rem;
     padding: 1%;
@@ -59,6 +60,8 @@
 
 .pro-form-group textarea {
     outline: none;
+    font-size: 1.6rem;
+    padding: 1%;
 }
 
 .pro-form-inside-block-button {
@@ -72,4 +75,54 @@
     font-size: 2rem;
     margin: 0% 5% 0 0%;
     padding: 1% 5%;
+}
+
+.edit-pro-description {
+    width: 100%;
+}
+
+.edit-pro-description h3 {
+    height: 15%;
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 2.4rem;
+}
+
+.edit-pro-image {
+    width: 20%;
+    height: 75%;
+    margin: 0 auto;
+}
+
+.edit-pro-image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.delete-pro-button {
+    font-size: 2rem;
+    padding: 0.8rem;
+    margin: 4rem 0;
+}
+
+/*========== RESPONSIVE ==========*/
+
+@media screen and (max-width: 1300px) {
+    .pro-form-block {
+        width: 60%;
+    }
+
+    .edit-pro-image {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .pro-form-block {
+        width: 70%;
+    }
+
+    .edit-pro-image {
+        width: 40%;
+    }
 }

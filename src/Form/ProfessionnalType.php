@@ -29,7 +29,7 @@ class ProfessionnalType extends AbstractType
             ->add('profilPhoto', FileType::class, [
                 'label' => 'Image Principale',
                 'mapped' => false,
-                'required' => false,
+                'required' => $options['photo_required'],
                 'constraints' => [
                     new Image([
                         'maxSize' => '100k',
@@ -41,7 +41,8 @@ class ProfessionnalType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Professionnal::class
+            'data_class' => Professionnal::class,
+            'photo_required' => false
         ]);
     }
 }

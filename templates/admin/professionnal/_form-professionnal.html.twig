@@ -6,18 +6,22 @@
                     <div class="pro-form-group">
                         <label for="professionnal_name">Nom</label>
                         {{ form_widget(formPro.name) }}
+                        {{ form_errors(formPro.name) }}
                     </div>
                     <div class="pro-form-group">
                         <label for="professionnal_job">Métier</label>
                         {{ form_widget(formPro.job) }}
+                        {{ form_errors(formPro.job) }}
                     </div>
                     <div class="pro-form-group">
                         <label for="professionnal_profilPhoto">Image</label>
                         {{ form_widget(formPro.profilPhoto) }}
+                        {{ form_errors(formPro.profilPhoto) }}
                     </div>
                     <div class="pro-form-group">
                         <label for="professionnal_resume">Description</label>
                         {{ form_widget(formPro.resume) }}
+                        {{ form_errors(formPro.resume) }}
                     </div>
                 </div>
                 <div class="pro-form-inside-block-button">

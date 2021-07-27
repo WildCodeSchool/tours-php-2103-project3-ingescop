@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Professionnal;
 use App\Form\ProfessionnalType;
+use App\Form\ProEditType;
 use App\Service\FileUploaderService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +27,9 @@ class AdminProfessionnalController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $pro = new Professionnal();
-        $form = $this->createForm(ProfessionnalType::class, $pro);
+        $form = $this->createForm(ProfessionnalType::class, $pro, [
+            'photo_required' => true
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('profilPhoto')->getData();

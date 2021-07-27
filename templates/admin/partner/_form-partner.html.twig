@@ -9,13 +9,14 @@
                         {{ form_errors(formPartner.name) }}
                     </div>
                     <div class="partner-form-group">
-                        <label for="partner_url">Url</label>
+                        <label for="partner_link">Url</label>
                         {{ form_widget(formPartner.link) }}
                         {{ form_errors(formPartner.link) }}
                     </div>
                     <div class="partner-form-group">
-                        <label for="partner_photo">Image</label>
+                        <label for="partner_logo">Logo</label>
                         {{ form_widget(formPartner.logo) }}
+                        {{ form_errors(formPartner.logo) }}
                     </div>
                 </div>
                 <div class="partner-form-inside-block-button">

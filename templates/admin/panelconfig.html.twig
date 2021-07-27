@@ -2,16 +2,21 @@
 
 {% block title %}Panneau de configuration{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
 {% block pageContainer %}
     {% block flashMessage %}
         {% for message in app.flashes('notice') %}
             <div class="border-2 bg-green-200 text-2xl py-4 px-16 h-16 absolute">
-                   <p> &#10004; {{ message }} </p>
+                <p> &#10004; {{ message }} </p>
             </div>
         {% endfor %}
         {% for message in app.flashes('Valid') %}
             <div class="border-2 bg-green-200 text-2xl py-4 px-16 h-16 absolute">
-                   <p> &#10004; {{ message }} </p>
+                <p> &#10004; {{ message }} </p>
             </div>
         {% endfor %}
     {% endblock %}
@@ -19,25 +24,25 @@
     <div class="flex justify-center">
     <a id="change-password" href="{{ path('reset-password') }}"> Changer de mot de passe</a>
     </div>
-    <div class="flex flex-col w-6/12 m-auto">
+    <div class="flex flex-col w-6/12 m-auto panel-config-table-block">
         <h1>Liste des services</h1>
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200 rounded-xl">
+        <div  class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 rounded-xl">
             <div class="py-12 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
+                <div id="panel-config-table" class="overflow-hidden sm:rounded-lg">
+                    <table id="panel-config-services-table" class="min-w-full">
+                        <thead class="font-semibold text-gray-700 bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left">Nom</th>
-                                <th scope="col" class="px-6 py-3 text-left">Catégorie</th>
-                                <th scope="col" class="px-6 py-3 text-left">Actions</th>
+                                <th scope="col" class="text-left">Nom</th>
+                                <th scope="col" class="text-left">Catégorie</th>
+                                <th scope="col" class="text-left">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="text-4xl font-semibold text-gray-700">
+                        <tbody class="text-gray-700">
                         {% for service in services %}
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ service.name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ service.category }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td>{{ service.name }}</td>
+                                <td>{{ service.category }}</td>
+                                <td>
                                     <a href="{{ path("admin_editservice", {"id": service.id}) }}"><img src="{{ asset('build/images/crayon.png') }}"></a>
                                     <a href="{{ path("services_show", {"id": service.id}) }}"><img src="{{ asset('build/images/oeil.png') }}"></a>
                                 </td>
@@ -53,29 +58,29 @@
             </div>
         </div>
         <div class="flex flex-col text-right">
-        <a href="{{ path("admin_newservice") }}"><input type ="submit" value="Créer un service" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline"></a>
+        <a class="panel-config-button" href="{{ path("admin_newservice") }}"><input type ="submit" value="Créer un service" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white rounded-full focus:outline-none focus:shadow-outline"></a>
         </div>
     </div>
-    <div class="flex flex-col w-6/12 m-auto">
+    <div class="flex flex-col w-6/12 m-auto panel-config-table-block">
         <h1>Liste des professionnels</h1>
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200 rounded-xl">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 rounded-xl">
             <div class="py-12 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
+                <div id="panel-config-table" class="overflow-hidden sm:rounded-lg">
+                    <table id="panel-config-pro-table" class="min-w-full">
+                        <thead class="font-semibold text-gray-700 bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left">Nom</th>
-                                <th scope="col" class="px-6 py-3 text-left">Métier</th>
-                                <th scope="col" class="px-6 py-3 text-left">Actions</th>
+                                <th scope="col" class="text-left">Nom</th>
+                                <th scope="col" class="text-left">Métier</th>
+                                <th scope="col" class="text-left">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="text-4xl font-semibold text-gray-700">
+                        <tbody class="text-gray-700">
 
                             {% for professionnal in pro %}
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ professionnal.name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ professionnal.job }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td>{{ professionnal.name }}</td>
+                                <td>{{ professionnal.job }}</td>
+                                <td>
                                     <a href="{{ path("admin_editpro", {"id": professionnal.id}) }}"><img src="{{ asset('build/images/crayon.png') }}"></a>
                                     <a href="{{ path("professionnal_show", {"id": professionnal.id}) }}"><img src="{{ asset('build/images/oeil.png') }}"></a>
                                 </td>
@@ -91,36 +96,32 @@
             </div>
         </div>
         <div class="flex flex-col text-right">
-        <a href="{{ path("admin_newpro") }}"><input type ="submit" value="Créer un professionnel" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline"></a>
+        <a class="panel-config-button" href="{{ path("admin_newpro") }}"><input type ="submit" value="Créer un professionnel" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white rounded-full focus:outline-none focus:shadow-outline"></a>
         </div>
     </div>
-    <div class="flex flex-col w-6/12 m-auto">
+    <div class="flex flex-col w-6/12 m-auto panel-config-table-block">
         <h1>Liste des références</h1>
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200 rounded-xl">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 rounded-xl">
             <div class="py-12 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
+                <div id="panel-config-table" class="overflow-hidden border-b sm:rounded-lg">
+                    <table id="panel-config-projects-table" class="min-w-full">
+                        <thead class="font-semibold text-gray-700 bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left">Nom</th>
-                                <th scope="col" class="px-6 py-3 text-left">EntryDate</th>
-                                <th scope="col" class="px-6 py-3 text-left">Note</th>
-                                <th scope="col" class="px-6 py-3 text-left">Lieu</th>
-                                <th scope="col" class="px-6 py-3 text-left">Client</th>
-                                <th scope="col" class="px-6 py-3 text-left">État du projet</th>
-                                <th scope="col" class="px-6 py-3 text-left">Actions</th>
+                                <th scope="col" class="text-left">Nom</th>
+                                <th scope="col" class="text-left">Note</th>
+                                <th scope="col" class="text-left">Lieu</th>
+                                <th scope="col" class="text-left">Date de saisie</th>
+                                <th scope="col" class="text-left">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="text-4xl font-semibold text-gray-700">
+                        <tbody class="text-gray-700">
                         {% for project in projects %}
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.entryDate ? project.entryDate|date('Y-m-d') : '' }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.note }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.place }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.client }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ project.workInProgress }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td>{{ project.name }}</td>
+                                <td>{{ project.note }}</td>
+                                <td>{{ project.place }}</td>
+                                <td>{{ project.entryDate ? project.entryDate|date('Y-m-d') : '' }}</td>
+                                <td>
                                     <a href="{{ path('admin_editproject', {'id': project.id}) }}"><img src="{{ asset('build/images/crayon.png') }}"></a>
                                     <a href="{{ path('reference_show', {id: project.id}) }}"><img src="{{ asset('build/images/oeil.png') }}"></a>
                                 </td>
@@ -136,28 +137,28 @@
             </div>
         </div>
         <div class="flex flex-col text-right">
-        <a href="{{ path('admin_newproject') }}"><input type ="submit" value="Créer un nouveau projet" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline"></a>
+        <a class="panel-config-button" href="{{ path('admin_newproject') }}"><input type ="submit" value="Créer un nouveau projet" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white rounded-full focus:outline-none focus:shadow-outline"></a>
         </div>
     </div>
-    <div class="flex flex-col w-6/12 m-auto">
+    <div class="flex flex-col w-6/12 m-auto panel-config-table-block">
         <h1>Listes des partenaires</h1>
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200 rounded-xl">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 rounded-xl">
             <div class="py-12 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="text-5xl font-semibold text-gray-700 bg-gray-50">
+                <div id="panel-config-table" class="overflow-hidden sm:rounded-lg">
+                    <table id="panel-config-partners-table" class="min-w-full">
+                        <thead class="font-semibold text-gray-700 bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left">Nom</th>
-                                <th scope="col" class="px-6 py-3 text-left">Logo</th>
-                                <th scope="col" class="px-6 py-3 text-left">Actions</th>
+                                <th scope="col" class="text-left">Nom</th>
+                                <th scope="col" class="text-left">Logo</th>
+                                <th scope="col" class="text-left">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="text-4xl font-semibold text-gray-700">
+                        <tbody class="text-gray-700">
                         {% for partner in partners %}
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ partner.name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ partner.logo }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td>{{ partner.name }}</td>
+                                <td>{{ partner.logo }}</td>
+                                <td>
                                     <a href="{{ path('admin_partner_edit', {'id': partner.id}) }}"><img src="{{ asset('build/images/crayon.png') }}"></a>
                                     <a href="{{ path('home') }}"><img src="{{ asset('build/images/oeil.png') }}"></a>
                                 </td>
@@ -173,7 +174,7 @@
             </div>
         </div>
         <div class="flex flex-col text-right">
-        <a href="{{ path('admin_partner_new') }}"><input type ="submit" value="Créer un nouveau partenaire" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white text-4xl font-bold py-6 px-9 rounded-full focus:outline-none focus:shadow-outline"></a>
+        <a class="panel-config-button" href="{{ path('admin_partner_new') }}"><input type ="submit" value="Créer un nouveau partenaire" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white rounded-full focus:outline-none focus:shadow-outline"></a>
         </div>
     </div>
 {% endblock %}

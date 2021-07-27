@@ -2,6 +2,11 @@
 
 {% block title %}Nouveau Service{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('serviceForm') }}
+{% endblock %}
+
 {% block pageContainer %}
     <h1>Ajouter un nouveau service</h1>
     {{ include("admin/service/_form-service.html.twig") }}
