@@ -21,7 +21,7 @@
             <div class ="p-4">
                 {{ form_widget(form.firstName, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
             </div>
-            <div class="border-4 bg-red-300 text-3xl">
+            <div class="bg-red-300 text-3xl">
                     {{ form_errors(form.phoneNumber) }}
             </div>
             <div class ="p-4">
@@ -34,7 +34,7 @@
                 {{ form_widget(form.message, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
             </div>
             <div class="flex justify-end">
-                <input type ="submit" value="Envoyer" class ="xs:mt-8 m-4  p-4 rounded-full transition delay-300 text-white px-8 bg-gray-600 hover:bg-white hover:text-yellow-500 hover:border-2 border-yellow-500">
+                <input type ="submit" value="Envoyer" class ="cursor-pointer xs:mt-8 m-4  p-4 rounded-full transition ease-linear  text-white px-8 bg-gray-600 border border-gray-600 hover:bg-white hover:text-yellow-500 hover:border hover:border-yellow-500">
             </div>
             {{ form_end(form) }}
         </div>
