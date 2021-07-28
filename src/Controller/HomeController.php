@@ -26,7 +26,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-     /**
+    /**
      * Legal notice page
      * @Route("/notice", name="notice")
      */
