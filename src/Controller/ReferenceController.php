@@ -14,6 +14,7 @@ class ReferenceController extends AbstractController
 {
 
     /**
+     * function to display all the project, reference
      * @Route("/list", name="list")
      */
     public function reference(ProjectRepository $projectRepository): Response
@@ -28,6 +29,7 @@ class ReferenceController extends AbstractController
     }
 
     /**
+     * function to display one project, reference in detail
      * @Route("show/{id}", methods={"GET"}, name="show")
      */
     public function show(int $id, ProjectRepository $projectRepository): Response

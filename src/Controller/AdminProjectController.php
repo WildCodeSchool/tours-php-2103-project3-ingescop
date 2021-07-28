@@ -22,6 +22,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class AdminProjectController extends AbstractController
 {
     /**
+     * function to create a new project
      * @Route("/project/new", name="newproject", methods={"GET","POST"})
      */
     public function newProject(
@@ -53,6 +54,7 @@ class AdminProjectController extends AbstractController
     }
 
     /**
+     * function to edit a project
      * @Route("/project/edit/{id}", name="editproject", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
     public function editProject(
@@ -81,6 +83,7 @@ class AdminProjectController extends AbstractController
     }
 
     /**
+     * function to delete a project
      * @Route("/project/delete/{id}", name="deleteproject", methods={"POST"}, requirements={"id": "\d+"})
      */
     public function deleteProject(

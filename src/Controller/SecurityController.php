@@ -20,6 +20,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class SecurityController extends AbstractController
 {
     /**
+     * function for create the admin with a form
      * @Route("/register", name="app_register")
      */
     public function register(
