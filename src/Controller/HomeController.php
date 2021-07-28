@@ -27,7 +27,7 @@ class HomeController extends AbstractController
     }
 
     /**
-      * Legal notice page
+     * Legal notice page
      * @Route("/notice", name="notice")
      */
     public function notice(): Response
