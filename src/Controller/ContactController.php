@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactController extends AbstractController
 {
     /**
+     * in this method, i create a form for contact the admin.
      * @Route("/contactpro", name="contactpro")
      */
     public function index(Request $request, MailerInterface $mailer): Response
@@ -21,6 +22,7 @@ class ContactController extends AbstractController
         $data = new ContactData();
         $form = $this->createForm(ContactDataType::class, $data);
         $form->handleRequest($request);
+        // the admin email is in service.yaml
         $adminEmail = $this->getParameter('app.admin_email');
 
 

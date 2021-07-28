@@ -20,6 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminPartnerController extends AbstractController
 {
     /**
+     * function to create a new partner
      * @Route("/partner/new", name="partner_new", methods={"GET","POST"})
      */
     public function newPartner(
@@ -50,6 +51,7 @@ class AdminPartnerController extends AbstractController
     }
 
     /**
+     * function to edit a partner
      * @Route("/partner/edit/{id}", name="partner_edit", methods={"GET","POST"})
      */
     public function editPartner(
@@ -86,6 +88,7 @@ class AdminPartnerController extends AbstractController
     }
 
     /**
+     * function to delete a partner
      * @Route("/partner/delete/{id}", name="partner_delete", methods={"POST"})
      */
     public function deletePartner(
