@@ -21,6 +21,9 @@
             <div class ="p-4">
                 {{ form_widget(form.firstName, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
             </div>
+            <div class="border-4 bg-red-300 text-3xl">
+                    {{ form_errors(form.phoneNumber) }}
+            </div>
             <div class ="p-4">
                 {{ form_widget(form.phoneNumber, {'attr': {'class': 'border-b-2 border-yellow-500 focus:outline-none'}}) }}
             </div>
