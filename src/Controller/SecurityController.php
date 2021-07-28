@@ -68,7 +68,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * function for disconnection
+     * function for deconnect
      * @Route("/logout", name="app_logout")
      */
     public function logout(): void
