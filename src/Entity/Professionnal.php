@@ -24,7 +24,7 @@ class Professionnal
      * @Assert\NotBlank(message="Vous devez choisir un nom")
      * @Assert\Length(
      *      max = "255",
-     *      maxMessage = "Le projet saisie {{ value }} contient trop de charactères, {{ limit }} au maximum"
+     *      maxMessage = "Le projet saisi {{ value }} contient trop de charactères, {{ limit }} au maximum"
      * )
      */
     private string $name;
@@ -34,7 +34,7 @@ class Professionnal
      * @Assert\NotBlank(message="Vous devez choisir un nom")
      * @Assert\Length(
      *      max = "255",
-     *      maxMessage = "Le métier saisie {{ value }} contient trop de charactères, {{ limit }} au maximum"
+     *      maxMessage = "Le métier saisi {{ value }} contient trop de charactères, {{ limit }} au maximum"
      * )
      */
     private string $job;
