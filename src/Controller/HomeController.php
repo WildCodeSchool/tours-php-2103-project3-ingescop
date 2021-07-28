@@ -16,7 +16,7 @@ class HomeController extends AbstractController
 {
     /**
      * Home page
-     * @Route("/", name="home")
+     * @Route("/", name="home", methods={"GET","POST"})
      */
     public function index(PartnerRepository $partnerRepository): Response
     {
@@ -28,7 +28,7 @@ class HomeController extends AbstractController
 
     /**
       * Legal notice page
-     * @Route("/notice", name="notice")
+     * @Route("/notice", name="notice", methods={"GET","POST"})
      */
     public function notice(): Response
     {
