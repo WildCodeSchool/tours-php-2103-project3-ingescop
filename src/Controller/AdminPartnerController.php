@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Partner;
 use App\Form\PartnerType;
-use App\Form\PartnerEditType;
 use App\Repository\PartnerRepository;
 use App\Entity\Images;
 use App\Service\FileUploaderService;
@@ -99,7 +98,6 @@ class AdminPartnerController extends AbstractController
                 $imageName = $this->getParameter('images_directory') . '/' . $image;
                 unlink($imageName);
             }
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($partner);
             $entityManager->flush();
             $this->addFlash("Valid", 'Le partenaire a bien été supprimé !');

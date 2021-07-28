@@ -54,6 +54,7 @@
         "phpstan/phpstan": "*",
         "phpstan/phpstan-doctrine": "*",
         "phpstan/phpstan-symfony": "*",
+        "phpunit/phpunit": "^9.5",
         "povils/phpmnd": "^2.4",
         "sebastian/phpcpd": "^6.0",
         "squizlabs/php_codesniffer": "*",
