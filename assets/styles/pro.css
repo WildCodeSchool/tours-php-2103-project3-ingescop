@@ -148,6 +148,14 @@
         height: 230px;
     }
 
+    .pro-block p:first-child {
+        top: -25%;
+    }
+    
+    .pro-block p:nth-child(2) {
+        top: -10%;
+    }
+
     /*Professionnal-show-page*/
     .profil-title-image .image {
         width: 28%;
@@ -164,7 +172,15 @@
     .pro-block {
         width: 22%;
         height: 220px;
-        margin: 5% 10%;
+        margin: 7% 10%;
+    }
+
+    .pro-block p:first-child {
+        top: -25%;
+    }
+    
+    .pro-block p:nth-child(2) {
+        top: -10%;
     }
 
     /*Professionnal-show-page*/
@@ -179,6 +195,7 @@
     .pro-block {
         width: 24%;
         height: 210px;
+        margin: 7% 7%;
     }
 
     /*Professionnal-show-page*/
@@ -204,7 +221,7 @@
     .pro-block {
         width: 40%;
         height: 280px;
-        margin: 10% 15%;
+        margin: 15% 15%;
     }
 
     /*Professionnal-show-page*/
@@ -222,7 +239,7 @@
     .pro-block {
         width: 45%;
         height: 280px;
-        margin: 10% 14%;
+        margin: 20% 14%;
     }
 
     /*Professionnal-show-page*/
@@ -236,7 +253,7 @@
     .pro-block {
         width: 55%;
         height: 280px;
-        margin: 10% 13%;
+        margin: 25% 13%;
     }
 
     .pro-block p:first-child {
