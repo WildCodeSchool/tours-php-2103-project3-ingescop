@@ -2,15 +2,21 @@
 
 {% block title %}Éditer un professionnel{% endblock %}
 
-{% block pageContainer %}
-    <h1>Éditer un professionnel</h1>
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('proForm') }}
+{% endblock %}
 
-    {{ include('admin/_form.html.twig') }}
-    <div  class="flex flex-col text-center space-y-6 items-center justify-center">
-        <h3>Photo de profil</h3>
-        <img src="{{ asset('/uploads/images/' ~ pro.profilPhoto) }}" alt="{{ pro.profilPhoto }}" width="150px">
+{% block pageContainer %}
+    <h1 class="font-semibold">Éditer ce professionnel</h1>
+
+    {{ include('admin/professionnal/_form-professionnal.html.twig') }}
+    <div  class="edit-pro-description">
+        <h3 class="font-semibold">Photo de profil</h3>
+        <div class="edit-pro-image">
+            <img src="{{ asset('/uploads/images/' ~ pro.profilPhoto) }}" alt="{{ pro.profilPhoto }}" width="150px">
+        </div>
     </div>
     {{ include('admin/professionnal/_delete.html.twig') }}
-
     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 {% endblock %}

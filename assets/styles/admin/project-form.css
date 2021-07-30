@@ -1,0 +1,233 @@
+#project-form-page {
+    width: 100vw;
+    min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-form-block {
+    width: 45%;
+    background-color: rgba(240, 240, 245, 1);
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4%;
+    padding: 2% 1%;
+}
+
+.project-form-inside-block {
+    width: 90%;
+    overflow: hidden;
+}
+
+.project-form-label-input {
+    border-top: 3px solid rgba(59, 62, 71, 0.048);
+    border-left: 3px solid rgba(59, 62, 71, 0.048);
+    border-right: 3px solid rgba(59, 62, 71, 0.048);
+    border-bottom: 3px solid #F49E0A;
+    border-radius: 10px;
+}
+
+.project-form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 5%;
+} 
+
+.project-form-group label {
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.project-form-group input {
+    outline: none;
+    font-size: 1.6rem;
+    padding: 1%;
+}
+
+.project-form-block select {
+    background-color: #fff;
+    padding: 1%;
+    font-size: 1.6rem;
+    outline: none;
+}
+
+.project-form-group:last-child {
+    margin-bottom: 2%;
+}
+
+.project-form-group #project_resume,
+.project-form-group #project_edit_resume,
+.project-form-group #project_strongPoints,
+.project-form-group #project_edit_strongPoints {
+    outline: none;
+    font-size: 1.6rem;
+    padding: 1%;
+    border: 1.6rem;
+}
+
+.project-pro-form-checkbox-block {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-form-group .form-check label {
+    font-size: 1.6rem;
+    margin-right: 0.8rem;
+}
+
+.project-form-inside-block-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.project-form-inside-block-button input[type="submit"] {
+    font-size: 2rem;
+    margin: 0% 5% 0 0%;
+    padding: 1% 5%;
+}
+
+/*=========================================*/
+/*========== EDIT REFERENCE FORM ==========*/
+
+.images-project-edit {
+    width: 80%;
+    margin: 3% auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.images-project-edit h3 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 5% 0;
+}
+
+#edit-project-primary-image {
+    width: 450px;
+    height: 310px;
+}
+
+#edit-project-secondary-image {
+    width: 320px;
+    height: 210px;
+}
+
+.edit-project-description {
+    width: 100%;
+}
+
+.edit-project-description h3 {
+    height: 15%;
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 2.4rem;
+}
+
+.edit-project-main-image {
+    width: 25%;
+    height: 75%;
+    margin: 0 auto;
+}
+
+.edit-project-main-image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.edit-project-h3 {
+    margin: 4rem auto 0.8rem auto;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.edit-project-secondaries-pics-block {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.edit-project-secondary-pic-block {
+    width: 20%;
+    margin: 1%;
+}
+
+.edit-project-secondary-pic-block form {
+    margin: 2.4rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-project-secondary-pic {
+    width: 100%;
+    text-align: center;
+}
+
+.edit-project-secondary-pic img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.project-delete-secondary-image {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+}
+
+.delete-project-button {
+    font-size: 2rem;
+    padding: 0.8rem;
+    margin: 4rem 0;
+}
+
+/*========== RESPONSIVE ==========*/
+
+@media screen and (max-width: 1300px) {
+    .project-form-block {
+        width: 60%;
+    }
+
+    .edit-project-image {
+        width: 40%;
+    }
+
+    .edit-project-secondary-pic-block {
+        width: 25%;
+        margin: 2%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .project-form-block {
+        width: 70%;
+    }
+
+    .edit-project-image {
+        width: 60%;
+    }
+
+    .edit-project-secondary-pic-block {
+        width: 40%;
+        margin: 3%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .edit-project-secondary-pic-block {
+        width: 70%;
+        margin: 4%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .edit-project-secondary-pic-block {
+        width: 80%;
+    }
+}

@@ -2,16 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Images;
 use App\Entity\Project;
 use App\Form\ProjectType;
+use App\Form\ProjectEditType;
 use App\Repository\ProjectRepository;
-use App\Entity\Images;
 use App\Service\ImagesProjectService;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
@@ -21,6 +22,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class AdminProjectController extends AbstractController
 {
     /**
+     * function to create a new project
      * @Route("/project/new", name="newproject", methods={"GET","POST"})
      */
     public function newProject(
@@ -29,7 +31,9 @@ class AdminProjectController extends AbstractController
         ImagesProjectService $uploadService
     ): Response {
         $project = new Project();
-        $form = $this->createForm(ProjectType::class, $project);
+        $form = $this->createForm(ProjectType::class, $project, [
+            'main_photo_required' => true
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $images = [];
@@ -45,11 +49,12 @@ class AdminProjectController extends AbstractController
         }
         return $this->render('admin/project/new.html.twig', [
             'project' => $project,
-            'form' => $form->createView(),
+            'formProject' => $form->createView(),
         ]);
     }
 
     /**
+     * function to edit a project
      * @Route("/project/edit/{id}", name="editproject", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
     public function editProject(
@@ -74,10 +79,11 @@ class AdminProjectController extends AbstractController
         }
         return $this->render('admin/project/edit.html.twig', [
             'project' => $project,
-            'form' => $form->createView(),]);
+            'formProject' => $form->createView(),]);
     }
 
     /**
+     * function to delete a project
      * @Route("/project/delete/{id}", name="deleteproject", methods={"POST"}, requirements={"id": "\d+"})
      */
     public function deleteProject(

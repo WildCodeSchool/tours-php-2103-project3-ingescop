@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
@@ -41,15 +42,20 @@ class ServiceType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Image Principale',
                 'mapped' => false,
-                'required' => false,
+                'required' => $options['photo_required'],
                 'constraints' => [
                     new Image([
                         'maxSize' => '100k',
                     ])
                 ]
             ])
-            ->add('description', TextType::class, [
-                'label' => 'Description'
+            ->add('description', TextareaType::class, [
+                'label' => 'Description',
+                'attr' => [
+                    'placeholder' => 'Description du service',
+                    'cols' => '10',
+                    'rows' => '7'
+                ]
             ]);
         ;
     }
@@ -58,6 +64,7 @@ class ServiceType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Service::class,
+            'photo_required' => false
         ]);
     }
 }

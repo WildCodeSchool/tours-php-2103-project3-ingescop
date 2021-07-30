@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Professionnal;
 use App\Form\ProfessionnalType;
+use App\Form\ProEditType;
 use App\Service\FileUploaderService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,6 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminProfessionnalController extends AbstractController
 {
     /**
+     * function to create a new professional
      * @Route("/pro/new", name="newpro", methods={"GET","POST"})
      */
     public function newprofessionnal(
@@ -25,7 +27,9 @@ class AdminProfessionnalController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $pro = new Professionnal();
-        $form = $this->createForm(ProfessionnalType::class, $pro);
+        $form = $this->createForm(ProfessionnalType::class, $pro, [
+            'photo_required' => true
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('profilPhoto')->getData();
@@ -41,10 +45,11 @@ class AdminProfessionnalController extends AbstractController
         }
         return $this->render('admin/professionnal/new.html.twig', [
             'pro' => $pro,
-            'form' => $form->createView(),]);
+            'formPro' => $form->createView(),]);
     }
 
     /**
+     * function to edit a professional
      * @Route("/pro/edit/{id}", name="editpro", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
     public function editprofessionnal(
@@ -75,10 +80,11 @@ class AdminProfessionnalController extends AbstractController
         }
         return $this->render('admin/professionnal/edit.html.twig', [
             'pro' => $pro,
-            'form' => $form->createView(),]);
+            'formPro' => $form->createView(),]);
     }
 
     /**
+     * function to delete a professional
      * @Route("/pro/delete/{id}", name="deletepro", methods={"POST"}, requirements={"id": "\d+"})
      */
     public function deletePro(

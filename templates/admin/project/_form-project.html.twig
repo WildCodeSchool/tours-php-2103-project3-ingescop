@@ -1,0 +1,68 @@
+<div id="project-form-page">
+    <div class="project-form project-form-block">
+        <div class="project-form-inside-block">
+            {{ form_start(formProject) }}
+                <div class="project-form-label-input">
+                    <div class="project-form-group">
+                        <label for="project_name">Nom</label>
+                        {{ form_widget(formProject.name) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_note">Note</label>
+                        {{ form_widget(formProject.note) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_place">Lieu</label>
+                        {{ form_widget(formProject.place) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_client">Client</label>
+                        {{ form_widget(formProject.client) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_missionIngescop">Mission Ingéscop</label>
+                        {{ form_widget(formProject.missionIngescop) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_budget">Budget</label>
+                        {{ form_widget(formProject.budget) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_calendar">Calendrier</label>
+                        {{ form_widget(formProject.calendar) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_workInProgress">État du chantier</label>
+                        {{ form_widget(formProject.workInProgress) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_professionnal">Professionnels associés au projet</label>
+                        <div class="project-pro-form-checkbox-block">
+                            {{ form_widget(formProject.owner) }}
+                        </div>
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_strongPoints">Points forts</label>
+                        {{ form_widget(formProject.strongPoints) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_resume">Description</label>
+                        {{ form_widget(formProject.resume) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_mainPhoto">Image Principal</label>
+                        {{ form_widget(formProject.mainPhoto) }}
+                        {{ form_errors(formProject.mainPhoto) }}
+                    </div>
+                    <div class="project-form-group">
+                        <label for="project_images">Images secondaires</label>
+                        {{ form_widget(formProject.images) }}
+                    </div>
+                </div>
+                <div class="project-form-inside-block-button">
+                    <input type ="submit" value="Valider" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white rounded-full focus:outline-none focus:shadow-outline">
+                </div>
+            {{ form_end(formProject) }}
+        </div>
+    </div>
+</div>

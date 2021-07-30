@@ -26,7 +26,7 @@ class Service
      * @Assert\NotBlank(message="Vous devez choisir un nom")
      * @Assert\Length(
      *      max = "255",
-     *      maxMessage = "Le service saisie {{ value }} contient trop de charactères, {{ limit }} au maximum"
+     *      maxMessage = "Le service saisi {{ value }} contient trop de charactères, {{ limit }} au maximum"
      * )
      */
     private string $name;
@@ -42,7 +42,8 @@ class Service
     private Collection $professionnal;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
+     *
      */
     private string $image;
 

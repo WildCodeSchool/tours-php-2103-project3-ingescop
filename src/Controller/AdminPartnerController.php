@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Partner;
 use App\Form\PartnerType;
+use App\Form\PartnerEditType;
 use App\Repository\PartnerRepository;
 use App\Entity\Images;
 use App\Service\FileUploaderService;
@@ -19,6 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminPartnerController extends AbstractController
 {
     /**
+     * function to create a new partner
      * @Route("/partner/new", name="partner_new", methods={"GET","POST"})
      */
     public function newPartner(
@@ -27,7 +29,9 @@ class AdminPartnerController extends AbstractController
         FileUploaderService $uploaderFile
     ): Response {
         $partner = new Partner();
-        $form = $this->createForm(PartnerType::class, $partner);
+        $form = $this->createForm(PartnerType::class, $partner, [
+            'logo_required' => true
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('logo')->getData();
@@ -42,11 +46,12 @@ class AdminPartnerController extends AbstractController
         }
         return $this->render('admin/partner/new.html.twig', [
             'partner' => $partner,
-            'form' => $form->createView(),
+            'formPartner' => $form->createView(),
         ]);
     }
 
     /**
+     * function to edit a partner
      * @Route("/partner/edit/{id}", name="partner_edit", methods={"GET","POST"})
      */
     public function editPartner(
@@ -60,14 +65,16 @@ class AdminPartnerController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $imageData = $form->get('logo')->getData();
-            if ($image !== null) {
-                if (is_string($this->getParameter('images_directory'))) {
-                    $imageName = $this->getParameter('images_directory') . '/' . $image;
-                    unlink($imageName);
+            if ($imageData !== null) {
+                if ($image !== null) {
+                    if (is_string($this->getParameter('images_directory'))) {
+                        $imageName = $this->getParameter('images_directory') . '/' . $image;
+                        unlink($imageName);
+                    }
                 }
+                $newImageName = $fileUploaderService->upload($imageData);
+                $partner->setLogo($newImageName);
             }
-            $newImageName = $fileUploaderService->upload($imageData);
-            $partner->setLogo($newImageName);
             $entityManager->persist($partner);
             $entityManager->flush();
 
@@ -76,11 +83,12 @@ class AdminPartnerController extends AbstractController
 
         return $this->render('admin/partner/edit.html.twig', [
             'partner' => $partner,
-            'form' => $form->createView(),
+            'formPartner' => $form->createView(),
         ]);
     }
 
     /**
+     * function to delete a partner
      * @Route("/partner/delete/{id}", name="partner_delete", methods={"POST"})
      */
     public function deletePartner(

@@ -2,18 +2,19 @@
 
 namespace App\Form;
 
-use App\Entity\Professionnal;
 use App\Entity\Project;
+use App\Entity\Professionnal;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\All;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Image;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ProjectType extends AbstractType
 {
@@ -33,12 +34,26 @@ class ProjectType extends AbstractType
                 'choices' => ['En études' => 'En études','En travaux' => 'En travaux', 'Livré' => 'Livré'],
                 'label' => "État du projet"
             ])
-            ->add('strongPoints', TextType::class, ['label' => 'Points forts'])
-            ->add('resume', TextType::class, ['label' => 'En bref'])
+            ->add('strongPoints', TextareaType::class, [
+                'label' => "Points forts",
+                'attr' => [
+                    'placeholder' => 'Mettre un # entre chaque point fort',
+                    'cols' => '10',
+                    'rows' => '7'
+                ],
+            ])
+            ->add('resume', TextareaType::class, [
+                'label' => 'En bref',
+                'attr' => [
+                    'placeholder' => 'Description du projet',
+                    'cols' => '10',
+                    'rows' => '7'
+                ],
+            ])
             ->add('mainPhoto', FileType::class, [
                 'label' => 'Image Principale',
                 'mapped' => false,
-                'required' => false,
+                'required' => $options['main_photo_required'],
                 'constraints' => [
                     new Image([
                         'maxSize' => '200k',
@@ -71,6 +86,9 @@ class ProjectType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Project::class,
+            'main_photo_required' => false
         ]);
+
+        $resolver->setAllowedTypes('main_photo_required', 'bool');
     }
 }

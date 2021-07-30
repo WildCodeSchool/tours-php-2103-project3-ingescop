@@ -1,0 +1,33 @@
+<div id="pro-form-page">
+    <div class="pro-form pro-form-block">
+        <div class="pro-form-inside-block">
+            {{ form_start(formPro) }}
+                <div class="pro-form-label-input">
+                    <div class="pro-form-group">
+                        <label for="professionnal_name">Nom</label>
+                        {{ form_widget(formPro.name) }}
+                        {{ form_errors(formPro.name) }}
+                    </div>
+                    <div class="pro-form-group">
+                        <label for="professionnal_job">Métier</label>
+                        {{ form_widget(formPro.job) }}
+                        {{ form_errors(formPro.job) }}
+                    </div>
+                    <div class="pro-form-group">
+                        <label for="professionnal_profilPhoto">Image</label>
+                        {{ form_widget(formPro.profilPhoto) }}
+                        {{ form_errors(formPro.profilPhoto) }}
+                    </div>
+                    <div class="pro-form-group">
+                        <label for="professionnal_resume">Description</label>
+                        {{ form_widget(formPro.resume) }}
+                        {{ form_errors(formPro.resume) }}
+                    </div>
+                </div>
+                <div class="pro-form-inside-block-button">
+                    <input type ="submit" value="Valider" class="bg-gray-700 hover:bg-yellow-600 transition duration-500 cursor-pointer text-white rounded-full focus:outline-none focus:shadow-outline">
+                </div>
+            {{ form_end(formPro) }}
+        </div>
+    </div>
+</div>

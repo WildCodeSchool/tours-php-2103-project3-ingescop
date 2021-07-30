@@ -20,12 +20,16 @@ class ProfessionnalType extends AbstractType
             ->add('job', TextType::class, ['label' => 'Service'])
             ->add('resume', TextareaType::class, [
                 'label' => "À votre sujet",
-                'attr' => ['placeholder' => 'Décrivez-vous'],
-                ])
+                'attr' => [
+                    'placeholder' => 'Décrivez-vous',
+                    'cols' => '10',
+                    'rows' => '7'
+                ],
+            ])
             ->add('profilPhoto', FileType::class, [
                 'label' => 'Image Principale',
                 'mapped' => false,
-                'required' => false,
+                'required' => $options['photo_required'],
                 'constraints' => [
                     new Image([
                         'maxSize' => '100k',
@@ -37,7 +41,8 @@ class ProfessionnalType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Professionnal::class
+            'data_class' => Professionnal::class,
+            'photo_required' => false
         ]);
     }
 }

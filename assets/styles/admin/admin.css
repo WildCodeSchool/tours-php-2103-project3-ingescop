@@ -1,26 +1,170 @@
-/*=========================================*/
-/*========== EDIT REFERENCE FORM ==========*/
+/*========== PANEL-CONFIG-PAGE ==========*/
 
-.images-project-edit {
-    width: 80%;
-    margin: 3% auto;
+.panel-config-table-block {
+    width : 80%;
+}
+
+#panel-config-table {
+    background-color: rgba(240, 240, 245, 1);
+}
+
+#panel-config-table table {
+    border-radius: 40px;
+}
+
+#panel-config-table table thead {
+    background-color: #fff;
+    border-top: 4px solid rgba(59, 62, 71, 0.048);
+    border-right: 4px solid rgba(59, 62, 71, 0.048);
+    border-left: 4px solid rgba(59, 62, 71, 0.048);
+}
+
+#panel-config-table table thead th {
+    font-size: 2rem;
+    padding: 2.4rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+#panel-config-table table thead th:first-child {
+    word-break: break-word;
+}
+
+#panel-config-table table thead th:last-child {
+    width: 10%;
+}
+
+#panel-config-table table tbody tr {
+    border-bottom: 1px dashed var(--black) ;
+}
+
+#panel-config-table table tbody tr:last-child {
+    border: none;
+}
+
+#panel-config-table table tbody tr td {
+    font-size: 1.6rem;
+    padding: 2.4rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+#panel-config-table table tbody tr td:last-child {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.images-project-edit h3 {
-    text-align: center;
-    font-size: 2.4rem;
+.panel-config-button {
     margin: 5% 0;
 }
 
-#edit-project-primary-image {
-    width: 450px;
-    height: 310px;
+.panel-config-button input {
+    font-size: 1.6rem;
+    padding: 0.8rem;
 }
 
-#edit-project-secondary-image {
-    width: 320px;
-    height: 210px;
+/*===== SERVICES-TABLE =====*/
+
+#panel-config-services-table thead th:first-child {
+    width: 70%;
 }
+
+#panel-config-services-table thead th:nth-child(2){
+    width: 15%;
+}
+
+/*===== PROJECT-TABLE =====*/
+
+#panel-config-projects-table thead th:first-child {
+    width: 60%;
+}
+
+#panel-config-projects-table thead th:nth-child(3) {
+    width: 20%;
+}
+
+#panel-config-projects-table thead th:nth-child(4) {
+    width: 20%;
+}
+
+/*========== RESPONSIVE ==========*/
+
+@media screen and (max-width: 1700px) {
+    #change-password {
+        width: 17%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    #change-password {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #change-password {
+        width: 23%;
+        margin: 2% 0;
+        font-size: 1.6rem;
+    }
+
+    .panel-config-table-block {
+        width : 85%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #change-password {
+        font-size: 1.4rem;
+        width: 25%;
+    }
+
+    #panel-config-table table thead th {
+        font-size: 1.6rem;
+    }
+
+    #panel-config-table table tbody tr td {
+        font-size: 1.4rem;
+    }
+
+    .panel-config-table-block {
+        width : 90%;
+    }
+
+    .panel-config-button input {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #change-password {
+        width: 32%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #change-password {
+        font-size: 1.2rem;
+        width: 35%;
+    }
+
+    #panel-config-table table thead th {
+        font-size: 1.4rem;
+    }
+
+    #panel-config-table table tbody tr td {
+        font-size: 1.2rem;
+    }
+
+    .panel-config-button input {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #change-password {
+        width: 45%;
+    }
+}
+

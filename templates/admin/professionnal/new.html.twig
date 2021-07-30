@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('proForm') }}
+{% endblock %}
+
 {% block title %}Nouveau professionnel{% endblock %}
 
 {% block pageContainer %}
     <h1>Ajouter un nouveau professionnel</h1>
-    {{ include('admin/_form.html.twig') }}
+    {{ include('admin/professionnal/_form-professionnal.html.twig') }}
     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 {% endblock %}

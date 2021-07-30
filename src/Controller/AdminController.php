@@ -17,6 +17,7 @@ class AdminController extends AbstractController
 {
 
     /**
+     * function to display the control panel for admin
      * @Route("/", name="panelconfig", methods={"GET"})
      */
     public function list(
@@ -28,7 +29,7 @@ class AdminController extends AbstractController
 
         return $this->render('admin/panelconfig.html.twig', [
             'services' => $serviceRepository->findAll(),
-            'projects' => $projectRepository->findAll(),
+            'projects' => $projectRepository->findBy([], ['note' => 'DESC']),
             'pro' => $proRepository->findAll(),
             'partners' => $partnerRepository->findAll()
         ]);

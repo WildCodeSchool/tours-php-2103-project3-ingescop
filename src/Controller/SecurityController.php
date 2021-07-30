@@ -20,6 +20,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class SecurityController extends AbstractController
 {
     /**
+     * function for create the admin with a form
      * @Route("/register", name="app_register")
      */
     public function register(
@@ -49,6 +50,7 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * function for connection
      * @Route("/login", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
@@ -66,6 +68,7 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * function for deconnect
      * @Route("/logout", name="app_logout")
      */
     public function logout(): void
@@ -75,6 +78,7 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * function to change password
      * @Route("/resetPassword", name="reset-password")
      * @IsGranted("ROLE_ADMIN")
      */
@@ -86,7 +90,7 @@ class SecurityController extends AbstractController
             throw $this->createAccessDeniedException('vous devez etre connecté');
         }
         $changePassword = new PasswordData();
-        // rattachement du formulaire avec la class PasswordData
+        // linking of the form with the PasswordData class
         $form = $this->createForm(ResetPasswordType::class, $changePassword);
         $form->handleRequest($request);
         $password = $form->get('oldPassword')->getData();

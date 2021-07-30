@@ -173,7 +173,14 @@
     font-size: 2rem;
     letter-spacing: 1px;
     line-height: 1.7;
-    padding: 1%;
+    padding: 0%;
+    margin-right: 1.6rem;
+    color: var(--brown);
+    transition: 0.5s color ease;
+}
+
+.service-description-pro-link a:hover {
+    color: var(--orange);
 }
 
 /*=========================================*/

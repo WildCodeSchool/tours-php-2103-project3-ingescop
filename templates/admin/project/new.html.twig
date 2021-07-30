@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('projectForm') }}
+{% endblock %}
+
 {% block title %}Ajouter un nouveau projet{% endblock %}
 
 {% block pageContainer %}
     <h1>Créer un nouveau projet</h1>
 
-    {{ include('admin/_form.html.twig') }}
+    {{ include('admin/project/_form-project.html.twig') }}
 
     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 {% endblock %}

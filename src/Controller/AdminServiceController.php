@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Service;
 use App\Form\ServiceType;
+use App\Form\ServiceEditType;
 use App\Repository\ServiceRepository;
 use App\Entity\Images;
 use App\Service\FileUploaderService;
@@ -19,6 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminServiceController extends AbstractController
 {
     /**
+     * function to create a new service
      * @Route("/service/new", name="newservice", methods={"GET","POST"})
      */
     public function newService(
@@ -27,7 +29,9 @@ class AdminServiceController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         $service = new Service();
-        $form = $this->createForm(ServiceType::class, $service);
+        $form = $this->createForm(ServiceType::class, $service, [
+            'photo_required' => true
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -44,10 +48,11 @@ class AdminServiceController extends AbstractController
         }
         return $this->render('admin/service/new.html.twig', [
             'service' => $service,
-            'form' => $form->createView(),]);
+            'formService' => $form->createView(),]);
     }
 
     /**
+     * function to edit a service
      * @Route("/service/edit/{id}", name="editservice", methods={"GET","POST"}, requirements={"id": "\d+"})
      */
     public function editService(
@@ -78,10 +83,11 @@ class AdminServiceController extends AbstractController
         }
         return $this->render('admin/service/edit.html.twig', [
             'service' => $service,
-            'form' => $form->createView(),]);
+            'formService' => $form->createView(),]);
     }
 
     /**
+     * function to delete a service
      * @Route("/service/delete/{id}", name="deleteservice", methods={"POST"}, requirements={"id": "\d+"})
      */
     public function deletePro(

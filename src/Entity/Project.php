@@ -25,7 +25,7 @@ class Project
      * @Assert\NotBlank(message="Vous devez choisir un nom")
      * @Assert\Length(
      *      max = "255",
-     *      maxMessage = "Le projet saisie {{ value }} contient trop de charactères, {{ limit }} au maximum"
+     *      maxMessage = "Le projet saisi {{ value }} contient trop de charactères, {{ limit }} au maximum"
      * )
      */
     private string $name;
@@ -40,7 +40,7 @@ class Project
      * @Assert\Range(
      *      min = 0,
      *      max = 5,
-     *      notInRangeMessage = "Vous devez entrez une note comprise entre {{ min }} et {{ max }}"
+     *      notInRangeMessage = "Vous devez entrer une note comprise entre {{ min }} et {{ max }}"
      * )
      */
     private int $note;
@@ -54,8 +54,8 @@ class Project
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez rentrer le lieu où le projet de
      * rénovation a été réalisé, dans le champs ('lieu')")
-     * @Assert\Length(max="255", maxMessage="Le lieu saisie (champ 'place') {{ value }} contient trop
-     * de charactères, vous devez en rentrez {{ limit }} au maximum")
+     * @Assert\Length(max="255", maxMessage="Le lieu saisi (champ 'place') {{ value }} contient trop
+     * de charactères, vous devez en rentrer {{ limit }} au maximum")
      */
     private string $place;
 
@@ -63,9 +63,9 @@ class Project
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez rentrer le client pour qui le
      * projet a été réalisé, dans le champ ('lieu')")
-     * @Assert\Length(max="255", maxMessage="Le nom de client  saisie
+     * @Assert\Length(max="255", maxMessage="Le nom de client  saisi
      * (champ 'client') {{ value }} contient trop
-     * de charactères, vous devez en rentrez {{ limit }} au maximum")
+     * de charactères, vous devez en rentrer {{ limit }} au maximum")
      */
     private string $client;
 
@@ -73,27 +73,27 @@ class Project
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez rentrer une description de la mission
      * ingéscop éffectuée, dans le champ ('Mission ingéscop')")
-     * @Assert\Length(max="255", maxMessage="Le descriptif de la mission ingéscope  saisie
+     * @Assert\Length(max="255", maxMessage="Le descriptif de la mission ingéscope  saisi
      * (champ 'Mission ingéscope') {{ value }} contient trop
-     * de charactères, vous devez en rentrez {{ limit }} au maximum")
+     * de charactères, vous devez en rentrer {{ limit }} au maximum")
      */
     private string $missionIngescop;
 
     /**
      * @ORM\Column(type="string", length=255)
      *  @Assert\NotBlank(message="Vous devez rentrer le budget, dans le champ ('budget')")
-     * @Assert\Length(max="255", maxMessage="Le budget  saisie
+     * @Assert\Length(max="255", maxMessage="Le budget  saisi
      * (champ 'budget') {{ value }} contient trop
-     * de charactères, vous devez en rentrez {{ limit }} au maximum")
+     * de charactères, vous devez en rentrer {{ limit }} au maximum")
      */
     private string $budget;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *  @Assert\NotBlank(message="Vous devez rentrer les dates de dédut et de fin, dans le champ ('Calendar')")
-     * @Assert\Length(max="255", maxMessage="Le calendrier  saisie
+     *  @Assert\NotBlank(message="Vous devez rentrer les dates de début et de fin, dans le champ ('Calendar')")
+     * @Assert\Length(max="255", maxMessage="Le calendrier  saisi
      * (champ 'Calendar') {{ value }} contient trop
-     * de charactères, vous devez en rentrez {{ limit }} au maximum")
+     * de charactères, vous devez en rentrer {{ limit }} au maximum")
      */
     private string $calendar;
 
@@ -106,7 +106,7 @@ class Project
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Vous devez rentrer un résumé descriptif du projet, dans le champ ('Resume)")
+     * @Assert\NotBlank(message="Vous devez rentrer un résumé descriptif du projet, dans le champ ('Resume')")
      */
     private string $resume;
 
@@ -122,7 +122,7 @@ class Project
     private Collection $images;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private string $mainPhoto;
 

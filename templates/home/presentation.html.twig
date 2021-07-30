@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('presentation') }}
+{% endblock %}
+
 {% block pageContainer %}
 {% if is_granted('ROLE_ADMIN') %}
         <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 {% endif %}
- <h1>Qui sommes nous?</h1>
+<h1>Qui sommes nous?</h1>
     <div class="presentation-generale">
         <div class="explication-titre">
             <p id="G">
@@ -36,7 +42,7 @@
             </p>
             <img class="chantier" src="{{ asset('build/images/1gscop-pano-accueil.jpg') }}"/>
             <p id="utilisation">
-                Les terrains de prédilection d’1gscop sont de manière croisée :
+                Les terrains de prédilection d’1gscop sont de manières croisés :
                 L’attention aux femmes et aux hommes, plus particulièrement les plus fragiles
                 Le choix de matériaux de construction sains et respectueux de la santé de ceux qui
                 les mettent en œuvre et de ceux qui habitent ces lieux (logement, travail, etc…)

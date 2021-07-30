@@ -1,4 +1,10 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('services') }}
+{% endblock %}
+
 {% block pageContainer %}
 
     <div class="client-service-page">

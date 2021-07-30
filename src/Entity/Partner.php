@@ -28,12 +28,14 @@ class Partner
     private string $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private string $logo;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de mettre une Url")
+     * @Assert\Url(message="L'Url '{{ value }}' n'est pas valide")
      */
     private string $link;
 

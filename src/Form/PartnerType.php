@@ -19,8 +19,8 @@ class PartnerType extends AbstractType
             ->add('link', TextType::class, ['label' => 'url'])
             ->add('logo', FileType::class, [
                 'label' => 'Logo',
-                'mapped' => 'false',
-                'required' => 'false',
+                'mapped' => false,
+                'required' => $options['logo_required'],
                 'data_class' => null,
                 'constraints' => [
                     new Image([
@@ -35,6 +35,7 @@ class PartnerType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Partner::class,
+            'logo_required' => false
         ]);
     }
 }

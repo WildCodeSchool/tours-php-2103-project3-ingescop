@@ -2,8 +2,13 @@
 
 {% block title %}Nouveau Service{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('serviceForm') }}
+{% endblock %}
+
 {% block pageContainer %}
     <h1>Ajouter un nouveau service</h1>
-    {{ include("admin/_form.html.twig") }}
+    {{ include("admin/service/_form-service.html.twig") }}
     <a id="panelconfig-link" href="{{ path('admin_panelconfig') }}"><strong>&#11013;</strong> Retour au panneau de configuration</a>
 {% endblock %}
