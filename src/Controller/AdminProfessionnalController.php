@@ -40,7 +40,7 @@ class AdminProfessionnalController extends AbstractController
             $entityManager->persist($pro);
             $entityManager->flush();
 
-            $this->addFlash('succes', "La photo a bien été tranférée");
+            $this->addFlash('Success', "La photo a bien été tranférée");
             return $this->redirectToRoute('admin_panelconfig');
         }
         return $this->render('admin/professionnal/new.html.twig', [

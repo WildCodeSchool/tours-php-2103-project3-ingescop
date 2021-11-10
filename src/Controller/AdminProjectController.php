@@ -115,6 +115,7 @@ class AdminProjectController extends AbstractController
     }
 
     /**
+     * function to delete a image of project
      * @Route("/project/{project_id}/delete/image/{image_id}", name="delete_project_image")
      * @ParamConverter("project", class="App\Entity\Project",
      * options={"mapping": {"project_id": "id"}}

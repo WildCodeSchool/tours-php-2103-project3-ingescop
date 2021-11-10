@@ -43,7 +43,7 @@ class AdminServiceController extends AbstractController
             $entityManager->persist($service);
             $entityManager->flush();
 
-            $this->addFlash('succes', "La photo a bien été tranférée");
+            $this->addFlash('Success', "La photo a bien été tranférée");
             return $this->redirectToRoute('admin_panelconfig');
         }
         return $this->render('admin/service/new.html.twig', [
@@ -90,7 +90,7 @@ class AdminServiceController extends AbstractController
      * function to delete a service
      * @Route("/service/delete/{id}", name="deleteservice", methods={"POST"}, requirements={"id": "\d+"})
      */
-    public function deletePro(
+    public function deleteService(
         Request $request,
         Service $service,
         EntityManagerInterface $entityManager
